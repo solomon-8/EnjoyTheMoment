@@ -10,6 +10,33 @@
   const searchable = new Map(cards.map(card => [card, card.textContent.toLowerCase()]));
   const visible = () => cards.filter(card => !card.hidden);
   form.hidden = false;
+  const playbooks = [...document.querySelectorAll(".playbook")];
+  const guideQuery = document.getElementById("guide-query");
+  const guideStatus = document.getElementById("guide-status");
+  const guideText = new Map(playbooks.map(item => [item, item.textContent.toLowerCase()]));
+  document.getElementById("guide-search-label").hidden = false;
+  guideQuery.addEventListener("input", () => {
+    const query = guideQuery.value.toLowerCase().trim();
+    const words = query.split(/\s+/).filter(Boolean);
+    playbooks.forEach(item => {
+      item.hidden = /^p\d+$/.test(query) ? item.id !== query : !words.every(word => guideText.get(item).includes(word));
+    });
+    const count = playbooks.filter(item => !item.hidden).length;
+    guideStatus.textContent = count ? `找到 ${count} 篇完整玩法。` : "没找到。可以减少关键词，不必改变自己的条件。";
+  });
+  const argumentsList = [...document.querySelectorAll(".argument")];
+  const essayQuery = document.getElementById("essay-query");
+  const argumentText = new Map(argumentsList.map(item => [item, item.textContent.toLowerCase()]));
+  document.getElementById("essay-search-label").hidden = false;
+  essayQuery.addEventListener("input", () => {
+    const query = essayQuery.value.toLowerCase().trim();
+    const words = query.split(/\s+/).filter(Boolean);
+    argumentsList.forEach(item => {
+      item.hidden = /^e\d+$/.test(query) ? item.id !== query : !words.every(word => argumentText.get(item).includes(word));
+    });
+    const count = argumentsList.filter(item => !item.hidden).length;
+    document.getElementById("essay-status").textContent = count ? `找到 ${count} 篇核心论证。` : "没找到。可换一个具体问题，或清空关键词查看目录。";
+  });
 
   function filter() {
     const words = fields.query.value.toLowerCase().trim().split(/\s+/).filter(Boolean);
@@ -40,6 +67,14 @@
     if (!id) return;
     const target = document.getElementById(id);
     if (!target) return;
+    if (target.classList.contains("argument") && target.hidden) {
+      essayQuery.value = "";
+      essayQuery.dispatchEvent(new Event("input"));
+    }
+    if (target.classList.contains("playbook") && target.hidden) {
+      guideQuery.value = "";
+      guideQuery.dispatchEvent(new Event("input"));
+    }
     if (target.classList.contains("card") && target.hidden) {
       // The reset button's id also creates a named form property.
       HTMLFormElement.prototype.reset.call(form);

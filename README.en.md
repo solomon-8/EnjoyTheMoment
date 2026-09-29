@@ -42,7 +42,7 @@ Neither excitement nor spending is compulsory. Quiet enjoyment counts. Disliking
 
 **10 chapters. 60 original activity cards.** The full cards are currently in Chinese; this page is an English introduction, not a complete translation.
 
-[Read and filter in your browser](https://solomon-8.github.io/EnjoyTheMoment/), with no installation. Six [long-form essays](essays/01-pleasure-is-an-end.md) explain the tradeoffs; the [research ledger](docs/research.md) distinguishes one full-text review from three abstract-only checks. None directly validates our activities.
+[Read and filter in your browser](https://solomon-8.github.io/EnjoyTheMoment/), with no installation. Nine [long-form essays](essays/01-pleasure-is-an-end.md) explain the tradeoffs; the [research ledger](docs/research.md) distinguishes two journal full texts, one publicly hosted research manuscript, and one abstract-only check. None directly validates our activities.
 
 | Chapter | Question |
 | --- | --- |

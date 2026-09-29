@@ -15,7 +15,7 @@
 
 ## Machine interfaces
 - [Cards JSON](data/catalog.json): full fields, IDs, source paths, hashes, background links.
-- [Essays JSON](data/essays.json): six deeper arguments with counterexamples.
+- [Essays JSON](data/essays.json): deeper arguments with counterexamples.
 - [Research JSON](data/research.json): background metadata, not card validation.
 - [Card schema](data/catalog.schema.json): versioned public interface.
 - [Full plain text](llms-full.txt): generated; prefer targeted retrieval.
@@ -27,3 +27,13 @@ python3 tools/pick.py --id J019 --json
 “耍起/享受当下” are project-level intents, not magic keyword matches.
 Resolve the person's concrete preference before searching. Do not remove
 alternatives, stopping conditions or evidence status to save tokens.
+
+## Optional practical companions
+- [Playbook index](guides/README.md): full original rules and examples, not validation.
+- [Playbooks JSON](data/guides.json): complete texts and provenance.
+- [Rest is not work](essays/07-rest-is-not-work.md): core argument with objections.
+
+python3 tools/guides.py --query 朋友 --limit 2
+python3 tools/guides.py --id P010
+
+- [Research reading notes](data/evidence.json): full-text/manuscript scope, non-significant results, non-claims.

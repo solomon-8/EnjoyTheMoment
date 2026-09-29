@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="耍起，把快乐当正事。60 张行动卡、六篇深读、文化来源与研究边界。不打卡，不排名。">
+  <meta name="description" content="耍起，把快乐当正事。@@ESSAYCOUNT@@ 篇核心论证、@@COUNT@@ 张行动卡、配套玩法与研究边界。不打卡，不排名。">
   <meta name="referrer" content="no-referrer">
   <meta name="color-scheme" content="light dark">
   <meta name="source-digest" content="@@DIGEST@@">
@@ -11,11 +11,11 @@
   <style>@@CSS@@</style>
 </head>
 <body>
-<a class="skip" href="#menu">跳到快乐菜单</a>
+<a class="skip" href="#longreads">跳到核心论证</a>
 <header class="topbar">
   <a class="brand" href="#top">享受当下<span>ENJOY THE MOMENT</span></a>
   <nav aria-label="主要导航">
-    <a href="#menu">怎么耍</a><a href="#longreads">读深一点</a><a href="#shuaqi">什么叫耍起</a>
+    <a href="#longreads">读深一点</a><a href="#shuaqi">什么叫耍起</a><a href="#menu">配套行动</a><a href="#playbooks">完整玩法</a>
     <a href="https://github.com/solomon-8/EnjoyTheMoment">GitHub ↗</a>
   </nav>
 </header>
@@ -24,10 +24,16 @@
     <div><p class="eyebrow">A GUIDE TO LIVING, NOT JUST LASTING.</p>
     <h1 id="hero-title">耍起<span>。</span><br>把快乐当正事。</h1>
     <p class="lead">不是等生活安排好了再耍。<br>是生活里面，本来就该有耍。</p>
-    <a class="primary" href="#menu">今天，想怎么耍？ ↓</a></div>
+    <a class="primary" href="#longreads">快乐，为什么还要申请？ ↓</a></div>
     <aside class="hero-note"><span class="note-number">ENJOY THE MOMENT</span><h2>好玩，可以是<br>理由的终点。</h2>
     <p>自己愿意。他人同意。<br>代价看得见。过程退得出。</p>
     <p class="small">不打卡 · 不排名 · 不要求每天快乐</p></aside>
+  </section>
+  <section id="longreads" class="section" aria-labelledby="essay-title">
+    <div class="section-heading"><div><p class="eyebrow">GO DEEPER / 不只一句口号</p><h2 id="essay-title">值得认真争论的问题。</h2></div><p>论证、反例、虚构场景。<br>不是把长寿建议逐条反过来。</p></div>
+    <label id="essay-search-label" hidden>找一个在意的问题<input id="essay-query" type="search" placeholder="工作、消费、等待、朋友…"></label>
+    <p id="essay-status" role="status" aria-live="polite">@@ESSAYCOUNT@@ 篇核心论证。点击标题展开，不必按顺序读。</p>
+    @@ESSAYS@@
   </section>
   <section id="menu" class="section" aria-labelledby="menu-title">
     <div class="section-heading"><div><p class="eyebrow">THE MENU / 即刻开始</p><h2 id="menu-title">找一口合口味的。</h2></div>
@@ -46,9 +52,11 @@
     <noscript><p>JavaScript 未开启：全部卡片和长文仍可展开阅读。可使用浏览器“查找”搜索。</p></noscript>
     <div id="cards" class="cards">@@CARDS@@</div>
   </section>
-  <section id="longreads" class="section" aria-labelledby="essay-title">
-    <div class="section-heading"><div><p class="eyebrow">GO DEEPER / 不只一句口号</p><h2 id="essay-title">六个值得认真想的问题。</h2></div><p>论证、反例、虚构场景。<br>不是把长寿建议逐条反过来。</p></div>
-    @@ESSAYS@@
+  <section id="playbooks" class="section" aria-labelledby="playbook-title">
+    <div class="section-heading"><div><p class="eyebrow">LET'S PLAY / 拿来就能开局</p><h2 id="playbook-title">完整玩法，不只一句建议。</h2></div></div>
+    <label id="guide-search-label" hidden>搜索完整玩法（多个词同时匹配）<input id="guide-query" type="search" placeholder="例如：纸笔 朋友"></label>
+    <p id="guide-status" role="status" aria-live="polite"></p>
+    @@GUIDES@@
   </section>
   <section id="shuaqi" class="section" aria-labelledby="shuaqi-title">
     <div class="section-heading"><div><p class="eyebrow">SHUAQI / 我们自己的主张</p><h2 id="shuaqi-title">不只把热词贴上封面。</h2></div><p>文化来源、项目定义、行动建议，分开说。</p></div>
@@ -57,7 +65,8 @@
   </section>
   <section id="research" class="section" aria-labelledby="research-title">
     <div class="section-heading"><div><p class="eyebrow">EVIDENCE & LIMITS / 不给偏好镀金</p><h2 id="research-title">研究说了什么，没说什么。</h2></div></div>
-    <details class="essay" id="research-content"><summary>4 篇背景研究 · 1 篇全文 / 3 篇摘要 · 不直接验证卡片</summary><div class="prose">@@RESEARCH@@</div></details>
+    <details class="essay" id="research-content"><summary>@@RESEARCHCOUNT@@ 篇背景研究 · @@FULLCOUNT@@ 篇全文或手稿 / @@ABSTRACTCOUNT@@ 篇摘要 · 不直接验证卡片</summary><div class="prose">@@RESEARCH@@</div></details>
+    @@EVIDENCE@@
   </section>
 </main>
 <footer><strong>愿你今天有一件事，只是因为喜欢。</strong><p>本页由 Markdown 自动生成，可下载后离线打开。无账号、无统计脚本、无本地存储；外部原文链接需要网络。</p>

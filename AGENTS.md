@@ -1,6 +1,6 @@
 # Repository editing notes
 
-- Canonical content lives in `book/`, `essays/`, `SHUAQI.md` and `docs/`.
+- Canonical content lives in `book/`, `essays/`, `guides/`, `SHUAQI.md` and `docs/`.
 - Edit canonical content first. Run `python3 tools/build.py` to regenerate `index.html`, `llms-full.txt` and exported JSON.
 - Run `python3 tools/check.py`, `python3 tools/build.py --check`, and `python3 -m unittest discover -s tests -v`.
 - Preserve published card IDs and their underlying meaning. Add a new ID for a different activity; do not silently repurpose old links.

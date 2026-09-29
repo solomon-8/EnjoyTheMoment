@@ -56,7 +56,7 @@ python3 tools/pick.py --minutes 20 --budget 0 --company solo
 
 检查覆盖卡片结构、编号和锚点、筛选字段、Markdown 本地链接、SVG 语法、机器接口、生成一致性和脚本测试。浏览器回归另用 `node tests/browser.cjs`（需可用的 Playwright 与 Chromium，不是阅读或构建依赖）。**它不会证明活动有效，也不会代替外链内容与现实条件核实。**
 
-`book/`、`essays/`、`SHUAQI.md` 与相关 `docs/` 是内容源；不要只修改 `index.html`、`llms-full.txt` 或生成 JSON。卡片数量不等于内容厚度：优先补场景、反例和条件，避免把已有 ID 换成另一件事。真实反馈可使用[试做模板](templates/experience-note.md)，不要求公开。
+`book/`、`essays/`、`guides/`、`SHUAQI.md` 与相关 `docs/` 是内容源；不要只修改 `index.html`、`llms-full.txt` 或生成 JSON。卡片数量不等于内容厚度：优先补场景、反例和条件，避免把已有 ID 换成另一件事。真实反馈可使用[试做模板](templates/experience-note.md)，不要求公开。
 
 ## 隐私、利益关系和许可
 
