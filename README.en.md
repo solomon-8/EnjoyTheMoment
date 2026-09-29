@@ -40,9 +40,9 @@ Neither excitement nor spending is compulsory. Quiet enjoyment counts. Disliking
 
 ## The guide
 
-**32 chapters. 60 original activity cards.** Chapters 11–32 are standalone discussions, not extra activity lists. The full chapters and cards are currently in Chinese; this page is an English introduction, not a complete translation.
+**33 chapters. 60 original activity cards.** Chapters 11–33 are standalone discussions, not extra activity lists. The full chapters and cards are currently in Chinese; this page is an English introduction, not a complete translation.
 
-[Read and filter in your browser](https://solomon-8.github.io/EnjoyTheMoment/), with no installation. Ten [long-form essays](essays/01-pleasure-is-an-end.md) explain the tradeoffs; the [research ledger](docs/research.md) records 16 background studies: twelve journal full texts, one journal-formatted arXiv version, one advance online publication, one publicly hosted research manuscript, and one author-hosted page proof. The latter four have not been compared line by line with their final publisher versions; some online appendices have not been fully reviewed. Statistical, educational, health, technical, practice, literary, visitor-guidance and regulatory-report sources are recorded separately. None directly validates our activities.
+[Read and filter in your browser](https://solomon-8.github.io/EnjoyTheMoment/), with no installation. Eleven [long-form essays](essays/01-pleasure-is-an-end.md) explain the tradeoffs; the [research ledger](docs/research.md) records 16 background studies: twelve journal full texts, one journal-formatted arXiv version, one advance online publication, one publicly hosted research manuscript, and one author-hosted page proof. The latter four have not been compared line by line with their final publisher versions; some online appendices have not been fully reviewed. Statistical, educational, health, technical, practice, literary, visitor-guidance and regulatory-report sources are recorded separately. None directly validates our activities.
 
 [E10 · We want pleasure now, not extraction now](essays/10-pleasure-not-retention.md) asks why choosing enjoyment does not mean endorsing endless retention. It distinguishes helpful recommendations, persuasion, hidden commitments and barriers to leaving; clicks and time spent are not automatically satisfaction.
 
@@ -84,6 +84,7 @@ The chapters on senses, novelty, play, relationships, spending, and permission t
 | [30 · Must a bird be rare to deserve attention?](book/30-birdwatching.md) | Identification, behavior and honest records without making a checklist the only purpose of looking. |
 | [31 · I paid to be scared—and enjoy it](book/31-recreational-fear.md) | A haunted-house study and The Monkey’s Paw distinguish suspense, enjoyment and actual loss of choice. |
 | [32 · The fastest answer is not always the most fun](book/32-puzzles.md) | A small puzzle, layered hints and false insights distinguish discovery from merely obtaining an answer. |
+| [33 · A microphone is not a qualification](book/33-singing.md) | Transposition, timbre, phrasing and rounds distinguish participating in a song from submitting to an uninvited audition. |
 
 Each card has a concrete action, a hoped-for experience, visible costs, a smaller alternative, a stopping point, and a statement of its evidential status.
 

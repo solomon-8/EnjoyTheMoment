@@ -253,8 +253,10 @@
 - [F27 · 快乐的价值与真实生活](evidence/F27-pleasure-philosophy.md)：伊壁鸠鲁英译数字文本、密尔《功利主义》第二章相关段落，以及哲学百科对诺齐克的二手转引，用于 [E11](../essays/11-pleasure-and-reality.md)。价值论证不是行为实验，没有直接核读诺齐克原书。
 - [F28 · 织造的结构与作者观点](evidence/F28-weaving-and-material.md)：V&A 图文教学、Sue Lawty 的试样自述与指定图像、Anni Albers 的讲稿网页，用于[制作章节](../book/17-making.md)。结构示意不等于实物参数，创作者观点不等于历史或性能定律。
 - [F29 · 小册子的结构与次序](evidence/F29-zine-structure.md)：剑桥大学博物馆与南澳大利亚博物馆的图文说明，用于[制作章节](../book/17-making.md)。八页含封面封底；原创图不是拼版模板，未实际折制或测试读者。
+- [F30 · 声音与音乐关系](evidence/F30-voice-and-musical-relations.md)：新南威尔士大学声学教学、Open Music Theory 移调说明及 Oak 轮唱课程网页，用于[唱歌章节](../book/33-singing.md)。教学概念与原创建模分开，音名核对不是试听，轮唱时间表不是和声验证。
+- [F31 · 话筒与嗓音照护](evidence/F31-microphones-and-voice-care.md)：Shure SM58 指定版本说明书与 NIDCD 官方嗓音资料，用于[唱歌章节](../book/33-singing.md)。型号说明不泛化，照护边界不改写成个体诊断，两者不合成产品健康效果。
 
-F 系列不计入上面的十六篇背景研究。事实、教学、文学文本、访客指导、作品与图像、乐谱、影片与历史目录、舞蹈来源、体育规则、监管报告、供应商技术手册、服装记录、哲学与创作者文本及研究阅读记录共同收入 `data/evidence.json`，用 `source_kind` 区分。
+F 系列不计入上面的十六篇背景研究。事实、教学、文学文本、访客指导、作品与图像、乐谱、影片与历史目录、舞蹈来源、体育规则、监管报告、供应商技术手册、服装记录、哲学与创作者文本、声学、型号说明、嗓音指导及研究阅读记录共同收入 `data/evidence.json`，用 `source_kind` 区分。
 
 ## 为什么这些研究还不能叫“证据很硬”？
 

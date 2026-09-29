@@ -72,6 +72,8 @@ EVIDENCE = [
     ("F27", "docs/evidence/F27-pleasure-philosophy.md"),
     ("F28", "docs/evidence/F28-weaving-and-material.md"),
     ("F29", "docs/evidence/F29-zine-structure.md"),
+    ("F30", "docs/evidence/F30-voice-and-musical-relations.md"),
+    ("F31", "docs/evidence/F31-microphones-and-voice-care.md"),
 ]
 EVIDENCE_KINDS = {
     "F01": "official_statistics",
@@ -103,6 +105,8 @@ EVIDENCE_KINDS = {
     "F27": "philosophical_primary_and_secondary",
     "F28": "museum_teaching_and_artist_text",
     "F29": "museum_instructional_diagrams",
+    "F30": "acoustics_and_music_education",
+    "F31": "manufacturer_manual_and_health_guidance",
 }
 RELATIONS = [
     {"card_ids": ["J033"], "background_ids": ["B01"], "essay_ids": ["E04"]},
