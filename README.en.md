@@ -40,7 +40,7 @@ Neither excitement nor spending is compulsory. Quiet enjoyment counts. Disliking
 
 ## The guide
 
-**24 chapters. 60 original activity cards.** Chapters 11–24 are standalone discussions, not extra activity lists. The full chapters and cards are currently in Chinese; this page is an English introduction, not a complete translation.
+**26 chapters. 60 original activity cards.** Chapters 11–26 are standalone discussions, not extra activity lists. The full chapters and cards are currently in Chinese; this page is an English introduction, not a complete translation.
 
 [Read and filter in your browser](https://solomon-8.github.io/EnjoyTheMoment/), with no installation. Nine [long-form essays](essays/01-pleasure-is-an-end.md) explain the tradeoffs; the [research ledger](docs/research.md) records 13 background studies: ten journal full texts, one advance online publication, one publicly hosted research manuscript, and one author-hosted page proof. The latter three have not been compared line by line with the final paginated versions; some online appendices have not been fully reviewed. Statistical, educational, health, technical, practice, literary and visitor-guidance sources are recorded separately. None directly validates our activities.
 
@@ -72,6 +72,8 @@ The chapters on senses, novelty, play, relationships, spending, and permission t
 | [22 · A book can take up an evening without upgrading its reader](book/22-reading.md) | How do Austen's dialogue and Li Bai's words invite us to stay with a text? |
 | [23 · A trip need not transform your life to be worth taking](book/23-travel.md) | How do routes, company and pace serve the experience you actually want? |
 | [24 · Being funny is a craft, not an obligation for others to play along](book/24-humor.md) | How do setups and turns work, and why is laughter not blanket permission? |
+| [25 · An exhibition is not a taste exam](book/25-looking-at-art.md) | What do three actual paintings let us notice about color, space and brushwork? |
+| [26 · A collection need not be complete](book/26-collecting.md) | What does an edition number tell us, and who gets to define the last missing piece? |
 
 Each card has a concrete action, a hoped-for experience, visible costs, a smaller alternative, a stopping point, and a statement of its evidential status.
 

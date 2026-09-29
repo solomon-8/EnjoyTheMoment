@@ -2,6 +2,7 @@
 """Generate a no-dependency offline reader and AI exports from canonical Markdown."""
 
 import argparse
+import base64
 import hashlib
 import html
 import json
@@ -48,6 +49,8 @@ EVIDENCE = [
     ("F10", "docs/evidence/F10-photography-language.md"),
     ("F11", "docs/evidence/F11-reading-texts.md"),
     ("F12", "docs/evidence/F12-trip-planning.md"),
+    ("F13", "docs/evidence/F13-artworks.md"),
+    ("F14", "docs/evidence/F14-editions.md"),
 ]
 EVIDENCE_KINDS = {
     "F01": "official_statistics",
@@ -62,6 +65,8 @@ EVIDENCE_KINDS = {
     "F10": "educational_reference",
     "F11": "literary_primary_text",
     "F12": "official_visitor_guidance",
+    "F13": "artwork_record_and_image",
+    "F14": "educational_reference",
 }
 RELATIONS = [
     {"card_ids": ["J033"], "background_ids": ["B01"], "essay_ids": ["E04"]},
@@ -80,7 +85,8 @@ def source_digest(root):
     files = sorted((root / "book").glob("*.md")) + sorted((root / "guides").glob("[0-9]*.md")) + [
         root / path for _, path in ESSAYS
     ] + [root / path for _, path in EVIDENCE] + [
-        root / "docs/research.md", root / "SHUAQI.md", root / "docs/culture-shuaqi.md"]
+        root / "docs/research.md", root / "SHUAQI.md", root / "docs/culture-shuaqi.md"
+    ] + sorted((root / "assets/art").glob("*"))
     digest = hashlib.sha256()
     for path in files:
         digest.update(path.relative_to(root).as_posix().encode())
@@ -190,7 +196,21 @@ def markdown(text, source_path, omit_title=False):
             close_blocks()
             continue
         heading = re.match(r"^(#{1,4}) (.+)", line)
-        if heading:
+        image = re.fullmatch(r"!\[([^\]]+)\]\(([^)\s]+)\)", line)
+        if image:
+            flush()
+            close_blocks()
+            alt, href = image.groups()
+            target = (ROOT / Path(source_path).parent / href).resolve()
+            if (not target.is_relative_to((ROOT / "assets/art").resolve())
+                    or target.suffix.lower() not in {".jpg", ".png", ".webp"}
+                    or not target.is_file()):
+                raise ValueError("正文图片仅支持 assets/art 内已存在的本地图像：" + href)
+            mime = {".jpg": "image/jpeg", ".png": "image/png", ".webp": "image/webp"}[target.suffix.lower()]
+            out.append('<figure class="artwork"><img src="data:{0};base64,{1}" alt="{2}" loading="lazy" decoding="async"></figure>'.format(
+                mime, base64.b64encode(target.read_bytes()).decode("ascii"),
+                html.escape(alt, quote=True)))
+        elif heading:
             flush()
             close_blocks()
             if omit_title and len(heading.group(1)) == 1:

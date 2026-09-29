@@ -154,7 +154,7 @@ class ExportTests(unittest.TestCase):
         chapters = json.loads(self.outputs["data/chapters.json"])["chapters"]
         self.assertEqual({chapter["source"] for chapter in chapters},
                          {p.relative_to(ROOT).as_posix() for p in (ROOT / "book").glob("*.md")})
-        self.assertEqual(len(chapters), 24)
+        self.assertEqual(len(chapters), 26)
         self.assertEqual(len({chapter["id"] for chapter in chapters}), len(chapters))
         for chapter in chapters:
             source = ROOT / chapter["source"]
@@ -179,13 +179,52 @@ class ExportTests(unittest.TestCase):
         chapters = json.loads(self.outputs["data/chapters.json"])["chapters"]
         standalone = [chapter for chapter in chapters if chapter["scope"] == "full_chapter"]
         self.assertEqual({chapter["id"] for chapter in standalone},
-                         {"C11", "C12", "C13", "C14", "C15", "C16", "C17", "C18", "C19", "C20", "C21", "C22", "C23", "C24"})
+                         {"C11", "C12", "C13", "C14", "C15", "C16", "C17", "C18", "C19", "C20", "C21", "C22", "C23", "C24", "C25", "C26"})
         for chapter in standalone:
             self.assertEqual(chapter["card_ids"], [])
             self.assertEqual(chapter["text"], (ROOT / chapter["source"]).read_text().strip())
             self.assertEqual(build.local_href(chapter["source"], "README.md"), "#" + chapter["id"].lower())
         self.assertNotIn("<p>配套行动：</p>", self.outputs["index.html"])
         self.assertEqual(len(self.export["cards"]), 60)
+
+    def test_artwork_images_are_local_accessible_and_not_raw_html(self):
+        source = "book/25-looking-at-art.md"
+        text = (ROOT / source).read_text()
+        figures = re.findall(r"!\[([^\]]+)\]\(([^)]+)\)", text)
+        self.assertEqual(len(figures), 3)
+        rendered = build.markdown(text, source)
+        self.assertEqual(rendered.count('<figure class="artwork">'), 3)
+        self.assertEqual(rendered.count('loading="lazy"'), 3)
+        for alt, href in figures:
+            self.assertGreater(len(alt), 30)
+            self.assertTrue((ROOT / "book" / href).is_file())
+        self.assertEqual(rendered.count('src="data:image/jpeg;base64,'), 3)
+        self.assertNotIn('src="assets/', rendered)
+        escaped = build.markdown('![<tag> "quote"](../assets/art/van-gogh-bedroom.jpg)', source)
+        self.assertIn('alt="&lt;tag&gt; &quot;quote&quot;"', escaped)
+        for bad in ("https://example.com/tracker.jpg", "../README.md",
+                    "../assets/cover.svg", "../assets/art/missing.jpg",
+                    "../assets/art/../../README.md"):
+            with self.assertRaises(ValueError):
+                build.markdown("![不可信图片](" + bad + ")", source)
+
+    def test_art_and_collecting_keep_object_facts_separate_from_interpretation(self):
+        notes = {item["id"]: item for item in json.loads(self.outputs["data/evidence.json"])["notes"]}
+        self.assertEqual(notes["F13"]["source_kind"], "artwork_record_and_image")
+        self.assertEqual(notes["F14"]["source_kind"], "educational_reference")
+        for fragment in ("1926.417", "1926.224", "1981.15", "未把所有高分辨率区域逐块审核",
+                         "不是现场观展报告", "CC BY 4.0", "没有推断它们在核读日都正在展出"):
+            self.assertIn(fragment, notes["F13"]["text"])
+        self.assertIn("不是藏品鉴定", notes["F14"]["text"])
+        self.assertIn("分母不能单独排除其他留样", notes["F14"]["text"])
+        self.assertEqual(build.local_href("../docs/evidence/F13-artworks.md",
+                                          "book/25-looking-at-art.md"), "#f13")
+        self.assertEqual(build.local_href("../docs/evidence/F14-editions.md",
+                                          "book/26-collecting.md"), "#f14")
+        chapters = {item["id"]: item for item in json.loads(self.outputs["data/chapters.json"])["chapters"]}
+        self.assertIn("不是在报道某场真实展览", chapters["C25"]["text"])
+        self.assertIn("下面是虚构例子", chapters["C26"]["text"])
+        self.assertIn("不提供价格预测、鉴定结论或投资建议", chapters["C26"]["text"])
 
     def test_spoilers_allow_only_fixed_safe_html(self):
         result = build.markdown("<details>\n<summary>答案</summary>\n\n内容\n\n</details>", "README.md")
