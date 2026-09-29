@@ -257,6 +257,7 @@
 - [F31 · 话筒与嗓音照护](evidence/F31-microphones-and-voice-care.md)：Shure SM58 指定版本说明书与 NIDCD 官方嗓音资料，用于[唱歌章节](../book/33-singing.md)。型号说明不泛化，照护边界不改写成个体诊断，两者不合成产品健康效果。
 - [F32 · 行动、骰子与后果](evidence/F32-action-and-consequences.md)：*Blades in the Dark* 指定 SRD 规则与本书骰池枚举，用于[共同叙事章节](../book/34-shared-stories.md)。处境、效果和概率不同，零骰例外保留，算例不是行为研究。
 - [F33 · 特征、麻烦与共同叙事](evidence/F33-aspects-and-shared-fiction.md)：*Fate Condensed* 官方下载 SRD 的指定部分，用于[共同叙事章节](../book/34-shared-stories.md)。网页呈现与官方文件分开，游戏内资源与现实边界分开；保留完整署名，不作安全或幸福效果保证。
+- [F34 · 摄影中的空间与时间](evidence/F34-photographic-space-and-time.md)：斯坦福历史摄影课程、尼康快门教学与原创几何/时间模型，用于[摄影章节](../book/20-photography.md)。视点和取景分开，轨迹不是质量分数；没有操作旧 applet、实拍测量或器材推荐。
 
 F 系列不计入上面的十六篇背景研究。事实、教学、文学文本、访客指导、作品与图像、乐谱、影片与历史目录、舞蹈来源、体育规则、监管报告、供应商技术手册、服装记录、哲学与创作者文本、声学、型号说明、嗓音指导、游戏规则及研究阅读记录共同收入 `data/evidence.json`，用 `source_kind` 区分。
 

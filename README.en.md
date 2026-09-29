@@ -71,7 +71,7 @@ The chapters on senses, novelty, play, relationships, spending, and permission t
 | [17 · Making things need not become another job](book/17-making.md) | Weave crossings, color boundaries and the page sequence of a one-sheet zine: process is more than the cost of a finished object. |
 | [18 · Celebration is not an achievement award](book/18-celebration.md) | Can an ordinary day deserve a place on the calendar? |
 | [19 · Games are not timesheets](book/19-games.md) | Which mechanics, challenges and purchases serve the experience you want? |
-| [20 · Photos can keep a moment without becoming its report card](book/20-photography.md) | Can framing, light and shared expectations make photography part of the experience? |
+| [20 · Photos can keep a moment without becoming its report card](book/20-photography.md) | Zooming is not moving closer: viewpoint, motion, sequencing and the pleasure of an audience. |
 | [21 · Time saved does not automatically belong to the next task](book/21-free-time.md) | Can planning make freedom available to people who cannot leave on a whim? |
 | [22 · A book can take up an evening without upgrading its reader](book/22-reading.md) | How do Austen's dialogue and Li Bai's words invite us to stay with a text? |
 | [23 · A trip need not transform your life to be worth taking](book/23-travel.md) | How do routes, company and pace serve the experience you actually want? |

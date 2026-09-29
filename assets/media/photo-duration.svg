@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="440" height="412" viewBox="0 0 440 412" role="img" aria-labelledby="title desc">
+<title id="title">曝光记录的是一段时间</title>
+<desc id="desc">原创匀速像点模型，速度为240像素每秒。三十分之一秒对应8像素的位移路径，一百二十分之一秒对应2像素。轨迹以24倍放大绘制，线宽只为看清，不是实拍或推荐参数。</desc>
+<rect width="440" height="412" rx="16" fill="#fff8ec"/>
+<g font-family="PingFang SC, Microsoft YaHei, sans-serif" fill="#24231f">
+<text x="24" y="41" font-size="26" font-weight="700">曝光记录的是一段时间</text>
+<text x="24" y="78" font-size="21">假设：像点每秒横移 240像素</text>
+<text x="24" y="129" font-size="23">1/30秒 → 8像素</text>
+<path id="long-path" data-pixels="8" d="M30 163H222" stroke="#23798a" stroke-width="10"/>
+<text x="24" y="227" font-size="23">1/120秒 → 2像素</text>
+<path id="short-path" data-pixels="2" d="M30 261H78" stroke="#23798a" stroke-width="10"/>
+<text x="24" y="321" font-size="20">轨迹放大示意；线宽不代表模糊量</text>
+<text x="24" y="356" font-size="20">同一速度，时间缩为 1/4</text>
+<text x="24" y="390" font-size="20">路径也缩为 1/4；不是推荐快门</text>
+</g></svg>
