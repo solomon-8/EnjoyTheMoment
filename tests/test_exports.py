@@ -5,6 +5,7 @@ import json
 import re
 import sys
 import unittest
+from unittest import mock
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -225,6 +226,55 @@ class ExportTests(unittest.TestCase):
         self.assertIn("不是在报道某场真实展览", chapters["C25"]["text"])
         self.assertIn("下面是虚构例子", chapters["C26"]["text"])
         self.assertIn("不提供价格预测、鉴定结论或投资建议", chapters["C26"]["text"])
+
+    def test_music_and_film_media_are_local_and_described(self):
+        for path, count, mime in (("book/11-music.md", 2, "png"),
+                                  ("book/12-film.md", 3, "jpeg")):
+            text = (ROOT / path).read_text()
+            figures = re.findall(r"!\[([^\]]+)\]\(([^)]+)\)", text)
+            self.assertEqual(len(figures), count)
+            for alt, href in figures:
+                self.assertGreater(len(alt), 30)
+                self.assertTrue((ROOT / Path(path).parent / href).is_file())
+            rendered = build.markdown(text, path)
+            self.assertEqual(rendered.count('src="data:image/' + mime + ';base64,'), count)
+            self.assertNotIn('src="https:', rendered)
+        for href in ("../assets/media/../../README.md", "../assets/media/missing.png",
+                     "../assets/media/README.md", "https://example.com/film.jpg"):
+            with self.assertRaises(ValueError):
+                build.markdown("![外部或非图片素材](" + href + ")", "book/12-film.md")
+
+    def test_media_bytes_and_attribution_affect_source_digest(self):
+        baseline = build.source_digest(ROOT)
+        original = Path.read_bytes
+        for name in ("bach-opening.png", "train-closeup.jpg", "README.md"):
+            target = ROOT / "assets/media" / name
+            def changed_read(path):
+                value = original(path)
+                return value + b"\nchanged" if path == target else value
+            with mock.patch.object(Path, "read_bytes", changed_read):
+                self.assertNotEqual(build.source_digest(ROOT), baseline)
+
+    def test_score_and_film_sources_keep_observation_limits(self):
+        notes = {item["id"]: item for item in json.loads(self.outputs["data/evidence.json"])["notes"]}
+        self.assertEqual(notes["F15"]["source_kind"], "musical_score")
+        self.assertEqual(notes["F16"]["source_kind"], "film_and_historical_catalog")
+        for text in ("Unknown", "没有实际试听", "不是录音评测", "2017/11/05-941"):
+            self.assertIn(text, notes["F15"]["text"])
+        for text in ("不是连续完整播放", "807.708", "没有音轨", "开头或末尾", "不是测量过多少观众"):
+            self.assertIn(text, notes["F16"]["text"])
+        self.assertEqual(build.local_href("../docs/evidence/F15-musical-scores.md", "book/11-music.md"), "#f15")
+        self.assertEqual(build.local_href("../docs/evidence/F16-train-robbery.md", "book/12-film.md"), "#f16")
+        self.assertEqual(len(json.loads(self.outputs["data/research.json"])["records"]), 13)
+
+    def test_film_ending_is_inside_opt_in_spoiler_block(self):
+        text = (ROOT / "book/12-film.md").read_text()
+        start, end = text.index("<details>"), text.index("</details>")
+        self.assertLess(start, text.index("train-closeup.jpg"))
+        self.assertGreater(end, text.index("开头或结尾"))
+        rendered = build.markdown(text, "book/12-film.md")
+        self.assertEqual(rendered.count("<details>"), 1)
+        self.assertNotIn("<details open", rendered)
 
     def test_spoilers_allow_only_fixed_safe_html(self):
         result = build.markdown("<details>\n<summary>答案</summary>\n\n内容\n\n</details>", "README.md")
