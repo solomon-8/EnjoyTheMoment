@@ -1,0 +1,243 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="440" height="570" viewBox="0 0 440 570" role="img" aria-labelledby="title desc">
+<title id="title">这步翻得多，就一定更好吗？</title>
+<desc id="desc">原创合法局面，黑方走，黑白各11枚。甲B1翻3枚，乙E1翻1枚；仅甲让白方下一手可下A1。甲乙不是仅有的合法着，也不是最优排序。</desc>
+<rect width="440" height="570" rx="16" fill="#fff8ec"/>
+<g font-family="PingFang SC, Microsoft YaHei, sans-serif" fill="#24231f">
+<text x="24" y="42" font-size="24" font-weight="700">这步翻得多，就一定更好吗？</text>
+<text x="24" y="76" font-size="20">黑方走 · 黑白各 11 枚 · 原创局面</text>
+<text x="64" y="115" font-size="17" text-anchor="middle">A</text>
+<text x="26" y="156" font-size="17" text-anchor="middle">1</text>
+<text x="107" y="115" font-size="17" text-anchor="middle">B</text>
+<text x="26" y="199" font-size="17" text-anchor="middle">2</text>
+<text x="150" y="115" font-size="17" text-anchor="middle">C</text>
+<text x="26" y="242" font-size="17" text-anchor="middle">3</text>
+<text x="193" y="115" font-size="17" text-anchor="middle">D</text>
+<text x="26" y="285" font-size="17" text-anchor="middle">4</text>
+<text x="236" y="115" font-size="17" text-anchor="middle">E</text>
+<text x="26" y="328" font-size="17" text-anchor="middle">5</text>
+<text x="279" y="115" font-size="17" text-anchor="middle">F</text>
+<text x="26" y="371" font-size="17" text-anchor="middle">6</text>
+<text x="322" y="115" font-size="17" text-anchor="middle">G</text>
+<text x="26" y="414" font-size="17" text-anchor="middle">7</text>
+<text x="365" y="115" font-size="17" text-anchor="middle">H</text>
+<text x="26" y="457" font-size="17" text-anchor="middle">8</text>
+<g data-square="A1" data-disc=".">
+<rect x="43" y="130" width="43" height="43" fill="#d8e9e5" stroke="#72928b" stroke-width="1"/>
+<text x="64.5" y="158" font-size="20" font-weight="700" text-anchor="middle" fill="#9d3b1d">角</text>
+</g>
+<g data-square="B1" data-disc=".">
+<rect x="86" y="130" width="43" height="43" fill="#d8e9e5" stroke="#72928b" stroke-width="1"/>
+<text x="107.5" y="158" font-size="20" font-weight="700" text-anchor="middle" fill="#9d3b1d">甲</text>
+</g>
+<g data-square="C1" data-disc="W">
+<rect x="129" y="130" width="43" height="43" fill="#d8e9e5" stroke="#72928b" stroke-width="1"/>
+<circle cx="150.5" cy="151.5" r="15" fill="#fffdf8" stroke="#24231f" stroke-width="1.4"/>
+</g>
+<g data-square="D1" data-disc=".">
+<rect x="172" y="130" width="43" height="43" fill="#d8e9e5" stroke="#72928b" stroke-width="1"/>
+</g>
+<g data-square="E1" data-disc=".">
+<rect x="215" y="130" width="43" height="43" fill="#d8e9e5" stroke="#72928b" stroke-width="1"/>
+<text x="236.5" y="158" font-size="20" font-weight="700" text-anchor="middle" fill="#9d3b1d">乙</text>
+</g>
+<g data-square="F1" data-disc=".">
+<rect x="258" y="130" width="43" height="43" fill="#d8e9e5" stroke="#72928b" stroke-width="1"/>
+</g>
+<g data-square="G1" data-disc=".">
+<rect x="301" y="130" width="43" height="43" fill="#d8e9e5" stroke="#72928b" stroke-width="1"/>
+</g>
+<g data-square="H1" data-disc=".">
+<rect x="344" y="130" width="43" height="43" fill="#d8e9e5" stroke="#72928b" stroke-width="1"/>
+</g>
+<g data-square="A2" data-disc=".">
+<rect x="43" y="173" width="43" height="43" fill="#d8e9e5" stroke="#72928b" stroke-width="1"/>
+</g>
+<g data-square="B2" data-disc="B">
+<rect x="86" y="173" width="43" height="43" fill="#d8e9e5" stroke="#72928b" stroke-width="1"/>
+<circle cx="107.5" cy="194.5" r="15" fill="#24231f" stroke="#24231f" stroke-width="1.4"/>
+</g>
+<g data-square="C2" data-disc="W">
+<rect x="129" y="173" width="43" height="43" fill="#d8e9e5" stroke="#72928b" stroke-width="1"/>
+<circle cx="150.5" cy="194.5" r="15" fill="#fffdf8" stroke="#24231f" stroke-width="1.4"/>
+</g>
+<g data-square="D2" data-disc="W">
+<rect x="172" y="173" width="43" height="43" fill="#d8e9e5" stroke="#72928b" stroke-width="1"/>
+<circle cx="193.5" cy="194.5" r="15" fill="#fffdf8" stroke="#24231f" stroke-width="1.4"/>
+</g>
+<g data-square="E2" data-disc=".">
+<rect x="215" y="173" width="43" height="43" fill="#d8e9e5" stroke="#72928b" stroke-width="1"/>
+</g>
+<g data-square="F2" data-disc=".">
+<rect x="258" y="173" width="43" height="43" fill="#d8e9e5" stroke="#72928b" stroke-width="1"/>
+</g>
+<g data-square="G2" data-disc=".">
+<rect x="301" y="173" width="43" height="43" fill="#d8e9e5" stroke="#72928b" stroke-width="1"/>
+</g>
+<g data-square="H2" data-disc=".">
+<rect x="344" y="173" width="43" height="43" fill="#d8e9e5" stroke="#72928b" stroke-width="1"/>
+</g>
+<g data-square="A3" data-disc=".">
+<rect x="43" y="216" width="43" height="43" fill="#d8e9e5" stroke="#72928b" stroke-width="1"/>
+</g>
+<g data-square="B3" data-disc=".">
+<rect x="86" y="216" width="43" height="43" fill="#d8e9e5" stroke="#72928b" stroke-width="1"/>
+</g>
+<g data-square="C3" data-disc="B">
+<rect x="129" y="216" width="43" height="43" fill="#d8e9e5" stroke="#72928b" stroke-width="1"/>
+<circle cx="150.5" cy="237.5" r="15" fill="#24231f" stroke="#24231f" stroke-width="1.4"/>
+</g>
+<g data-square="D3" data-disc="W">
+<rect x="172" y="216" width="43" height="43" fill="#d8e9e5" stroke="#72928b" stroke-width="1"/>
+<circle cx="193.5" cy="237.5" r="15" fill="#fffdf8" stroke="#24231f" stroke-width="1.4"/>
+</g>
+<g data-square="E3" data-disc="W">
+<rect x="215" y="216" width="43" height="43" fill="#d8e9e5" stroke="#72928b" stroke-width="1"/>
+<circle cx="236.5" cy="237.5" r="15" fill="#fffdf8" stroke="#24231f" stroke-width="1.4"/>
+</g>
+<g data-square="F3" data-disc="W">
+<rect x="258" y="216" width="43" height="43" fill="#d8e9e5" stroke="#72928b" stroke-width="1"/>
+<circle cx="279.5" cy="237.5" r="15" fill="#fffdf8" stroke="#24231f" stroke-width="1.4"/>
+</g>
+<g data-square="G3" data-disc=".">
+<rect x="301" y="216" width="43" height="43" fill="#d8e9e5" stroke="#72928b" stroke-width="1"/>
+</g>
+<g data-square="H3" data-disc=".">
+<rect x="344" y="216" width="43" height="43" fill="#d8e9e5" stroke="#72928b" stroke-width="1"/>
+</g>
+<g data-square="A4" data-disc=".">
+<rect x="43" y="259" width="43" height="43" fill="#d8e9e5" stroke="#72928b" stroke-width="1"/>
+</g>
+<g data-square="B4" data-disc=".">
+<rect x="86" y="259" width="43" height="43" fill="#d8e9e5" stroke="#72928b" stroke-width="1"/>
+</g>
+<g data-square="C4" data-disc=".">
+<rect x="129" y="259" width="43" height="43" fill="#d8e9e5" stroke="#72928b" stroke-width="1"/>
+</g>
+<g data-square="D4" data-disc="B">
+<rect x="172" y="259" width="43" height="43" fill="#d8e9e5" stroke="#72928b" stroke-width="1"/>
+<circle cx="193.5" cy="280.5" r="15" fill="#24231f" stroke="#24231f" stroke-width="1.4"/>
+</g>
+<g data-square="E4" data-disc="W">
+<rect x="215" y="259" width="43" height="43" fill="#d8e9e5" stroke="#72928b" stroke-width="1"/>
+<circle cx="236.5" cy="280.5" r="15" fill="#fffdf8" stroke="#24231f" stroke-width="1.4"/>
+</g>
+<g data-square="F4" data-disc="B">
+<rect x="258" y="259" width="43" height="43" fill="#d8e9e5" stroke="#72928b" stroke-width="1"/>
+<circle cx="279.5" cy="280.5" r="15" fill="#24231f" stroke="#24231f" stroke-width="1.4"/>
+</g>
+<g data-square="G4" data-disc=".">
+<rect x="301" y="259" width="43" height="43" fill="#d8e9e5" stroke="#72928b" stroke-width="1"/>
+</g>
+<g data-square="H4" data-disc=".">
+<rect x="344" y="259" width="43" height="43" fill="#d8e9e5" stroke="#72928b" stroke-width="1"/>
+</g>
+<g data-square="A5" data-disc=".">
+<rect x="43" y="302" width="43" height="43" fill="#d8e9e5" stroke="#72928b" stroke-width="1"/>
+</g>
+<g data-square="B5" data-disc="B">
+<rect x="86" y="302" width="43" height="43" fill="#d8e9e5" stroke="#72928b" stroke-width="1"/>
+<circle cx="107.5" cy="323.5" r="15" fill="#24231f" stroke="#24231f" stroke-width="1.4"/>
+</g>
+<g data-square="C5" data-disc="W">
+<rect x="129" y="302" width="43" height="43" fill="#d8e9e5" stroke="#72928b" stroke-width="1"/>
+<circle cx="150.5" cy="323.5" r="15" fill="#fffdf8" stroke="#24231f" stroke-width="1.4"/>
+</g>
+<g data-square="D5" data-disc="B">
+<rect x="172" y="302" width="43" height="43" fill="#d8e9e5" stroke="#72928b" stroke-width="1"/>
+<circle cx="193.5" cy="323.5" r="15" fill="#24231f" stroke="#24231f" stroke-width="1.4"/>
+</g>
+<g data-square="E5" data-disc="B">
+<rect x="215" y="302" width="43" height="43" fill="#d8e9e5" stroke="#72928b" stroke-width="1"/>
+<circle cx="236.5" cy="323.5" r="15" fill="#24231f" stroke="#24231f" stroke-width="1.4"/>
+</g>
+<g data-square="F5" data-disc="B">
+<rect x="258" y="302" width="43" height="43" fill="#d8e9e5" stroke="#72928b" stroke-width="1"/>
+<circle cx="279.5" cy="323.5" r="15" fill="#24231f" stroke="#24231f" stroke-width="1.4"/>
+</g>
+<g data-square="G5" data-disc=".">
+<rect x="301" y="302" width="43" height="43" fill="#d8e9e5" stroke="#72928b" stroke-width="1"/>
+</g>
+<g data-square="H5" data-disc=".">
+<rect x="344" y="302" width="43" height="43" fill="#d8e9e5" stroke="#72928b" stroke-width="1"/>
+</g>
+<g data-square="A6" data-disc=".">
+<rect x="43" y="345" width="43" height="43" fill="#d8e9e5" stroke="#72928b" stroke-width="1"/>
+</g>
+<g data-square="B6" data-disc="W">
+<rect x="86" y="345" width="43" height="43" fill="#d8e9e5" stroke="#72928b" stroke-width="1"/>
+<circle cx="107.5" cy="366.5" r="15" fill="#fffdf8" stroke="#24231f" stroke-width="1.4"/>
+</g>
+<g data-square="C6" data-disc="W">
+<rect x="129" y="345" width="43" height="43" fill="#d8e9e5" stroke="#72928b" stroke-width="1"/>
+<circle cx="150.5" cy="366.5" r="15" fill="#fffdf8" stroke="#24231f" stroke-width="1.4"/>
+</g>
+<g data-square="D6" data-disc="B">
+<rect x="172" y="345" width="43" height="43" fill="#d8e9e5" stroke="#72928b" stroke-width="1"/>
+<circle cx="193.5" cy="366.5" r="15" fill="#24231f" stroke="#24231f" stroke-width="1.4"/>
+</g>
+<g data-square="E6" data-disc=".">
+<rect x="215" y="345" width="43" height="43" fill="#d8e9e5" stroke="#72928b" stroke-width="1"/>
+</g>
+<g data-square="F6" data-disc="B">
+<rect x="258" y="345" width="43" height="43" fill="#d8e9e5" stroke="#72928b" stroke-width="1"/>
+<circle cx="279.5" cy="366.5" r="15" fill="#24231f" stroke="#24231f" stroke-width="1.4"/>
+</g>
+<g data-square="G6" data-disc=".">
+<rect x="301" y="345" width="43" height="43" fill="#d8e9e5" stroke="#72928b" stroke-width="1"/>
+</g>
+<g data-square="H6" data-disc=".">
+<rect x="344" y="345" width="43" height="43" fill="#d8e9e5" stroke="#72928b" stroke-width="1"/>
+</g>
+<g data-square="A7" data-disc=".">
+<rect x="43" y="388" width="43" height="43" fill="#d8e9e5" stroke="#72928b" stroke-width="1"/>
+</g>
+<g data-square="B7" data-disc=".">
+<rect x="86" y="388" width="43" height="43" fill="#d8e9e5" stroke="#72928b" stroke-width="1"/>
+</g>
+<g data-square="C7" data-disc="W">
+<rect x="129" y="388" width="43" height="43" fill="#d8e9e5" stroke="#72928b" stroke-width="1"/>
+<circle cx="150.5" cy="409.5" r="15" fill="#fffdf8" stroke="#24231f" stroke-width="1.4"/>
+</g>
+<g data-square="D7" data-disc=".">
+<rect x="172" y="388" width="43" height="43" fill="#d8e9e5" stroke="#72928b" stroke-width="1"/>
+</g>
+<g data-square="E7" data-disc=".">
+<rect x="215" y="388" width="43" height="43" fill="#d8e9e5" stroke="#72928b" stroke-width="1"/>
+</g>
+<g data-square="F7" data-disc="B">
+<rect x="258" y="388" width="43" height="43" fill="#d8e9e5" stroke="#72928b" stroke-width="1"/>
+<circle cx="279.5" cy="409.5" r="15" fill="#24231f" stroke="#24231f" stroke-width="1.4"/>
+</g>
+<g data-square="G7" data-disc=".">
+<rect x="301" y="388" width="43" height="43" fill="#d8e9e5" stroke="#72928b" stroke-width="1"/>
+</g>
+<g data-square="H7" data-disc=".">
+<rect x="344" y="388" width="43" height="43" fill="#d8e9e5" stroke="#72928b" stroke-width="1"/>
+</g>
+<g data-square="A8" data-disc=".">
+<rect x="43" y="431" width="43" height="43" fill="#d8e9e5" stroke="#72928b" stroke-width="1"/>
+</g>
+<g data-square="B8" data-disc=".">
+<rect x="86" y="431" width="43" height="43" fill="#d8e9e5" stroke="#72928b" stroke-width="1"/>
+</g>
+<g data-square="C8" data-disc=".">
+<rect x="129" y="431" width="43" height="43" fill="#d8e9e5" stroke="#72928b" stroke-width="1"/>
+</g>
+<g data-square="D8" data-disc=".">
+<rect x="172" y="431" width="43" height="43" fill="#d8e9e5" stroke="#72928b" stroke-width="1"/>
+</g>
+<g data-square="E8" data-disc=".">
+<rect x="215" y="431" width="43" height="43" fill="#d8e9e5" stroke="#72928b" stroke-width="1"/>
+</g>
+<g data-square="F8" data-disc=".">
+<rect x="258" y="431" width="43" height="43" fill="#d8e9e5" stroke="#72928b" stroke-width="1"/>
+</g>
+<g data-square="G8" data-disc=".">
+<rect x="301" y="431" width="43" height="43" fill="#d8e9e5" stroke="#72928b" stroke-width="1"/>
+</g>
+<g data-square="H8" data-disc=".">
+<rect x="344" y="431" width="43" height="43" fill="#d8e9e5" stroke="#72928b" stroke-width="1"/>
+</g>
+<text x="24" y="511" font-size="20">甲 B1：翻 3 枚，白可走 A1</text>
+<text x="24" y="545" font-size="20">乙 E1：翻 1 枚，白不能走 A1</text>
+</g></svg>

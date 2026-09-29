@@ -84,6 +84,8 @@ EVIDENCE = [
     ("F39", "docs/evidence/F39-digital-collections.md"),
     ("F40", "docs/evidence/F40-theatre-space.md"),
     ("F41", "docs/evidence/F41-jingju-conventions.md"),
+    ("F42", "docs/evidence/F42-othello-choice.md"),
+    ("F43", "docs/evidence/F43-hanabi-information.md"),
 ]
 EVIDENCE_KINDS = {
     "F01": "official_statistics",
@@ -127,6 +129,8 @@ EVIDENCE_KINDS = {
     "F39": "personal_digital_archiving_guidance",
     "F40": "theatre_educational_reference",
     "F41": "heritage_description_and_nomination",
+    "F42": "official_game_rules_and_original_position",
+    "F43": "publisher_game_rules",
 }
 RELATIONS = [
     {"card_ids": ["J033"], "background_ids": ["B01"], "essay_ids": ["E04"]},

@@ -243,6 +243,23 @@ const { chromium } = require("playwright");
     await page.goto(url + "#c19");
     await page.waitForFunction(() => document.getElementById("c19").open);
     assert.match(await page.locator("#c19 .prose").textContent(), /输赢与选择质量，可以分开看/);
+    const gameImage = page.locator("#c19 .artwork img");
+    await gameImage.scrollIntoViewIfNeeded();
+    await gameImage.evaluate(img => img.decode());
+    assert.equal(await gameImage.evaluate(img => img.naturalWidth), 880);
+    assert.equal(await page.locator("#c19 .prose table").count(), 2);
+    for (const anchor of ["games-othello", "games-hanabi", "games-uncertainty",
+                          "games-chosen-rules", "games-delegation"]) {
+      await page.locator(`#c19 a[href='#${anchor}']`).click();
+      assert.equal(new URL(page.url()).hash, `#${anchor}`);
+      assert(await page.locator("#c19 .prose").isVisible());
+    }
+    for (const id of ["f42", "f43"]) {
+      await page.locator(`#c19 a[href='#${id}']`).first().click();
+      await page.waitForFunction(id => document.getElementById(id).open, id);
+      await page.locator(`#${id} a[href='#c19']`).click();
+      await page.waitForFunction(() => document.getElementById("c19").open);
+    }
     await page.locator("#c19 a[href='#f09']").click();
     await page.waitForFunction(() => document.getElementById("f09").open);
     await page.goto(url + "#c19");

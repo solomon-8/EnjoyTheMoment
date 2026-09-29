@@ -36,6 +36,8 @@
 
 ## 本书原创示意图
 
+`othello-choice.svg` 与从其渲染的 `othello-choice.png` 为本项目原创黑白棋坐标图，采用 MIT 许可。图与[有限算例程序](../../tools/game_examples.py)的合法18手重放一致；甲乙只是从同一局面出发的两个候选，不是最佳着排名。未使用 WOF 插图、商业棋子图片或商标，来源及完整字符棋盘见 [F42](../../docs/evidence/F42-othello-choice.md)。
+
 `theatre-layouts.svg` 与从其渲染的 `theatre-layouts.png` 为本项目原创俯视示意，采用 MIT 许可。图只表达镜框式、伸出式与四面围合的观众方向关系，未使用馆方照片、真实场馆图纸、人物影像或 AI 图像；不按比例，不提供选座、声场、无障碍或疏散方案。分类来源见 [F40](../../docs/evidence/F40-theatre-space.md)，正文与替代文本见[现场章节](../../book/13-live-events.md#live-space)。
 
 `offside-timing.svg` 为本项目原创的越位判断时点示意，`offside-timing.png` 由该 SVG 渲染供正文和离线阅读页使用，采用本仓库 MIT 许可。没有使用真实比赛画面、官方插图、球员肖像或队标，也不是实际判罚的比例图。图点与简化情形的条件见[观赛章节](../../book/28-watching-sport.md)，规则来源见 [F18](../../docs/evidence/F18-football-rules.md)。
