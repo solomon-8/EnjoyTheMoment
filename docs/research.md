@@ -180,8 +180,10 @@
 - [F10 · 摄影术语帮助描述](evidence/F10-photography-language.md)：尼康基础词汇教学，用于[摄影章节](../book/20-photography.md)，不是器材推荐、审美裁决或完整摄影课程。
 - [F11 · 文本、解释与效果分开](evidence/F11-reading-texts.md)：奥斯汀小说开篇两章及李白诗歌的数字文本，用于[阅读章节](../book/22-reading.md)；文本细读不是作者心理推断或幸福效果证据，未核对学术校勘本。
 - [F12 · 公园访客规划](evidence/F12-trip-planning.md)：NPS 访客指导，用于[旅行章节](../book/23-travel.md)的环境、行程与调整条件说明；不是全球统一规则、多日偏远路线教程或个体安全认证。
+- [F13 · 作品、图像与解释](evidence/F13-artworks.md)：芝加哥艺术博物馆的三个作品记录与已核看数字图像，用于[看画章节](../book/25-looking-at-art.md)；馆方事实、本书细读与观众反应分开，不把复制图当作现场经验或色彩测量。
+- [F14 · 版数不等于价值](evidence/F14-editions.md)：V&A 与 Tate 的版画和版数教学，用于[收藏章节](../book/26-collecting.md)；不提供具体藏品鉴定、护理参数或价格保证。
 
-F 系列不计入上面的十三篇背景研究。事实、教学、文学文本、访客指导与研究阅读记录共同收入 `data/evidence.json`，用 `source_kind` 区分。
+F 系列不计入上面的十三篇背景研究。事实、教学、文学文本、访客指导、作品与图像及研究阅读记录共同收入 `data/evidence.json`，用 `source_kind` 区分。
 
 ## 为什么这些研究还不能叫“证据很硬”？
 

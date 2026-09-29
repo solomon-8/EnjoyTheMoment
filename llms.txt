@@ -9,7 +9,7 @@
 - [Culture sources](docs/culture-shuaqi.md): dated context, secondary reporting, attribution boundaries.
 
 ## Canonical content
-- [Catalog](README.md): 24 substantive chapters and 60 supporting activity proposals in book/. Arguments and lived tradeoffs are primary; activity execution is not the guide's sole purpose.
+- [Catalog](README.md): 26 substantive chapters and 60 supporting activity proposals in book/. Arguments and lived tradeoffs are primary; activity execution is not the guide's sole purpose.
 - [Research ledger](docs/research.md): background studies, access levels, and non-claims.
 - [Editorial policy](docs/editorial-policy.md): value positions are not scientific results.
 
@@ -37,7 +37,8 @@ alternatives, stopping conditions or evidence status to save tokens.
 python3 tools/guides.py --query 朋友 --limit 2
 python3 tools/guides.py --id P010
 
-- [Evidence and source notes](data/evidence.json): source_kind separates study_reading_note, official_statistics, educational_reference, official_health_guidance, official_explainer, practice_framework, technical_guidance, literary_primary_text and official_visitor_guidance; retain reading scope and non-claims. B03 uses an author-hosted page proof, not a verified final article. full_text denotes reading depth, not quality or publication status. B07 measures product valuation, not enjoyment of making; B08's ritual studies do not validate celebrations or compulsory participation.
+- [Evidence and source notes](data/evidence.json): source_kind separates study_reading_note, official_statistics, educational_reference, official_health_guidance, official_explainer, practice_framework, technical_guidance, literary_primary_text, official_visitor_guidance and artwork_record_and_image; retain reading scope and non-claims. B03 uses an author-hosted page proof, not a verified final article. full_text denotes reading depth, not quality or publication status. B07 measures product valuation, not enjoyment of making; B08's ritual studies do not validate celebrations or compulsory participation.
 - B09 observes adult players over limited time windows; small average time associations are not universal safety guarantees. B10 uses an advance online version; preserve null comparisons, eye-tracking sensitivity and the difference between remembered enjoyment, content memory and sharing outcomes. F09/F10 are design/teaching sources, not personal efficacy or product guarantees.
 - B11 distinguishes attendance from enjoyment among attendees; do not erase differential attrition, null comparisons or unread web appendices to claim that all scheduling harms leisure. F11 contains primary literary texts in digital editions, not efficacy research: C22's close readings are this project's interpretations, not author statements or verified psychological effects.
 - B12 uses observational vacation data, not a randomized comparison of annual leave schedules; no optimal duration, guaranteed two-week benefit or claim that in-trip experiences lack value. B13 studies specific moral scenarios; amusement may coexist with disgust, and coordinate-distance priming is not the passage of time. Fictional “benign” descriptions do not certify real conduct as harmless. F12 is scoped park visitor guidance, not a universal route or safety guarantee.
+- C25/F13 distinguish museum object records, digital reproductions and the project's visual interpretations. Reading alt text is not viewing an image; neither is an in-person visit or color measurement. Local artwork attribution is in assets/art/README.md. C26/F14 explain editions without authenticating objects or predicting prices.
