@@ -40,9 +40,9 @@ Neither excitement nor spending is compulsory. Quiet enjoyment counts. Disliking
 
 ## The guide
 
-**18 chapters. 60 original activity cards.** Chapters 11–18 are standalone discussions, not extra activity lists. The full chapters and cards are currently in Chinese; this page is an English introduction, not a complete translation.
+**20 chapters. 60 original activity cards.** Chapters 11–20 are standalone discussions, not extra activity lists. The full chapters and cards are currently in Chinese; this page is an English introduction, not a complete translation.
 
-[Read and filter in your browser](https://solomon-8.github.io/EnjoyTheMoment/), with no installation. Nine [long-form essays](essays/01-pleasure-is-an-end.md) explain the tradeoffs; the [research ledger](docs/research.md) records 8 background studies: six journal full texts, one publicly hosted research manuscript, and one author-hosted page proof. The latter two have not been compared line by line with the final published versions. Statistical, educational, health, technical and practice sources are recorded separately. None directly validates our activities.
+[Read and filter in your browser](https://solomon-8.github.io/EnjoyTheMoment/), with no installation. Nine [long-form essays](essays/01-pleasure-is-an-end.md) explain the tradeoffs; the [research ledger](docs/research.md) records 10 background studies: seven journal full texts, one advance online publication, one publicly hosted research manuscript, and one author-hosted page proof. The latter three have not been compared line by line with the final paginated versions. Statistical, educational, health, technical and practice sources are recorded separately. None directly validates our activities.
 
 The chapters on senses, novelty, play, relationships, spending, and permission to enjoy contain substantial discussions before their supporting cards. They address taste without moral judgment, novelty without a life checklist, serious play without compulsory achievement, shared time without identical preferences, and leisure without a productivity test. These discussions are in Chinese; value arguments and hypothetical examples are distinguished from limited research findings.
 
@@ -66,6 +66,8 @@ The chapters on senses, novelty, play, relationships, spending, and permission t
 | [16 · Clothes are for wearing, not waiting for a better self](book/16-dress.md) | What do you want to express, feel and actually live in? |
 | [17 · Making things need not become another job](book/17-making.md) | How do process, finished objects and other people's judgments differ? |
 | [18 · Celebration is not an achievement award](book/18-celebration.md) | Can an ordinary day deserve a place on the calendar? |
+| [19 · Games are not timesheets](book/19-games.md) | Which mechanics, challenges and purchases serve the experience you want? |
+| [20 · Photos can keep a moment without becoming its report card](book/20-photography.md) | Can framing, light and shared expectations make photography part of the experience? |
 
 Each card has a concrete action, a hoped-for experience, visible costs, a smaller alternative, a stopping point, and a statement of its evidential status.
 
