@@ -66,6 +66,8 @@ EVIDENCE = [
     ("F22", "docs/evidence/F22-bird-identification.md"),
     ("F23", "docs/evidence/F23-bird-records-and-ethics.md"),
     ("F24", "docs/evidence/F24-monkeys-paw.md"),
+    ("F25", "docs/evidence/F25-ice-cream-structure.md"),
+    ("F26", "docs/evidence/F26-clothing-forms.md"),
 ]
 EVIDENCE_KINDS = {
     "F01": "official_statistics",
@@ -92,6 +94,8 @@ EVIDENCE_KINDS = {
     "F22": "species_identification_reference",
     "F23": "birding_ethics_and_protocol",
     "F24": "literary_primary_text",
+    "F25": "supplier_technical_handbook",
+    "F26": "fashion_record_and_image",
 }
 RELATIONS = [
     {"card_ids": ["J033"], "background_ids": ["B01"], "essay_ids": ["E04"]},

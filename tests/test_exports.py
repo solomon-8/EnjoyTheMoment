@@ -6,6 +6,7 @@ import re
 import sys
 import tempfile
 import unittest
+import xml.etree.ElementTree as ET
 from unittest import mock
 from pathlib import Path
 
@@ -283,6 +284,75 @@ class ExportTests(unittest.TestCase):
                 self.assertIn(notes[identifier]["source"].split("/")[-1],
                               chapters[chapter]["text"])
                 self.assertIn('href="#' + identifier.lower() + '"', self.outputs["index.html"])
+
+    def test_flavor_and_dress_close_readings_preserve_provenance(self):
+        chapters = {item["id"]: item for item in
+                    json.loads(self.outputs["data/chapters.json"])["chapters"]}
+        notes = {item["id"]: item for item in
+                 json.loads(self.outputs["data/evidence.json"])["notes"]}
+        records = json.loads(self.outputs["data/research.json"])["records"]
+        self.assertEqual(len(records), 16)
+        self.assertEqual(notes["F25"]["source_kind"], "supplier_technical_handbook")
+        self.assertEqual(notes["F26"]["source_kind"], "fashion_record_and_image")
+        for identifier in ("F25", "F26"):
+            self.assertFalse(any(item["id"] == identifier for item in records))
+            self.assertIn("2026-09-30", notes[identifier]["text"])
+            self.assertEqual(build.local_href(notes[identifier]["source"], "README.md"),
+                             "#" + identifier.lower())
+        for phrase in ("供应商", "不采用这两段数字换算", "不是配方"):
+            self.assertIn(phrase, notes["F25"]["text"])
+        self.assertIn("未独立核对销售账册", notes["F26"]["text"])
+        for phrase in ("不把它们默认为同一件成衣", "T.381-2009", "2010CT4482",
+                       "女性裤装的发明史", "没有复制到仓库"):
+            self.assertIn(phrase, notes["F26"]["text"])
+        for identifier, anchor, image in (
+                ("C14", "flavor-ice-cream", "ice-cream-volume"),
+                ("C16", "dress-form-examples", "clothing-color-relations")):
+            chapter = chapters[identifier]
+            self.assertEqual(chapter["scope"], "full_chapter")
+            self.assertEqual(chapter["card_ids"], [])
+            self.assertIn(chapter["text"], self.outputs["llms-full.txt"])
+            rendered = build.markdown(chapter["text"], chapter["source"])
+            self.assertIn('id="' + anchor + '"', rendered)
+            self.assertIn('href="#' + anchor + '"', rendered)
+            self.assertEqual(rendered.count('src="data:image/png;base64,'), 1)
+            self.assertNotIn('src="https:', rendered)
+            self.assertIn(image + ".png", chapter["text"])
+            # PNG signature and dimensions; the SVG is kept as the editable source.
+            data = (ROOT / "assets/media" / (image + ".png")).read_bytes()
+            self.assertEqual(data[:8], b"\x89PNG\r\n\x1a\n")
+            self.assertEqual(int.from_bytes(data[16:20], "big"), 880)
+
+    def test_original_volume_and_color_diagrams_match_their_stated_model(self):
+        ns = "{http://www.w3.org/2000/svg}"
+        volume = ET.parse(ROOT / "assets/media/ice-cream-volume.svg").getroot()
+        rects = {element.get("id"): element for element in volume.iter(ns + "rect")
+                 if element.get("id")}
+        for suffix, added in (("a", 50), ("b", 100)):
+            mix = float(rects["mix-" + suffix].get("width"))
+            air = float(rects["air-" + suffix].get("width"))
+            self.assertAlmostEqual(air / mix, added / 100)
+            self.assertAlmostEqual(air / (mix + air), added / (100 + added))
+        text = " ".join(volume.itertext())
+        self.assertIn("50 ÷ 100 = 50%", text)
+        self.assertIn("50 ÷ 150 ≈ 33.3%", text)
+        self.assertIn("100 ÷ 200 = 50%", text)
+        self.assertIn("不是内部切面", text)
+        color = ET.parse(ROOT / "assets/media/clothing-color-relations.svg").getroot()
+        accents = [element for element in color.iter(ns + "rect")
+                   if element.get("id", "").startswith("accent-")]
+        self.assertEqual(len(accents), 2)
+        for key in ("width", "height", "fill"):
+            self.assertEqual(accents[0].get(key), accents[1].get(key))
+        self.assertIsNotNone(color.find(ns + "title"))
+        self.assertIsNotNone(color.find(ns + "desc"))
+        chapter = (ROOT / "book/14-flavor.md").read_text()
+        self.assertIn("假设体积增加全部来自充入空气，并忽略其他体积变化", chapter)
+        self.assertIn("100 毫升变成 150 毫升", chapter)
+        self.assertIn("后一个约为 33.3%", chapter)
+        note = (ROOT / "docs/evidence/F25-ice-cream-structure.md").read_text()
+        self.assertIn("50 ÷ 150 ≈ 33.3%", note)
+        self.assertIn("100 ÷ 200 = 50%", note)
 
     def test_fear_and_insight_sources_keep_samples_nonresults_and_spoilers(self):
         chapters = {item["id"]: item for item in

@@ -119,6 +119,25 @@ const { chromium } = require("playwright");
     await page.goto(url + "#c16");
     await page.waitForFunction(() => document.getElementById("c16").open);
     assert.match(await page.locator("#c16 .prose").textContent(), /镜子里的合适，与身体里的合适/);
+    for (const [chapter, anchor, evidence] of [
+      ["c14", "flavor-ice-cream", "f25"],
+      ["c16", "dress-form-examples", "f26"],
+    ]) {
+      await page.goto(url + "#" + chapter);
+      await page.locator("#" + chapter + " a[href='#" + anchor + "']").click();
+      assert.equal(new URL(page.url()).hash, "#" + anchor);
+      assert(await page.locator("#" + chapter + " .prose").isVisible());
+      const image = page.locator("#" + chapter + " .artwork img");
+      assert.equal(await image.count(), 1);
+      await image.scrollIntoViewIfNeeded();
+      await image.evaluate(img => img.decode());
+      assert.equal(await image.evaluate(img => img.naturalWidth), 880);
+      await page.screenshot({path: "/tmp/enjoythemoment-" + chapter + "-detail-desktop.png", fullPage: false});
+      await page.locator("#" + chapter + " a[href='#" + evidence + "']").first().click();
+      await page.waitForFunction(id => document.getElementById(id).open, evidence);
+    }
+    assert.match(await page.locator("#f26 .prose").textContent(), /未独立核对销售账册/);
+    await page.goto(url + "#c16");
     await page.locator("#c16 a[href='#f08']").click();
     await page.waitForFunction(() => document.getElementById("f08").open);
     assert.match(await page.locator("#f08 .prose").textContent(), /没有取得并完整审核 ISO 标准原文/);
@@ -402,6 +421,15 @@ const { chromium } = require("playwright");
       assert(await image.evaluate(img => img.getBoundingClientRect().right <= innerWidth));
       await page.screenshot({path: "/tmp/enjoythemoment-" + id + "-mobile.png", fullPage: false});
     }
+    for (const id of ["c14", "c16"]) {
+      await page.goto(url + "#" + id);
+      const image = page.locator("#" + id + " .artwork img");
+      await image.scrollIntoViewIfNeeded();
+      await image.evaluate(img => img.decode());
+      assert(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth));
+      assert(await image.evaluate(img => img.getBoundingClientRect().right <= innerWidth));
+      await page.screenshot({path: "/tmp/enjoythemoment-" + id + "-detail-mobile.png", fullPage: false});
+    }
     await page.locator("#c12 .prose details > summary").click();
     const ending = page.locator("#c12 .prose details img");
     await ending.scrollIntoViewIfNeeded();
@@ -477,6 +505,13 @@ const { chromium } = require("playwright");
     await staticPage.locator("#c28 .artwork img").scrollIntoViewIfNeeded();
     await staticPage.locator("#c28 .artwork img").evaluate(img => img.decode());
     assert(await staticPage.locator("#c28 .artwork img").isVisible());
+    for (const id of ["c14", "c16"]) {
+      await staticPage.locator("#" + id + " > summary").click();
+      const image = staticPage.locator("#" + id + " .artwork img");
+      await image.scrollIntoViewIfNeeded();
+      await image.evaluate(img => img.decode());
+      assert(await image.isVisible());
+    }
     for (const id of ["c29", "c30"]) {
       await staticPage.locator(`#${id} > summary`).click();
       assert(await staticPage.locator(`#${id} .prose`).isVisible());
