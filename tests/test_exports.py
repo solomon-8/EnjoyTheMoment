@@ -871,6 +871,62 @@ class ExportTests(unittest.TestCase):
         self.assertTrue(all(not ({"F38", "F39"} & set(c["background_ids"]))
                             for c in self.export["cards"]))
 
+    def test_games_chapter_sources_and_links_export(self):
+        chapters = {c["id"]: c for c in json.loads(self.outputs["data/chapters.json"])["chapters"]}
+        notes = {n["id"]: n for n in json.loads(self.outputs["data/evidence.json"])["notes"]}
+        text = (ROOT / "book/19-games.md").read_text()
+        self.assertEqual(chapters["C19"]["text"], text.strip())
+        self.assertEqual(chapters["C19"]["scope"], "full_chapter")
+        self.assertEqual(chapters["C19"]["card_ids"], [])
+        self.assertIn(text, self.outputs["llms-full.txt"])
+        html = build.markdown(text, "book/19-games.md")
+        for anchor in ("games-othello", "games-hanabi", "games-uncertainty",
+                       "games-chosen-rules", "games-delegation"):
+            self.assertIn('id="' + anchor + '"', html)
+            self.assertIn('href="#' + anchor + '"', html)
+        for identifier, kind in (("F42", "official_game_rules_and_original_position"),
+                                 ("F43", "publisher_game_rules")):
+            note = notes[identifier]
+            self.assertEqual(note["source_kind"], kind)
+            self.assertEqual(note["text"], (ROOT / note["source"]).read_text())
+            self.assertIn(note["text"], self.outputs["llms-full.txt"])
+            self.assertIn('href="#' + identifier.lower() + '"', html)
+            self.assertIn('href="#c19"', build.markdown(note["text"], note["source"]))
+        for retained in ("f09", "n09"):
+            self.assertIn('href="#' + retained + '"', html)
+        self.assertTrue(all(not ({"F42", "F43"} & set(c["background_ids"]))
+                            for c in self.export["cards"]))
+
+    def test_games_original_diagram_and_limited_claims(self):
+        text = (ROOT / "book/19-games.md").read_text()
+        figures = re.findall(r"!\[([^\]]+)\]\(([^)]+)\)", text)
+        self.assertEqual(len(figures), 1)
+        alt, href = figures[0]
+        self.assertGreater(len(alt), 90)
+        for marker in ("B1", "E1", "A1", "各11枚", "三枚", "一枚"):
+            self.assertIn(marker, alt)
+        self.assertTrue((ROOT / "book" / href).is_file())
+        html = build.markdown(text, "book/19-games.md")
+        self.assertEqual(html.count('src="data:image/png;base64,'), 1)
+        for marker in ("黑 15、白 8", "黑 13、白 10", "没有证明乙是最优解",
+                       "红 1｜蓝 1｜红 3｜绿 2｜白 5", "乙此前没有收到",
+                       "第 1、3 张", "第 1、2 张", "甲选择提示",
+                       "提示当时的空序列",
+                       "原规则、共同商定的变体、没说出口的暗号"):
+            self.assertIn(marker, text)
+
+    def test_games_notes_preserve_source_and_version_limits(self):
+        othello = (ROOT / "docs/evidence/F42-othello-choice.md").read_text()
+        hanabi = (ROOT / "docs/evidence/F43-hanabi-information.md").read_text()
+        for marker in ("没有正文第 3 条", "没有证明 E1 最优、B1 必败",
+                       "黑 14、白 10", "不是名局", "不搜索全局最优"):
+            self.assertIn(marker, othello)
+        for marker in ("©2013", "2 个横向三栏", "文本提取只返回少量图例文字",
+                       "所有蓝色标记都在桌上时不能弃牌", "6 fireworks",
+                       "本书保留这处不一致", "不是完整发牌模拟"):
+            self.assertIn(marker, hanabi)
+        self.assertIn("F42/F43", (ROOT / "docs/ai.md").read_text())
+
     def test_live_chapter_and_sources_export_without_turning_into_card_evidence(self):
         chapters = {c["id"]: c for c in json.loads(self.outputs["data/chapters.json"])["chapters"]}
         notes = {n["id"]: n for n in json.loads(self.outputs["data/evidence.json"])["notes"]}

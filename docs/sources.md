@@ -79,6 +79,10 @@
 
 现场章节的空间分类与京剧描述分别见 [F40](evidence/F40-theatre-space.md)、[F41](evidence/F41-jingju-conventions.md)。舞台图由本项目原创，不转载来源照片；中文与英文项目描述只作有限转述，申报文件不作为已观看演出的记录，也不重复计作独立研究。门、递杯与镜头场景是本书自写例子，不冒充剧目片段或标准程式。
 
+## 游戏规则与原创局面
+
+[游戏章节](../book/19-games.md)有限转述 WOF 黑白棋规则和 R&R Games 的 Hanabi 英文规则，版本、实际读取及不一致分别见 [F42](evidence/F42-othello-choice.md)、[F43](evidence/F43-hanabi-information.md)。黑白棋图、18手局面、手牌和对话均为原创，不转载官方棋盘、牌面、规则全文或视频；不据作品名称声称授权背书。规则书的可读性不是素材的统一开放许可，有限计算也不是行为效果或棋力认证。
+
 ## 公共生活观察工具
 
 [第 15 章](../book/15-neighborhood.md)与 [F35](evidence/F35-public-life-observation.md)对 PLDP 配套观察方法作了有限中文转述、缩写与重组，不是官方译本。来源采用 [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)，固定提交与读取范围见 F35，完整署名亦保留于章节、来源笔记和 LICENSE。原创假想与价值讨论不冒充机构研究；没有复制调查表版式、图标或样例个人数据。
