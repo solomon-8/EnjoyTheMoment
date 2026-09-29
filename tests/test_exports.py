@@ -66,7 +66,7 @@ class ExportTests(unittest.TestCase):
     def test_background_does_not_validate_cards(self):
         research = json.loads(self.outputs["data/research.json"])
         ids = {record["id"] for record in research["records"]}
-        self.assertEqual(sum(record["access_level"] == "full_text" for record in research["records"]), 5)
+        self.assertEqual(sum(record["access_level"] == "full_text" for record in research["records"]), 6)
         self.assertEqual(ids, {"B01", "B02", "B03", "B04", "B05", "B06"})
         for card in self.export["cards"]:
             self.assertTrue(card["background_is_not_validation"])
@@ -84,7 +84,7 @@ class ExportTests(unittest.TestCase):
         self.assertIn("p = .053", records["B05"]["fields"]["关键限制"])
         self.assertIn("p = .84", records["B05"]["fields"]["关键限制"])
         self.assertIn("不能转成治疗建议", records["B05"]["fields"]["关键限制"])
-        self.assertEqual(records["B03"]["access_level"], "abstract_only")
+        self.assertEqual(records["B03"]["access_level"], "full_text")
         self.assertEqual(build.local_href("../docs/evidence/B05-leisure-value.md", "book/08-permission.md"), "#n05")
         note = next(item for item in json.loads(self.outputs["data/evidence.json"])["notes"] if item["id"] == "N05")
         self.assertEqual(note["id"], "N05")
@@ -154,7 +154,7 @@ class ExportTests(unittest.TestCase):
         chapters = json.loads(self.outputs["data/chapters.json"])["chapters"]
         self.assertEqual({chapter["source"] for chapter in chapters},
                          {p.relative_to(ROOT).as_posix() for p in (ROOT / "book").glob("*.md")})
-        self.assertEqual(len(chapters), 13)
+        self.assertEqual(len(chapters), 15)
         self.assertEqual(len({chapter["id"] for chapter in chapters}), len(chapters))
         for chapter in chapters:
             source = ROOT / chapter["source"]
@@ -178,7 +178,7 @@ class ExportTests(unittest.TestCase):
     def test_standalone_chapters_have_complete_text_and_no_empty_action_footer(self):
         chapters = json.loads(self.outputs["data/chapters.json"])["chapters"]
         standalone = [chapter for chapter in chapters if chapter["scope"] == "full_chapter"]
-        self.assertEqual({chapter["id"] for chapter in standalone}, {"C11", "C12", "C13"})
+        self.assertEqual({chapter["id"] for chapter in standalone}, {"C11", "C12", "C13", "C14", "C15"})
         for chapter in standalone:
             self.assertEqual(chapter["card_ids"], [])
             self.assertEqual(chapter["text"], (ROOT / chapter["source"]).read_text().strip())
@@ -191,6 +191,42 @@ class ExportTests(unittest.TestCase):
         self.assertIn("<details>", result)
         self.assertIn("<summary>答案</summary>", result)
         self.assertNotIn('<details onclick=', build.markdown('<details onclick="bad()">', "README.md"))
+
+    def test_richness_proof_preserves_version_and_counterevidence(self):
+        records = {item["id"]: item for item in json.loads(self.outputs["data/research.json"])["records"]}
+        richness = records["B03"]
+        self.assertEqual(richness["access_level"], "full_text")
+        self.assertIn("页校样", richness["fields"]["版本边界"])
+        self.assertIn("不冒充已核验的期刊最终版", richness["fields"]["版本边界"])
+        self.assertIn("即时满足比延迟更好", richness["fields"]["不能推出"])
+        self.assertIn("p = .05", richness["fields"]["关键限制"])
+        self.assertIn("p = .44", richness["fields"]["关键限制"])
+        notes = {item["id"]: item for item in json.loads(self.outputs["data/evidence.json"])["notes"]}
+        self.assertEqual(notes["N03"]["source_kind"], "study_reading_note")
+        self.assertIn("德国为 49.7%", notes["N03"]["text"])
+        self.assertIn("这不是问他们是否最偏爱丰富人生", notes["N03"]["text"])
+        self.assertEqual(build.local_href("../docs/evidence/B03-richness.md",
+                                          "essays/02-excitement-without-escalation.md"), "#n03")
+
+    def test_flavor_and_public_space_sources_keep_nonexperimental_kinds(self):
+        notes = {item["id"]: item for item in json.loads(self.outputs["data/evidence.json"])["notes"]}
+        self.assertEqual(notes["F05"]["source_kind"], "official_explainer")
+        self.assertEqual(notes["F06"]["source_kind"], "practice_framework")
+        self.assertIn("没有进行盲品", notes["F05"]["text"])
+        self.assertIn("没有实地评估任何街区", notes["F06"]["text"])
+        studies = {item["id"] for item in json.loads(self.outputs["data/research.json"])["records"]}
+        self.assertTrue({"F05", "F06"}.isdisjoint(studies))
+        for chapter, note, path in [
+            ("14-flavor.md", "F05-flavor.md", "#f05"),
+            ("15-neighborhood.md", "F06-public-space.md", "#f06"),
+        ]:
+            self.assertEqual(build.local_href("../docs/evidence/" + note, "book/" + chapter), path)
+
+    def test_value_answers_are_not_forced_into_activity_card_format(self):
+        protocol = (ROOT / "docs/ai.md").read_text()
+        self.assertIn("引用行动卡时必须保留", protocol)
+        self.assertIn("回答价值与生活问题时，不套用行动卡格式", protocol)
+        self.assertNotIn("每条回答必须保留", protocol)
 
     def test_offline_evidence_navigation(self):
         self.assertEqual(build.local_href("../docs/evidence/B04-anticipation.md",

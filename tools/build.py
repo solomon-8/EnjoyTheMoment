@@ -25,6 +25,7 @@ ESSAYS = [
 ]
 EVIDENCE = [
     ("N02", "docs/evidence/B02-quantification.md"),
+    ("N03", "docs/evidence/B03-richness.md"),
     ("N04", "docs/evidence/B04-anticipation.md"),
     ("N05", "docs/evidence/B05-leisure-value.md"),
     ("N06", "docs/evidence/B06-solitude.md"),
@@ -32,12 +33,16 @@ EVIDENCE = [
     ("F02", "docs/evidence/F02-listening-language.md"),
     ("F03", "docs/evidence/F03-film-language.md"),
     ("F04", "docs/evidence/F04-safe-listening.md"),
+    ("F05", "docs/evidence/F05-flavor.md"),
+    ("F06", "docs/evidence/F06-public-space.md"),
 ]
 EVIDENCE_KINDS = {
     "F01": "official_statistics",
     "F02": "educational_reference",
     "F03": "educational_reference",
     "F04": "official_health_guidance",
+    "F05": "official_explainer",
+    "F06": "practice_framework",
 }
 RELATIONS = [
     {"card_ids": ["J033"], "background_ids": ["B01"], "essay_ids": ["E04"]},
