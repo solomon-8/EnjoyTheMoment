@@ -53,6 +53,9 @@ EVIDENCE = [
     ("F14", "docs/evidence/F14-editions.md"),
     ("F15", "docs/evidence/F15-musical-scores.md"),
     ("F16", "docs/evidence/F16-train-robbery.md"),
+    ("F17", "docs/evidence/F17-dance-language.md"),
+    ("F18", "docs/evidence/F18-football-rules.md"),
+    ("F19", "docs/evidence/F19-basketball-rules.md"),
 ]
 EVIDENCE_KINDS = {
     "F01": "official_statistics",
@@ -71,6 +74,9 @@ EVIDENCE_KINDS = {
     "F14": "educational_reference",
     "F15": "musical_score",
     "F16": "film_and_historical_catalog",
+    "F17": "dance_education_and_work_record",
+    "F18": "official_sport_rules",
+    "F19": "official_sport_rules",
 }
 RELATIONS = [
     {"card_ids": ["J033"], "background_ids": ["B01"], "essay_ids": ["E04"]},
