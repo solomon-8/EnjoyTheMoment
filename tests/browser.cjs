@@ -59,10 +59,36 @@ const { chromium } = require("playwright");
     await page.goto(url + "#c12");
     await page.waitForFunction(() => document.getElementById("c12").open);
     assert.match(await page.locator("#c12 .prose").textContent(), /长镜头说的是镜头持续/);
-    assert.equal(await page.locator("#c12 .prose table").count(), 2);
+    assert.equal(await page.locator("#c12 .prose table").count(), 3);
+    assert.equal(await page.locator("#c12 .artwork img").count(), 3);
+    assert.equal(await page.locator("#c12 .prose details").getAttribute("open"), null);
+    assert.equal(await page.locator("#c12 .prose details img").isVisible(), false);
+    await page.locator("#c12 .prose details > summary").click();
+    for (const image of await page.locator("#c12 .artwork img").all()) {
+      await image.scrollIntoViewIfNeeded();
+      await image.evaluate(img => img.decode());
+      assert.ok(await image.evaluate(img => img.naturalWidth > 0 && img.alt.length > 30));
+    }
+    await page.locator("#c12 .prose details > summary").click();
+    await page.locator("#c12 a[href='#f16']").first().click();
+    await page.waitForFunction(() => document.getElementById("f16").open);
+    assert.match(await page.locator("#f16 .prose").textContent(), /不是连续完整播放/);
+    await page.goto(url + "#c12");
     await page.locator("#c12 a[href='#f03']").click();
     await page.waitForFunction(() => document.getElementById("f03").open);
     assert.match(await page.locator("#f03 .prose").textContent(), /实际依据是条目的文字解释/);
+    await page.goto(url + "#c11");
+    await page.waitForFunction(() => document.getElementById("c11").open);
+    assert.equal(await page.locator("#c11 .artwork img").count(), 2);
+    for (const image of await page.locator("#c11 .artwork img").all()) {
+      await image.scrollIntoViewIfNeeded();
+      await image.evaluate(img => img.decode());
+      assert.ok(await image.evaluate(img => img.naturalWidth > 0 && img.alt.length > 30));
+    }
+    await page.screenshot({path: "/tmp/enjoythemoment-music-desktop.png", fullPage: false});
+    await page.locator("#c11 a[href='#f15']").first().click();
+    await page.waitForFunction(() => document.getElementById("f15").open);
+    assert.match(await page.locator("#f15 .prose").textContent(), /没有实际试听/);
     await page.goto(url + "#c13");
     await page.waitForFunction(() => document.getElementById("c13").open);
     await page.locator("#c13 a[href='#f04']").click();
@@ -251,6 +277,21 @@ const { chromium } = require("playwright");
     assert(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth));
     assert(await artImage.evaluate(img => img.getBoundingClientRect().right <= innerWidth));
     await page.screenshot({path: "/tmp/enjoythemoment-art-mobile.png", fullPage: false});
+    for (const id of ["c11", "c12"]) {
+      await page.goto(url + "#" + id);
+      await page.waitForFunction(id => document.getElementById(id).open, id);
+      const image = page.locator("#" + id + " .artwork img").first();
+      await image.scrollIntoViewIfNeeded();
+      await image.evaluate(img => img.decode());
+      assert(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth));
+      assert(await image.evaluate(img => img.getBoundingClientRect().right <= innerWidth));
+      await page.screenshot({path: "/tmp/enjoythemoment-" + id + "-mobile.png", fullPage: false});
+    }
+    await page.locator("#c12 .prose details > summary").click();
+    const ending = page.locator("#c12 .prose details img");
+    await ending.scrollIntoViewIfNeeded();
+    await ending.evaluate(img => img.decode());
+    await page.screenshot({path: "/tmp/enjoythemoment-film-spoiler-mobile.png", fullPage: false});
     await page.goto(url);
     await page.reload();
     await page.screenshot({path: process.env.SCREENSHOT_MOBILE || "/tmp/enjoythemoment-mobile.png", fullPage: false});
@@ -275,6 +316,12 @@ const { chromium } = require("playwright");
     assert.equal(await staticPage.locator("#c25 .artwork img").count(), 3);
     await staticPage.locator("#c25 .artwork img").first().scrollIntoViewIfNeeded();
     assert(await staticPage.locator("#c25 .artwork img").first().evaluate(img => img.complete && img.naturalWidth > 0));
+    await staticPage.locator("#c12 > summary").click();
+    assert.equal(await staticPage.locator("#c12 .prose details img").isVisible(), false);
+    await staticPage.locator("#c12 .prose details > summary").click();
+    await staticPage.locator("#c12 .prose details img").scrollIntoViewIfNeeded();
+    await staticPage.locator("#c12 .prose details img").evaluate(img => img.decode());
+    assert(await staticPage.locator("#c12 .prose details img").isVisible());
     await nojs.close();
     console.log("OK: offline, filters, empty state, deep links, keyboard, 390px, dark/reduced motion, print, no-JS, zero external requests");
   } finally {

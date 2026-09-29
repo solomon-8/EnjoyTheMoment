@@ -51,6 +51,8 @@ EVIDENCE = [
     ("F12", "docs/evidence/F12-trip-planning.md"),
     ("F13", "docs/evidence/F13-artworks.md"),
     ("F14", "docs/evidence/F14-editions.md"),
+    ("F15", "docs/evidence/F15-musical-scores.md"),
+    ("F16", "docs/evidence/F16-train-robbery.md"),
 ]
 EVIDENCE_KINDS = {
     "F01": "official_statistics",
@@ -67,6 +69,8 @@ EVIDENCE_KINDS = {
     "F12": "official_visitor_guidance",
     "F13": "artwork_record_and_image",
     "F14": "educational_reference",
+    "F15": "musical_score",
+    "F16": "film_and_historical_catalog",
 }
 RELATIONS = [
     {"card_ids": ["J033"], "background_ids": ["B01"], "essay_ids": ["E04"]},
@@ -86,7 +90,7 @@ def source_digest(root):
         root / path for _, path in ESSAYS
     ] + [root / path for _, path in EVIDENCE] + [
         root / "docs/research.md", root / "SHUAQI.md", root / "docs/culture-shuaqi.md"
-    ] + sorted((root / "assets/art").glob("*"))
+    ] + sorted((root / "assets/art").glob("*")) + sorted((root / "assets/media").glob("*"))
     digest = hashlib.sha256()
     for path in files:
         digest.update(path.relative_to(root).as_posix().encode())
@@ -202,10 +206,11 @@ def markdown(text, source_path, omit_title=False):
             close_blocks()
             alt, href = image.groups()
             target = (ROOT / Path(source_path).parent / href).resolve()
-            if (not target.is_relative_to((ROOT / "assets/art").resolve())
+            allowed_roots = ((ROOT / "assets/art").resolve(), (ROOT / "assets/media").resolve())
+            if (not any(target.is_relative_to(folder) for folder in allowed_roots)
                     or target.suffix.lower() not in {".jpg", ".png", ".webp"}
                     or not target.is_file()):
-                raise ValueError("正文图片仅支持 assets/art 内已存在的本地图像：" + href)
+                raise ValueError("正文图片仅支持 assets/art 或 assets/media 内已存在的本地图像：" + href)
             mime = {".jpg": "image/jpeg", ".png": "image/png", ".webp": "image/webp"}[target.suffix.lower()]
             out.append('<figure class="artwork"><img src="data:{0};base64,{1}" alt="{2}" loading="lazy" decoding="async"></figure>'.format(
                 mime, base64.b64encode(target.read_bytes()).decode("ascii"),
