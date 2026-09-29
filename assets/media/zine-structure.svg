@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="440" height="884" viewBox="0 0 440 884" role="img" aria-labelledby="title desc">
+<title id="title">一张纸，八页小册子</title>
+<desc id="desc">本书原创结构示意。摊平的纸为两行四列，中部横向折痕的中间两格宽度有开口。未标源纸页码与文字朝向，不是拼版或完整裁切教程。下半部单独显示成册阅读顺序：封面1，内页2至7共三组跨页，封底8。八页包含封面封底。</desc>
+<rect width="440" height="884" rx="16" fill="#fff8ec"/>
+<g font-family="PingFang SC, Microsoft YaHei, sans-serif" fill="#24231f" font-size="22">
+<text x="24" y="42" font-size="26" font-weight="700">一张纸，八页小册子</text>
+<text x="24" y="78">上图：只看折痕与中部开口</text>
+<text x="24" y="112" font-size="20">没有标页序，不能直接当拼版。</text>
+</g>
+<rect id="source-paper" x="40" y="150" width="360" height="180" fill="#fffdf8" stroke="#7b6949" stroke-width="2"/>
+<g stroke="#7b6949" stroke-width="2" stroke-dasharray="8 6">
+<path id="crease-v1" d="M130 150V330"/><path id="crease-v2" d="M220 150V330"/><path id="crease-v3" d="M310 150V330"/>
+<path id="crease-h" d="M40 240H400"/>
+</g>
+<path id="central-opening" d="M130 240H310" stroke="#a63b23" stroke-width="6"/>
+<g font-family="PingFang SC, Microsoft YaHei, sans-serif" fill="#24231f" font-size="22">
+<text x="24" y="367">虚线：折痕　实线红段：开口</text>
+<text x="24" y="404" font-size="20">完整动作请看来源图文，不靠此图。</text>
+<text x="24" y="453" font-weight="700">下图：成册后的阅读次序</text>
+</g>
+<rect id="reading-page-1" x="24" y="476" width="392" height="52" rx="6" fill="#f2e5ca" stroke="#b9b2a4"/>
+<text x="220.0" y="510" text-anchor="middle" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="22" fill="#24231f">1 · 封面</text>
+<rect id="reading-page-2" x="24" y="541" width="191" height="52" rx="6" fill="#e1eeee" stroke="#b9b2a4"/>
+<text x="119.5" y="575" text-anchor="middle" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="22" fill="#24231f">2 · 内页</text>
+<rect id="reading-page-3" x="225" y="541" width="191" height="52" rx="6" fill="#e1eeee" stroke="#b9b2a4"/>
+<text x="320.5" y="575" text-anchor="middle" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="22" fill="#24231f">3 · 内页</text>
+<rect id="reading-page-4" x="24" y="606" width="191" height="52" rx="6" fill="#e1eeee" stroke="#b9b2a4"/>
+<text x="119.5" y="640" text-anchor="middle" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="22" fill="#24231f">4 · 内页</text>
+<rect id="reading-page-5" x="225" y="606" width="191" height="52" rx="6" fill="#e1eeee" stroke="#b9b2a4"/>
+<text x="320.5" y="640" text-anchor="middle" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="22" fill="#24231f">5 · 内页</text>
+<rect id="reading-page-6" x="24" y="671" width="191" height="52" rx="6" fill="#e1eeee" stroke="#b9b2a4"/>
+<text x="119.5" y="705" text-anchor="middle" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="22" fill="#24231f">6 · 内页</text>
+<rect id="reading-page-7" x="225" y="671" width="191" height="52" rx="6" fill="#e1eeee" stroke="#b9b2a4"/>
+<text x="320.5" y="705" text-anchor="middle" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="22" fill="#24231f">7 · 内页</text>
+<rect id="reading-page-8" x="24" y="736" width="392" height="52" rx="6" fill="#f2e5ca" stroke="#b9b2a4"/>
+<text x="220.0" y="770" text-anchor="middle" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="22" fill="#24231f">8 · 封底</text>
+<g font-family="PingFang SC, Microsoft YaHei, sans-serif" fill="#24231f" font-size="22">
+<text x="24" y="826">八页 = 封面 + 六页内页 + 封底</text>
+<text x="24" y="862" font-size="20">上下图不是格子与页码的一一对照。</text>
+</g></svg>
