@@ -73,6 +73,14 @@
 
 观赛章节的越位时点图为本项目原创简化示意，不是官方插图、真实比赛或判罚工具；SVG 源文件与 PNG 见[图解署名](../assets/media/README.md)。来源类型和简化条件不能因采用了图片就省略。
 
+## 公共生活观察工具
+
+[第 15 章](../book/15-neighborhood.md)与 [F35](evidence/F35-public-life-observation.md)对 PLDP 配套观察方法作了有限中文转述、缩写与重组，不是官方译本。来源采用 [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)，固定提交与读取范围见 F35，完整署名亦保留于章节、来源笔记和 LICENSE。原创假想与价值讨论不冒充机构研究；没有复制调查表版式、图标或样例个人数据。
+
+The Public Life Data Protocol was jointly developed by Gehl Institute, Gehl, the City of Copenhagen, The City of San Francisco, and Seattle Department of Transportation.
+
+[F36](evidence/F36-midtown-public-space.md)另采用 NACTO 托管的 NYC DOT 历史报告。托管方、报告作者、观察记录与本书解释分开，不把两份材料说成同一项目的数据链。各机构未审核或为本项目背书。
+
 ## 开放游戏规则
 
 [第 34 章](../book/34-shared-stories.md)及 [F32](evidence/F32-action-and-consequences.md)、[F33](evidence/F33-aspects-and-shared-fiction.md)转述 *Blades in the Dark* 与 *Fate Condensed* 的指定开放规则。两者相应 SRD 采用 CC BY 3.0 Unported；本书的中文解释、对比和场景是改写，不是官方中文译本。完整要求署名保留在章节、来源笔记和仓库 LICENSE 中，不把开放规则冒称 MIT 原创。
