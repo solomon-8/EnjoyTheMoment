@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1440" height="520" viewBox="0 0 1440 520" role="img" aria-labelledby="title description">
-  <title id="title">享受当下 · Enjoy The Moment</title>
-  <desc id="description">米白色与橘红色排版。快乐不必证明对未来有用。今天，也算数。</desc>
+  <title id="title">耍起 · 享受当下 · Enjoy The Moment</title>
+  <desc id="description">米白色与橘红色排版。耍起，把快乐当正事。好玩可以是理由的终点。</desc>
   <rect width="1440" height="520" rx="28" fill="#fff5e4"/>
   <rect x="1010" width="430" height="520" rx="28" fill="#fa4d29"/>
   <rect x="1010" width="40" height="520" fill="#fa4d29"/>
@@ -9,13 +9,13 @@
     <text x="60" y="230" font-size="118" font-weight="900" letter-spacing="5">享受当下</text>
     <text x="68" y="299" font-size="35" font-weight="650" letter-spacing="3">ENJOY THE MOMENT</text>
     <path d="M68 353H923" stroke="#22201d" stroke-width="2"/>
-    <text x="68" y="409" font-size="31" font-weight="600">快乐不必证明对未来有用。</text>
+    <text x="68" y="409" font-size="31" font-weight="600">耍起。把快乐当正事。</text>
     <text x="68" y="458" font-size="18">即刻开始 / 真心喜欢 / 随时散场</text>
   </g>
   <g fill="#fff5e4" font-family="'PingFang SC','Microsoft YaHei','Noto Sans CJK SC',sans-serif" text-anchor="middle" font-weight="900">
     <text x="1225" y="125" font-size="23" letter-spacing="5">NOT SOMEDAY.</text>
-    <text x="1225" y="260" font-size="98">今天</text>
-    <text x="1225" y="366" font-size="77">也算数</text>
+    <text x="1225" y="270" font-size="112">耍起</text>
+    <text x="1225" y="355" font-size="34">好玩，就是理由</text>
     <text x="1225" y="450" font-size="19" letter-spacing="4">RIGHT HERE. RIGHT NOW.</text>
   </g>
 </svg>

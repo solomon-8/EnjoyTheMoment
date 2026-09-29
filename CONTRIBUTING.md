@@ -48,11 +48,15 @@
 
 ```bash
 python3 tools/check.py
+python3 tools/build.py
+python3 tools/build.py --check
 python3 -m unittest discover -s tests -v
 python3 tools/pick.py --minutes 20 --budget 0 --company solo
 ```
 
-检查覆盖卡片结构、编号和锚点、筛选字段、Markdown 本地文件与锚点链接、SVG 语法，以及脚本测试。**它不会证明活动有效，也不会代替外链内容与现实条件核实。**
+检查覆盖卡片结构、编号和锚点、筛选字段、Markdown 本地链接、SVG 语法、机器接口、生成一致性和脚本测试。浏览器回归另用 `node tests/browser.cjs`（需可用的 Playwright 与 Chromium，不是阅读或构建依赖）。**它不会证明活动有效，也不会代替外链内容与现实条件核实。**
+
+`book/`、`essays/`、`SHUAQI.md` 与相关 `docs/` 是内容源；不要只修改 `index.html`、`llms-full.txt` 或生成 JSON。卡片数量不等于内容厚度：优先补场景、反例和条件，避免把已有 ID 换成另一件事。真实反馈可使用[试做模板](templates/experience-note.md)，不要求公开。
 
 ## 隐私、利益关系和许可
 
@@ -61,3 +65,7 @@ python3 tools/pick.py --minutes 20 --budget 0 --company solo
 - 不接收虚构亲测、刷量、骚扰、危险挑战或未经核验的医疗与法律指令。
 - 贡献的原创内容按本仓库 [MIT License](LICENSE) 提供；只提交你有权这样许可的内容。
 - AI 可以辅助，但投稿者必须检查；AI 编出的参考文献、经历和数字不算贡献。
+
+## 变更说明
+
+变更缘由、影响范围和验证结果放在 MR/PR 描述里。正文、首页和阅读页只呈现当前内容，不维护独立 CHANGELOG，不插入修订过程或版本对比。证据出处、核验日期与适用边界不属于变更日志，应继续保留。

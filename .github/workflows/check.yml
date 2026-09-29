@@ -22,6 +22,8 @@ jobs:
           python-version: "3.11"
       - name: Validate the catalog and local links
         run: python3 tools/check.py
+      - name: Verify generated reader and AI exports are current
+        run: python3 tools/build.py --check
       - name: Test the offline picker
         run: python3 -m unittest discover -s tests -v
       - name: Smoke-test an empty result and a free suggestion

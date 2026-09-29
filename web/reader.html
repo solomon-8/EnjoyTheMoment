@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="耍起，把快乐当正事。60 张行动卡、六篇深读、文化来源与研究边界。不打卡，不排名。">
+  <meta name="referrer" content="no-referrer">
+  <meta name="color-scheme" content="light dark">
+  <meta name="source-digest" content="@@DIGEST@@">
+  <title>耍起 · 享受当下 · Enjoy The Moment</title>
+  <style>@@CSS@@</style>
+</head>
+<body>
+<a class="skip" href="#menu">跳到快乐菜单</a>
+<header class="topbar">
+  <a class="brand" href="#top">享受当下<span>ENJOY THE MOMENT</span></a>
+  <nav aria-label="主要导航">
+    <a href="#menu">怎么耍</a><a href="#longreads">读深一点</a><a href="#shuaqi">什么叫耍起</a>
+    <a href="https://github.com/solomon-8/EnjoyTheMoment">GitHub ↗</a>
+  </nav>
+</header>
+<main id="top">
+  <section class="hero" aria-labelledby="hero-title">
+    <div><p class="eyebrow">A GUIDE TO LIVING, NOT JUST LASTING.</p>
+    <h1 id="hero-title">耍起<span>。</span><br>把快乐当正事。</h1>
+    <p class="lead">不是等生活安排好了再耍。<br>是生活里面，本来就该有耍。</p>
+    <a class="primary" href="#menu">今天，想怎么耍？ ↓</a></div>
+    <aside class="hero-note"><span class="note-number">ENJOY THE MOMENT</span><h2>好玩，可以是<br>理由的终点。</h2>
+    <p>自己愿意。他人同意。<br>代价看得见。过程退得出。</p>
+    <p class="small">不打卡 · 不排名 · 不要求每天快乐</p></aside>
+  </section>
+  <section id="menu" class="section" aria-labelledby="menu-title">
+    <div class="section-heading"><div><p class="eyebrow">THE MENU / 即刻开始</p><h2 id="menu-title">找一口合口味的。</h2></div>
+      <p>@@COUNT@@ 张原创试做，不是幸福处方。<br>金额是预留上限，不是实时报价。</p></div>
+    <form id="filters" class="filters" hidden>
+      <label class="search">想怎么耍<input id="query" type="search" placeholder="游戏、独处、音乐…或 J019" autocomplete="off"></label>
+      <label>时间上限<select id="minutes"><option value="10000">不限</option><option value="5">5 分钟</option><option value="20">20 分钟</option><option value="30">30 分钟</option><option value="60">1 小时</option></select></label>
+      <label>新增预算<select id="budget"><option value="10000">不限</option><option value="0">0 元</option><option value="20">20 元以内</option><option value="50">50 元以内</option><option value="100">100 元以内</option></select></label>
+      <label>和谁<select id="company"><option value="any">都可以</option><option value="solo">我自己</option><option value="social">和别人</option></select></label>
+      <label>参与负担<select id="energy"><option value="high">不限</option><option value="low">轻一点</option><option value="medium">适中以下</option></select></label>
+      <label>章节<select id="chapter"><option value="">全部章节</option>@@CHAPTERS@@</select></label>
+      <div class="filter-actions"><button id="random" type="button">随便挑一件 ↗</button><button id="reset" type="reset">清除筛选</button></div>
+    </form>
+    <p id="status" class="status" role="status" aria-live="polite">共 @@COUNT@@ 张。展开标题看完整代价、小份版本和散场线。</p>
+    <p id="empty" class="empty" hidden>没有符合条件的主方案。不必加钱或加时间；清除筛选看看小份版本，也可以今天不做。</p>
+    <noscript><p>JavaScript 未开启：全部卡片和长文仍可展开阅读。可使用浏览器“查找”搜索。</p></noscript>
+    <div id="cards" class="cards">@@CARDS@@</div>
+  </section>
+  <section id="longreads" class="section" aria-labelledby="essay-title">
+    <div class="section-heading"><div><p class="eyebrow">GO DEEPER / 不只一句口号</p><h2 id="essay-title">六个值得认真想的问题。</h2></div><p>论证、反例、虚构场景。<br>不是把长寿建议逐条反过来。</p></div>
+    @@ESSAYS@@
+  </section>
+  <section id="shuaqi" class="section" aria-labelledby="shuaqi-title">
+    <div class="section-heading"><div><p class="eyebrow">SHUAQI / 我们自己的主张</p><h2 id="shuaqi-title">不只把热词贴上封面。</h2></div><p>文化来源、项目定义、行动建议，分开说。</p></div>
+    <details class="essay" id="shuaqi-content"><summary>我们说的“耍起”，有五层意思</summary><div class="prose">@@SHUAQI@@</div></details>
+    <details class="essay" id="culture"><summary>梗的语境与归属：核验过什么，没有核验什么</summary><div class="prose">@@CULTURE@@</div></details>
+  </section>
+  <section id="research" class="section" aria-labelledby="research-title">
+    <div class="section-heading"><div><p class="eyebrow">EVIDENCE & LIMITS / 不给偏好镀金</p><h2 id="research-title">研究说了什么，没说什么。</h2></div></div>
+    <details class="essay" id="research-content"><summary>4 篇背景研究 · 1 篇全文 / 3 篇摘要 · 不直接验证卡片</summary><div class="prose">@@RESEARCH@@</div></details>
+  </section>
+</main>
+<footer><strong>愿你今天有一件事，只是因为喜欢。</strong><p>本页由 Markdown 自动生成，可下载后离线打开。无账号、无统计脚本、无本地存储；外部原文链接需要网络。</p>
+<p><a href="https://github.com/solomon-8/EnjoyTheMoment/blob/main/CONTRIBUTING.md">贡献与纠错</a> · <a href="https://github.com/solomon-8/EnjoyTheMoment/blob/main/README.en.md">English introduction</a> · <a href="https://github.com/solomon-8/EnjoyTheMoment/blob/main/LICENSE">MIT</a></p>
+<p class="small">AI 辅助起草；未经用户效果实验。</p></footer>
+<script>@@JS@@</script>
+</body>
+</html>

@@ -1,0 +1,29 @@
+# Enjoy The Moment / 享受当下：耍起
+
+> A practical, pleasure-first guide. “耍起” is this project's cultural framing,
+> not an endorsement by a performer or an instruction to ignore costs.
+
+## Read first
+- [Core position](SHUAQI.md): this project's own definition, not a quotation.
+- [AI reading contract](docs/ai.md): retrieval, constraints, provenance, and limits.
+- [Culture sources](docs/culture-shuaqi.md): dated context, secondary reporting, attribution boundaries.
+
+## Canonical content
+- [Catalog](README.md): 60 original activity proposals in book/.
+- [Research ledger](docs/research.md): background studies, access levels, and non-claims.
+- [Editorial policy](docs/editorial-policy.md): value positions are not scientific results.
+
+## Machine interfaces
+- [Cards JSON](data/catalog.json): full fields, IDs, source paths, hashes, background links.
+- [Essays JSON](data/essays.json): six deeper arguments with counterexamples.
+- [Research JSON](data/research.json): background metadata, not card validation.
+- [Card schema](data/catalog.schema.json): versioned public interface.
+- [Full plain text](llms-full.txt): generated; prefer targeted retrieval.
+
+## Local retrieval
+python3 tools/pick.py --query 游戏 --minutes 60 --budget 0 --company solo --json --limit 3
+python3 tools/pick.py --id J019 --json
+
+“耍起/享受当下” are project-level intents, not magic keyword matches.
+Resolve the person's concrete preference before searching. Do not remove
+alternatives, stopping conditions or evidence status to save tokens.

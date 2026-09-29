@@ -1,5 +1,7 @@
 ## 改了什么
 
+<!-- 变更说明维护在本 MR/PR 中；不另写 CHANGELOG，也不在读者正文里加入修订过程。 -->
+
 ## 哪个具体场景因此更好用
 
 ## 依据
@@ -9,6 +11,7 @@
 - [ ] 没有隐私、未披露推广、虚构亲测或来源
 - [ ] 卡片编号与目录数量已同步（如适用）
 - [ ] `python3 tools/check.py` 通过
+- [ ] `python3 tools/build.py --check` 通过
 - [ ] `python3 -m unittest discover -s tests -v` 通过
 
 ## 仍有限制或不适用的情况

@@ -1,0 +1,54 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "EnjoyTheMoment catalog 1.0",
+  "type": "object",
+  "required": ["schema_version", "source_digest", "canonical_source", "count", "notice", "cards"],
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {"const": "1.0"},
+    "source_digest": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+    "canonical_source": {"const": "book/*.md"},
+    "count": {"type": "integer", "minimum": 1},
+    "notice": {"type": "string"},
+    "cards": {"type": "array", "items": {"$ref": "#/$defs/card"}}
+  },
+  "$defs": {
+    "card": {
+      "type": "object",
+      "required": ["id", "title", "minutes", "budget", "currency", "company", "energy", "evidence_type", "fields", "body", "source", "source_url", "source_sha256", "chapter_id", "chapter_title", "background_ids", "essay_ids", "background_is_not_validation"],
+      "additionalProperties": false,
+      "properties": {
+        "id": {"type": "string", "pattern": "^J[0-9]{3,}$"},
+        "title": {"type": "string"},
+        "minutes": {"type": "integer", "minimum": 1},
+        "budget": {"type": "integer", "minimum": 0},
+        "currency": {"const": "CNY"},
+        "company": {"enum": ["solo", "social", "either"]},
+        "energy": {"enum": ["low", "medium", "high"]},
+        "evidence_type": {"const": "original_proposal"},
+        "fields": {
+          "type": "object",
+          "required": ["现在做", "想得到", "付出", "换小份", "散场线", "性质"],
+          "additionalProperties": false,
+          "properties": {
+            "现在做": {"type": "string", "minLength": 1},
+            "想得到": {"type": "string", "minLength": 1},
+            "付出": {"type": "string", "minLength": 1},
+            "换小份": {"type": "string", "minLength": 1},
+            "散场线": {"type": "string", "minLength": 1},
+            "性质": {"type": "string", "minLength": 1}
+          }
+        },
+        "body": {"type": "string"},
+        "source": {"type": "string"},
+        "source_url": {"type": "string", "format": "uri"},
+        "source_sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+        "chapter_id": {"type": "string", "pattern": "^[0-9]{2}$"},
+        "chapter_title": {"type": "string"},
+        "background_ids": {"type": "array", "items": {"type": "string", "pattern": "^B[0-9]{2}$"}},
+        "essay_ids": {"type": "array", "items": {"type": "string", "pattern": "^E[0-9]{2}$"}},
+        "background_is_not_validation": {"const": true}
+      }
+    }
+  }
+}

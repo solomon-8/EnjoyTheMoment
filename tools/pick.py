@@ -2,6 +2,7 @@
 """An offline invitation, not a happiness score. Python 3.9+, stdlib only."""
 
 import argparse
+import hashlib
 import json
 import random
 import re
@@ -33,6 +34,25 @@ class Card:
     @property
     def reference(self) -> str:
         return "{0}#{1}".format(self.path.as_posix(), self.id.lower())
+
+    @property
+    def fields(self):
+        return {
+            field: re.search(r"^- \*\*" + re.escape(field) + r"\*\*：(.+)$",
+                             self.body, re.MULTILINE).group(1)
+            for field in FIELDS
+        }
+
+    def to_dict(self, root=ROOT):
+        return {
+            "id": self.id, "title": self.title,
+            "minutes": self.minutes, "budget": self.budget, "currency": "CNY",
+            "company": self.company, "energy": self.energy,
+            "evidence_type": "original_proposal", "fields": self.fields,
+            "body": self.body, "source": self.reference,
+            "source_url": "https://github.com/solomon-8/EnjoyTheMoment/blob/main/" + self.reference,
+            "source_sha256": hashlib.sha256((root / self.path).read_bytes()).hexdigest(),
+        }
 
 
 def load_cards(root: Path = ROOT) -> List[Card]:
@@ -96,7 +116,7 @@ def load_cards(root: Path = ROOT) -> List[Card]:
 
 def filter_cards(
     catalog: Sequence[Card], minutes: int, budget: int,
-    company: str = "any", energy: str = "high",
+    company: str = "any", energy: str = "high", query: str = "",
 ) -> List[Card]:
     """No ranking: match the main activity's stated allowance only."""
     if minutes < 0 or budget < 0:
@@ -109,6 +129,8 @@ def filter_cards(
         and card.budget <= budget
         and ENERGY[card.energy] <= ENERGY[energy]
         and (company == "any" or card.company in {company, "either"})
+        and all(term in (card.id + " " + card.title + " " + card.body).lower()
+                for term in query.lower().split())
     ]
 
 
@@ -134,17 +156,32 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
                         help="最高参与负担；high 包含所有等级，不是只选高负担")
     parser.add_argument("--list", action="store_true", help="列出全部匹配卡片，不随机抽取")
     parser.add_argument("--seed", type=int, default=None, help="可选固定随机种子，方便复现")
+    parser.add_argument("--query", default="", help="全文关键词；多个词以空格分隔，全部须匹配")
+    parser.add_argument("--id", default=None, help="读取确切编号，如 J019；此时不应用预算等筛选")
+    parser.add_argument("--json", action="store_true", help="仅输出 JSON；默认返回前 3 个匹配，不随机")
+    parser.add_argument("--limit", type=nonnegative, default=3, help="JSON 的最多返回条数，默认 3")
     args = parser.parse_args(argv)
     try:
-        cards = filter_cards(load_cards(), args.minutes, args.budget, args.company, args.energy)
+        catalog = load_cards()
+        cards = ([card for card in catalog if card.id == args.id.upper()] if args.id
+                 else filter_cards(catalog, args.minutes, args.budget,
+                                   args.company, args.energy, args.query))
     except (OSError, ValueError) as exc:
         parser.exit(2, "目录读取失败：{0}\n".format(exc))
+    if args.json:
+        print(json.dumps({
+            "schema_version": "1.0", "total_matches": len(cards),
+            "scope": "exact_id" if args.id else "filtered",
+            "notice": "原创试做，不保证有效；人民币预算是预留上限而非实时价格。必须保留换小份、散场线和性质。",
+            "cards": [card.to_dict() for card in cards[:args.limit]],
+        }, ensure_ascii=False, indent=2))
+        return 0
     print("享受当下 · Enjoy The Moment")
     print("预算是主方案的人民币预留上限，不是实时价格；活动并不保证有效。")
     if not cards:
         print("没有符合主方案上限的卡片。不必加钱或加时间；可直接读“换小份”，也可以今天不做。")
         return 0
-    if args.list:
+    if args.list or args.query:
         print("匹配 {0} 张（按编号，不是推荐顺序）：".format(len(cards)))
         for card in cards:
             print("{0} · {1} | ≤{2} 分钟 / ≤¥{3} | {4}".format(

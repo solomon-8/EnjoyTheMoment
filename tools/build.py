@@ -1,0 +1,279 @@
+#!/usr/bin/env python3
+"""Generate a no-dependency offline reader and AI exports from canonical Markdown."""
+
+import argparse
+import hashlib
+import html
+import json
+import re
+from pathlib import Path
+
+from pick import ROOT, load_cards
+
+
+ESSAYS = [
+    ("E01", "essays/01-pleasure-is-an-end.md"),
+    ("E02", "essays/02-excitement-without-escalation.md"),
+    ("E03", "essays/03-now-or-later.md"),
+    ("E04", "essays/04-buying-pleasure.md"),
+    ("E05", "essays/05-play-is-not-performance.md"),
+    ("E06", "essays/06-real-life-constraints.md"),
+]
+RELATIONS = [
+    {"card_ids": ["J033"], "background_ids": ["B01"], "essay_ids": ["E04"]},
+    {"card_ids": ["J024", "J040", "J058", "J059"], "background_ids": ["B02"], "essay_ids": ["E05"]},
+    {"card_ids": ["J013", "J015", "J016", "J019", "J020"], "background_ids": ["B03"], "essay_ids": ["E02"]},
+    {"card_ids": ["J006", "J025", "J031"], "background_ids": ["B04"], "essay_ids": ["E03"]},
+]
+
+
+def json_text(data):
+    return json.dumps(data, ensure_ascii=False, indent=2) + "\n"
+
+
+def source_digest(root):
+    files = sorted((root / "book").glob("*.md")) + [
+        root / path for _, path in ESSAYS
+    ] + [root / "docs/research.md", root / "SHUAQI.md", root / "docs/culture-shuaqi.md"]
+    digest = hashlib.sha256()
+    for path in files:
+        digest.update(path.relative_to(root).as_posix().encode())
+        digest.update(b"\0")
+        digest.update(path.read_bytes())
+    return digest.hexdigest()
+
+
+def research_records(root):
+    text = (root / "docs/research.md").read_text(encoding="utf-8")
+    records = []
+    matches = list(re.finditer(r"^## (B\d+) · (.+)$", text, re.MULTILINE))
+    for index, match in enumerate(matches):
+        end = matches[index + 1].start() if index + 1 < len(matches) else text.find("## 检索过")
+        block = text[match.end():end]
+        doi = re.search(r"https://doi.org/([^)]+)", block).group(1)
+        fields = dict(re.findall(r"^- \*\*(.+?)\*\*：(.+)$", block, re.MULTILINE))
+        records.append({
+            "id": match.group(1), "title": match.group(2), "doi": doi,
+            "access_level": "full_text" if "`full_text`" in block else "abstract_only",
+            "verified_at": "2026-09-29", "fields": fields,
+            "directly_validates_cards": False,
+            "source": "docs/research.md#" + match.group(1).lower(),
+        })
+    if len(records) != 4:
+        raise ValueError("背景研究记录数量变化，请同时核对生成逻辑")
+    return records
+
+
+def local_href(href, source_path):
+    if href.startswith(("https://", "http://", "mailto:", "#")):
+        return href
+    file_part, _, fragment = href.partition("#")
+    if fragment and re.fullmatch(r"j\d+", fragment):
+        return "#" + fragment
+    clean = (Path(source_path).parent / file_part).as_posix()
+    clean = str((ROOT / clean).resolve().relative_to(ROOT)).replace("\\", "/")
+    for essay_id, path in ESSAYS:
+        if clean == path:
+            return "#" + essay_id.lower()
+    if clean == "docs/research.md":
+        return "#" + (fragment or "research")
+    if clean == "SHUAQI.md":
+        return "#shuaqi"
+    if clean == "docs/culture-shuaqi.md":
+        return "#culture"
+    return "https://github.com/solomon-8/EnjoyTheMoment/blob/main/" + clean + (
+        "#" + fragment if fragment else "")
+
+
+def inline(text, source_path):
+    """Render a small, escaped Markdown subset; source never becomes raw HTML."""
+    escaped = html.escape(text)
+    escaped = re.sub(r"\[([^\]]+)\]\(([^)]+)\)", lambda m: '<a href="{0}">{1}</a>'.format(
+        html.escape(local_href(html.unescape(m.group(2)), source_path), quote=True), m.group(1)), escaped)
+    escaped = re.sub(r"\*\*(.+?)\*\*", r"<strong>\1</strong>", escaped)
+    escaped = re.sub(r"`([^`]+)`", r"<code>\1</code>", escaped)
+    escaped = re.sub(r"(?<!\*)\*([^*]+)\*(?!\*)", r"<em>\1</em>", escaped)
+    return escaped
+
+
+def markdown(text, source_path):
+    """The essay/research sources use headings, paragraphs, lists, and tables."""
+    out, paragraph, listing, table = [], [], False, False
+
+    def flush():
+        if paragraph:
+            out.append("<p>" + inline(" ".join(paragraph), source_path) + "</p>")
+            paragraph.clear()
+
+    def close_blocks():
+        nonlocal listing, table
+        if listing:
+            out.append("</ul>")
+            listing = False
+        if table:
+            out.append("</tbody></table></div>")
+            table = False
+
+    for line in text.splitlines():
+        if line.startswith("[←") or line.startswith("<!--"):
+            continue
+        if line.startswith('<a id="'):
+            flush()
+            close_blocks()
+            identifier = re.search(r'id="([^"]+)"', line).group(1)
+            out.append('<span id="{0}"></span>'.format(html.escape(identifier)))
+            continue
+        if not line.strip():
+            flush()
+            close_blocks()
+            continue
+        heading = re.match(r"^(#{1,4}) (.+)", line)
+        if heading:
+            flush()
+            close_blocks()
+            level = min(5, len(heading.group(1)) + 1)
+            out.append("<h{0}>{1}</h{0}>".format(level, inline(heading.group(2), source_path)))
+        elif line.startswith("|"):
+            flush()
+            if re.match(r"^\|[\s:|-]+\|$", line):
+                continue
+            cells = [c.strip() for c in line.strip("|").split("|")]
+            if not table:
+                out.append('<div class="table-scroll"><table><thead><tr>' +
+                           "".join("<th>" + inline(c, source_path) + "</th>" for c in cells) +
+                           "</tr></thead><tbody>")
+                table = True
+            else:
+                out.append("<tr>" + "".join("<td>" + inline(c, source_path) + "</td>" for c in cells) + "</tr>")
+        elif re.match(r"^(?:- |\d+\. )", line):
+            flush()
+            if not listing:
+                out.append("<ul>")
+                listing = True
+            out.append("<li>" + inline(re.sub(r"^(?:- |\d+\. )", "", line), source_path) + "</li>")
+        else:
+            close_blocks()
+            paragraph.append(line)
+    flush()
+    close_blocks()
+    return "\n".join(out)
+
+
+def outputs(root=ROOT):
+    cards = load_cards(root)
+    records = research_records(root)
+    digest = source_digest(root)
+    chapters = {}
+    card_data = []
+    for card in cards:
+        path = root / card.path
+        title = re.search(r"^# (.+)$", path.read_text(), re.MULTILINE).group(1)
+        chapter_id = card.path.stem[:2]
+        chapters[chapter_id] = title
+        record = card.to_dict(root)
+        record.update(chapter_id=chapter_id, chapter_title=title,
+                      background_ids=[], essay_ids=[], background_is_not_validation=True)
+        for relation in RELATIONS:
+            if card.id in relation["card_ids"]:
+                record["background_ids"] += relation["background_ids"]
+                record["essay_ids"] += relation["essay_ids"]
+        card_data.append(record)
+    export = {
+        "schema_version": "1.0", "source_digest": digest, "canonical_source": "book/*.md",
+        "count": len(cards), "notice": "原创试做；预算非报价；背景研究不直接验证行动卡。",
+        "cards": card_data,
+    }
+    longform = []
+    for essay_id, path in ESSAYS:
+        text = (root / path).read_text(encoding="utf-8")
+        title = re.search(r"^# (.+)$", text, re.MULTILINE).group(1)
+        longform.append({"id": essay_id, "title": title, "source": path, "text": text})
+
+    cards_html = []
+    for record in card_data:
+        f = record["fields"]
+        related = "".join('<a href="#{0}">{1}</a> '.format(x.lower(), x)
+                          for x in record["essay_ids"] + record["background_ids"])
+        cards_html.append(
+            '<details class="card" id="{id}" data-id="{ID}" data-chapter="{chapter}" '
+            'data-minutes="{minutes}" data-budget="{budget}" data-company="{company}" data-energy="{energy}">'
+            '<summary><span class="eyebrow">{ID} · {chapter_name}</span><h3>{title}</h3>'
+            '<span class="meta">预留 ≤{minutes} 分钟 · 新增 ≤¥{budget} · {company_label}</span>'
+            '<span class="teaser">{teaser}</span></summary>'
+            '<div class="card-body"><dl>{fields}</dl><p class="card-links">'
+            '<a href="#{id}" class="permalink" aria-label="{ID} 本页直达链接"># 本页直达</a> '
+            '<a href="{source}">Markdown 原文</a> {related}</p></div></details>'.format(
+                id=record["id"].lower(), ID=record["id"], chapter=record["chapter_id"],
+                chapter_name=html.escape(record["chapter_title"].split(" · ", 1)[-1]),
+                minutes=record["minutes"], budget=record["budget"], company=record["company"],
+                energy=record["energy"], title=html.escape(record["title"]),
+                company_label={"solo": "独自", "social": "需要同伴", "either": "独自 / 一起"}[record["company"]],
+                teaser=html.escape(f["现在做"]),
+                fields="".join("<dt>{0}</dt><dd>{1}</dd>".format(html.escape(k), inline(v, record["source"]))
+                               for k, v in f.items()),
+                source=html.escape(record["source_url"], quote=True), related=related,
+            ))
+    essays_html = []
+    for item in longform:
+        essays_html.append('<details class="essay" id="{0}"><summary>{1}</summary><div class="prose">{2}</div></details>'.format(
+            item["id"].lower(), html.escape(item["title"]), markdown(item["text"], item["source"])))
+    research_html = markdown((root / "docs/research.md").read_text(), "docs/research.md")
+    template = (root / "web/reader.html").read_text()
+    replacements = {
+        "@@CARDS@@": "\n".join(cards_html),
+        "@@ESSAYS@@": "\n".join(essays_html),
+        "@@RESEARCH@@": research_html,
+        "@@SHUAQI@@": markdown((root / "SHUAQI.md").read_text(), "SHUAQI.md"),
+        "@@CULTURE@@": markdown((root / "docs/culture-shuaqi.md").read_text(), "docs/culture-shuaqi.md"),
+        "@@CHAPTERS@@": "".join('<option value="{0}">{1}</option>'.format(k, html.escape(v))
+                               for k, v in chapters.items()),
+        "@@COUNT@@": str(len(cards)),
+        "@@DIGEST@@": digest,
+        "@@CSS@@": (root / "web/reader.css").read_text(),
+        "@@JS@@": (root / "web/reader.js").read_text(),
+    }
+    for key, value in replacements.items():
+        template = template.replace(key, value)
+    if re.search(r"@@[A-Z]+@@", template):
+        raise ValueError("阅读页仍有未替换占位符")
+    full_text = "\n\n".join(
+        ["# Enjoy The Moment · AI full text\n\n"
+         "Canonical source: book/*.md and essays/*.md. Original proposals, not validated interventions.\n"
+         "Budgets are illustrative CNY caps. Preserve alternatives, stopping conditions and evidence status.\n"
+         "Source digest: " + digest]
+        + ["## " + card.reference + "\n\n### " + card.id + " · " + card.title + "\n\n" + card.body for card in cards]
+        + [item["text"] for item in longform]
+        + [(root / path).read_text() for path in ["SHUAQI.md", "docs/research.md", "docs/culture-shuaqi.md"]]
+    ).rstrip() + "\n"
+    return {
+        "data/catalog.json": json_text(export),
+        "data/essays.json": json_text({"schema_version": "1.0", "source_digest": digest, "essays": longform}),
+        "data/research.json": json_text({"schema_version": "1.0", "records": records, "relations": RELATIONS}),
+        "llms-full.txt": full_text,
+        "index.html": template,
+    }
+
+
+def main():
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--check", action="store_true", help="只检查生成文件是否与源内容一致")
+    args = parser.parse_args()
+    stale = []
+    for path, content in outputs().items():
+        target = ROOT / path
+        if args.check:
+            if not target.exists() or target.read_text(encoding="utf-8") != content:
+                stale.append(path)
+        else:
+            target.parent.mkdir(parents=True, exist_ok=True)
+            target.write_text(content, encoding="utf-8")
+            print("Generated", path)
+    if stale:
+        parser.exit(1, "生成文件过期，请运行 python3 tools/build.py：\n" + "\n".join(stale) + "\n")
+    if args.check:
+        print("OK: 所有派生文件与 Markdown 源一致")
+    return 0
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())

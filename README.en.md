@@ -2,9 +2,9 @@
 
 # Enjoy The Moment
 
-### Pleasure does not have to prove its usefulness.
+### 耍起 · Make room for enjoyment now.
 
-**Don't turn your life into a savings account you never let yourself withdraw from.**
+**Pleasure is not merely a reward for becoming a better person.**
 
 [中文首页](README.md) · [Manifesto, in Chinese](docs/manifesto.md) · [The guide](#the-guide) · [Contribute](CONTRIBUTING.md)
 
@@ -13,6 +13,8 @@
 ---
 
 ## What this project stands for
+
+Our cultural framing is **耍起 (shuǎ qǐ)**, used here as an invitation to make enjoyment part of life now. This is the project's own interpretation, not an official definition of Sichuan–Chongqing culture or an endorsement by a performer. See the [dated cultural sources](docs/culture-shuaqi.md) and [our own position](SHUAQI.md).
 
 An open-source guide to immediate gratification, sensory pleasure, novelty, play, and time that produces absolutely nothing.
 
@@ -39,6 +41,8 @@ Neither excitement nor spending is compulsory. Quiet enjoyment counts. Disliking
 ## The guide
 
 **10 chapters. 60 original activity cards.** The full cards are currently in Chinese; this page is an English introduction, not a complete translation.
+
+[Read and filter in your browser](https://solomon-8.github.io/EnjoyTheMoment/), with no installation. Six [long-form essays](essays/01-pleasure-is-an-end.md) explain the tradeoffs; the [research ledger](docs/research.md) distinguishes one full-text review from three abstract-only checks. None directly validates our activities.
 
 | Chapter | Question |
 | --- | --- |
@@ -75,11 +79,17 @@ Python 3.9+. No third-party packages, network requests, accounts, or uploaded lo
 python3 tools/pick.py --minutes 20 --budget 0 --company solo
 python3 tools/pick.py --minutes 120 --budget 100 --energy high
 python3 tools/pick.py --minutes 30 --budget 30 --list
+python3 tools/pick.py --query 游戏 --minutes 60 --budget 0 --json --limit 3
+python3 tools/pick.py --id J019 --json
 ```
 
 The filters use each card's main activity allowance; smaller alternatives are in the prose. `--energy` sets the maximum effort level. `solo` excludes activities requiring another person; `social` includes group-compatible activities.
 
 The output is currently Chinese. A random suggestion is an invitation, not an instruction.
+
+For AI retrieval, use [the reading contract](docs/ai.md), `llms.txt`, and [structured JSON](data/catalog.json). JSON output is bounded and deterministic; exact-ID lookup bypasses filters. Generated exports retain the full conditions, source hashes, and original-proposal status.
+
+`index.html` is also a self-contained offline reader: download it and open it directly. No analytics or local storage; external source links still require a network connection.
 
 ## Inspiration, not an endorsement
 
