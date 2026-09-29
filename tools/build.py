@@ -27,6 +27,8 @@ EVIDENCE = [
     ("N02", "docs/evidence/B02-quantification.md"),
     ("N04", "docs/evidence/B04-anticipation.md"),
     ("N05", "docs/evidence/B05-leisure-value.md"),
+    ("N06", "docs/evidence/B06-solitude.md"),
+    ("F01", "docs/evidence/F01-time-use.md"),
 ]
 RELATIONS = [
     {"card_ids": ["J033"], "background_ids": ["B01"], "essay_ids": ["E04"]},
@@ -239,6 +241,7 @@ def outputs(root=ROOT):
     for identifier, path in EVIDENCE:
         text = (root / path).read_text(encoding="utf-8")
         evidence.append({"id": identifier, "source": path, "text": text,
+                         "source_kind": "official_statistics" if identifier == "F01" else "study_reading_note",
                          "title": re.search(r"^# (.+)$", text, re.MULTILINE).group(1)})
 
     cards_html = []
