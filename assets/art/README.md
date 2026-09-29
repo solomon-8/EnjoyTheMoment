@@ -11,3 +11,16 @@
 核读日为 2026-09-29。所选文件记录均标为 Public domain，馆方对应作品记录也均标为公有领域。未裁切、调色或 AI 补绘；分辨率与屏幕颜色不等于原作。
 
 完整可点击来源、馆方描述字段的独立许可、核读范围及限制，见 [F13 作品记录](../../docs/evidence/F13-artworks.md)。
+
+## 伦勃朗版画的两份官方复制图
+
+核读日为 2026-09-30。这两份并非通过 Commons 取得：
+
+| 本地文件 | 对象与官方图像 |
+| --- | --- |
+| `rembrandt-three-crosses-41-1-31.jpg` | Rembrandt，《三个十字架》，1653；The Metropolitan Museum of Art，41.1.31；[对象 354631](https://collectionapi.metmuseum.org/public/collection/v1/objects/354631)，[主图 DT11821](https://images.metmuseum.org/CRDImages/dp/web-large/DT11821.jpg)；599 × 522 像素 |
+| `rembrandt-three-crosses-41-1-33.jpg` | Rembrandt，同题作品，约 1660；The Metropolitan Museum of Art，41.1.33；[对象 359757](https://collectionapi.metmuseum.org/public/collection/v1/objects/359757)，[主图 DP815615](https://images.metmuseum.org/CRDImages/dp/web-large/DP815615.jpg)；599 × 519 像素 |
+
+两件均署 `Gift of Felix M. Warburg and his family, 1941`。对象记录 `isPublicDomain` 为真，API 说明提供相应开放图像；不能只凭元数据集的 CC0 声明推断任意图片也开放。详细取得链与区别见 [F38](../../docs/evidence/F38-print-comparison.md)。
+
+本地文件与上述下载 JPEG 字节完全一致，不重新编码、裁切、调色或补绘；阅读页将其内嵌并按容器缩放。A/B 是本书用于比较的标签，不是历史版态编号。数字图像不等于原作表面、色彩或保存状态。没有加入馆方标识，也不表示馆方为本项目背书。
