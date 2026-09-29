@@ -425,6 +425,74 @@ class ExportTests(unittest.TestCase):
         self.assertIn("没有实际折制", notes["F29"]["text"])
         self.assertEqual(len(self.export["cards"]), 60)
 
+    def test_public_life_preserves_full_text_attribution_and_source_types(self):
+        chapters = {item["id"]: item for item in
+                    json.loads(self.outputs["data/chapters.json"])["chapters"]}
+        notes = {item["id"]: item for item in
+                 json.loads(self.outputs["data/evidence.json"])["notes"]}
+        chapter = chapters["C15"]
+        text = (ROOT / chapter["source"]).read_text()
+        self.assertEqual(chapter["text"], text.strip())
+        self.assertIn(text, self.outputs["llms-full.txt"])
+        rendered = build.markdown(text, chapter["source"])
+        for anchor in ("street-counts", "street-midtown", "street-seats",
+                       "street-unscheduled", "street-conflicts"):
+            self.assertIn('id="' + anchor + '"', rendered)
+            self.assertIn('href="#' + anchor + '"', rendered)
+        for identifier, kind in (("F35", "public_life_observation_protocol"),
+                                 ("F36", "municipal_before_after_evaluation")):
+            note = notes[identifier]
+            self.assertEqual(note["source_kind"], kind)
+            self.assertEqual(note["text"], (ROOT / note["source"]).read_text())
+            self.assertIn(note["text"], self.outputs["llms-full.txt"])
+            self.assertIn('href="#' + identifier.lower() + '"', rendered)
+            self.assertIn('href="#c15"', build.markdown(note["text"], note["source"]))
+        attribution = next(line for line in text.splitlines()
+                           if line.startswith("The Public Life Data Protocol was jointly"))
+        for source in ("LICENSE", "docs/sources.md", notes["F35"]["source"]):
+            self.assertIn(attribution, (ROOT / source).read_text())
+        for phrase in ("1b051183e1764338b4823556922747c610e1d8de",
+                       "小区域例外", "每小时完成一次", "没有相同的独立活动栏"):
+            self.assertIn(phrase, notes["F35"]["text"])
+        for phrase in ("不是日客流", "没有活动，也能算好地方吗", "安静、通行和清理由谁负责",
+                       "即使一个人只是坐着吃自带的午饭", "不要求记录可识别个人"):
+            self.assertIn(phrase, text)
+
+    def test_public_life_hypothetical_snapshots_do_not_determine_visitors(self):
+        scenarios = (
+            [set(range(6)), set(range(6)), set(range(6))],
+            [set(range(6)), set(range(6, 12)), set(range(12, 18))],
+        )
+        for scans in scenarios:
+            self.assertEqual([len(scan) for scan in scans], [6, 6, 6])
+            self.assertEqual(sum(map(len, scans)), 18)
+            self.assertEqual(Fraction(sum(map(len, scans)), len(scans)), 6)
+        self.assertEqual(len(set.union(*scenarios[0])), 6)
+        self.assertEqual(len(set.union(*scenarios[1])), 18)
+        text = (ROOT / "book/15-neighborhood.md").read_text()
+        for phrase in ("三次扫描，每次都看到 6 人", "18 人次", "平均在场数是 6",
+                       "未被扫描碰到的人还可能存在", "不能直接算出每人停留多久",
+                       "活动还可能重叠"):
+            self.assertIn(phrase, text)
+
+    def test_midtown_table_keeps_site_values_units_and_peak_scope(self):
+        chapter = (ROOT / "book/15-neighborhood.md").read_text()
+        note = (ROOT / "docs/evidence/F36-midtown-public-space.md").read_text()
+        pairs = [(int(a), int(b)) for a, b in re.findall(
+            r"^\| (?:先驱广场|百老汇|时代广场)[^|]+\| (\d+) → (\d+) \|$",
+            chapter, re.M)]
+        note_pairs = [(int(a), int(b)) for a, b in re.findall(
+            r"^\| (?:Herald Square|Broadway Blvd|Times Square)[^|]+\| (\d+) / (\d+) \|$",
+            note, re.M)]
+        self.assertEqual(pairs, [(94, 114), (57, 74), (17, 90)])
+        self.assertEqual(note_pairs, pairs)
+        for before, after in pairs:
+            self.assertNotEqual(Fraction(after - before, before), Fraction(84, 100))
+        for phrase in ("平日平均快照", "高峰时段", "不是随机试验",
+                       "原始逐次记录", "NACTO", "不是报告作者", "2009 年 5 月和 10 月",
+                       "没有把 2019 年 PLDP 仓库快照说成 2009 年项目使用的调查规范"):
+            self.assertIn(phrase, note)
+
     def test_photography_preserves_complete_models_and_source_boundaries(self):
         chapters = {item["id"]: item for item in
                     json.loads(self.outputs["data/chapters.json"])["chapters"]}

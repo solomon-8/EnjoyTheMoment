@@ -66,7 +66,7 @@ The chapters on senses, novelty, play, relationships, spending, and permission t
 | [12 · A film list is not a graduation requirement](book/12-film.md) | How do images, editing, and sound shape what you experience? |
 | [13 · Being there is not proof you must enjoy it](book/13-live-events.md) | Which part of a live event do you actually want? |
 | [14 · Flavor does not need another justification](book/14-flavor.md) | Ice cream structure, sweetness and air: can knowledge inform taste without overruling it? |
-| [15 · Streets are not loading screens between attractions](book/15-neighborhood.md) | Does a city also welcome people who do not want to buy anything? |
+| [15 · Streets are not loading screens between attractions](book/15-neighborhood.md) | Footfall is not public life: staying without shopping, scheduled events or compulsory interaction. |
 | [16 · Clothes are for wearing, not waiting for a better self](book/16-dress.md) | Color blocks, bias cutting and tuxedo codes offer more to discuss than correcting a body. |
 | [17 · Making things need not become another job](book/17-making.md) | Weave crossings, color boundaries and the page sequence of a one-sheet zine: process is more than the cost of a finished object. |
 | [18 · Celebration is not an achievement award](book/18-celebration.md) | Can an ordinary day deserve a place on the calendar? |

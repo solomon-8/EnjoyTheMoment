@@ -258,6 +258,8 @@
 - [F32 · 行动、骰子与后果](evidence/F32-action-and-consequences.md)：*Blades in the Dark* 指定 SRD 规则与本书骰池枚举，用于[共同叙事章节](../book/34-shared-stories.md)。处境、效果和概率不同，零骰例外保留，算例不是行为研究。
 - [F33 · 特征、麻烦与共同叙事](evidence/F33-aspects-and-shared-fiction.md)：*Fate Condensed* 官方下载 SRD 的指定部分，用于[共同叙事章节](../book/34-shared-stories.md)。网页呈现与官方文件分开，游戏内资源与现实边界分开；保留完整署名，不作安全或幸福效果保证。
 - [F34 · 摄影中的空间与时间](evidence/F34-photographic-space-and-time.md)：斯坦福历史摄影课程、尼康快门教学与原创几何/时间模型，用于[摄影章节](../book/20-photography.md)。视点和取景分开，轨迹不是质量分数；没有操作旧 applet、实拍测量或器材推荐。
+- [F35 · 公共生活的观察口径](evidence/F35-public-life-observation.md)：PLDP 历史仓库快照与配套调查工具，用于[街道章节](../book/15-neighborhood.md)。过线计数、停留快照、个人时长与活动分类不能混算；不是城市幸福认证，保留 CC BY 署名。
+- [F36 · 纽约中城历史评估](evidence/F36-midtown-public-space.md)：NYC DOT 2010 年报告的停留观察部分，用于[街道章节](../book/15-neighborhood.md)。实施方前后评估、季节与组合措施限制保留；平均快照不是日客流或快乐，84% 不覆盖所有地点和时段。
 
 F 系列不计入上面的十六篇背景研究。事实、教学、文学文本、访客指导、作品与图像、乐谱、影片与历史目录、舞蹈来源、体育规则、监管报告、供应商技术手册、服装记录、哲学与创作者文本、声学、型号说明、嗓音指导、游戏规则及研究阅读记录共同收入 `data/evidence.json`，用 `source_kind` 区分。
 

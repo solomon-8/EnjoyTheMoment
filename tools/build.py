@@ -77,6 +77,8 @@ EVIDENCE = [
     ("F32", "docs/evidence/F32-action-and-consequences.md"),
     ("F33", "docs/evidence/F33-aspects-and-shared-fiction.md"),
     ("F34", "docs/evidence/F34-photographic-space-and-time.md"),
+    ("F35", "docs/evidence/F35-public-life-observation.md"),
+    ("F36", "docs/evidence/F36-midtown-public-space.md"),
 ]
 EVIDENCE_KINDS = {
     "F01": "official_statistics",
@@ -113,6 +115,8 @@ EVIDENCE_KINDS = {
     "F32": "game_rules_and_original_probability",
     "F33": "official_game_srd",
     "F34": "educational_optics_and_original_models",
+    "F35": "public_life_observation_protocol",
+    "F36": "municipal_before_after_evaluation",
 }
 RELATIONS = [
     {"card_ids": ["J033"], "background_ids": ["B01"], "essay_ids": ["E04"]},

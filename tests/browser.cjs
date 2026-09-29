@@ -146,6 +146,18 @@ const { chromium } = require("playwright");
     assert.equal(await page.locator(".chapter-intro:visible").count(), 1);
     await page.goto(url + "#c15");
     await page.waitForFunction(() => document.getElementById("c15").open);
+    assert.equal(await page.locator("#c15 .prose table").count(), 3);
+    for (const anchor of ["street-counts", "street-midtown", "street-seats", "street-unscheduled", "street-conflicts"]) {
+      await page.locator(`#c15 a[href='#${anchor}']`).click();
+      assert.equal(new URL(page.url()).hash, `#${anchor}`);
+      assert(await page.locator("#c15 .prose").isVisible());
+    }
+    for (const id of ["f35", "f36"]) {
+      await page.locator(`#c15 a[href='#${id}']`).first().click();
+      await page.waitForFunction(id => document.getElementById(id).open, id);
+      await page.locator(`#${id} a[href='#c15']`).click();
+      await page.waitForFunction(() => document.getElementById("c15").open);
+    }
     await page.locator("#c15 a[href='#f06']").click();
     await page.waitForFunction(() => document.getElementById("f06").open);
     assert.match(await page.locator("#f06 .prose").textContent(), /没有实地评估任何街区/);
@@ -462,6 +474,16 @@ const { chromium } = require("playwright");
     await page.evaluate(() => scrollTo({top: 0, behavior: "instant"}));
     await page.screenshot({path: process.env.SCREENSHOT_DESKTOP || "/tmp/enjoythemoment-desktop.png", fullPage: false});
     await page.setViewportSize({width: 390, height: 844});
+    for (const id of ["c15", "f35", "f36"]) {
+      await page.goto(url + "#" + id);
+      await page.waitForFunction(id => document.getElementById(id).open, id);
+      for (const [i, table] of (await page.locator(`#${id} .prose table`).all()).entries()) {
+        await table.scrollIntoViewIfNeeded();
+        assert(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth));
+        assert(await table.evaluate(el => el.getBoundingClientRect().width <= 350));
+        await page.screenshot({path: `/tmp/enjoythemoment-public-life-${id}-${i}-mobile.png`, fullPage: false});
+      }
+    }
     await page.goto(url + "#c20");
     await page.waitForFunction(() => document.getElementById("c20").open);
     for (const [i, image] of (await page.locator("#c20 .artwork img").all()).entries()) {
@@ -622,6 +644,12 @@ const { chromium } = require("playwright");
       await image.evaluate(img => img.decode());
       assert.equal(await image.evaluate(img => img.naturalWidth), 880);
     }
+    await staticPage.locator("#c15 > summary").click();
+    assert.match(await staticPage.locator("#c15 .prose").textContent(), /18 人次/);
+    await staticPage.locator("#f35 > summary").click();
+    assert.match(await staticPage.locator("#f35 .prose").textContent(), /小区域例外/);
+    await staticPage.locator("#f36 > summary").click();
+    assert.equal(await staticPage.locator("#f36 table tbody tr").count(), 3);
     await staticPage.locator("#c20 > summary").click();
     for (const image of await staticPage.locator("#c20 .artwork img").all()) {
       await image.scrollIntoViewIfNeeded();
