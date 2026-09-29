@@ -1,0 +1,100 @@
+<div align="center">
+
+# Enjoy The Moment
+
+### Pleasure does not have to prove its usefulness.
+
+**Don't turn your life into a savings account you never let yourself withdraw from.**
+
+[中文首页](README.md) · [Manifesto, in Chinese](docs/manifesto.md) · [The guide](#the-guide) · [Contribute](CONTRIBUTING.md)
+
+</div>
+
+---
+
+## What this project stands for
+
+An open-source guide to immediate gratification, sensory pleasure, novelty, play, and time that produces absolutely nothing.
+
+We don't treat living longest, saving most, or appearing most disciplined as the automatic goal of life. A song, a game, a good meal, or an unproductive afternoon can be worthwhile **because you enjoy it**, not because it makes you healthier, richer, more connected, or better at work.
+
+Within costs we can genuinely afford, we are willing to pay a little more for something we prefer, accept some inconvenience for an experience we want, and leave some time unoptimized.
+
+This is not a disguised productivity system. The punchline is not “rest so you can work harder.” **The point of enjoyment is enjoyment.**
+
+Our boundary is simple: **you choose it, other people consent, the costs are visible, and you can stop.** We are changing the priority of present enjoyment—not reversing safety advice or promoting self-destruction.
+
+> Today is not tomorrow's raw material. Tomorrow is not today's dumping ground.
+
+## Not “long life versus short life”
+
+The choice is not between being sensible and being reckless.
+
+We question a more ordinary default: why does every present wish have to lose to an increasingly distant future?
+
+Planning is welcome. So is immediate pleasure. But pleasure does not always have to wait until every task, milestone, and self-improvement project is complete.
+
+Neither excitement nor spending is compulsory. Quiet enjoyment counts. Disliking an activity counts. Having a bad day is not a failure to live properly.
+
+## The guide
+
+**10 chapters. 60 original activity cards.** The full cards are currently in Chinese; this page is an English introduction, not a complete translation.
+
+| Chapter | Question |
+| --- | --- |
+| [01 · Pleasure, sooner](book/01-start-now.md) | What small wish could happen in the next five minutes? |
+| [02 · Your senses are not just work equipment](book/02-senses.md) | Can taste, sound, and comfort matter on their own? |
+| [03 · Make a little room for surprise](book/03-novelty.md) | Can an ordinary day contain a small detour? |
+| [04 · Play without turning professional](book/04-play.md) | What would you play if you never had to get good? |
+| [05 · People are not a network](book/05-connection.md) | Can spending time together be the whole point? |
+| [06 · Buy pleasure, not an identity](book/06-spending.md) | Which specific experience is worth its cost to you? |
+| [07 · Being alone is not a reason to skip the occasion](book/07-solo.md) | Does enjoyment still count without an audience? |
+| [08 · Take a break from being useful](book/08-permission.md) | Must rest always be a reward? |
+| [09 · Limited resources, real enjoyment](book/09-constrained.md) | What fits the constraints you actually have? |
+| [10 · Leaving is part of enjoying](book/10-aftertaste.md) | Are you still choosing to continue? |
+
+Each card has a concrete action, a hoped-for experience, visible costs, a smaller alternative, a stopping point, and a statement of its evidential status.
+
+**These are original suggestions to try, not experimentally validated happiness interventions.** We do not promise percentage gains in happiness or assign “dopamine scores.”
+
+Amounts are illustrative **RMB spending caps**, not current market prices. If a suitable option does not exist within your budget, choose the smaller or free version. There is no recommended minimum spend.
+
+## Start without another to-do list
+
+Try [one song without multitasking](book/01-start-now.md#j001), [one game you actually want to play](book/04-play.md#j019), or [one specific invitation](book/05-connection.md#j025).
+
+There is also a [seven-day tasting menu](docs/seven-days.md), an [optional private menu template](templates/my-menu.md), and [nine objections we take seriously](docs/faq.md).
+
+No streaks. No leaderboard. No requirement to share evidence that you had fun.
+
+## Optional local picker
+
+Python 3.9+. No third-party packages, network requests, accounts, or uploaded logs.
+
+```bash
+python3 tools/pick.py --minutes 20 --budget 0 --company solo
+python3 tools/pick.py --minutes 120 --budget 100 --energy high
+python3 tools/pick.py --minutes 30 --budget 30 --list
+```
+
+The filters use each card's main activity allowance; smaller alternatives are in the prose. `--energy` sets the maximum effort level. `solo` excludes activities requiring another person; `social` includes group-compatible activities.
+
+The output is currently Chinese. A random suggestion is an invitation, not an instruction.
+
+## Inspiration, not an endorsement
+
+Inspired by the organization of [HowToLiveBetter](https://github.com/eternity4719/HowToLiveBetter): practical chapters, explicit costs, navigable entries, and open correction.
+
+That project covers lifespan, money, time and energy, and personal freedom; it is not simply “against pleasure.” We do not copy its advice, reuse its statistics, claim its endorsement, or present this repository as its official counterpart.
+
+The different priority here is that **present enjoyment is an end, not a cost that must be justified by a future return**. See [sources and attribution](docs/sources.md).
+
+## Contributing and license
+
+We welcome affordable alternatives, accessibility improvements, failures, counterexamples, and disagreement. See [CONTRIBUTING](CONTRIBUTING.md) and the [editorial policy](docs/editorial-policy.md).
+
+Drafted with AI assistance and reviewed for structure, consistency, and local functionality. The activities have not been individually field-tested. Community accounts must be labelled as such.
+
+Original text, scripts, and visual assets are released under the [MIT License](LICENSE). External linked content retains its own terms.
+
+**May there be something in your day that you do simply because you like it.**

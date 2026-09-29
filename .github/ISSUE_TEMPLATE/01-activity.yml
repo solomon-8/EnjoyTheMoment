@@ -1,0 +1,35 @@
+name: 一张新的快乐卡片
+description: 提一个具体、可缩小、可退出的试做动作
+title: "[卡片] "
+body:
+  - type: markdown
+    attributes:
+      value: "不要求亲测有效，但请诚实标明依据。不要上传隐私、广告链接或未经同意的他人信息。"
+  - type: textarea
+    id: action
+    attributes:
+      label: 现在可以做什么？
+      description: 写一个具体动作，以及你希望体验到什么。
+    validations:
+      required: true
+  - type: textarea
+    id: costs
+    attributes:
+      label: 要付出什么？
+      description: 时间、预算上限、体力、空间、同伴及其他条件。
+    validations:
+      required: true
+  - type: textarea
+    id: smaller
+    attributes:
+      label: 换小份，以及怎么散场？
+      description: 免费或更短版本；哪些场景不适用，什么时候应该停。
+    validations:
+      required: true
+  - type: textarea
+    id: basis
+    attributes:
+      label: 依据与利益关系
+      description: 原创想法、个人经历或可核验事实？是否和涉及的商家、活动有利益关系？
+    validations:
+      required: true

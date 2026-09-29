@@ -1,0 +1,25 @@
+name: 纠错或反例
+description: 不好用、不准确、不适用，也值得记录
+title: "[纠错] "
+body:
+  - type: input
+    id: entry
+    attributes:
+      label: 卡片编号或文件路径
+      placeholder: "例如 J019 或 docs/faq.md"
+    validations:
+      required: true
+  - type: textarea
+    id: problem
+    attributes:
+      label: 哪里有问题？
+      description: 说明具体场景。个人感受请标为个人感受，事实纠错请给原始来源。不要提交隐私。
+    validations:
+      required: true
+  - type: textarea
+    id: change
+    attributes:
+      label: 你希望怎么改？
+      description: 可以删除、缩小、加条件，或者只是明确“不适用”。
+    validations:
+      required: false
