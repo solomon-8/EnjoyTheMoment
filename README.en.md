@@ -42,9 +42,9 @@ Neither excitement nor spending is compulsory. Quiet enjoyment counts. Disliking
 
 **10 chapters. 60 original activity cards.** The full cards are currently in Chinese; this page is an English introduction, not a complete translation.
 
-[Read and filter in your browser](https://solomon-8.github.io/EnjoyTheMoment/), with no installation. Nine [long-form essays](essays/01-pleasure-is-an-end.md) explain the tradeoffs; the [research ledger](docs/research.md) distinguishes two journal full texts, one publicly hosted research manuscript, and one abstract-only check. None directly validates our activities.
+[Read and filter in your browser](https://solomon-8.github.io/EnjoyTheMoment/), with no installation. Nine [long-form essays](essays/01-pleasure-is-an-end.md) explain the tradeoffs; the [research ledger](docs/research.md) distinguishes three journal full texts, one publicly hosted research manuscript, and one abstract-only check. None directly validates our activities.
 
-The chapters on senses, novelty, and spending also contain substantial discussions before their supporting cards: taste without moral judgment, novelty without a life checklist, and spending without compulsory upgrades. These discussions are in Chinese; they are value arguments and explicitly hypothetical examples, not validated interventions.
+The chapters on senses, novelty, play, relationships, spending, and permission to enjoy contain substantial discussions before their supporting cards. They address taste without moral judgment, novelty without a life checklist, serious play without compulsory achievement, shared time without identical preferences, and leisure without a productivity test. These discussions are in Chinese; value arguments and hypothetical examples are distinguished from limited research findings.
 
 | Chapter | Question |
 | --- | --- |
