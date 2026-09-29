@@ -60,6 +60,9 @@ EVIDENCE = [
     ("F18", "docs/evidence/F18-football-rules.md"),
     ("F19", "docs/evidence/F19-basketball-rules.md"),
     ("F20", "docs/evidence/F20-interface-report.md"),
+    ("F21", "docs/evidence/F21-night-sky.md"),
+    ("F22", "docs/evidence/F22-bird-identification.md"),
+    ("F23", "docs/evidence/F23-bird-records-and-ethics.md"),
 ]
 EVIDENCE_KINDS = {
     "F01": "official_statistics",
@@ -82,6 +85,9 @@ EVIDENCE_KINDS = {
     "F18": "official_sport_rules",
     "F19": "official_sport_rules",
     "F20": "regulatory_staff_report",
+    "F21": "official_science_explainer",
+    "F22": "species_identification_reference",
+    "F23": "birding_ethics_and_protocol",
 }
 RELATIONS = [
     {"card_ids": ["J033"], "background_ids": ["B01"], "essay_ids": ["E04"]},
