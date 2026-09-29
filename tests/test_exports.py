@@ -66,8 +66,8 @@ class ExportTests(unittest.TestCase):
     def test_background_does_not_validate_cards(self):
         research = json.loads(self.outputs["data/research.json"])
         ids = {record["id"] for record in research["records"]}
-        self.assertEqual(sum(record["access_level"] == "full_text" for record in research["records"]), 6)
-        self.assertEqual(ids, {"B01", "B02", "B03", "B04", "B05", "B06"})
+        self.assertEqual(sum(record["access_level"] == "full_text" for record in research["records"]), 8)
+        self.assertEqual(ids, {"B01", "B02", "B03", "B04", "B05", "B06", "B07", "B08"})
         for card in self.export["cards"]:
             self.assertTrue(card["background_is_not_validation"])
             self.assertTrue(set(card["background_ids"]).issubset(ids))
@@ -154,7 +154,7 @@ class ExportTests(unittest.TestCase):
         chapters = json.loads(self.outputs["data/chapters.json"])["chapters"]
         self.assertEqual({chapter["source"] for chapter in chapters},
                          {p.relative_to(ROOT).as_posix() for p in (ROOT / "book").glob("*.md")})
-        self.assertEqual(len(chapters), 15)
+        self.assertEqual(len(chapters), 18)
         self.assertEqual(len({chapter["id"] for chapter in chapters}), len(chapters))
         for chapter in chapters:
             source = ROOT / chapter["source"]
@@ -178,7 +178,8 @@ class ExportTests(unittest.TestCase):
     def test_standalone_chapters_have_complete_text_and_no_empty_action_footer(self):
         chapters = json.loads(self.outputs["data/chapters.json"])["chapters"]
         standalone = [chapter for chapter in chapters if chapter["scope"] == "full_chapter"]
-        self.assertEqual({chapter["id"] for chapter in standalone}, {"C11", "C12", "C13", "C14", "C15"})
+        self.assertEqual({chapter["id"] for chapter in standalone},
+                         {"C11", "C12", "C13", "C14", "C15", "C16", "C17", "C18"})
         for chapter in standalone:
             self.assertEqual(chapter["card_ids"], [])
             self.assertEqual(chapter["text"], (ROOT / chapter["source"]).read_text().strip())
@@ -227,6 +228,37 @@ class ExportTests(unittest.TestCase):
         self.assertIn("引用行动卡时必须保留", protocol)
         self.assertIn("回答价值与生活问题时，不套用行动卡格式", protocol)
         self.assertNotIn("每条回答必须保留", protocol)
+
+    def test_making_and_rituals_keep_outcomes_and_null_results_distinct(self):
+        records = {item["id"]: item for item in json.loads(self.outputs["data/research.json"])["records"]}
+        notes = {item["id"]: item for item in json.loads(self.outputs["data/evidence.json"])["notes"]}
+        self.assertIn("不是制作过程快乐的直接测量", records["B07"]["fields"]["有限结论"])
+        self.assertIn("p > .60", records["B07"]["fields"]["关键限制"])
+        self.assertIn("盲评认为两种作品质量相当", notes["N07"]["text"])
+        self.assertIn("Crossmark 返回该内容暂无数据", notes["N07"]["text"])
+        for text in ("p = .06", "p = .053", "p = .23", "F < 1"):
+            self.assertIn(text, records["B08"]["fields"]["关键限制"])
+        self.assertIn("current，不是可靠性或复现认证", records["B08"]["fields"]["关键限制"])
+        self.assertIn("没有无仪式组", notes["N08"]["text"])
+        self.assertIn("内在兴趣没有被独立随机操纵", notes["N08"]["text"])
+        self.assertEqual(notes["N07"]["source_kind"], "study_reading_note")
+        self.assertEqual(notes["N08"]["source_kind"], "study_reading_note")
+        self.assertTrue(all("B07" not in card["background_ids"] and "B08" not in card["background_ids"]
+                            for card in self.export["cards"]))
+
+    def test_textile_teaching_and_care_page_do_not_claim_full_standard(self):
+        notes = {item["id"]: item for item in json.loads(self.outputs["data/evidence.json"])["notes"]}
+        self.assertEqual(notes["F07"]["source_kind"], "educational_reference")
+        self.assertEqual(notes["F08"]["source_kind"], "technical_guidance")
+        self.assertIn("没有取得并完整审核 ISO 标准原文", notes["F08"]["text"])
+        self.assertIn("不提供温度速查表", notes["F08"]["text"])
+        self.assertIn("没有测试材料强度", notes["F07"]["text"])
+        for chapter, note, anchor in [
+            ("16-dress.md", "F08-textile-care.md", "#f08"),
+            ("17-making.md", "F07-textiles.md", "#f07"),
+            ("18-celebration.md", "B08-rituals.md", "#n08"),
+        ]:
+            self.assertEqual(build.local_href("../docs/evidence/" + note, "book/" + chapter), anchor)
 
     def test_offline_evidence_navigation(self):
         self.assertEqual(build.local_href("../docs/evidence/B04-anticipation.md",

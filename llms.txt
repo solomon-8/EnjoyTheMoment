@@ -9,7 +9,7 @@
 - [Culture sources](docs/culture-shuaqi.md): dated context, secondary reporting, attribution boundaries.
 
 ## Canonical content
-- [Catalog](README.md): 15 substantive chapters and 60 supporting activity proposals in book/. Arguments and lived tradeoffs are primary; activity execution is not the guide's sole purpose.
+- [Catalog](README.md): 18 substantive chapters and 60 supporting activity proposals in book/. Arguments and lived tradeoffs are primary; activity execution is not the guide's sole purpose.
 - [Research ledger](docs/research.md): background studies, access levels, and non-claims.
 - [Editorial policy](docs/editorial-policy.md): value positions are not scientific results.
 
@@ -37,4 +37,4 @@ alternatives, stopping conditions or evidence status to save tokens.
 python3 tools/guides.py --query 朋友 --limit 2
 python3 tools/guides.py --id P010
 
-- [Evidence and source notes](data/evidence.json): source_kind separates study_reading_note, official_statistics, educational_reference, official_health_guidance, official_explainer, and practice_framework; retain reading scope and non-claims. B03 uses an author-hosted page proof, not a verified final article. full_text denotes reading depth, not quality or publication status.
+- [Evidence and source notes](data/evidence.json): source_kind separates study_reading_note, official_statistics, educational_reference, official_health_guidance, official_explainer, practice_framework, and technical_guidance; retain reading scope and non-claims. B03 uses an author-hosted page proof, not a verified final article. full_text denotes reading depth, not quality or publication status. B07 measures product valuation, not enjoyment of making; B08's ritual studies do not validate celebrations or compulsory participation.
