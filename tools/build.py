@@ -76,6 +76,7 @@ EVIDENCE = [
     ("F31", "docs/evidence/F31-microphones-and-voice-care.md"),
     ("F32", "docs/evidence/F32-action-and-consequences.md"),
     ("F33", "docs/evidence/F33-aspects-and-shared-fiction.md"),
+    ("F34", "docs/evidence/F34-photographic-space-and-time.md"),
 ]
 EVIDENCE_KINDS = {
     "F01": "official_statistics",
@@ -111,6 +112,7 @@ EVIDENCE_KINDS = {
     "F31": "manufacturer_manual_and_health_guidance",
     "F32": "game_rules_and_original_probability",
     "F33": "official_game_srd",
+    "F34": "educational_optics_and_original_models",
 }
 RELATIONS = [
     {"card_ids": ["J033"], "background_ids": ["B01"], "essay_ids": ["E04"]},

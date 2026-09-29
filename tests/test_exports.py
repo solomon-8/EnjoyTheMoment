@@ -425,6 +425,72 @@ class ExportTests(unittest.TestCase):
         self.assertIn("没有实际折制", notes["F29"]["text"])
         self.assertEqual(len(self.export["cards"]), 60)
 
+    def test_photography_preserves_complete_models_and_source_boundaries(self):
+        chapters = {item["id"]: item for item in
+                    json.loads(self.outputs["data/chapters.json"])["chapters"]}
+        notes = {item["id"]: item for item in
+                 json.loads(self.outputs["data/evidence.json"])["notes"]}
+        chapter, note = chapters["C20"], notes["F34"]
+        text = (ROOT / chapter["source"]).read_text()
+        self.assertEqual(chapter["text"], text.strip())
+        self.assertIn(text, self.outputs["llms-full.txt"])
+        self.assertEqual(note["source_kind"], "educational_optics_and_original_models")
+        self.assertEqual(note["text"], (ROOT / note["source"]).read_text())
+        self.assertIn(note["text"], self.outputs["llms-full.txt"])
+        rendered = build.markdown(text, chapter["source"])
+        for anchor in ("photo-viewpoint", "photo-duration", "photo-sequence", "photo-audience"):
+            self.assertIn('id="' + anchor + '"', rendered)
+            self.assertIn('href="#' + anchor + '"', rendered)
+        self.assertIn('href="#f34"', rendered)
+        self.assertIn('href="#c20"', build.markdown(note["text"], note["source"]))
+        self.assertEqual(rendered.count('src="data:image/png;base64,'), 2)
+        for phrase in ("理想中心投影", "原地裁剪", "不是实拍测量",
+                       "速度方向不变", "尚未饱和", "不是观众实验",
+                       "喜欢被看见，也没有错", "p = .058"):
+            self.assertIn(phrase, text)
+        for phrase in ("没有运行", "不是 2026 年设备能力报告",
+                       "没有下载或视觉核对该网页样片", "不是本书推荐值"):
+            self.assertIn(phrase, note["text"])
+        attribution = (ROOT / "assets/media/README.md").read_text()
+        for name in ("photo-viewpoint", "photo-duration"):
+            self.assertIn(name + ".svg", attribution)
+            for suffix in (".png", ".svg"):
+                self.assertTrue((ROOT / "assets/media" / (name + suffix)).is_file())
+
+    def test_photography_diagrams_match_geometry_and_time_models(self):
+        ns = "{http://www.w3.org/2000/svg}"
+        diagram = ET.parse(ROOT / "assets/media/photo-viewpoint.svg").getroot()
+        rects = {el.get("id"): el for el in diagram.iter(ns + "rect") if el.get("id")}
+        cases = (("near", 2, 4, 100), ("crop", 2, 4, 150), ("far", 8, 10, 150))
+        for name, za, zb, expected_a in cases:
+            a, b = rects[name + "-a"], rects[name + "-b"]
+            ha, hb = Fraction(a.get("height")), Fraction(b.get("height"))
+            self.assertEqual(ha, expected_a)
+            self.assertEqual(hb / ha, Fraction(za, zb))
+            self.assertEqual(Fraction(a.get("y")) + ha, Fraction(b.get("y")) + hb)
+            self.assertEqual(ha, Fraction(a.get("data-height")))
+            self.assertEqual(hb, Fraction(b.get("data-height")))
+        self.assertEqual(4 - 2, 10 - 8)
+        duration = ET.parse(ROOT / "assets/media/photo-duration.svg").getroot()
+        paths = {el.get("id"): el for el in duration.iter(ns + "path")}
+        for identifier, seconds, expected in (("long-path", Fraction(1, 30), 8),
+                                               ("short-path", Fraction(1, 120), 2)):
+            self.assertEqual(240 * seconds, expected)
+            node = paths[identifier]
+            self.assertEqual(int(node.get("data-pixels")), expected)
+            match = re.fullmatch(r"M(\d+) (\d+)H(\d+)", node.get("d"))
+            self.assertIsNotNone(match)
+            self.assertEqual(int(match[3]) - int(match[1]), expected * 24)
+        for root in (diagram, duration):
+            self.assertIsNotNone(root.find(ns + "title"))
+            self.assertIsNotNone(root.find(ns + "desc"))
+        note = (ROOT / "docs/evidence/F34-photographic-space-and-time.md").read_text()
+        for expression in ("2 / 4 | 1/2 | 100 / 50",
+                           "2 / 4 | 1/2 | 150 / 75",
+                           "8 / 10 | 4/5 | 150 / 120",
+                           "240 × (1/30) = 8", "240 × (1/120) = 2"):
+            self.assertIn(expression, note)
+
     def test_shared_stories_preserve_rules_scope_and_source_attribution(self):
         chapters = {item["id"]: item for item in
                     json.loads(self.outputs["data/chapters.json"])["chapters"]}
@@ -715,7 +781,9 @@ class ExportTests(unittest.TestCase):
     def test_media_bytes_and_attribution_affect_source_digest(self):
         baseline = build.source_digest(ROOT)
         original = Path.read_bytes
-        for name in ("bach-opening.png", "train-closeup.jpg", "README.md"):
+        for name in ("bach-opening.png", "train-closeup.jpg", "README.md",
+                     "photo-viewpoint.svg", "photo-viewpoint.png",
+                     "photo-duration.svg", "photo-duration.png"):
             target = ROOT / "assets/media" / name
             def changed_read(path):
                 value = original(path)
