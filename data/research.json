@@ -75,6 +75,25 @@
       },
       "directly_validates_cards": false,
       "source": "docs/research.md#b04"
+    },
+    {
+      "id": "B05",
+      "title": "把休闲看作浪费，可能妨碍享受",
+      "doi": "10.1016/j.jesp.2021.104198",
+      "access_level": "full_text",
+      "verified_at": "2026-09-29",
+      "fields": {
+        "文献": "Gabriela N. Tonietto, Selin A. Malkoc, Rebecca Walker Reczek, Michael I. Norton (2021). *Viewing leisure as wasteful undermines enjoyment*. Journal of Experimental Social Psychology, 97, 104198。",
+        "DOI": "[10.1016/j.jesp.2021.104198](https://doi.org/10.1016/j.jesp.2021.104198)。",
+        "实际读取": "`full_text`；读取[作者所属学校托管的期刊正文](https://www.business.rutgers.edu/sites/default/files/documents/tonietto-viewing-leisure-as-wasteful-undermines-enjoyment.pdf)中四项主研究的方法、结果、主文讨论与有关脚注，并抽查材料图像。未重算数据、完整核验补充研究或系统检索后续复现。[详细阅读记录](evidence/B05-leisure-value.md)。",
+        "设计与对象": "四项主研究分别为 302 名 MTurk 参与者、199 名大学生的回忆或问卷研究，以及 458 名、351 名大学生的短时材料与视频实验；合计 1,310 人，不含预试和补充研究。",
+        "有限结论": "观念与主要为自身享受的休闲评分存在关联；短时实验中部分负面表述降低随后视频享受。强调休闲有生产力的材料没有比对照提高享受。",
+        "不能推出": "读积极口号必然更快乐、所有休闲都应增加、休闲观念造成心理疾病、或改变观念能治疗困扰。",
+        "我们如何使用": "[第 08 章](../book/08-permission.md)区分真实责任、无限自我要求与没有交接的资源限制；研究提供有限背景，不替价值主张背书。",
+        "关键限制": "自报、短时、以大学生为主；研究 3 浪费组对有生产力组 p = .086、对照组 p = .053；有生产力组对照 p = .84。研究 4 把浪费表述为有益仍发现较低评分，但不是本书口号的测试。心理状态关联来自观察，不能转成治疗建议。"
+      },
+      "directly_validates_cards": false,
+      "source": "docs/research.md#b05"
     }
   ],
   "relations": [
@@ -129,6 +148,18 @@
       ],
       "essay_ids": [
         "E03"
+      ]
+    },
+    {
+      "card_ids": [
+        "J043",
+        "J048"
+      ],
+      "background_ids": [
+        "B05"
+      ],
+      "essay_ids": [
+        "E07"
       ]
     }
   ]

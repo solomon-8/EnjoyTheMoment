@@ -26,12 +26,14 @@ ESSAYS = [
 EVIDENCE = [
     ("N02", "docs/evidence/B02-quantification.md"),
     ("N04", "docs/evidence/B04-anticipation.md"),
+    ("N05", "docs/evidence/B05-leisure-value.md"),
 ]
 RELATIONS = [
     {"card_ids": ["J033"], "background_ids": ["B01"], "essay_ids": ["E04"]},
     {"card_ids": ["J024", "J040", "J058", "J059"], "background_ids": ["B02"], "essay_ids": ["E05"]},
     {"card_ids": ["J013", "J015", "J016", "J019", "J020"], "background_ids": ["B03"], "essay_ids": ["E02"]},
     {"card_ids": ["J006", "J025", "J031"], "background_ids": ["B04"], "essay_ids": ["E03"]},
+    {"card_ids": ["J043", "J048"], "background_ids": ["B05"], "essay_ids": ["E07"]},
 ]
 
 
@@ -57,7 +59,8 @@ def research_records(root):
     records = []
     matches = list(re.finditer(r"^## (B\d+) · (.+)$", text, re.MULTILINE))
     for index, match in enumerate(matches):
-        end = matches[index + 1].start() if index + 1 < len(matches) else text.find("## 检索过")
+        next_heading = re.search(r"^## ", text[match.end():], re.MULTILINE)
+        end = match.end() + next_heading.start() if next_heading else len(text)
         block = text[match.end():end]
         doi = re.search(r"https://doi.org/([^)]+)", block).group(1)
         fields = dict(re.findall(r"^- \*\*(.+?)\*\*：(.+)$", block, re.MULTILINE))
@@ -68,8 +71,8 @@ def research_records(root):
             "directly_validates_cards": False,
             "source": "docs/research.md#" + match.group(1).lower(),
         })
-    if len(records) != 4:
-        raise ValueError("背景研究记录数量变化，请同时核对生成逻辑")
+    if not records or len({record["id"] for record in records}) != len(records):
+        raise ValueError("背景研究记录为空或编号重复")
     return records
 
 

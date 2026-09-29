@@ -66,12 +66,24 @@ class ExportTests(unittest.TestCase):
     def test_background_does_not_validate_cards(self):
         research = json.loads(self.outputs["data/research.json"])
         ids = {record["id"] for record in research["records"]}
-        self.assertEqual(sum(record["access_level"] == "full_text" for record in research["records"]), 3)
+        self.assertEqual(sum(record["access_level"] == "full_text" for record in research["records"]), 4)
+        self.assertEqual(ids, {"B01", "B02", "B03", "B04", "B05"})
         for card in self.export["cards"]:
             self.assertTrue(card["background_is_not_validation"])
             self.assertTrue(set(card["background_ids"]).issubset(ids))
             self.assertEqual(card["evidence_type"], "original_proposal")
         self.assertTrue(all(not record["directly_validates_cards"] for record in research["records"]))
+
+    def test_leisure_research_preserves_nonclaims_and_links(self):
+        records = {item["id"]: item for item in json.loads(self.outputs["data/research.json"])["records"]}
+        self.assertIn("p = .053", records["B05"]["fields"]["关键限制"])
+        self.assertIn("p = .84", records["B05"]["fields"]["关键限制"])
+        self.assertIn("不能转成治疗建议", records["B05"]["fields"]["关键限制"])
+        self.assertEqual(records["B03"]["access_level"], "abstract_only")
+        self.assertEqual(build.local_href("../docs/evidence/B05-leisure-value.md", "book/08-permission.md"), "#n05")
+        note = json.loads(self.outputs["data/evidence.json"])["notes"][-1]
+        self.assertEqual(note["id"], "N05")
+        self.assertIn("并未显著低于量表中点", note["text"])
 
     def test_offline_page_contains_all_content_without_fetches(self):
         page = self.outputs["index.html"]
