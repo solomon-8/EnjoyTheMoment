@@ -46,6 +46,8 @@ Neither excitement nor spending is compulsory. Quiet enjoyment counts. Disliking
 
 [E10 · We want pleasure now, not extraction now](essays/10-pleasure-not-retention.md) asks why choosing enjoyment does not mean endorsing endless retention. It distinguishes helpful recommendations, persuasion, hidden commitments and barriers to leaving; clicks and time spent are not automatically satisfaction.
 
+[E11 · If pleasure could be generated on demand, would we still want real life?](essays/11-pleasure-and-reality.md) distinguishes valuing pleasure from valuing nothing else. It examines the experience-machine question, genuine participation in fictional worlds, and whether differences in enjoyment justify ranking other people's tastes. Philosophical arguments are not behavioral evidence; the Nozick passage was read through a secondary encyclopedia quotation, not in his original book.
+
 The chapters on senses, novelty, play, relationships, spending, and permission to enjoy contain substantial discussions before their supporting cards. They address taste without moral judgment, novelty without a life checklist, serious play without compulsory achievement, shared time without identical preferences, and leisure without a productivity test. These discussions are in Chinese; value arguments and hypothetical examples are distinguished from limited research findings.
 
 | Chapter | Question |

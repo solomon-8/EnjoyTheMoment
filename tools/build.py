@@ -25,6 +25,7 @@ ESSAYS = [
     ("E08", "essays/08-life-without-an-audience.md"),
     ("E09", "essays/09-friends-not-assets.md"),
     ("E10", "essays/10-pleasure-not-retention.md"),
+    ("E11", "essays/11-pleasure-and-reality.md"),
 ]
 EVIDENCE = [
     ("N02", "docs/evidence/B02-quantification.md"),
@@ -68,6 +69,7 @@ EVIDENCE = [
     ("F24", "docs/evidence/F24-monkeys-paw.md"),
     ("F25", "docs/evidence/F25-ice-cream-structure.md"),
     ("F26", "docs/evidence/F26-clothing-forms.md"),
+    ("F27", "docs/evidence/F27-pleasure-philosophy.md"),
 ]
 EVIDENCE_KINDS = {
     "F01": "official_statistics",
@@ -96,6 +98,7 @@ EVIDENCE_KINDS = {
     "F24": "literary_primary_text",
     "F25": "supplier_technical_handbook",
     "F26": "fashion_record_and_image",
+    "F27": "philosophical_primary_and_secondary",
 }
 RELATIONS = [
     {"card_ids": ["J033"], "background_ids": ["B01"], "essay_ids": ["E04"]},
