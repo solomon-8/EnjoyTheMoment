@@ -40,7 +40,7 @@ Neither excitement nor spending is compulsory. Quiet enjoyment counts. Disliking
 
 ## The guide
 
-**33 chapters. 60 original activity cards.** Chapters 11–33 are standalone discussions, not extra activity lists. The full chapters and cards are currently in Chinese; this page is an English introduction, not a complete translation.
+**34 chapters. 60 original activity cards.** Chapters 11–34 are standalone discussions, not extra activity lists. The full chapters and cards are currently in Chinese; this page is an English introduction, not a complete translation.
 
 [Read and filter in your browser](https://solomon-8.github.io/EnjoyTheMoment/), with no installation. Eleven [long-form essays](essays/01-pleasure-is-an-end.md) explain the tradeoffs; the [research ledger](docs/research.md) records 16 background studies: twelve journal full texts, one journal-formatted arXiv version, one advance online publication, one publicly hosted research manuscript, and one author-hosted page proof. The latter four have not been compared line by line with their final publisher versions; some online appendices have not been fully reviewed. Statistical, educational, health, technical, practice, literary, visitor-guidance and regulatory-report sources are recorded separately. None directly validates our activities.
 
@@ -85,6 +85,7 @@ The chapters on senses, novelty, play, relationships, spending, and permission t
 | [31 · I paid to be scared—and enjoy it](book/31-recreational-fear.md) | A haunted-house study and The Monkey’s Paw distinguish suspense, enjoyment and actual loss of choice. |
 | [32 · The fastest answer is not always the most fun](book/32-puzzles.md) | A small puzzle, layered hints and false insights distinguish discovery from merely obtaining an answer. |
 | [33 · A microphone is not a qualification](book/33-singing.md) | Transposition, timbre, phrasing and rounds distinguish participating in a song from submitting to an uninvited audition. |
+| [34 · Characters may suffer; players need not](book/34-shared-stories.md) | Dice pools, fictional consequences and aspects explain why choosing trouble can be part of choosing enjoyment. |
 
 Each card has a concrete action, a hoped-for experience, visible costs, a smaller alternative, a stopping point, and a statement of its evidential status.
 
@@ -134,6 +135,6 @@ We welcome affordable alternatives, accessibility improvements, failures, counte
 
 Drafted with AI assistance and reviewed for structure, consistency, and local functionality. The activities have not been individually field-tested. Community accounts must be labelled as such.
 
-Original text, scripts, and visual assets are released under the [MIT License](LICENSE). External linked content retains its own terms.
+The project's original text, scripts, and visual assets are released under the [MIT License](LICENSE). Attributed third-party rules and media retain their own licenses; see [sources and attribution](docs/sources.md) and the relevant chapter notices. They are not relicensed as MIT-original content.
 
 **May there be something in your day that you do simply because you like it.**

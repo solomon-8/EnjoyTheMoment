@@ -72,3 +72,11 @@
 音乐章节的两张乐谱局部与电影章节的三张静帧同样是第三方作品素材，数字版本、源端权利标记、裁切或缩放范围见[音乐与电影素材署名](../assets/media/README.md)、[F15](evidence/F15-musical-scores.md)与 [F16](evidence/F16-train-robbery.md)。没有收录商业录音、完整影片或历史目录扫描；作品内容与本书的解释分开署明。
 
 观赛章节的越位时点图为本项目原创简化示意，不是官方插图、真实比赛或判罚工具；SVG 源文件与 PNG 见[图解署名](../assets/media/README.md)。来源类型和简化条件不能因采用了图片就省略。
+
+## 开放游戏规则
+
+[第 34 章](../book/34-shared-stories.md)及 [F32](evidence/F32-action-and-consequences.md)、[F33](evidence/F33-aspects-and-shared-fiction.md)转述 *Blades in the Dark* 与 *Fate Condensed* 的指定开放规则。两者相应 SRD 采用 CC BY 3.0 Unported；本书的中文解释、对比和场景是改写，不是官方中文译本。完整要求署名保留在章节、来源笔记和仓库 LICENSE 中，不把开放规则冒称 MIT 原创。
+
+*Fate Condensed* 以官方许可入口下载 ZIP 内的 SRD 文件为底本，未只凭网站改编呈现取代官方文件。下载文件署名名单比网页页脚多 Leonard Balsera 与 Ryan Macklin，按文件完整保留。读取范围和未核验项见 F33。
+
+没有使用两套游戏的标识、字体、世界设定、人物、插图或地图；会说谎的钟、修钟匠和码头为本项目原创虚构，不是实况转写。概率枚举只验证模型，不表示试玩、玩家反馈或快乐效果。权利方没有审核、赞助或为本项目背书。
