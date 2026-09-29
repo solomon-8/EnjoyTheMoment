@@ -40,7 +40,7 @@ Neither excitement nor spending is compulsory. Quiet enjoyment counts. Disliking
 
 ## The guide
 
-**28 chapters. 60 original activity cards.** Chapters 11–28 are standalone discussions, not extra activity lists. The full chapters and cards are currently in Chinese; this page is an English introduction, not a complete translation.
+**30 chapters. 60 original activity cards.** Chapters 11–30 are standalone discussions, not extra activity lists. The full chapters and cards are currently in Chinese; this page is an English introduction, not a complete translation.
 
 [Read and filter in your browser](https://solomon-8.github.io/EnjoyTheMoment/), with no installation. Ten [long-form essays](essays/01-pleasure-is-an-end.md) explain the tradeoffs; the [research ledger](docs/research.md) records 14 background studies: ten journal full texts, one journal-formatted arXiv version, one advance online publication, one publicly hosted research manuscript, and one author-hosted page proof. The latter four have not been compared line by line with their final publisher versions; some online appendices have not been fully reviewed. Statistical, educational, health, technical, practice, literary, visitor-guidance and regulatory-report sources are recorded separately. None directly validates our activities.
 
@@ -78,6 +78,8 @@ The chapters on senses, novelty, play, relationships, spending, and permission t
 | [26 · A collection need not be complete](book/26-collecting.md) | What does an edition number tell us, and who gets to define the last missing piece? |
 | [27 · Dancing need not put your body before a jury](book/27-dance.md) | How do timing, movement and response create interest without adding difficulty? |
 | [28 · The score can stay still while the game changes](book/28-watching-sport.md) | What do off-ball movement, two clocks and a missed shot let us notice beyond results? |
+| [29 · The sky owes you no photograph](book/29-night-sky.md) | Lunar phases, shadows and earthshine: what is worth seeing when the image or planned spectacle disappoints? |
+| [30 · Must a bird be rare to deserve attention?](book/30-birdwatching.md) | Identification, behavior and honest records without making a checklist the only purpose of looking. |
 
 Each card has a concrete action, a hoped-for experience, visible costs, a smaller alternative, a stopping point, and a statement of its evidential status.
 

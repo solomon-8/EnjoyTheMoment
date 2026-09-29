@@ -212,7 +212,7 @@ class ExportTests(unittest.TestCase):
         chapters = json.loads(self.outputs["data/chapters.json"])["chapters"]
         self.assertEqual({chapter["source"] for chapter in chapters},
                          {p.relative_to(ROOT).as_posix() for p in (ROOT / "book").glob("*.md")})
-        self.assertEqual(len(chapters), 28)
+        self.assertEqual(len(chapters), 30)
         self.assertEqual(len({chapter["id"] for chapter in chapters}), len(chapters))
         for chapter in chapters:
             source = ROOT / chapter["source"]
@@ -237,13 +237,52 @@ class ExportTests(unittest.TestCase):
         chapters = json.loads(self.outputs["data/chapters.json"])["chapters"]
         standalone = [chapter for chapter in chapters if chapter["scope"] == "full_chapter"]
         self.assertEqual({chapter["id"] for chapter in standalone},
-                         {"C11", "C12", "C13", "C14", "C15", "C16", "C17", "C18", "C19", "C20", "C21", "C22", "C23", "C24", "C25", "C26", "C27", "C28"})
+                         {"C11", "C12", "C13", "C14", "C15", "C16", "C17", "C18", "C19", "C20", "C21", "C22", "C23", "C24", "C25", "C26", "C27", "C28", "C29", "C30"})
         for chapter in standalone:
             self.assertEqual(chapter["card_ids"], [])
             self.assertEqual(chapter["text"], (ROOT / chapter["source"]).read_text().strip())
             self.assertEqual(build.local_href(chapter["source"], "README.md"), "#" + chapter["id"].lower())
         self.assertNotIn("<p>配套行动：</p>", self.outputs["index.html"])
         self.assertEqual(len(self.export["cards"]), 60)
+
+    def test_nature_chapters_preserve_scope_and_source_boundaries(self):
+        chapters = {item["id"]: item for item in
+                    json.loads(self.outputs["data/chapters.json"])["chapters"]}
+        notes = {item["id"]: item for item in
+                 json.loads(self.outputs["data/evidence.json"])["notes"]}
+        research = {item["id"] for item in
+                    json.loads(self.outputs["data/research.json"])["records"]}
+        expected = {
+            "F21": ("official_science_explainer", "docs/evidence/F21-night-sky.md"),
+            "F22": ("species_identification_reference", "docs/evidence/F22-bird-identification.md"),
+            "F23": ("birding_ethics_and_protocol", "docs/evidence/F23-bird-records-and-ethics.md"),
+        }
+        for identifier, (kind, source) in expected.items():
+            self.assertEqual(notes[identifier]["source_kind"], kind)
+            self.assertEqual(notes[identifier]["source"], source)
+            self.assertNotIn(identifier, research)
+            self.assertIn("2026-09-30", notes[identifier]["text"])
+            self.assertEqual(build.local_href(source, "README.md"),
+                             "#" + identifier.lower())
+        for identifier in ("C29", "C30"):
+            self.assertEqual(chapters[identifier]["scope"], "full_chapter")
+            self.assertEqual(chapters[identifier]["card_ids"], [])
+            self.assertIn(chapters[identifier]["text"], self.outputs["llms-full.txt"])
+        for phrase in ("月相变化不是地球的影子", "29.5", "27.3", "多数纬度",
+                       "不是某个日期地点的观测报告", "日食眼镜不能"):
+            self.assertIn(phrase, chapters["C29"]["text"])
+        for phrase in ("成年雄鸟", "不是你所在城市", "虚构的计数问题",
+                       "不等于辨认出了当地存在的每一种鸟", "不是可靠的同意表达"):
+            self.assertIn(phrase, chapters["C30"]["text"])
+        for phrase in ("没有播放来源中的鸟声录音", "没有逐张目视核验照片"):
+            self.assertIn(phrase, notes["F22"]["text"])
+        for phrase in ("不是全球统一法律", "本书选择", "圈养鸟类", "未实际操作提交界面"):
+            self.assertIn(phrase, notes["F23"]["text"])
+        for chapter, identifiers in (("C29", ("F21",)), ("C30", ("F22", "F23"))):
+            for identifier in identifiers:
+                self.assertIn(notes[identifier]["source"].split("/")[-1],
+                              chapters[chapter]["text"])
+                self.assertIn('href="#' + identifier.lower() + '"', self.outputs["index.html"])
 
     def test_artwork_images_are_local_accessible_and_not_raw_html(self):
         source = "book/25-looking-at-art.md"
