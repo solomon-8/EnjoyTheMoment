@@ -12,6 +12,41 @@ from pick import load_cards
 
 
 class PlaybookTests(unittest.TestCase):
+    def test_four_card_chapter_puzzle_and_relaxed_constraint(self):
+        text = (ROOT / "book/32-puzzles.md").read_text()
+        clue_section = text.split("只使用三条条件：", 1)[1].split("问题：", 1)[0]
+        clues = re.findall(r"^\d\. (.+)$", clue_section, re.M)
+        self.assertEqual(clues, [
+            "月亮紧挨着船的右边。",
+            "地图不在最左边，也不在最右边。",
+            "伞在月亮左边，但不要求紧挨着。",
+        ])
+        self.assertIn("每张卡恰好用一次，每个位置恰好一张卡", text)
+        arrangements = list(itertools.permutations(("伞", "地图", "船", "月亮")))
+        self.assertEqual(len(arrangements), 24)
+
+        def valid(order, include_map=True):
+            positions = {item: order.index(item) for item in order}
+            return (positions["月亮"] == positions["船"] + 1
+                    and (not include_map or positions["地图"] not in (0, 3))
+                    and positions["伞"] < positions["月亮"])
+
+        unique = [order for order in arrangements if valid(order)]
+        self.assertEqual(unique, [("伞", "地图", "船", "月亮")])
+        relaxed = {order for order in arrangements if valid(order, False)}
+        self.assertEqual(relaxed, {
+            ("伞", "地图", "船", "月亮"),
+            ("伞", "船", "月亮", "地图"),
+            ("地图", "伞", "船", "月亮"),
+        })
+        self.assertIn("**伞、地图、船、月亮**", text)
+        answer_section = text.split("删掉地图位置条件后，有哪些答案？</summary>", 1)[1]
+        answer_section = answer_section.split("</details>", 1)[0]
+        listed = re.findall(r"^\d\. (.+)[；。]$", answer_section, re.M)
+        self.assertEqual({tuple(row.split("、")) for row in listed}, relaxed)
+        self.assertFalse(valid(("船", "月亮", "地图", "伞")))
+        self.assertFalse(valid(("伞", "船", "月亮", "地图")))
+
     def test_metadata_and_exports(self):
         guides = load_guides()
         cards = {c.id for c in load_cards()}

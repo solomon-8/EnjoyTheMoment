@@ -40,6 +40,8 @@ EVIDENCE = [
     ("N12", "docs/evidence/B12-vacation.md"),
     ("N13", "docs/evidence/B13-humor.md"),
     ("N14", "docs/evidence/B14-dark-patterns.md"),
+    ("N15", "docs/evidence/B15-recreational-fear.md"),
+    ("N16", "docs/evidence/B16-false-insight.md"),
     ("F01", "docs/evidence/F01-time-use.md"),
     ("F02", "docs/evidence/F02-listening-language.md"),
     ("F03", "docs/evidence/F03-film-language.md"),
@@ -63,6 +65,7 @@ EVIDENCE = [
     ("F21", "docs/evidence/F21-night-sky.md"),
     ("F22", "docs/evidence/F22-bird-identification.md"),
     ("F23", "docs/evidence/F23-bird-records-and-ethics.md"),
+    ("F24", "docs/evidence/F24-monkeys-paw.md"),
 ]
 EVIDENCE_KINDS = {
     "F01": "official_statistics",
@@ -88,6 +91,7 @@ EVIDENCE_KINDS = {
     "F21": "official_science_explainer",
     "F22": "species_identification_reference",
     "F23": "birding_ethics_and_protocol",
+    "F24": "literary_primary_text",
 }
 RELATIONS = [
     {"card_ids": ["J033"], "background_ids": ["B01"], "essay_ids": ["E04"]},
