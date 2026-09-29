@@ -21,7 +21,21 @@ const { chromium } = require("playwright");
     assert.equal(await page.locator("#filters").isVisible(), true);
     assert.equal(await page.locator(".argument").count(), 11);
     assert.equal(await page.locator(".playbook").count(), 10);
-    assert.equal(await page.locator(".chapter-intro").count(), 32);
+    assert.equal(await page.locator(".chapter-intro").count(), 33);
+    await page.goto(url + "#c33");
+    await page.waitForFunction(() => document.getElementById("c33").open);
+    assert.equal(await page.locator("#c33 .prose table").count(), 3);
+    for (const anchor of ["singing-transpose", "singing-timbre", "singing-together", "singing-microphone"]) {
+      await page.locator(`#c33 a[href='#${anchor}']`).click();
+      assert.equal(new URL(page.url()).hash, `#${anchor}`);
+      assert(await page.locator("#c33 .prose").isVisible());
+    }
+    for (const id of ["f30", "f31"]) {
+      await page.locator(`#c33 a[href='#${id}']`).first().click();
+      await page.waitForFunction(id => document.getElementById(id).open, id);
+      await page.locator(`#${id} a[href='#c33']`).click();
+      await page.waitForFunction(() => document.getElementById("c33").open);
+    }
     await page.goto(url + "#e11");
     await page.waitForFunction(() => document.getElementById("e11").open);
     assert.equal(await page.locator("#e11 .prose table tbody tr").count(), 4);
@@ -417,6 +431,14 @@ const { chromium } = require("playwright");
     await page.evaluate(() => scrollTo({top: 0, behavior: "instant"}));
     await page.screenshot({path: process.env.SCREENSHOT_DESKTOP || "/tmp/enjoythemoment-desktop.png", fullPage: false});
     await page.setViewportSize({width: 390, height: 844});
+    await page.goto(url + "#c33");
+    await page.waitForFunction(() => document.getElementById("c33").open);
+    for (const [i, table] of (await page.locator("#c33 .prose table").all()).entries()) {
+      await table.scrollIntoViewIfNeeded();
+      assert(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth));
+      assert(await table.evaluate(el => el.getBoundingClientRect().width <= 350));
+      await page.screenshot({path: "/tmp/enjoythemoment-singing-" + i + "-mobile.png", fullPage: false});
+    }
     await page.goto(url + "#c17");
     await page.waitForFunction(() => document.getElementById("c17").open);
     const makingImages = await page.locator("#c17 .artwork img").all();
@@ -583,6 +605,9 @@ const { chromium } = require("playwright");
     await staticHints.nth(0).locator("summary").click();
     assert(await staticHints.nth(0).locator("p").first().isVisible());
     assert.equal(await staticHints.nth(2).locator("p").first().isVisible(), false);
+    await staticPage.locator("#c33 > summary").click();
+    assert.equal(await staticPage.locator("#c33 .prose table").count(), 3);
+    assert.match(await staticPage.locator("#c33 .prose").textContent(), /低八度本身也是移调的一种/);
     await nojs.close();
     console.log("OK: offline, filters, empty state, deep links, keyboard, 390px, dark/reduced motion, print, no-JS, zero external requests");
   } finally {

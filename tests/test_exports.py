@@ -250,7 +250,7 @@ class ExportTests(unittest.TestCase):
         chapters = json.loads(self.outputs["data/chapters.json"])["chapters"]
         self.assertEqual({chapter["source"] for chapter in chapters},
                          {p.relative_to(ROOT).as_posix() for p in (ROOT / "book").glob("*.md")})
-        self.assertEqual(len(chapters), 32)
+        self.assertEqual(len(chapters), 33)
         self.assertEqual(len({chapter["id"] for chapter in chapters}), len(chapters))
         for chapter in chapters:
             source = ROOT / chapter["source"]
@@ -275,7 +275,7 @@ class ExportTests(unittest.TestCase):
         chapters = json.loads(self.outputs["data/chapters.json"])["chapters"]
         standalone = [chapter for chapter in chapters if chapter["scope"] == "full_chapter"]
         self.assertEqual({chapter["id"] for chapter in standalone},
-                         {"C11", "C12", "C13", "C14", "C15", "C16", "C17", "C18", "C19", "C20", "C21", "C22", "C23", "C24", "C25", "C26", "C27", "C28", "C29", "C30", "C31", "C32"})
+                         {"C11", "C12", "C13", "C14", "C15", "C16", "C17", "C18", "C19", "C20", "C21", "C22", "C23", "C24", "C25", "C26", "C27", "C28", "C29", "C30", "C31", "C32", "C33"})
         for chapter in standalone:
             self.assertEqual(chapter["card_ids"], [])
             self.assertEqual(chapter["text"], (ROOT / chapter["source"]).read_text().strip())
@@ -422,6 +422,75 @@ class ExportTests(unittest.TestCase):
         self.assertIn("不是附带页码与文字朝向的拼版模板", notes["F29"]["text"])
         self.assertIn("没有实际折制", notes["F29"]["text"])
         self.assertEqual(len(self.export["cards"]), 60)
+
+    def test_singing_chapter_and_heterogeneous_sources_remain_complete(self):
+        chapters = {item["id"]: item for item in
+                    json.loads(self.outputs["data/chapters.json"])["chapters"]}
+        notes = {item["id"]: item for item in
+                 json.loads(self.outputs["data/evidence.json"])["notes"]}
+        chapter = chapters["C33"]
+        text = (ROOT / chapter["source"]).read_text()
+        self.assertEqual(chapter["scope"], "full_chapter")
+        self.assertEqual(chapter["card_ids"], [])
+        self.assertEqual(chapter["text"], text.strip())
+        self.assertIn(text, self.outputs["llms-full.txt"])
+        rendered = build.markdown(text, chapter["source"])
+        for anchor in ("singing-transpose", "singing-timbre",
+                       "singing-together", "singing-microphone"):
+            self.assertIn('id="' + anchor + '"', rendered)
+            self.assertIn('href="#' + anchor + '"', rendered)
+        for identifier, kind in (
+                ("F30", "acoustics_and_music_education"),
+                ("F31", "manufacturer_manual_and_health_guidance")):
+            note = notes[identifier]
+            self.assertEqual(note["source_kind"], kind)
+            self.assertEqual(note["text"], (ROOT / note["source"]).read_text())
+            self.assertIn(note["text"], self.outputs["llms-full.txt"])
+            self.assertIn('href="#' + identifier.lower() + '"', rendered)
+            self.assertIn('href="#c33"', build.markdown(note["text"], note["source"]))
+        self.assertIn("未播放页面音视频", notes["F30"]["text"])
+        self.assertIn("Version: 6.4 (2024-F)", notes["F31"]["text"])
+        self.assertIn("June 11, 2025", notes["F31"]["text"])
+        self.assertEqual(len(json.loads(self.outputs["data/research.json"])["records"]), 16)
+        self.assertEqual(len(self.export["cards"]), 60)
+
+    def test_singing_examples_preserve_intervals_and_round_offset(self):
+        text = (ROOT / "book/33-singing.md").read_text()
+        note_values = {"C": 0, "D": 2, "E": 4, "F": 5, "G": 7, "B": 11}
+        rows = {}
+        for line in text.splitlines():
+            if line.startswith("| ") and " → " in line:
+                label, sequence = [cell.strip() for cell in line.strip("|").split("|")]
+                pitches = []
+                for token in sequence.split(" → "):
+                    match = re.fullmatch(r"([CDEFGAB])(♭?)([0-9])", token)
+                    self.assertIsNotNone(match, token)
+                    letter, flat, octave = match.groups()
+                    pitches.append(note_values[letter] - bool(flat) + 12 * (int(octave) - 3))
+                rows[label] = pitches
+        self.assertEqual(set(rows), {"起始版本", "整体低两个半音", "整体低一个八度"})
+        base = rows["起始版本"]
+        for name, offset in (("起始版本", 0), ("整体低两个半音", -2),
+                             ("整体低一个八度", -12)):
+            pitches = rows[name]
+            self.assertEqual(pitches, [pitch + offset for pitch in base])
+            self.assertEqual([b - a for a, b in zip(pitches, pitches[1:])],
+                             [2, 2, 3, -3, -2, -2])
+        self.assertIn("低八度本身也是移调的一种", text)
+        temporal = {"第一组": [], "第二组": []}
+        ticks = []
+        for line in text.splitlines():
+            if re.match(r"\| [1-6] \|", line):
+                cells = [cell.strip() for cell in line.strip("|").split("|")]
+                ticks.append(int(cells[0]))
+                temporal["第一组"].append(cells[1])
+                temporal["第二组"].append(cells[2])
+        self.assertEqual(ticks, [1, 2, 3, 4, 5, 6])
+        self.assertEqual(temporal["第一组"], ["A", "B", "C", "D", "A", "B"])
+        self.assertEqual(temporal["第二组"], ["等待", "等待", "A", "B", "C", "D"])
+        self.assertEqual(temporal["第一组"][:4], temporal["第二组"][2:])
+        self.assertIn("这里假设材料本来适合轮唱", text)
+        self.assertIn("没有证明两个段落同时响起来一定和谐", text)
 
     def test_making_original_diagrams_show_alternating_crossings_and_eight_pages(self):
         ns = "{http://www.w3.org/2000/svg}"
