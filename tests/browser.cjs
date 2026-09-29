@@ -325,6 +325,26 @@ const { chromium } = require("playwright");
     await page.goto(url + "#c26");
     await page.waitForFunction(() => document.getElementById("c26").open);
     assert.match(await page.locator("#c26 > summary").textContent(), /永远差最后一件/);
+    assert.equal(await page.locator("#c26 .artwork img").count(), 2);
+    assert.equal(await page.locator("#c26 .prose table").count(), 3);
+    for (const image of await page.locator("#c26 .artwork img").all()) {
+      await image.scrollIntoViewIfNeeded();
+      await image.evaluate(img => img.decode());
+      assert.equal(await image.evaluate(img => img.naturalWidth), 599);
+      assert((await image.getAttribute("alt")).length > 50);
+    }
+    for (const anchor of ["collecting-crosses", "collecting-layers", "collecting-digital",
+                          "collecting-return", "collecting-abundance"]) {
+      await page.locator(`#c26 a[href='#${anchor}']`).click();
+      assert.equal(new URL(page.url()).hash, `#${anchor}`);
+      assert(await page.locator("#c26 .prose").isVisible());
+    }
+    for (const id of ["f38", "f39"]) {
+      await page.locator(`#c26 a[href='#${id}']`).first().click();
+      await page.waitForFunction(id => document.getElementById(id).open, id);
+      await page.locator(`#${id} a[href='#c26']`).click();
+      await page.waitForFunction(() => document.getElementById("c26").open);
+    }
     await page.locator("#c26 a[href='#f14']").first().click();
     await page.waitForFunction(() => document.getElementById("f14").open);
     assert.match(await page.locator("#f14 .prose").textContent(), /不是藏品鉴定/);
@@ -728,6 +748,14 @@ const { chromium } = require("playwright");
     await staticComicFold.locator("summary").click();
     assert(await staticComicFold.locator("p").first().isVisible());
     assert.equal(await staticPage.locator("#c24 .prose table").count(), 2);
+    await staticPage.locator("#c26 > summary").click();
+    assert.equal(await staticPage.locator("#c26 .prose table").count(), 3);
+    assert.equal(await staticPage.locator("#c26 .artwork img").count(), 2);
+    for (const image of await staticPage.locator("#c26 .artwork img").all()) {
+      await image.scrollIntoViewIfNeeded();
+      await image.evaluate(img => img.decode());
+      assert(await image.isVisible());
+    }
     await nojs.close();
     console.log("OK: offline, filters, empty state, deep links, keyboard, 390px, dark/reduced motion, print, no-JS, zero external requests");
   } finally {

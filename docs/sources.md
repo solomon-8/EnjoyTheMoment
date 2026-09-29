@@ -71,6 +71,8 @@
 
 看画章节的三幅历史绘画复制图并非本项目原创。作者、馆藏、数字来源、公有领域标记与图像处理见 [图像署名表](../assets/art/README.md)及 [F13](evidence/F13-artworks.md)。博物馆 API 的描述文字另有 CC BY 4.0 标记，本书采用注明来源的中文转述；不把第三方素材一并声称为本项目 MIT 原创。
 
+收藏章节的两件伦勃朗《三个十字架》复制图直接来自大都会艺术博物馆对象 API 的官方图像。两件均署 `Gift of Felix M. Warburg and his family, 1941`，具体公有领域字段、图像链及未作处理的范围见 [F38](evidence/F38-print-comparison.md)和[图像表](../assets/art/README.md)。对象元数据与图像许可不混用，A/B标签和视觉分析为本书组织与解释，不是馆方鉴定或背书。数字收藏的保存指导另见 [F39](evidence/F39-digital-collections.md)，来源建议与本书推导分开。
+
 音乐章节的两张乐谱局部与电影章节的三张静帧同样是第三方作品素材，数字版本、源端权利标记、裁切或缩放范围见[音乐与电影素材署名](../assets/media/README.md)、[F15](evidence/F15-musical-scores.md)与 [F16](evidence/F16-train-robbery.md)。没有收录商业录音、完整影片或历史目录扫描；作品内容与本书的解释分开署明。
 
 观赛章节的越位时点图为本项目原创简化示意，不是官方插图、真实比赛或判罚工具；SVG 源文件与 PNG 见[图解署名](../assets/media/README.md)。来源类型和简化条件不能因采用了图片就省略。

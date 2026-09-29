@@ -843,6 +843,77 @@ class ExportTests(unittest.TestCase):
             self.assertEqual(build.local_href(source, "README.md"), "#" + identifier)
             self.assertIn('href="#' + identifier + '"', self.outputs["index.html"])
 
+    def test_collecting_chapter_and_source_notes_roundtrip(self):
+        chapters = {item["id"]: item for item in
+                    json.loads(self.outputs["data/chapters.json"])["chapters"]}
+        notes = {item["id"]: item for item in
+                 json.loads(self.outputs["data/evidence.json"])["notes"]}
+        text = (ROOT / "book/26-collecting.md").read_text()
+        chapter = chapters["C26"]
+        self.assertEqual(chapter["text"], text.strip())
+        self.assertEqual(chapter["scope"], "full_chapter")
+        self.assertEqual(chapter["card_ids"], [])
+        self.assertIn(text, self.outputs["llms-full.txt"])
+        rendered = build.markdown(text, chapter["source"])
+        for anchor in ("collecting-crosses", "collecting-layers", "collecting-digital",
+                       "collecting-return", "collecting-abundance"):
+            self.assertIn('id="' + anchor + '"', rendered)
+            self.assertIn('href="#' + anchor + '"', rendered)
+        for identifier, kind in (("F38", "artwork_record_and_image"),
+                                 ("F39", "personal_digital_archiving_guidance")):
+            note = notes[identifier]
+            self.assertEqual(note["source_kind"], kind)
+            self.assertEqual(note["text"], (ROOT / note["source"]).read_text())
+            self.assertIn(note["text"], self.outputs["llms-full.txt"])
+            self.assertIn('href="#' + identifier.lower() + '"', rendered)
+            self.assertIn('href="#c26"', build.markdown(note["text"], note["source"]))
+        self.assertEqual(len(json.loads(self.outputs["data/research.json"])["records"]), 16)
+        self.assertTrue(all(not ({"F38", "F39"} & set(c["background_ids"]))
+                            for c in self.export["cards"]))
+
+    def test_collecting_official_images_preserve_download_bytes_and_attribution(self):
+        source = "book/26-collecting.md"
+        text = (ROOT / source).read_text()
+        figures = re.findall(r"!\[([^\]]+)\]\(([^)]+)\)", text)
+        self.assertEqual(len(figures), 2)
+        rendered = build.markdown(text, source)
+        self.assertEqual(rendered.count('src="data:image/jpeg;base64,'), 2)
+        self.assertEqual(rendered.count('<figure class="artwork">'), 2)
+        expected = {
+            "rembrandt-three-crosses-41-1-31.jpg":
+                "349980d9db7fa6e83f8790a0665ffba6d436115ff58c14b62e9b0cb113333915",
+            "rembrandt-three-crosses-41-1-33.jpg":
+                "295635b81df098ad6c8073d1775deae84c7fc9a81a039cf077377bccb2895a2e",
+        }
+        for alt, href in figures:
+            path = ROOT / "book" / href
+            self.assertGreater(len(alt), 50)
+            self.assertEqual(hashlib.sha256(path.read_bytes()).hexdigest(), expected[path.name])
+        phrase = "Gift of Felix M. Warburg and his family, 1941"
+        for path in ("assets/art/README.md", "docs/sources.md",
+                     "docs/evidence/F38-print-comparison.md"):
+            self.assertIn(phrase, (ROOT / path).read_text())
+        self.assertIn("A/B标签", (ROOT / "docs/sources.md").read_text())
+
+    def test_collecting_preserves_measurement_and_archiving_scope(self):
+        text = (ROOT / "book/26-collecting.md").read_text()
+        note = (ROOT / "docs/evidence/F38-print-comparison.md").read_text()
+        for marker in ("41.1.31", "41.1.33", "38.1 × 43.8",
+                       "38.4 × 44.3", "38.2 × 44.4", "ca. 1660",
+                       "不算第二个独立机构来源", "不是历史编号"):
+            self.assertIn(marker, note)
+        for marker in ("约 1660", "A、B 只区分眼前对象", "毛刺", "不是鉴定流程"):
+            self.assertIn(marker, text)
+        archive = (ROOT / "docs/evidence/F39-digital-collections.md").read_text()
+        for marker in ("至少每年检查一次", "每五年或必要时", "没有显示可核实的发布",
+                       "不是核验过的当前产品比较", "没有观看或阅读"):
+            self.assertIn(marker, archive)
+        for marker in ("技术质量与版本意义不是同一条轴", "完全相同的一份备用副本",
+                       "同一块存储介质", "不是做过一次便永久安全",
+                       "以后不许花钱"):
+            self.assertIn(marker, text)
+        self.assertIn("不按文件名、像素或大小替用户删除数据", (ROOT / "docs/ai.md").read_text())
+
     def test_artwork_images_are_local_accessible_and_not_raw_html(self):
         source = "book/25-looking-at-art.md"
         text = (ROOT / source).read_text()
