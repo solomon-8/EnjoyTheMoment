@@ -68,7 +68,7 @@ The chapters on senses, novelty, play, relationships, spending, and permission t
 | [14 · Flavor does not need another justification](book/14-flavor.md) | Ice cream structure, sweetness and air: can knowledge inform taste without overruling it? |
 | [15 · Streets are not loading screens between attractions](book/15-neighborhood.md) | Does a city also welcome people who do not want to buy anything? |
 | [16 · Clothes are for wearing, not waiting for a better self](book/16-dress.md) | Color blocks, bias cutting and tuxedo codes offer more to discuss than correcting a body. |
-| [17 · Making things need not become another job](book/17-making.md) | How do process, finished objects and other people's judgments differ? |
+| [17 · Making things need not become another job](book/17-making.md) | Weave crossings, color boundaries and the page sequence of a one-sheet zine: process is more than the cost of a finished object. |
 | [18 · Celebration is not an achievement award](book/18-celebration.md) | Can an ordinary day deserve a place on the calendar? |
 | [19 · Games are not timesheets](book/19-games.md) | Which mechanics, challenges and purchases serve the experience you want? |
 | [20 · Photos can keep a moment without becoming its report card](book/20-photography.md) | Can framing, light and shared expectations make photography part of the experience? |

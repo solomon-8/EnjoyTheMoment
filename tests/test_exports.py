@@ -391,6 +391,74 @@ class ExportTests(unittest.TestCase):
         self.assertIn("50 ÷ 150 ≈ 33.3%", note)
         self.assertIn("100 ÷ 200 = 50%", note)
 
+    def test_making_chapter_preserves_complete_text_and_source_kinds(self):
+        chapters = {item["id"]: item for item in
+                    json.loads(self.outputs["data/chapters.json"])["chapters"]}
+        notes = {item["id"]: item for item in
+                 json.loads(self.outputs["data/evidence.json"])["notes"]}
+        chapter = chapters["C17"]
+        text = (ROOT / "book/17-making.md").read_text()
+        self.assertEqual(chapter["text"], text.strip())
+        self.assertEqual(chapter["scope"], "full_chapter")
+        self.assertEqual(chapter["card_ids"], [])
+        self.assertIn(text, self.outputs["llms-full.txt"])
+        rendered = build.markdown(text, chapter["source"])
+        self.assertEqual(rendered.count('src="data:image/png;base64,'), 2)
+        for anchor in ("making-weave", "making-sample", "making-zine", "making-handmade"):
+            self.assertIn('id="' + anchor + '"', rendered)
+            self.assertIn('href="#' + anchor + '"', rendered)
+        for identifier, kind in (("F28", "museum_teaching_and_artist_text"),
+                                 ("F29", "museum_instructional_diagrams")):
+            note = notes[identifier]
+            self.assertEqual(note["source_kind"], kind)
+            self.assertEqual(note["text"], (ROOT / note["source"]).read_text())
+            self.assertIn(note["text"], self.outputs["llms-full.txt"])
+            self.assertIn('href="#' + identifier.lower() + '"', rendered)
+            self.assertIn('href="#c17"', build.markdown(note["text"], note["source"]))
+        self.assertEqual(len(json.loads(self.outputs["data/research.json"])["records"]), 16)
+        self.assertIn("同一页面", notes["F28"]["text"])
+        self.assertIn("1965 A.D.", notes["F28"]["text"])
+        self.assertIn("未取得原始手稿", notes["F28"]["text"])
+        self.assertIn("不是附带页码与文字朝向的拼版模板", notes["F29"]["text"])
+        self.assertIn("没有实际折制", notes["F29"]["text"])
+        self.assertEqual(len(self.export["cards"]), 60)
+
+    def test_making_original_diagrams_show_alternating_crossings_and_eight_pages(self):
+        ns = "{http://www.w3.org/2000/svg}"
+        weave = ET.parse(ROOT / "assets/media/weave-crossings.svg").getroot()
+        crossings = {node.get("id"): node for node in weave.iter(ns + "g")
+                     if node.get("id", "").startswith("cross-")}
+        self.assertEqual(len(crossings), 36)
+        for row in range(6):
+            for col in range(6):
+                node = crossings[f"cross-{row}-{col}"]
+                expected = "warp" if (row + col) % 2 == 0 else "weft"
+                self.assertEqual(node.get("data-top"), expected)
+                paths = list(node.iter(ns + "path"))
+                self.assertEqual(len(paths), 2 if expected == "warp" else 0)
+                if paths:
+                    x, y = 90 + 52 * col, 178 + 48 * row
+                    self.assertEqual(paths[-1].get("d"), f"M{x} {y-13}V{y+13}")
+        zine = ET.parse(ROOT / "assets/media/zine-structure.svg").getroot()
+        paths = {node.get("id"): node for node in zine.iter(ns + "path")}
+        self.assertEqual(paths["central-opening"].get("d"), "M130 240H310")
+        self.assertEqual(paths["crease-h"].get("d"), "M40 240H400")
+        rects = {node.get("id"): node for node in zine.iter(ns + "rect")}
+        self.assertEqual({key for key in rects if key and key.startswith("reading-page-")},
+                         {f"reading-page-{i}" for i in range(1, 9)})
+        self.assertEqual(rects["source-paper"].get("width"), "360")
+        for a, b in ((2, 3), (4, 5), (6, 7)):
+            self.assertEqual(rects[f"reading-page-{a}"].get("y"),
+                             rects[f"reading-page-{b}"].get("y"))
+        for name, height in (("weave-crossings", 1220), ("zine-structure", 1768)):
+            image = (ROOT / "assets/media" / (name + ".png")).read_bytes()
+            self.assertEqual(image[:8], b"\x89PNG\r\n\x1a\n")
+            self.assertEqual(int.from_bytes(image[16:20], "big"), 880)
+            self.assertEqual(int.from_bytes(image[20:24], "big"), height)
+            svg = ET.parse(ROOT / "assets/media" / (name + ".svg")).getroot()
+            self.assertIsNotNone(svg.find(ns + "title"))
+            self.assertIsNotNone(svg.find(ns + "desc"))
+
     def test_fear_and_insight_sources_keep_samples_nonresults_and_spoilers(self):
         chapters = {item["id"]: item for item in
                     json.loads(self.outputs["data/chapters.json"])["chapters"]}

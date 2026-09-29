@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="440" height="610" viewBox="0 0 440 610" role="img" aria-labelledby="title desc">
+<title id="title">平纹：一上一下，交错成面</title>
+<desc id="desc">本书原创的六乘六放大示意。纵向经线与横向纬线交错，每个交点轮流由经线或纬线在上，相邻行反过来。颜色仅用来区分线的方向，空隙被刻意拉大，不代表成品织物的线径、密度或强度。</desc>
+<rect width="440" height="610" rx="16" fill="#fff8ec"/>
+<g font-family="PingFang SC, Microsoft YaHei, sans-serif" fill="#24231f" font-size="22">
+<text x="24" y="42" font-size="26" font-weight="700">一上一下，交错成面</text>
+<text x="24" y="78">原创放大示意 · 非真实密度</text>
+<text x="24" y="120">纵向：经线</text><text x="232" y="120">横向：纬线</text>
+</g>
+<path id="warp-0" d="M90 146V452" stroke="#7b6949" stroke-width="14"/>
+<path id="warp-1" d="M142 146V452" stroke="#7b6949" stroke-width="14"/>
+<path id="warp-2" d="M194 146V452" stroke="#7b6949" stroke-width="14"/>
+<path id="warp-3" d="M246 146V452" stroke="#7b6949" stroke-width="14"/>
+<path id="warp-4" d="M298 146V452" stroke="#7b6949" stroke-width="14"/>
+<path id="warp-5" d="M350 146V452" stroke="#7b6949" stroke-width="14"/>
+<path id="weft-0" d="M60 178H382" stroke="#23798a" stroke-width="14"/>
+<path id="weft-1" d="M60 226H382" stroke="#23798a" stroke-width="14"/>
+<path id="weft-2" d="M60 274H382" stroke="#23798a" stroke-width="14"/>
+<path id="weft-3" d="M60 322H382" stroke="#23798a" stroke-width="14"/>
+<path id="weft-4" d="M60 370H382" stroke="#23798a" stroke-width="14"/>
+<path id="weft-5" d="M60 418H382" stroke="#23798a" stroke-width="14"/>
+<g id="cross-0-0" data-top="warp"><path d="M90 165V191" stroke="#fff8ec" stroke-width="20"/><path d="M90 165V191" stroke="#7b6949" stroke-width="14"/></g>
+<g id="cross-0-1" data-top="weft"/>
+<g id="cross-0-2" data-top="warp"><path d="M194 165V191" stroke="#fff8ec" stroke-width="20"/><path d="M194 165V191" stroke="#7b6949" stroke-width="14"/></g>
+<g id="cross-0-3" data-top="weft"/>
+<g id="cross-0-4" data-top="warp"><path d="M298 165V191" stroke="#fff8ec" stroke-width="20"/><path d="M298 165V191" stroke="#7b6949" stroke-width="14"/></g>
+<g id="cross-0-5" data-top="weft"/>
+<g id="cross-1-0" data-top="weft"/>
+<g id="cross-1-1" data-top="warp"><path d="M142 213V239" stroke="#fff8ec" stroke-width="20"/><path d="M142 213V239" stroke="#7b6949" stroke-width="14"/></g>
+<g id="cross-1-2" data-top="weft"/>
+<g id="cross-1-3" data-top="warp"><path d="M246 213V239" stroke="#fff8ec" stroke-width="20"/><path d="M246 213V239" stroke="#7b6949" stroke-width="14"/></g>
+<g id="cross-1-4" data-top="weft"/>
+<g id="cross-1-5" data-top="warp"><path d="M350 213V239" stroke="#fff8ec" stroke-width="20"/><path d="M350 213V239" stroke="#7b6949" stroke-width="14"/></g>
+<g id="cross-2-0" data-top="warp"><path d="M90 261V287" stroke="#fff8ec" stroke-width="20"/><path d="M90 261V287" stroke="#7b6949" stroke-width="14"/></g>
+<g id="cross-2-1" data-top="weft"/>
+<g id="cross-2-2" data-top="warp"><path d="M194 261V287" stroke="#fff8ec" stroke-width="20"/><path d="M194 261V287" stroke="#7b6949" stroke-width="14"/></g>
+<g id="cross-2-3" data-top="weft"/>
+<g id="cross-2-4" data-top="warp"><path d="M298 261V287" stroke="#fff8ec" stroke-width="20"/><path d="M298 261V287" stroke="#7b6949" stroke-width="14"/></g>
+<g id="cross-2-5" data-top="weft"/>
+<g id="cross-3-0" data-top="weft"/>
+<g id="cross-3-1" data-top="warp"><path d="M142 309V335" stroke="#fff8ec" stroke-width="20"/><path d="M142 309V335" stroke="#7b6949" stroke-width="14"/></g>
+<g id="cross-3-2" data-top="weft"/>
+<g id="cross-3-3" data-top="warp"><path d="M246 309V335" stroke="#fff8ec" stroke-width="20"/><path d="M246 309V335" stroke="#7b6949" stroke-width="14"/></g>
+<g id="cross-3-4" data-top="weft"/>
+<g id="cross-3-5" data-top="warp"><path d="M350 309V335" stroke="#fff8ec" stroke-width="20"/><path d="M350 309V335" stroke="#7b6949" stroke-width="14"/></g>
+<g id="cross-4-0" data-top="warp"><path d="M90 357V383" stroke="#fff8ec" stroke-width="20"/><path d="M90 357V383" stroke="#7b6949" stroke-width="14"/></g>
+<g id="cross-4-1" data-top="weft"/>
+<g id="cross-4-2" data-top="warp"><path d="M194 357V383" stroke="#fff8ec" stroke-width="20"/><path d="M194 357V383" stroke="#7b6949" stroke-width="14"/></g>
+<g id="cross-4-3" data-top="weft"/>
+<g id="cross-4-4" data-top="warp"><path d="M298 357V383" stroke="#fff8ec" stroke-width="20"/><path d="M298 357V383" stroke="#7b6949" stroke-width="14"/></g>
+<g id="cross-4-5" data-top="weft"/>
+<g id="cross-5-0" data-top="weft"/>
+<g id="cross-5-1" data-top="warp"><path d="M142 405V431" stroke="#fff8ec" stroke-width="20"/><path d="M142 405V431" stroke="#7b6949" stroke-width="14"/></g>
+<g id="cross-5-2" data-top="weft"/>
+<g id="cross-5-3" data-top="warp"><path d="M246 405V431" stroke="#fff8ec" stroke-width="20"/><path d="M246 405V431" stroke="#7b6949" stroke-width="14"/></g>
+<g id="cross-5-4" data-top="weft"/>
+<g id="cross-5-5" data-top="warp"><path d="M350 405V431" stroke="#fff8ec" stroke-width="20"/><path d="M350 405V431" stroke="#7b6949" stroke-width="14"/></g>
+<g font-family="PingFang SC, Microsoft YaHei, sans-serif" fill="#24231f" font-size="22">
+<text x="24" y="502">下一行，上下关系反过来。</text>
+<text x="24" y="545" font-size="20">为了看清结构，刻意留出空隙。</text>
+<text x="24" y="581" font-size="20">不表示线粗、织物密度或强度。</text>
+</g></svg>

@@ -158,6 +158,18 @@ const { chromium } = require("playwright");
     assert.match(await page.locator("#f08 .prose").textContent(), /没有取得并完整审核 ISO 标准原文/);
     await page.goto(url + "#c17");
     await page.waitForFunction(() => document.getElementById("c17").open);
+    assert.equal(await page.locator("#c17 .artwork img").count(), 2);
+    for (const anchor of ["making-weave", "making-sample", "making-zine", "making-handmade"]) {
+      await page.locator("#c17 a[href='#" + anchor + "']").click();
+      assert.equal(new URL(page.url()).hash, "#" + anchor);
+      assert(await page.locator("#c17 .prose").isVisible());
+    }
+    for (const evidence of ["f28", "f29"]) {
+      await page.locator("#c17 a[href='#" + evidence + "']").first().click();
+      await page.waitForFunction(id => document.getElementById(id).open, evidence);
+      await page.locator("#" + evidence + " a[href='#c17']").click();
+      assert.equal(new URL(page.url()).hash, "#c17");
+    }
     await page.locator("#c17 a[href='#b07']").click();
     await page.waitForFunction(() => document.getElementById("research-content").open);
     await page.locator("#research-content a[href='#n07']").click();
@@ -405,6 +417,18 @@ const { chromium } = require("playwright");
     await page.evaluate(() => scrollTo({top: 0, behavior: "instant"}));
     await page.screenshot({path: process.env.SCREENSHOT_DESKTOP || "/tmp/enjoythemoment-desktop.png", fullPage: false});
     await page.setViewportSize({width: 390, height: 844});
+    await page.goto(url + "#c17");
+    await page.waitForFunction(() => document.getElementById("c17").open);
+    const makingImages = await page.locator("#c17 .artwork img").all();
+    for (const [i, image] of makingImages.entries()) {
+      await image.scrollIntoViewIfNeeded();
+      await image.evaluate(img => img.decode());
+      assert.equal(await image.evaluate(img => img.naturalWidth), 880);
+      assert(await image.evaluate(img => img.getBoundingClientRect().right <= innerWidth));
+      assert(await image.evaluate(img => 20 * (img.getBoundingClientRect().width - 2) / 440 >= 15));
+      assert(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth));
+      await page.screenshot({path: "/tmp/enjoythemoment-making-" + i + "-mobile.png", fullPage: false});
+    }
     await page.goto(url + "#e11");
     await page.waitForFunction(() => document.getElementById("e11").open);
     await page.locator("#e11 .prose table").scrollIntoViewIfNeeded();
@@ -513,6 +537,12 @@ const { chromium } = require("playwright");
     await staticPage.locator("#f27 > summary").click();
     assert.equal(await staticPage.locator("#f27 .prose").isVisible(), true);
     assert.equal(await staticPage.locator("#f27 a[href='#e11']").count(), 1);
+    await staticPage.locator("#c17 > summary").click();
+    assert.equal(await staticPage.locator("#c17 .prose").isVisible(), true);
+    for (const image of await staticPage.locator("#c17 .artwork img").all()) {
+      await image.evaluate(img => img.decode());
+      assert.equal(await image.evaluate(img => img.naturalWidth), 880);
+    }
     await staticPage.locator("#j001 > summary").click();
     assert.equal(await staticPage.locator("#j001 .card-body").isVisible(), true);
     await staticPage.locator("#c25 > summary").click();
