@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="440" height="704" viewBox="0 0 440 704" role="img" aria-labelledby="title desc">
+  <title id="title">两个百分数，分母不同</title>
+  <desc id="desc">本书虚构体积算例，假设体积增加全部来自空气，忽略其他体积变化。原混合液100毫升增加50毫升空气后，成品150毫升，膨胀率50%，空气占成品约33.3%；增加100毫升空气后，成品200毫升，膨胀率100%，空气占成品50%。相邻色块为体积账目，不是微观结构图。</desc>
+  <rect width="440" height="704" rx="16" fill="#fff8ec"/>
+  <g font-family="PingFang SC, Microsoft YaHei, sans-serif" fill="#24231f" font-size="22">
+    <text x="24" y="42" font-size="27" font-weight="700">两个百分数，分母不同</text>
+    <text x="24" y="78">原创算例 · 不是产品实测</text>
+    <rect x="24" y="110" width="18" height="18" fill="#d2b16a"/>
+    <text x="51" y="127">原混合液</text>
+    <rect x="229" y="110" width="18" height="18" fill="#286879"/>
+    <text x="256" y="127">新增空气</text>
+    <g fill="#fffdf8" stroke="#d7d1c4">
+      <rect x="16" y="151" width="408" height="222" rx="10"/>
+      <rect x="16" y="390" width="408" height="222" rx="10"/>
+    </g>
+    <text x="32" y="188" font-weight="700">甲：100 + 50 = 150 毫升</text>
+    <rect id="mix-a" x="32" y="212" width="180" height="54" fill="#d2b16a"/>
+    <rect id="air-a" x="212" y="212" width="90" height="54" fill="#286879"/>
+    <text x="122" y="247" text-anchor="middle">100</text>
+    <text x="257" y="247" text-anchor="middle" fill="#ffffff">50</text>
+    <text x="32" y="307">膨胀率：50 ÷ 100 = 50%</text>
+    <text x="32" y="345">空气占比：50 ÷ 150 ≈ 33.3%</text>
+    <text x="32" y="427" font-weight="700">乙：100 + 100 = 200 毫升</text>
+    <rect id="mix-b" x="32" y="451" width="180" height="54" fill="#d2b16a"/>
+    <rect id="air-b" x="212" y="451" width="180" height="54" fill="#286879"/>
+    <text x="122" y="486" text-anchor="middle">100</text>
+    <text x="302" y="486" text-anchor="middle" fill="#ffffff">100</text>
+    <text x="32" y="546">膨胀率：100 ÷ 100 = 100%</text>
+    <text x="32" y="584">空气占比：100 ÷ 200 = 50%</text>
+    <text x="24" y="651" font-size="20">色块表示体积账目，不是内部切面。</text>
+    <text x="24" y="681" font-size="20">空气并非在冰淇淋里集中成一层。</text>
+  </g>
+</svg>

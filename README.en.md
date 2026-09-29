@@ -63,9 +63,9 @@ The chapters on senses, novelty, play, relationships, spending, and permission t
 | [11 · Your ears are not a taste certificate](book/11-music.md) | Can listening concepts open possibilities without becoming a test? |
 | [12 · A film list is not a graduation requirement](book/12-film.md) | How do images, editing, and sound shape what you experience? |
 | [13 · Being there is not proof you must enjoy it](book/13-live-events.md) | Which part of a live event do you actually want? |
-| [14 · Flavor does not need another justification](book/14-flavor.md) | How can you describe what you enjoy without turning a meal into an exam? |
+| [14 · Flavor does not need another justification](book/14-flavor.md) | Ice cream structure, sweetness and air: can knowledge inform taste without overruling it? |
 | [15 · Streets are not loading screens between attractions](book/15-neighborhood.md) | Does a city also welcome people who do not want to buy anything? |
-| [16 · Clothes are for wearing, not waiting for a better self](book/16-dress.md) | What do you want to express, feel and actually live in? |
+| [16 · Clothes are for wearing, not waiting for a better self](book/16-dress.md) | Color blocks, bias cutting and tuxedo codes offer more to discuss than correcting a body. |
 | [17 · Making things need not become another job](book/17-making.md) | How do process, finished objects and other people's judgments differ? |
 | [18 · Celebration is not an achievement award](book/18-celebration.md) | Can an ordinary day deserve a place on the calendar? |
 | [19 · Games are not timesheets](book/19-games.md) | Which mechanics, challenges and purchases serve the experience you want? |

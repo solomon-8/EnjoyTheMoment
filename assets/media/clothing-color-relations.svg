@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="440" height="782" viewBox="0 0 440 782" role="img" aria-labelledby="title desc">
+  <title id="title">一块颜色，两种关系</title>
+  <desc id="desc">本书原创抽象构图。两个相同大小的亮色方块，分别放入大面积深色背景以及多个色块相邻的背景。只比较面积、位置和相邻关系；不是历史服装复刻、裁剪纸样或审美实验，不判断哪种更高级或更显瘦。</desc>
+  <rect width="440" height="782" rx="16" fill="#fff8ec"/>
+  <g font-family="PingFang SC, Microsoft YaHei, sans-serif" fill="#24231f" font-size="22">
+    <text x="24" y="42" font-size="27" font-weight="700">一块颜色，两种关系</text>
+    <text x="24" y="80">同样的亮色块，换一个周围</text>
+    <text x="24" y="122" font-weight="700">甲：一处细节</text>
+    <rect x="24" y="141" width="392" height="208" rx="6" fill="#29474e"/>
+    <rect id="accent-a" x="316" y="227" width="40" height="40" fill="#f2784b"/>
+    <text x="24" y="386">你想留下哪一个局部？</text>
+    <text x="24" y="443" font-weight="700">乙：几个区域共同组成画面</text>
+    <rect x="24" y="462" width="392" height="208" rx="6" fill="#29474e"/>
+    <rect x="44" y="482" width="170" height="168" fill="#9cb7bb"/>
+    <rect x="234" y="482" width="162" height="66" fill="#d9bd80"/>
+    <rect x="234" y="568" width="162" height="82" fill="#e7dfcf"/>
+    <rect id="accent-b" x="316" y="548" width="40" height="40" fill="#f2784b"/>
+    <text x="24" y="707">你喜欢这些区域之间的关系吗？</text>
+    <text x="24" y="749" font-size="19">原创示意 · 非服装复刻、非穿搭实验</text>
+  </g>
+</svg>
