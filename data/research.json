@@ -191,6 +191,25 @@
       },
       "directly_validates_cards": false,
       "source": "docs/research.md#b10"
+    },
+    {
+      "id": "B11",
+      "title": "时间安排、期待与实际到场",
+      "doi": "10.1509/jmr.14.0591",
+      "access_level": "full_text",
+      "verified_at": "2026-09-29",
+      "fields": {
+        "文献": "Gabriela N. Tonietto, Selin A. Malkoc (2016). *The Calendar Mindset: Scheduling Takes the Fun Out and Puts the Work In*. Journal of Marketing Research, 53(6), 922–936。",
+        "DOI": "[10.1509/jmr.14.0591](https://doi.org/10.1509/jmr.14.0591)。",
+        "实际读取": "`full_text`；核读[大学托管的期刊 PDF](https://www.business.rutgers.edu/sites/default/files/documents/tonietto-the-calendar-mindset.pdf)正文方法、结果及讨论，视觉核对关键结果；1b–1g 的详细网络附录未完整读取。[详细阅读记录](evidence/B11-scheduling.md)。",
+        "设计与对象": "大学生与 MTurk 参与者的想象情境、实际视频观看及咖啡休息；论文报告 13 项研究，不等于本次完整审核全部附录或独立复现。",
+        "有限结论": "明确排期在若干情境中增加工作感、降低期待或享受；现场咖啡研究同时显示明确时点组到场比例更高，不能只取享受结果。",
+        "不能推出": "所有排期有害、所有人都更适合即兴、多日旅行应不预约、粗略计划与即兴处处等效，或任意具体时间窗口最优。",
+        "我们如何使用": "[第 21 章](../book/21-free-time.md)区分活动发生的机会和过程中的自由度，保留计划在协调与共同承诺中的作用。",
+        "关键限制": "6b 发券 148、兑换 54，享受只测到场者；6a 招募 160、完成 146，预约组存在流失；研究 4 仅开始时间组的期待比较均 p > .10，研究 5 期待交互 p = .06；未完整读取网络附录，未完成后续勘误与复现核验。"
+      },
+      "directly_validates_cards": false,
+      "source": "docs/research.md#b11"
     }
   ],
   "relations": [

@@ -66,8 +66,8 @@ class ExportTests(unittest.TestCase):
     def test_background_does_not_validate_cards(self):
         research = json.loads(self.outputs["data/research.json"])
         ids = {record["id"] for record in research["records"]}
-        self.assertEqual(sum(record["access_level"] == "full_text" for record in research["records"]), 10)
-        self.assertEqual(ids, {"B01", "B02", "B03", "B04", "B05", "B06", "B07", "B08", "B09", "B10"})
+        self.assertEqual(sum(record["access_level"] == "full_text" for record in research["records"]), 11)
+        self.assertEqual(ids, {"B01", "B02", "B03", "B04", "B05", "B06", "B07", "B08", "B09", "B10", "B11"})
         for card in self.export["cards"]:
             self.assertTrue(card["background_is_not_validation"])
             self.assertTrue(set(card["background_ids"]).issubset(ids))
@@ -154,7 +154,7 @@ class ExportTests(unittest.TestCase):
         chapters = json.loads(self.outputs["data/chapters.json"])["chapters"]
         self.assertEqual({chapter["source"] for chapter in chapters},
                          {p.relative_to(ROOT).as_posix() for p in (ROOT / "book").glob("*.md")})
-        self.assertEqual(len(chapters), 20)
+        self.assertEqual(len(chapters), 22)
         self.assertEqual(len({chapter["id"] for chapter in chapters}), len(chapters))
         for chapter in chapters:
             source = ROOT / chapter["source"]
@@ -179,7 +179,7 @@ class ExportTests(unittest.TestCase):
         chapters = json.loads(self.outputs["data/chapters.json"])["chapters"]
         standalone = [chapter for chapter in chapters if chapter["scope"] == "full_chapter"]
         self.assertEqual({chapter["id"] for chapter in standalone},
-                         {"C11", "C12", "C13", "C14", "C15", "C16", "C17", "C18", "C19", "C20"})
+                         {"C11", "C12", "C13", "C14", "C15", "C16", "C17", "C18", "C19", "C20", "C21", "C22"})
         for chapter in standalone:
             self.assertEqual(chapter["card_ids"], [])
             self.assertEqual(chapter["text"], (ROOT / chapter["source"]).read_text().strip())
@@ -294,6 +294,35 @@ class ExportTests(unittest.TestCase):
         self.assertEqual(build.local_href("../docs/evidence/B04-anticipation.md",
                                           "essays/03-now-or-later.md"), "#n04")
         self.assertEqual(build.local_href("README.md", "guides/01-word-studio.md"), "#playbooks")
+
+    def test_scheduling_keeps_attendance_selection_and_nulls(self):
+        records = {item["id"]: item for item in json.loads(self.outputs["data/research.json"])["records"]}
+        notes = {item["id"]: item for item in json.loads(self.outputs["data/evidence.json"])["notes"]}
+        for text in ("发券 148、兑换 54", "p > .10", "p = .06", "未完整读取网络附录"):
+            self.assertIn(text, records["B11"]["fields"]["关键限制"])
+        self.assertIn("明确时点组到场比例更高", records["B11"]["fields"]["有限结论"])
+        self.assertIn("给未到场者擅自补一个零分", notes["N11"]["text"])
+        self.assertIn("并非同一活动只改变", notes["N11"]["text"])
+        self.assertEqual(notes["N11"]["source_kind"], "study_reading_note")
+        self.assertTrue(all("B11" not in card["background_ids"] for card in self.export["cards"]))
+        self.assertEqual(build.local_href("../docs/evidence/B11-scheduling.md",
+                                          "book/21-free-time.md"), "#n11")
+
+    def test_literary_text_is_not_study_or_authorial_testimony(self):
+        notes = {item["id"]: item for item in json.loads(self.outputs["data/evidence.json"])["notes"]}
+        note = notes["F11"]
+        self.assertEqual(note["source_kind"], "literary_primary_text")
+        self.assertIn("没有把下载全本说成逐字核读全书", note["text"])
+        self.assertIn("未完成版本谱系及异文校勘", note["text"])
+        self.assertIn("不是作者本人解释", note["text"])
+        chapter = next(c for c in json.loads(self.outputs["data/chapters.json"])["chapters"]
+                       if c["id"] == "C22")
+        self.assertIn("他等了很久，她没有来", chapter["text"])
+        self.assertIn("不是文学作品引文", chapter["text"])
+        rendered = build.markdown(chapter["text"], chapter["source"])
+        self.assertIn("<table>", rendered)
+        self.assertEqual(build.local_href("../docs/evidence/F11-reading-texts.md",
+                                          "book/22-reading.md"), "#f11")
 
     def test_search_is_and_match(self):
         matches = pick.filter_cards(pick.load_cards(), 1000, 1000, query="游戏 结束")
