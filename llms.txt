@@ -16,7 +16,7 @@
 ## Machine interfaces
 - [Cards JSON](data/catalog.json): full fields, IDs, source paths, hashes, background links.
 - [Essays JSON](data/essays.json): deeper arguments with counterexamples.
-- [Chapter introductions JSON](data/chapters.json): chapter-level arguments and framing, card references, exact source hashes; not a copy of card texts.
+- [Chapters JSON](data/chapters.json): chapter arguments and complete standalone chapters; scope distinguishes introductions from full_chapter. Empty card_ids is valid. Exact source hashes; no duplicate card texts.
 - [Research JSON](data/research.json): background metadata, not card validation.
 - [Card schema](data/catalog.schema.json): versioned public interface.
 - [Full plain text](llms-full.txt): generated; prefer targeted retrieval.
@@ -37,4 +37,4 @@ alternatives, stopping conditions or evidence status to save tokens.
 python3 tools/guides.py --query 朋友 --limit 2
 python3 tools/guides.py --id P010
 
-- [Research reading notes](data/evidence.json): full-text/manuscript scope, non-significant results, non-claims.
+- [Evidence and source notes](data/evidence.json): source_kind separates study_reading_note, official_statistics, educational_reference, and official_health_guidance; retain reading scope and non-claims.
