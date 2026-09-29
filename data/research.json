@@ -210,6 +210,44 @@
       },
       "directly_validates_cards": false,
       "source": "docs/research.md#b11"
+    },
+    {
+      "id": "B12",
+      "title": "度假前后，究竟测到了什么",
+      "doi": "10.1007/s11482-009-9091-9",
+      "access_level": "full_text",
+      "verified_at": "2026-09-29",
+      "fields": {
+        "文献": "Jeroen Nawijn, Miquelle A. Marchand, Ruut Veenhoven, Ad J. Vingerhoets (2010). *Vacationers Happier, but Most not Happier After a Holiday*. Applied Research in Quality of Life, 5(1), 35–47。",
+        "DOI": "[10.1007/s11482-009-9091-9](https://doi.org/10.1007/s11482-009-9091-9)。",
+        "实际读取": "`full_text`；核读[出版社 PDF](https://link.springer.com/content/pdf/10.1007/s11482-009-9091-9.pdf)与 [PMC 正文](https://pmc.ncbi.nlm.nih.gov/articles/PMC2837207/)的方法、结果、讨论，视觉检查关键统计及缺失的活动信息。[详细阅读记录](evidence/B12-vacation.md)。",
+        "设计与对象": "荷兰 2006 年面板资料，1,530 人中 974 人度假、556 人未度假；不是随机实验，旅后分析排除仍在旅行的 142 人，不同模型有效样本不同。",
+        "有限结论": "调整所测协变量后，度假者旅前情绪指标较高，旅后整体组间比较未显著；假期压力自评与旅后指标有关，不能将之改写为个人处方。",
+        "不能推出": "旅行不值得、最佳假期长度、每年多次短假胜过一次长假、某类目的地更幸福，或每个人的快乐两周后必然消失。",
+        "我们如何使用": "[第 23 章](../book/23-travel.md)区分旅途中的体验与回家后的持续改变，不要求每次旅行都产生长期人生收益。",
+        "关键限制": "旅前 p = .018，旅后 F(2, 783) = 2.00 标为 ns；长度、返程间隔及相关交互未显著；没有旅途中逐段享受测量，没有具体活动类型信息，压力为回顾自述，未核验全部后续复现。"
+      },
+      "directly_validates_cards": false,
+      "source": "docs/research.md#b12"
+    },
+    {
+      "id": "B13",
+      "title": "好笑与反感，不一定互相抵消",
+      "doi": "10.1177/0956797610376073",
+      "access_level": "full_text",
+      "verified_at": "2026-09-29",
+      "fields": {
+        "文献": "A. Peter McGraw, Caleb Warren (2010). *Benign Violations: Making Immoral Behavior Funny*. Psychological Science, 21(8), 1141–1149。",
+        "DOI": "[10.1177/0956797610376073](https://doi.org/10.1177/0956797610376073)。",
+        "实际读取": "`full_text`；由[实验室页面](https://humorresearchlab.com/benign-violation-theory/)取得[大学托管期刊 PDF](https://leeds-faculty.colorado.edu/mcgrawp/pdf/mcgraw.warren.2010.pdf)，核读五项方法、结果、表格与讨论，视觉检查表 5 与主张范围。[详细阅读记录](evidence/B13-humor.md)。",
+        "设计与对象": "五项校园研究报告 66、73、36、80、73 人；特定道德越界情境，含自述与一次观察者编码，规范认同代理并非随机分配。",
+        "有限结论": "在所测情境中，越界与可接受性的不同理解和幽默反应有关；好笑可以与反感同时出现，不是同一刻度的两端。",
+        "不能推出": "所有笑话的统一充分条件、笑就是同意、特定群体幽默感更低、现实行为已经无害，或等一段时间就能拿他人的痛苦开玩笑。",
+        "我们如何使用": "[第 24 章](../book/24-humor.md)区分笑点、语境与不同参与位置；原创例句和相处原则不是实验验证过的幽默教程。",
+        "关键限制": "小型校园样本、短时及特定材料；研究 5 方法报 73、表 5 跨版本 N = 72，差额原因未明确；距离操纵是坐标启动，不是时间流逝；不能用组内显著与另一组不显著代替完整交互检验，未完成独立复现审查。"
+      },
+      "directly_validates_cards": false,
+      "source": "docs/research.md#b13"
     }
   ],
   "relations": [

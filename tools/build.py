@@ -34,6 +34,8 @@ EVIDENCE = [
     ("N09", "docs/evidence/B09-games.md"),
     ("N10", "docs/evidence/B10-photography.md"),
     ("N11", "docs/evidence/B11-scheduling.md"),
+    ("N12", "docs/evidence/B12-vacation.md"),
+    ("N13", "docs/evidence/B13-humor.md"),
     ("F01", "docs/evidence/F01-time-use.md"),
     ("F02", "docs/evidence/F02-listening-language.md"),
     ("F03", "docs/evidence/F03-film-language.md"),
@@ -45,6 +47,7 @@ EVIDENCE = [
     ("F09", "docs/evidence/F09-game-difficulty.md"),
     ("F10", "docs/evidence/F10-photography-language.md"),
     ("F11", "docs/evidence/F11-reading-texts.md"),
+    ("F12", "docs/evidence/F12-trip-planning.md"),
 ]
 EVIDENCE_KINDS = {
     "F01": "official_statistics",
@@ -58,6 +61,7 @@ EVIDENCE_KINDS = {
     "F09": "technical_guidance",
     "F10": "educational_reference",
     "F11": "literary_primary_text",
+    "F12": "official_visitor_guidance",
 }
 RELATIONS = [
     {"card_ids": ["J033"], "background_ids": ["B01"], "essay_ids": ["E04"]},
