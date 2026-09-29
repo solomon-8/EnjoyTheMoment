@@ -66,8 +66,8 @@ class ExportTests(unittest.TestCase):
     def test_background_does_not_validate_cards(self):
         research = json.loads(self.outputs["data/research.json"])
         ids = {record["id"] for record in research["records"]}
-        self.assertEqual(sum(record["access_level"] == "full_text" for record in research["records"]), 11)
-        self.assertEqual(ids, {"B01", "B02", "B03", "B04", "B05", "B06", "B07", "B08", "B09", "B10", "B11"})
+        self.assertEqual(sum(record["access_level"] == "full_text" for record in research["records"]), 13)
+        self.assertEqual(ids, {"B01", "B02", "B03", "B04", "B05", "B06", "B07", "B08", "B09", "B10", "B11", "B12", "B13"})
         for card in self.export["cards"]:
             self.assertTrue(card["background_is_not_validation"])
             self.assertTrue(set(card["background_ids"]).issubset(ids))
@@ -154,7 +154,7 @@ class ExportTests(unittest.TestCase):
         chapters = json.loads(self.outputs["data/chapters.json"])["chapters"]
         self.assertEqual({chapter["source"] for chapter in chapters},
                          {p.relative_to(ROOT).as_posix() for p in (ROOT / "book").glob("*.md")})
-        self.assertEqual(len(chapters), 22)
+        self.assertEqual(len(chapters), 24)
         self.assertEqual(len({chapter["id"] for chapter in chapters}), len(chapters))
         for chapter in chapters:
             source = ROOT / chapter["source"]
@@ -179,7 +179,7 @@ class ExportTests(unittest.TestCase):
         chapters = json.loads(self.outputs["data/chapters.json"])["chapters"]
         standalone = [chapter for chapter in chapters if chapter["scope"] == "full_chapter"]
         self.assertEqual({chapter["id"] for chapter in standalone},
-                         {"C11", "C12", "C13", "C14", "C15", "C16", "C17", "C18", "C19", "C20", "C21", "C22"})
+                         {"C11", "C12", "C13", "C14", "C15", "C16", "C17", "C18", "C19", "C20", "C21", "C22", "C23", "C24"})
         for chapter in standalone:
             self.assertEqual(chapter["card_ids"], [])
             self.assertEqual(chapter["text"], (ROOT / chapter["source"]).read_text().strip())
@@ -330,6 +330,47 @@ class ExportTests(unittest.TestCase):
         for card in matches:
             self.assertIn("游戏", card.title + card.body)
             self.assertIn("结束", card.title + card.body)
+
+    def test_travel_keeps_observation_outcomes_and_scoped_guidance(self):
+        records = {item["id"]: item for item in json.loads(self.outputs["data/research.json"])["records"]}
+        notes = {item["id"]: item for item in json.loads(self.outputs["data/evidence.json"])["notes"]}
+        self.assertIn("不是随机实验", records["B12"]["fields"]["设计与对象"])
+        self.assertIn("仍在旅行的 142 人", records["B12"]["fields"]["设计与对象"])
+        self.assertIn("没有旅途中逐段享受测量", records["B12"]["fields"]["关键限制"])
+        self.assertIn("没有直接把一年总休假时间固定", notes["N12"]["text"])
+        self.assertIn("不是把同一批人逐日追踪八周", notes["N12"]["text"])
+        self.assertEqual(notes["F12"]["source_kind"], "official_visitor_guidance")
+        self.assertIn("2026-08-21", notes["F12"]["text"])
+        self.assertIn("不能被拼接成该来源支持随意离队", notes["F12"]["text"])
+        self.assertEqual(build.local_href("../docs/evidence/B12-vacation.md",
+                                          "book/23-travel.md"), "#n12")
+        self.assertEqual(build.local_href("../docs/evidence/F12-trip-planning.md",
+                                          "book/23-travel.md"), "#f12")
+
+    def test_humor_keeps_reported_sample_gap_and_nonclaims(self):
+        records = {item["id"]: item for item in json.loads(self.outputs["data/research.json"])["records"]}
+        notes = {item["id"]: item for item in json.loads(self.outputs["data/evidence.json"])["notes"]}
+        self.assertIn("方法报 73、表 5 跨版本 N = 72", records["B13"]["fields"]["关键限制"])
+        self.assertIn("坐标启动，不是时间流逝", records["B13"]["fields"]["关键限制"])
+        self.assertIn("不鉴定每个笑容的内心含义", notes["N13"]["text"])
+        self.assertIn("不是现实行为已被证明无害", notes["N13"]["text"])
+        self.assertTrue(all(not ({"B12", "B13"} & set(c["background_ids"])) for c in self.export["cards"]))
+        self.assertEqual(build.local_href("../docs/evidence/B13-humor.md",
+                                          "book/24-humor.md"), "#n13")
+
+    def test_travel_example_arithmetic_and_humor_originality_are_preserved(self):
+        chapters = {c["id"]: c for c in json.loads(self.outputs["data/chapters.json"])["chapters"]}
+        # This checks a specific fictional table, not the accuracy of real itineraries.
+        travel = chapters["C23"]["text"]
+        rows = re.findall(r"^\| [^|]+ \| (\d+) 分钟 \|$", travel, re.M)
+        self.assertEqual(sum(map(int, rows)), 310)
+        self.assertIn("**310 分钟**", travel)
+        self.assertIn("这些是假设输入，不是当地报价", travel)
+        humor = chapters["C24"]["text"]
+        self.assertIn("例句均由本书为解释而创作", humor)
+        self.assertIn("没有经过受众测试", humor)
+        self.assertIn("我家的书架已经很有文化了", humor)
+        self.assertIn("笑声不能代替同意", (ROOT / "docs/evidence/B13-humor.md").read_text())
 
 
 if __name__ == "__main__":
