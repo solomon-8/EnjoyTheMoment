@@ -79,6 +79,7 @@ EVIDENCE = [
     ("F34", "docs/evidence/F34-photographic-space-and-time.md"),
     ("F35", "docs/evidence/F35-public-life-observation.md"),
     ("F36", "docs/evidence/F36-midtown-public-space.md"),
+    ("F37", "docs/evidence/F37-comic-scenes.md"),
 ]
 EVIDENCE_KINDS = {
     "F01": "official_statistics",
@@ -117,6 +118,7 @@ EVIDENCE_KINDS = {
     "F34": "educational_optics_and_original_models",
     "F35": "public_life_observation_protocol",
     "F36": "municipal_before_after_evaluation",
+    "F37": "literary_primary_text",
 }
 RELATIONS = [
     {"card_ids": ["J033"], "background_ids": ["B01"], "essay_ids": ["E04"]},

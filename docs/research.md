@@ -260,6 +260,7 @@
 - [F34 · 摄影中的空间与时间](evidence/F34-photographic-space-and-time.md)：斯坦福历史摄影课程、尼康快门教学与原创几何/时间模型，用于[摄影章节](../book/20-photography.md)。视点和取景分开，轨迹不是质量分数；没有操作旧 applet、实拍测量或器材推荐。
 - [F35 · 公共生活的观察口径](evidence/F35-public-life-observation.md)：PLDP 历史仓库快照与配套调查工具，用于[街道章节](../book/15-neighborhood.md)。过线计数、停留快照、个人时长与活动分类不能混算；不是城市幸福认证，保留 CC BY 署名。
 - [F36 · 纽约中城历史评估](evidence/F36-midtown-public-space.md)：NYC DOT 2010 年报告的停留观察部分，用于[街道章节](../book/15-neighborhood.md)。实施方前后评估、季节与组合措施限制保留；平均快照不是日客流或快乐，84% 不覆盖所有地点和时段。
+- [F37 · 两场文学中的下午茶](evidence/F37-comic-scenes.md)：Wilde 第一幕局部与 Carroll 第七章的指定数字文本，用于[幽默章节](../book/24-humor.md)。动作、台词、词义与人物处境分别核对；本书细读不是作者意图、演出观察或受众效果，当前章节没有谜底不等于作者从未作答。
 
 F 系列不计入上面的十六篇背景研究。事实、教学、文学文本、访客指导、作品与图像、乐谱、影片与历史目录、舞蹈来源、体育规则、监管报告、供应商技术手册、服装记录、哲学与创作者文本、声学、型号说明、嗓音指导、游戏规则及研究阅读记录共同收入 `data/evidence.json`，用 `source_kind` 区分。
 

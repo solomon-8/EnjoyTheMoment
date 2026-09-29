@@ -393,6 +393,59 @@ class ExportTests(unittest.TestCase):
         self.assertIn("50 ÷ 150 ≈ 33.3%", note)
         self.assertIn("100 ÷ 200 = 50%", note)
 
+    def test_comic_scene_source_and_chapter_roundtrip(self):
+        chapters = {item["id"]: item for item in
+                    json.loads(self.outputs["data/chapters.json"])["chapters"]}
+        notes = {item["id"]: item for item in
+                 json.loads(self.outputs["data/evidence.json"])["notes"]}
+        chapter = chapters["C24"]
+        text = (ROOT / "book/24-humor.md").read_text()
+        self.assertEqual(chapter["text"], text.strip())
+        self.assertEqual(chapter["scope"], "full_chapter")
+        self.assertEqual(chapter["card_ids"], [])
+        self.assertIn(text, self.outputs["llms-full.txt"])
+        note = notes["F37"]
+        self.assertEqual(note["source_kind"], "literary_primary_text")
+        self.assertEqual(note["text"], (ROOT / note["source"]).read_text())
+        self.assertIn(note["text"], self.outputs["llms-full.txt"])
+        rendered = build.markdown(text, chapter["source"])
+        self.assertIn('href="#f37"', rendered)
+        self.assertIn('href="#n13"', rendered)
+        self.assertIn('href="#c24"', build.markdown(note["text"], note["source"]))
+        self.assertEqual(len(json.loads(self.outputs["data/research.json"])["records"]), 16)
+        self.assertTrue(all("F37" not in card["background_ids"]
+                            for card in self.export["cards"]))
+
+    def test_comic_scene_anchors_and_spoiler_fold_survive_rendering(self):
+        text = (ROOT / "book/24-humor.md").read_text()
+        rendered = build.markdown(text, "book/24-humor.md")
+        for anchor in ("humor-sandwich", "humor-language", "humor-time",
+                       "humor-return", "humor-attention"):
+            self.assertIn('id="' + anchor + '"', rendered)
+            self.assertIn('href="#' + anchor + '"', rendered)
+        self.assertEqual(rendered.count("<details>"), 1)
+        self.assertEqual(rendered.count("</details>"), 1)
+        self.assertIn("<summary>展开局部情节", rendered)
+        fold = rendered.split("<details>", 1)[1].split("</details>", 1)[0]
+        self.assertIn("空盘", fold)
+        self.assertNotIn("<details open", rendered)
+        self.assertIn("空盘", self.outputs["llms-full.txt"])
+
+    def test_comic_reading_preserves_interpretation_and_version_limits(self):
+        note = (ROOT / "docs/evidence/F37-comic-scenes.md").read_text()
+        text = (ROOT / "book/24-humor.md").read_text()
+        for marker in ("1997-03-01", "2025-11-10", "2008-06-27", "2025-06-26",
+                       "David Price", "Arthur DiBianca", "David Widger",
+                       "没有观看", "未核读后来的序言", "不是受众效果研究"):
+            self.assertIn(marker, note)
+        self.assertIn("https://www.gutenberg.org/ebooks/844", note)
+        self.assertIn("https://www.gutenberg.org/ebooks/11", note)
+        for marker in ("beat time", "本书原创", "没有得到完整系统说明",
+                       "不保证第二次更好笑"):
+            self.assertIn(marker, text)
+        self.assertNotIn("例句均由本书为解释而创作", text)
+        self.assertIn("折叠区只包住三明治场景后段", (ROOT / "docs/ai.md").read_text())
+
     def test_making_chapter_preserves_complete_text_and_source_kinds(self):
         chapters = {item["id"]: item for item in
                     json.loads(self.outputs["data/chapters.json"])["chapters"]}
@@ -1097,8 +1150,8 @@ class ExportTests(unittest.TestCase):
         self.assertIn("**310 分钟**", travel)
         self.assertIn("这些是假设输入，不是当地报价", travel)
         humor = chapters["C24"]["text"]
-        self.assertIn("例句均由本书为解释而创作", humor)
-        self.assertIn("没有经过受众测试", humor)
+        self.assertIn("未注明作品出处的例句为本书原创说明", humor)
+        self.assertIn("不是受众测试结果", humor)
         self.assertIn("我家的书架已经很有文化了", humor)
         self.assertIn("笑声不能代替同意", (ROOT / "docs/evidence/B13-humor.md").read_text())
 

@@ -22,6 +22,24 @@ const { chromium } = require("playwright");
     assert.equal(await page.locator(".argument").count(), 11);
     assert.equal(await page.locator(".playbook").count(), 10);
     assert.equal(await page.locator(".chapter-intro").count(), 34);
+    await page.goto(url + "#c24");
+    await page.waitForFunction(() => document.getElementById("c24").open);
+    assert.equal(await page.locator("#c24 .prose table").count(), 2);
+    for (const anchor of ["humor-sandwich", "humor-language", "humor-time",
+                          "humor-return", "humor-attention"]) {
+      await page.locator(`#c24 a[href='#${anchor}']`).click();
+      assert.equal(new URL(page.url()).hash, `#${anchor}`);
+      assert(await page.locator("#c24 .prose").isVisible());
+    }
+    const comicFold = page.locator("#c24 .prose details");
+    assert.equal(await comicFold.count(), 1);
+    assert.equal(await comicFold.locator("p").first().isVisible(), false);
+    await comicFold.locator("summary").click();
+    assert(await comicFold.locator("p").first().isVisible());
+    await page.locator("#c24 a[href='#f37']").first().click();
+    await page.waitForFunction(() => document.getElementById("f37").open);
+    await page.locator("#f37 a[href='#c24']").click();
+    await page.waitForFunction(() => document.getElementById("c24").open);
     await page.goto(url + "#c34");
     await page.waitForFunction(() => document.getElementById("c34").open);
     assert.equal(await page.locator("#c34 .prose table").count(), 3);
@@ -704,6 +722,12 @@ const { chromium } = require("playwright");
     await staticPage.locator("#c34 > summary").click();
     assert.equal(await staticPage.locator("#c34 .prose table").count(), 3);
     assert.match(await staticPage.locator("#c34 .prose").textContent(), /11\/36/);
+    await staticPage.locator("#c24 > summary").click();
+    const staticComicFold = staticPage.locator("#c24 .prose details");
+    assert.equal(await staticComicFold.locator("p").first().isVisible(), false);
+    await staticComicFold.locator("summary").click();
+    assert(await staticComicFold.locator("p").first().isVisible());
+    assert.equal(await staticPage.locator("#c24 .prose table").count(), 2);
     await nojs.close();
     console.log("OK: offline, filters, empty state, deep links, keyboard, 390px, dark/reduced motion, print, no-JS, zero external requests");
   } finally {
