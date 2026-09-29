@@ -7,6 +7,7 @@ import hashlib
 import html
 import json
 import re
+from datetime import date
 from pathlib import Path
 
 from pick import ROOT, load_cards
@@ -23,6 +24,7 @@ ESSAYS = [
     ("E07", "essays/07-rest-is-not-work.md"),
     ("E08", "essays/08-life-without-an-audience.md"),
     ("E09", "essays/09-friends-not-assets.md"),
+    ("E10", "essays/10-pleasure-not-retention.md"),
 ]
 EVIDENCE = [
     ("N02", "docs/evidence/B02-quantification.md"),
@@ -37,6 +39,7 @@ EVIDENCE = [
     ("N11", "docs/evidence/B11-scheduling.md"),
     ("N12", "docs/evidence/B12-vacation.md"),
     ("N13", "docs/evidence/B13-humor.md"),
+    ("N14", "docs/evidence/B14-dark-patterns.md"),
     ("F01", "docs/evidence/F01-time-use.md"),
     ("F02", "docs/evidence/F02-listening-language.md"),
     ("F03", "docs/evidence/F03-film-language.md"),
@@ -56,6 +59,7 @@ EVIDENCE = [
     ("F17", "docs/evidence/F17-dance-language.md"),
     ("F18", "docs/evidence/F18-football-rules.md"),
     ("F19", "docs/evidence/F19-basketball-rules.md"),
+    ("F20", "docs/evidence/F20-interface-report.md"),
 ]
 EVIDENCE_KINDS = {
     "F01": "official_statistics",
@@ -77,6 +81,7 @@ EVIDENCE_KINDS = {
     "F17": "dance_education_and_work_record",
     "F18": "official_sport_rules",
     "F19": "official_sport_rules",
+    "F20": "regulatory_staff_report",
 }
 RELATIONS = [
     {"card_ids": ["J033"], "background_ids": ["B01"], "essay_ids": ["E04"]},
@@ -115,10 +120,14 @@ def research_records(root):
         block = text[match.end():end]
         doi = re.search(r"https://doi.org/([^)]+)", block).group(1)
         fields = dict(re.findall(r"^- \*\*(.+?)\*\*：(.+)$", block, re.MULTILINE))
+        verified_at = fields.get("核读日期", "").rstrip("。")
+        if not re.fullmatch(r"\d{4}-\d{2}-\d{2}", verified_at):
+            raise ValueError("背景研究缺少有效核读日期：" + match.group(1))
+        date.fromisoformat(verified_at)
         records.append({
             "id": match.group(1), "title": match.group(2), "doi": doi,
             "access_level": "full_text" if "`full_text`" in block else "abstract_only",
-            "verified_at": "2026-09-29", "fields": fields,
+            "verified_at": verified_at, "fields": fields,
             "directly_validates_cards": False,
             "source": "docs/research.md#" + match.group(1).lower(),
         })

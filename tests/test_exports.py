@@ -4,6 +4,7 @@ import io
 import json
 import re
 import sys
+import tempfile
 import unittest
 from unittest import mock
 from pathlib import Path
@@ -67,8 +68,8 @@ class ExportTests(unittest.TestCase):
     def test_background_does_not_validate_cards(self):
         research = json.loads(self.outputs["data/research.json"])
         ids = {record["id"] for record in research["records"]}
-        self.assertEqual(sum(record["access_level"] == "full_text" for record in research["records"]), 13)
-        self.assertEqual(ids, {"B01", "B02", "B03", "B04", "B05", "B06", "B07", "B08", "B09", "B10", "B11", "B12", "B13"})
+        self.assertEqual(sum(record["access_level"] == "full_text" for record in research["records"]), 14)
+        self.assertEqual(ids, {"B01", "B02", "B03", "B04", "B05", "B06", "B07", "B08", "B09", "B10", "B11", "B12", "B13", "B14"})
         for card in self.export["cards"]:
             self.assertTrue(card["background_is_not_validation"])
             self.assertTrue(set(card["background_ids"]).issubset(ids))
@@ -79,6 +80,62 @@ class ExportTests(unittest.TestCase):
         count = len(json.loads(self.outputs["data/research.json"])["records"])
         self.assertIn(f"{count} 篇背景研究", (ROOT / "README.md").read_text())
         self.assertIn(f"{count} background studies", (ROOT / "README.en.md").read_text())
+
+    def test_research_reading_dates_come_from_each_canonical_record(self):
+        records = {item["id"]: item for item in json.loads(self.outputs["data/research.json"])["records"]}
+        self.assertEqual(records["B14"]["verified_at"], "2026-09-30")
+        self.assertTrue(all(item["verified_at"] == "2026-09-29"
+                            for key, item in records.items() if key != "B14"))
+        for item in records.values():
+            self.assertEqual(item["verified_at"], item["fields"]["核读日期"].rstrip("。"))
+        # A newly read source must not silently inherit a global date.
+        with tempfile.TemporaryDirectory() as folder:
+            root = Path(folder)
+            (root / "docs").mkdir()
+            document = root / "docs/research.md"
+            prefix = "## B01 · 示例\n\n- **DOI**：[来源](https://doi.org/10.0000/example)。\n"
+            for field in ("", "- **核读日期**：yesterday。\n", "- **核读日期**：2026-02-30。\n"):
+                document.write_text(prefix + field)
+                with self.assertRaises(ValueError):
+                    build.research_records(root)
+            document.write_text(prefix + "- **核读日期**：2026-09-30。\n")
+            self.assertEqual(build.research_records(root)[0]["verified_at"], "2026-09-30")
+
+    def test_dark_pattern_evidence_preserves_sample_versions_and_nonclaims(self):
+        records = {item["id"]: item for item in json.loads(self.outputs["data/research.json"])["records"]}
+        notes = {item["id"]: item for item in json.loads(self.outputs["data/evidence.json"])["notes"]}
+        self.assertEqual(notes["N14"]["source_kind"], "study_reading_note")
+        self.assertEqual(notes["F20"]["source_kind"], "regulatory_staff_report")
+        self.assertNotIn("F20", records)
+        for phrase in ("11,286", "53,180", "不是消费者随机实验"):
+            self.assertIn(phrase, records["B14"]["fields"]["设计与对象"])
+        for phrase in ("1,841", "1,818", "v2", "157", "140", "0.74",
+                       "不是 74% 的准确率", "不是对 11,286 名消费者的实验"):
+            self.assertIn(phrase, notes["N14"]["text"])
+        for phrase in ("2022", "六至九", "指控", "原创虚构例句", "出版商"):
+            text = notes["N14"]["text"] if phrase == "出版商" else notes["F20"]["text"]
+            self.assertIn(phrase, text)
+        self.assertTrue(all("B14" not in card["background_ids"] for card in self.export["cards"]))
+        self.assertEqual(build.local_href("../docs/evidence/B14-dark-patterns.md",
+                                         "essays/10-pleasure-not-retention.md"), "#n14")
+        self.assertEqual(build.local_href("../docs/evidence/F20-interface-report.md",
+                                         "essays/10-pleasure-not-retention.md"), "#f20")
+
+    def test_retention_argument_is_exported_as_an_argument_not_an_activity(self):
+        essays = {item["id"]: item for item in json.loads(self.outputs["data/essays.json"])["essays"]}
+        self.assertEqual(len(essays), 10)
+        self.assertEqual(essays["E10"]["source"], "essays/10-pleasure-not-retention.md")
+        text = (ROOT / essays["E10"]["source"]).read_text()
+        for phrase in ("不是某个平台的内部实验", "不是市场报价", "开始、继续、再次回来",
+                       "免费服务也要活下去", "拒绝一份快乐的报价，不等于拒绝快乐本身"):
+            self.assertIn(phrase, text)
+        page = self.outputs["index.html"]
+        self.assertIn('id="e10"', page)
+        self.assertIn('href="#b14"', page)
+        self.assertIn('href="#n14"', page)
+        self.assertIn('href="#f20"', page)
+        self.assertIn(text, self.outputs["llms-full.txt"])
+        self.assertEqual(len(self.export["cards"]), 60)
 
     def test_leisure_research_preserves_nonclaims_and_links(self):
         records = {item["id"]: item for item in json.loads(self.outputs["data/research.json"])["records"]}
@@ -265,7 +322,7 @@ class ExportTests(unittest.TestCase):
             self.assertIn(text, notes["F16"]["text"])
         self.assertEqual(build.local_href("../docs/evidence/F15-musical-scores.md", "book/11-music.md"), "#f15")
         self.assertEqual(build.local_href("../docs/evidence/F16-train-robbery.md", "book/12-film.md"), "#f16")
-        self.assertEqual(len(json.loads(self.outputs["data/research.json"])["records"]), 13)
+        self.assertEqual(len(json.loads(self.outputs["data/research.json"])["records"]), 14)
 
     def test_film_ending_is_inside_opt_in_spoiler_block(self):
         text = (ROOT / "book/12-film.md").read_text()
@@ -295,7 +352,7 @@ class ExportTests(unittest.TestCase):
         for phrase in ("2026-09-30", "2026-10-01", "生效日尚未到来", "14 秒", "24 秒",
                        "触及对方篮圈", "本书虚构假设", "不是 NBA"):
             self.assertIn(phrase, notes["F19"]["text"])
-        self.assertEqual(len(json.loads(self.outputs["data/research.json"])["records"]), 13)
+        self.assertEqual(len(json.loads(self.outputs["data/research.json"])["records"]), 14)
         self.assertEqual(build.local_href("../docs/evidence/F19-basketball-rules.md", "book/28-watching-sport.md"), "#f19")
 
     def test_sport_illustration_and_hypothetical_math_are_explicit(self):

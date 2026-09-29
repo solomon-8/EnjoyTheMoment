@@ -8,6 +8,7 @@
       "access_level": "full_text",
       "verified_at": "2026-09-29",
       "fields": {
+        "核读日期": "2026-09-29。",
         "文献": "Ashley V. Whillans, Elizabeth W. Dunn, Paul Smeets, Rene Bekkers, Michael I. Norton (2017). *Buying time promotes happiness*. PNAS, 114(32), 8523–8527。",
         "DOI": "[10.1073/pnas.1706541114](https://doi.org/10.1073/pnas.1706541114)。",
         "实际读取": "`full_text`；[PMC 公开全文](https://pmc.ncbi.nlm.nih.gov/articles/PMC5559044/)。读取正文的方法、结果与讨论；未复核原始数据和全部补充材料。",
@@ -27,6 +28,7 @@
       "access_level": "full_text",
       "verified_at": "2026-09-29",
       "fields": {
+        "核读日期": "2026-09-29。",
         "文献": "Jordan Etkin (2016). *The Hidden Cost of Personal Quantification*. Journal of Consumer Research, 42(6), 967–984。",
         "DOI": "[10.1093/jcr/ucv095](https://doi.org/10.1093/jcr/ucv095)。",
         "实际读取": "`full_text`；读取[沃顿商学院服务器的公开研究手稿](https://marketing.wharton.upenn.edu/wp-content/uploads/2016/10/Etkin-Jordan-11-12-15-Hidden-Cost.pdf)中六项实验的方法、结果与总讨论，未逐字比对正式发表版、原始数据和全部附录。[版本及详细阅读记录](evidence/B02-quantification.md)。",
@@ -46,6 +48,7 @@
       "access_level": "full_text",
       "verified_at": "2026-09-29",
       "fields": {
+        "核读日期": "2026-09-29。",
         "文献": "Shigehiro Oishi, Erin C. Westgate (2022). *A psychologically rich life: Beyond happiness and meaning*. Psychological Review, 129(4), 790–811。",
         "DOI": "[10.1037/rev0000317](https://doi.org/10.1037/rev0000317)。",
         "实际读取": "`full_text`；核读[作者网站托管的 22 页页校样](https://www.erinwestgate.com/uploads/7/6/4/1/7641726/oishi.westgate.psychrev.2021.pdf)的正文、经验材料与讨论，查看模型比较表、跨国选择图及附录结构。[版本与详细阅读记录](evidence/B03-richness.md)。",
@@ -66,6 +69,7 @@
       "access_level": "full_text",
       "verified_at": "2026-09-29",
       "fields": {
+        "核读日期": "2026-09-29。",
         "文献": "Amit Kumar, Matthew A. Killingsworth, Thomas Gilovich (2014). *Waiting for Merlot: Anticipatory consumption of experiential and material purchases*. Psychological Science, 25(10), 1924–1931。",
         "DOI": "[10.1177/0956797614546556](https://doi.org/10.1177/0956797614546556)。",
         "实际读取": "`full_text`；读取[作者实验室提供的期刊正文](https://blogs.cornell.edu/tgilovich/files/2019/12/KumarKillingswothGilovich.14.pdf)的方法、结果、讨论与文末注释；未复核原始数据、全部补充材料或后续独立复现。[详细阅读记录](evidence/B04-anticipation.md)。",
@@ -85,6 +89,7 @@
       "access_level": "full_text",
       "verified_at": "2026-09-29",
       "fields": {
+        "核读日期": "2026-09-29。",
         "文献": "Gabriela N. Tonietto, Selin A. Malkoc, Rebecca Walker Reczek, Michael I. Norton (2021). *Viewing leisure as wasteful undermines enjoyment*. Journal of Experimental Social Psychology, 97, 104198。",
         "DOI": "[10.1016/j.jesp.2021.104198](https://doi.org/10.1016/j.jesp.2021.104198)。",
         "实际读取": "`full_text`；读取[作者所属学校托管的期刊正文](https://www.business.rutgers.edu/sites/default/files/documents/tonietto-viewing-leisure-as-wasteful-undermines-enjoyment.pdf)中四项主研究的方法、结果、主文讨论与有关脚注，并抽查材料图像。未重算数据、完整核验补充研究或系统检索后续复现。[详细阅读记录](evidence/B05-leisure-value.md)。",
@@ -104,6 +109,7 @@
       "access_level": "full_text",
       "verified_at": "2026-09-29",
       "fields": {
+        "核读日期": "2026-09-29。",
         "文献": "Netta Weinstein, Matti Vuorre, Mark Adams, Thuy-vy Nguyen (2023). *Balance between solitude and socializing: everyday solitude time both benefits and harms well-being*. Scientific Reports, 13, 21160。",
         "DOI": "[10.1038/s41598-023-44507-7](https://doi.org/10.1038/s41598-023-44507-7)。",
         "实际读取": "`full_text`；核读[期刊正文](https://www.nature.com/articles/s41598-023-44507-7)、期刊 PDF 和 Europe PMC 全文 XML 中的方法、主要结果、讨论与限制，并查看结果表；未重算数据、独立审计注册材料或系统核验后续复现。[详细阅读记录](evidence/B06-solitude.md)。",
@@ -123,6 +129,7 @@
       "access_level": "full_text",
       "verified_at": "2026-09-29",
       "fields": {
+        "核读日期": "2026-09-29。",
         "文献": "Michael I. Norton, Daniel Mochon, Dan Ariely (2012). *The IKEA effect: When labor leads to love*. Journal of Consumer Psychology, 22(3), 453–460。",
         "DOI": "[10.1016/j.jcps.2011.08.002](https://doi.org/10.1016/j.jcps.2011.08.002)。",
         "实际读取": "`full_text`；核读[哈佛商学院托管的作者个人期刊副本](https://www.hbs.edu/ris/Publication%20Files/norton%20mochon%20ariely_6f7b1134-06ef-4940-a2a5-ba1b3be7e47e.pdf)中四项实验与总讨论，查看表格与统计段落；未重算数据或完整核验后续独立复现。[详细阅读记录](evidence/B07-making.md)。",
@@ -142,6 +149,7 @@
       "access_level": "full_text",
       "verified_at": "2026-09-29",
       "fields": {
+        "核读日期": "2026-09-29。",
         "文献": "Kathleen D. Vohs, Yajin Wang, Francesca Gino, Michael I. Norton (2013). *Rituals Enhance Consumption*. Psychological Science, 24(9), 1714–1721。",
         "DOI": "[10.1177/0956797613478949](https://doi.org/10.1177/0956797613478949)。",
         "实际读取": "`full_text`；核读[哈佛商学院托管的期刊正文](https://www.hbs.edu/ris/Publication%20Files/vohs%20wang%20gino%20norton_3d2620b3-b18b-4618-b609-a21914ab78de.pdf)的四项实验、总讨论与注释，视觉核对实验 1、2 结果；未重算数据或系统核验独立复现。[详细阅读记录](evidence/B08-rituals.md)。",
@@ -161,6 +169,7 @@
       "access_level": "full_text",
       "verified_at": "2026-09-29",
       "fields": {
+        "核读日期": "2026-09-29。",
         "文献": "Matti Vuorre, Niklas Johannes, Kristoffer Magnusson, Andrew K. Przybylski (2022). *Time spent playing video games is unlikely to impact well-being*. Royal Society Open Science, 9(7), 220411。",
         "DOI": "[10.1098/rsos.220411](https://doi.org/10.1098/rsos.220411)。",
         "实际读取": "`full_text`；通过 [Europe PMC 期刊全文 XML](https://www.ebi.ac.uk/europepmc/webservices/rest/PMC9326284/fullTextXML)核读方法、结果、讨论、局限、样本表和图注；没有视觉检查原图或复算数据。[详细阅读记录](evidence/B09-games.md)。",
@@ -180,6 +189,7 @@
       "access_level": "full_text",
       "verified_at": "2026-09-29",
       "fields": {
+        "核读日期": "2026-09-29。",
         "文献": "Kristin Diehl, Gal Zauberman, Alixandra Barasch (2016). *How taking photos increases enjoyment of experiences*. Journal of Personality and Social Psychology, 111(2), 119–140。",
         "DOI": "[10.1037/pspa0000055](https://doi.org/10.1037/pspa0000055)。",
         "实际读取": "`full_text`；由[作者发表目录](https://faculty.som.yale.edu/galzauberman/publications/)取得其链接的提前在线发表稿，核读九项方法、结果与相关讨论，视觉检查关键结果和注释；未逐字核对最终分期页码版。[详细阅读记录](evidence/B10-photography.md)。",
@@ -199,6 +209,7 @@
       "access_level": "full_text",
       "verified_at": "2026-09-29",
       "fields": {
+        "核读日期": "2026-09-29。",
         "文献": "Gabriela N. Tonietto, Selin A. Malkoc (2016). *The Calendar Mindset: Scheduling Takes the Fun Out and Puts the Work In*. Journal of Marketing Research, 53(6), 922–936。",
         "DOI": "[10.1509/jmr.14.0591](https://doi.org/10.1509/jmr.14.0591)。",
         "实际读取": "`full_text`；核读[大学托管的期刊 PDF](https://www.business.rutgers.edu/sites/default/files/documents/tonietto-the-calendar-mindset.pdf)正文方法、结果及讨论，视觉核对关键结果；1b–1g 的详细网络附录未完整读取。[详细阅读记录](evidence/B11-scheduling.md)。",
@@ -218,6 +229,7 @@
       "access_level": "full_text",
       "verified_at": "2026-09-29",
       "fields": {
+        "核读日期": "2026-09-29。",
         "文献": "Jeroen Nawijn, Miquelle A. Marchand, Ruut Veenhoven, Ad J. Vingerhoets (2010). *Vacationers Happier, but Most not Happier After a Holiday*. Applied Research in Quality of Life, 5(1), 35–47。",
         "DOI": "[10.1007/s11482-009-9091-9](https://doi.org/10.1007/s11482-009-9091-9)。",
         "实际读取": "`full_text`；核读[出版社 PDF](https://link.springer.com/content/pdf/10.1007/s11482-009-9091-9.pdf)与 [PMC 正文](https://pmc.ncbi.nlm.nih.gov/articles/PMC2837207/)的方法、结果、讨论，视觉检查关键统计及缺失的活动信息。[详细阅读记录](evidence/B12-vacation.md)。",
@@ -237,6 +249,7 @@
       "access_level": "full_text",
       "verified_at": "2026-09-29",
       "fields": {
+        "核读日期": "2026-09-29。",
         "文献": "A. Peter McGraw, Caleb Warren (2010). *Benign Violations: Making Immoral Behavior Funny*. Psychological Science, 21(8), 1141–1149。",
         "DOI": "[10.1177/0956797610376073](https://doi.org/10.1177/0956797610376073)。",
         "实际读取": "`full_text`；由[实验室页面](https://humorresearchlab.com/benign-violation-theory/)取得[大学托管期刊 PDF](https://leeds-faculty.colorado.edu/mcgrawp/pdf/mcgraw.warren.2010.pdf)，核读五项方法、结果、表格与讨论，视觉检查表 5 与主张范围。[详细阅读记录](evidence/B13-humor.md)。",
@@ -248,6 +261,26 @@
       },
       "directly_validates_cards": false,
       "source": "docs/research.md#b13"
+    },
+    {
+      "id": "B14",
+      "title": "暗黑模式的存在，不等于测到了用户感受",
+      "doi": "10.1145/3359183",
+      "access_level": "full_text",
+      "verified_at": "2026-09-30",
+      "fields": {
+        "文献": "Arunesh Mathur, Gunes Acar, Michael J. Friedman, Elena Lucherini, Jonathan Mayer, Marshini Chetty, Arvind Narayanan (2019). *Dark Patterns at Scale: Findings from a Crawl of 11K Shopping Websites*. Proceedings of the ACM on Human-Computer Interaction, 3(CSCW), Article 81, 1–32。",
+        "DOI": "[10.1145/3359183](https://doi.org/10.1145/3359183)。",
+        "核读日期": "2026-09-30。",
+        "实际读取": "`full_text`；[作者项目页](https://webtransparency.cs.princeton.edu/dark-patterns/)与 [arXiv v2 PDF](https://arxiv.org/pdf/1907.07032v2)，核读分类、方法、发现、讨论与限制，目视核对表 1 与倒计时示例。该文件带期刊排版和正式 DOI；未与获取失败的出版商 PDF 逐字比对。[详细阅读记录](evidence/B14-dark-patterns.md)。",
+        "设计与对象": "网站测量、文本聚类与人工检查；11,286 个英语购物网站、53,180 个商品页及相关路径，不是消费者随机实验。",
+        "有限结论": "样本中识别出 1,818 处模式、涉及 1,254 个网站；按特定条件另识别 140 个网站上的 157 处欺骗性倒计时。既有模式、欺骗性子集与心理效果不能合并。",
+        "不能推出": "2026 年全部网站的比例、短视频或游戏的普遍效果、用户受骗概率、消费或后悔的因果变化，或个人成瘾诊断。",
+        "我们如何使用": "[E10](../essays/10-pleasure-not-retention.md)区分清楚的说服与隐瞒、退出障碍；停留时长不是满意度的论证属于本书分析，不是该研究直接测量。",
+        "关键限制": "英语、文本与购买路径为主；结账路径抽样 100 页仅 66 页成功到达；200 个聚类双人检查、其余由单人继续，不是全面双人复核；未真实购买、未测用户幸福或消费变化；不同草稿数量不混用，未系统核验后续复现。"
+      },
+      "directly_validates_cards": false,
+      "source": "docs/research.md#b14"
     }
   ],
   "relations": [
