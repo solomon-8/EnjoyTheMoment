@@ -46,7 +46,7 @@ def check(root=ROOT):
     declared = re.findall(r"<!-- catalog-count: (\d+) -->", readme)
     if declared != [str(len(cards))]:
         problems.append("README catalog-count 与实际卡片数不一致")
-    chapters = len({card.path for card in cards})
+    chapters = len(list((root / "book").glob("*.md")))
     if "**{0} 个章节，{1} 张原创行动卡。**".format(chapters, len(cards)) not in readme:
         problems.append("README 可见章节/卡片数量与内容不一致")
     english = (root / "README.en.md").read_text(encoding="utf-8")

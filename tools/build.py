@@ -29,7 +29,16 @@ EVIDENCE = [
     ("N05", "docs/evidence/B05-leisure-value.md"),
     ("N06", "docs/evidence/B06-solitude.md"),
     ("F01", "docs/evidence/F01-time-use.md"),
+    ("F02", "docs/evidence/F02-listening-language.md"),
+    ("F03", "docs/evidence/F03-film-language.md"),
+    ("F04", "docs/evidence/F04-safe-listening.md"),
 ]
+EVIDENCE_KINDS = {
+    "F01": "official_statistics",
+    "F02": "educational_reference",
+    "F03": "educational_reference",
+    "F04": "official_health_guidance",
+}
 RELATIONS = [
     {"card_ids": ["J033"], "background_ids": ["B01"], "essay_ids": ["E04"]},
     {"card_ids": ["J024", "J040", "J058", "J059"], "background_ids": ["B02"], "essay_ids": ["E05"]},
@@ -201,17 +210,30 @@ def outputs(root=ROOT):
     digest = source_digest(root)
     chapters = {}
     chapter_data = []
+    chapter_ids = set()
     for path in sorted((root / "book").glob("*.md")):
         text = path.read_text(encoding="utf-8")
-        introduction = text[:text.index('<a id="j')].strip()
+        if not re.fullmatch(r"\d{2}-.+", path.stem):
+            raise ValueError("章节文件名须为两位编号加名称：" + path.name)
+        identifier = "C" + path.stem[:2]
+        if identifier in chapter_ids:
+            raise ValueError("章节编号重复：" + identifier)
+        chapter_ids.add(identifier)
+        headings = re.findall(r"^# (.+)$", text, re.MULTILINE)
+        if len(headings) != 1:
+            raise ValueError("章节须恰有一个一级标题：" + path.name)
+        introduction, separator, _ = text.partition('<a id="j')
+        introduction = introduction.strip()
+        if not introduction:
+            raise ValueError("章节正文为空：" + path.name)
         chapter_data.append({
-            "id": "C" + path.stem[:2],
-            "title": re.search(r"^# (.+)$", text, re.MULTILINE).group(1),
+            "id": identifier,
+            "title": headings[0],
             "source": path.relative_to(root).as_posix(),
             "source_sha256": hashlib.sha256(path.read_bytes()).hexdigest(),
             "text": introduction,
             "card_ids": [card.id for card in cards if card.path == path.relative_to(root)],
-            "scope": "chapter_introduction",
+            "scope": "chapter_introduction" if separator else "full_chapter",
         })
     card_data = []
     for card in cards:
@@ -241,7 +263,7 @@ def outputs(root=ROOT):
     for identifier, path in EVIDENCE:
         text = (root / path).read_text(encoding="utf-8")
         evidence.append({"id": identifier, "source": path, "text": text,
-                         "source_kind": "official_statistics" if identifier == "F01" else "study_reading_note",
+                         "source_kind": EVIDENCE_KINDS.get(identifier, "study_reading_note"),
                          "title": re.search(r"^# (.+)$", text, re.MULTILINE).group(1)})
 
     cards_html = []
@@ -277,11 +299,12 @@ def outputs(root=ROOT):
     replacements = {
         "@@CHAPTERINTROS@@": "\n".join(
             '<details class="essay chapter-intro" id="{0}"><summary>{1}</summary>'
-            '<div class="prose">{2}<p>配套行动：{3}</p></div></details>'.format(
+            '<div class="prose">{2}{3}</div></details>'.format(
                 item["id"].lower(), html.escape(item["title"]),
                 markdown(item["text"], item["source"], omit_title=True),
-                " · ".join('<a href="#{0}">{1}</a>'.format(identifier.lower(), identifier)
-                           for identifier in item["card_ids"]))
+                ("<p>配套行动：" + " · ".join(
+                    '<a href="#{0}">{1}</a>'.format(identifier.lower(), identifier)
+                    for identifier in item["card_ids"]) + "</p>") if item["card_ids"] else "")
             for item in chapter_data),
         "@@GUIDES@@": "\n".join(
             '<details class="essay playbook" id="{0}"><summary>{1}<br><small>{2}</small></summary>'

@@ -6,7 +6,7 @@
 
 - 用户想“怎么耍”：检索 1–3 张适合其明确条件的卡片。
 - 用户讨论价值观：读 [SHUAQI.md](../SHUAQI.md) 与相关长文，别拿娱乐列表替代回答。
-- 用户讨论味道、新鲜感、玩乐、关系、消费或休闲内疚等具体取舍：同时读 `book/` 的章节导读；`data/chapters.json` 保留卡片前的完整正文、来源和关联卡片 ID。不要把章节缩成“推荐做什么”。
+- 用户讨论味道、新鲜感、玩乐、关系、消费、音乐、电影或现场参与等具体取舍：同时读 `book/`；`data/chapters.json` 保留章节正文、来源和关联卡片 ID。`scope=chapter_introduction` 是卡片前的正文，`scope=full_chapter` 是无行动卡的完整独立章节。后者的 `card_ids` 为空，不表示缺少内容；不要为了输出动作强行填入一张卡。
 - 用户问“梗从哪里来”：读[文化来源](culture-shuaqi.md)，区分原话、媒体评论与项目自定义。
 - 用户需要医疗、法律、财务或危机支持：本项目不是这些领域的处方库，不能拿“耍起”替代适当帮助。
 
@@ -39,7 +39,7 @@ python3 tools/pick.py --id J019 --json
 
 `background_ids` 指向相关研究背景；`background_is_not_validation` 为真。它不能被改写成“这张卡已经被研究证实有效”。
 
-`data/evidence.json` 的记录用 `source_kind` 区分 `study_reading_note`（研究阅读记录）和 `official_statistics`（官方统计事实记录）。F01 不是快乐实验，不能混进 B 系列的研究篇数。引用时间利用数据须保留总体或参与者的分母；引用 B06 须保留观察性、样本与日层面/人层面的边界，不能转成独处黄金时长。
+`data/evidence.json` 的记录用 `source_kind` 区分 `study_reading_note`（研究阅读记录）、`official_statistics`（官方统计）、`educational_reference`（教学参考）和 `official_health_guidance`（官方健康指导）。F 系列不是快乐实验，不能混进 B 系列的研究篇数。引用时间利用数据须保留总体或参与者的分母；引用 B06 须保留观察性、样本与日层面/人层面的边界，不能转成独处黄金时长。F02/F03 提供概念，不证明学习必然提高快乐；F04 不认证任何场地或设备安全，也不表示技术标准已全文核读。
 
 `source_sha256` 校验对应源文件，`source_digest` 标识整组内容；它们是完整性字段，不是数字签名。远端 `main` 链接会移动，严肃引用应另记录读取时的提交 SHA。
 

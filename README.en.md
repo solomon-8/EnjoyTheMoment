@@ -40,9 +40,9 @@ Neither excitement nor spending is compulsory. Quiet enjoyment counts. Disliking
 
 ## The guide
 
-**10 chapters. 60 original activity cards.** The full cards are currently in Chinese; this page is an English introduction, not a complete translation.
+**13 chapters. 60 original activity cards.** Chapters 11–13 are standalone discussions, not extra activity lists. The full chapters and cards are currently in Chinese; this page is an English introduction, not a complete translation.
 
-[Read and filter in your browser](https://solomon-8.github.io/EnjoyTheMoment/), with no installation. Nine [long-form essays](essays/01-pleasure-is-an-end.md) explain the tradeoffs; the [research ledger](docs/research.md) distinguishes three journal full texts, one publicly hosted research manuscript, and one abstract-only check. None directly validates our activities.
+[Read and filter in your browser](https://solomon-8.github.io/EnjoyTheMoment/), with no installation. Nine [long-form essays](essays/01-pleasure-is-an-end.md) explain the tradeoffs; the [research ledger](docs/research.md) records 6 background studies: four journal full texts, one publicly hosted research manuscript, and one abstract-only check. Official statistics, educational references, and health guidance are recorded separately. None directly validates our activities.
 
 The chapters on senses, novelty, play, relationships, spending, and permission to enjoy contain substantial discussions before their supporting cards. They address taste without moral judgment, novelty without a life checklist, serious play without compulsory achievement, shared time without identical preferences, and leisure without a productivity test. These discussions are in Chinese; value arguments and hypothetical examples are distinguished from limited research findings.
 
@@ -58,6 +58,9 @@ The chapters on senses, novelty, play, relationships, spending, and permission t
 | [08 · Take a break from being useful](book/08-permission.md) | Must rest always be a reward? |
 | [09 · Limited resources, real enjoyment](book/09-constrained.md) | What fits the constraints you actually have? |
 | [10 · Leaving is part of enjoying](book/10-aftertaste.md) | Are you still choosing to continue? |
+| [11 · Your ears are not a taste certificate](book/11-music.md) | Can listening concepts open possibilities without becoming a test? |
+| [12 · A film list is not a graduation requirement](book/12-film.md) | How do images, editing, and sound shape what you experience? |
+| [13 · Being there is not proof you must enjoy it](book/13-live-events.md) | Which part of a live event do you actually want? |
 
 Each card has a concrete action, a hoped-for experience, visible costs, a smaller alternative, a stopping point, and a statement of its evidential status.
 
