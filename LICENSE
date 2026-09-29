@@ -19,3 +19,28 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
+
+Third-party rules and materials
+------------------------------
+
+The MIT license above covers this project's original contributions. It does
+not replace the licenses of attributed third-party rules, images, or other
+materials. See docs/sources.md and the relevant source and asset notes.
+
+book/34-shared-stories.md and docs/evidence/F32-action-and-consequences.md
+include Chinese paraphrases and adaptations of selected Blades in the Dark
+SRD rules. The fictional examples and probability calculations are original
+to this project. No game setting, artwork, maps, or logos are reproduced.
+
+This work is based on Blades in the Dark (found at http://www.bladesinthedark.com/), product of One Seven Design, developed and authored by John Harper, and licensed for our use under the Creative Commons Attribution 3.0 Unported license (http://creativecommons.org/licenses/by/3.0/).
+
+book/34-shared-stories.md and docs/evidence/F33-aspects-and-shared-fiction.md
+include Chinese paraphrases and adaptations of selected Fate Condensed
+official SRD text. Fate Condensed (c) 2020 Evil Hat Productions, LLC.
+The fictional examples and value arguments are original to this project.
+
+This work is based on Fate Condensed (found at http://www.faterpg.com/), a product of Evil Hat Productions, LLC, developed, authored, and edited by PK Sullivan, Lara Turner, Leonard Balsera, Fred Hicks, Richard Bellingham, Robert Hanz, Ryan Macklin, and Sophie Lagacé, and licensed for our use under the Creative Commons Attribution 3.0 Unported license (http://creativecommons.org/licenses/by/3.0/).
+
+These adaptations are not official translations. Neither rights holder has
+reviewed, endorsed, or sponsored this project. No trademark or logo license
+is implied by the project's MIT license.

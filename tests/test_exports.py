@@ -1,6 +1,7 @@
 import contextlib
 import hashlib
 import io
+import itertools
 import json
 import re
 import sys
@@ -9,6 +10,7 @@ import unittest
 import xml.etree.ElementTree as ET
 from unittest import mock
 from pathlib import Path
+from fractions import Fraction
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "tools"))
@@ -250,7 +252,7 @@ class ExportTests(unittest.TestCase):
         chapters = json.loads(self.outputs["data/chapters.json"])["chapters"]
         self.assertEqual({chapter["source"] for chapter in chapters},
                          {p.relative_to(ROOT).as_posix() for p in (ROOT / "book").glob("*.md")})
-        self.assertEqual(len(chapters), 33)
+        self.assertEqual(len(chapters), 34)
         self.assertEqual(len({chapter["id"] for chapter in chapters}), len(chapters))
         for chapter in chapters:
             source = ROOT / chapter["source"]
@@ -275,7 +277,7 @@ class ExportTests(unittest.TestCase):
         chapters = json.loads(self.outputs["data/chapters.json"])["chapters"]
         standalone = [chapter for chapter in chapters if chapter["scope"] == "full_chapter"]
         self.assertEqual({chapter["id"] for chapter in standalone},
-                         {"C11", "C12", "C13", "C14", "C15", "C16", "C17", "C18", "C19", "C20", "C21", "C22", "C23", "C24", "C25", "C26", "C27", "C28", "C29", "C30", "C31", "C32", "C33"})
+                         {"C11", "C12", "C13", "C14", "C15", "C16", "C17", "C18", "C19", "C20", "C21", "C22", "C23", "C24", "C25", "C26", "C27", "C28", "C29", "C30", "C31", "C32", "C33", "C34"})
         for chapter in standalone:
             self.assertEqual(chapter["card_ids"], [])
             self.assertEqual(chapter["text"], (ROOT / chapter["source"]).read_text().strip())
@@ -422,6 +424,92 @@ class ExportTests(unittest.TestCase):
         self.assertIn("不是附带页码与文字朝向的拼版模板", notes["F29"]["text"])
         self.assertIn("没有实际折制", notes["F29"]["text"])
         self.assertEqual(len(self.export["cards"]), 60)
+
+    def test_shared_stories_preserve_rules_scope_and_source_attribution(self):
+        chapters = {item["id"]: item for item in
+                    json.loads(self.outputs["data/chapters.json"])["chapters"]}
+        notes = {item["id"]: item for item in
+                 json.loads(self.outputs["data/evidence.json"])["notes"]}
+        chapter = chapters["C34"]
+        text = (ROOT / chapter["source"]).read_text()
+        self.assertEqual(chapter["scope"], "full_chapter")
+        self.assertEqual(chapter["card_ids"], [])
+        self.assertEqual(chapter["text"], text.strip())
+        self.assertIn(text, self.outputs["llms-full.txt"])
+        rendered = build.markdown(text, chapter["source"])
+        for anchor in ("story-choice", "story-dice", "story-aspects", "story-table"):
+            self.assertIn('id="' + anchor + '"', rendered)
+            self.assertIn('href="#' + anchor + '"', rendered)
+        for identifier, kind in (("F32", "game_rules_and_original_probability"),
+                                 ("F33", "official_game_srd")):
+            note = notes[identifier]
+            self.assertEqual(note["source_kind"], kind)
+            self.assertEqual(note["text"], (ROOT / note["source"]).read_text())
+            self.assertIn(note["text"], self.outputs["llms-full.txt"])
+            self.assertIn('href="#' + identifier.lower() + '"', rendered)
+            self.assertIn('href="#c34"', build.markdown(note["text"], note["source"]))
+        license_text = (ROOT / "LICENSE").read_text()
+        attribution_lines = [
+            line for line in text.splitlines()
+            if line.startswith("This work is based on")
+        ]
+        self.assertEqual(len(attribution_lines), 2)
+        for line, identifier in zip(attribution_lines, ("F32", "F33")):
+            self.assertIn(line, license_text)
+            self.assertIn(line, notes[identifier]["text"])
+        self.assertIn("Leonard Balsera", attribution_lines[1])
+        self.assertIn("Ryan Macklin", attribution_lines[1])
+        self.assertIn("Fate-Condensed-SRD-CC-BY.html", notes["F33"]["text"])
+        self.assertIn("page XX", notes["F33"]["text"])
+        self.assertIn("零颗或负数骰子", text)
+        self.assertIn("不能推广成唯一规则", text)
+        self.assertIn("不是所有后果的发生率", text)
+        self.assertIn("不是照搬前文", text)
+        self.assertIn("四骰结果为 `+、0、−、+`", text)
+        signs = {"+": 1, "0": 0, "−": -1}
+        example = re.search(r"四骰结果为 `([^`]+)`", text).group(1).split("、")
+        self.assertEqual(sum(signs[sign] for sign in example), 1)
+        self.assertIn("技能为 2，合计 3，对难度 4 还差 1", text)
+        self.assertIn("结果变为 5", text)
+        self.assertEqual(len(self.export["cards"]), 60)
+        self.assertEqual(len(json.loads(self.outputs["data/research.json"])["records"]), 16)
+
+    def test_shared_stories_dice_table_matches_exhaustive_outcomes(self):
+        text = (ROOT / "book/34-shared-stories.md").read_text()
+        labels = ("1—3", "4—5", "至少一颗 6")
+        table = {}
+        for line in text.splitlines():
+            cells = [c.strip() for c in line.strip("|").split("|")]
+            if len(cells) == 3 and cells[0] in labels:
+                table[cells[0]] = cells[1:]
+        self.assertEqual(set(table), set(labels))
+        for size in (1, 2):
+            outcomes = list(itertools.product(range(1, 7), repeat=size))
+            groups = {
+                "1—3": [dice for dice in outcomes if max(dice) <= 3],
+                "4—5": [dice for dice in outcomes if 4 <= max(dice) <= 5],
+                "至少一颗 6": [dice for dice in outcomes if max(dice) == 6],
+            }
+            self.assertEqual(sum(map(len, groups.values())), 6 ** size)
+            for label, dice in groups.items():
+                displayed = re.fullmatch(r"(\d+)/(\d+) [=≈] ([\d.]+)%", table[label][size - 1])
+                self.assertIsNotNone(displayed)
+                numerator, denominator, percentage = displayed.groups()
+                expected = Fraction(len(dice), 6 ** size)
+                self.assertEqual(Fraction(int(numerator), int(denominator)), expected)
+                self.assertAlmostEqual(float(percentage), float(expected * 100), places=2)
+        two_dice = list(itertools.product(range(1, 7), repeat=2))
+        criticals = [dice for dice in two_dice if dice.count(6) > 1]
+        exact_one = [dice for dice in two_dice if dice.count(6) == 1]
+        self.assertEqual(len(criticals), 1)
+        self.assertEqual(len(exact_one), 10)
+        self.assertIn("占 1/36", text)
+        self.assertIn("有 10 种", text)
+        self.assertIn("表中的 11 种", text)
+        # The zero-die exception must not accidentally use the ordinary 2d column.
+        self.assertEqual(sum(min(dice) <= 3 for dice in two_dice), 27)
+        self.assertNotEqual(sum(min(dice) <= 3 for dice in two_dice),
+                            sum(max(dice) <= 3 for dice in two_dice))
 
     def test_singing_chapter_and_heterogeneous_sources_remain_complete(self):
         chapters = {item["id"]: item for item in

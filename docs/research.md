@@ -255,8 +255,10 @@
 - [F29 · 小册子的结构与次序](evidence/F29-zine-structure.md)：剑桥大学博物馆与南澳大利亚博物馆的图文说明，用于[制作章节](../book/17-making.md)。八页含封面封底；原创图不是拼版模板，未实际折制或测试读者。
 - [F30 · 声音与音乐关系](evidence/F30-voice-and-musical-relations.md)：新南威尔士大学声学教学、Open Music Theory 移调说明及 Oak 轮唱课程网页，用于[唱歌章节](../book/33-singing.md)。教学概念与原创建模分开，音名核对不是试听，轮唱时间表不是和声验证。
 - [F31 · 话筒与嗓音照护](evidence/F31-microphones-and-voice-care.md)：Shure SM58 指定版本说明书与 NIDCD 官方嗓音资料，用于[唱歌章节](../book/33-singing.md)。型号说明不泛化，照护边界不改写成个体诊断，两者不合成产品健康效果。
+- [F32 · 行动、骰子与后果](evidence/F32-action-and-consequences.md)：*Blades in the Dark* 指定 SRD 规则与本书骰池枚举，用于[共同叙事章节](../book/34-shared-stories.md)。处境、效果和概率不同，零骰例外保留，算例不是行为研究。
+- [F33 · 特征、麻烦与共同叙事](evidence/F33-aspects-and-shared-fiction.md)：*Fate Condensed* 官方下载 SRD 的指定部分，用于[共同叙事章节](../book/34-shared-stories.md)。网页呈现与官方文件分开，游戏内资源与现实边界分开；保留完整署名，不作安全或幸福效果保证。
 
-F 系列不计入上面的十六篇背景研究。事实、教学、文学文本、访客指导、作品与图像、乐谱、影片与历史目录、舞蹈来源、体育规则、监管报告、供应商技术手册、服装记录、哲学与创作者文本、声学、型号说明、嗓音指导及研究阅读记录共同收入 `data/evidence.json`，用 `source_kind` 区分。
+F 系列不计入上面的十六篇背景研究。事实、教学、文学文本、访客指导、作品与图像、乐谱、影片与历史目录、舞蹈来源、体育规则、监管报告、供应商技术手册、服装记录、哲学与创作者文本、声学、型号说明、嗓音指导、游戏规则及研究阅读记录共同收入 `data/evidence.json`，用 `source_kind` 区分。
 
 ## 为什么这些研究还不能叫“证据很硬”？
 
