@@ -64,7 +64,7 @@ The chapters on senses, novelty, play, relationships, spending, and permission t
 | [10 · Leaving is part of enjoying](book/10-aftertaste.md) | Are you still choosing to continue? |
 | [11 · Your ears are not a taste certificate](book/11-music.md) | Can listening concepts open possibilities without becoming a test? |
 | [12 · A film list is not a graduation requirement](book/12-film.md) | How do images, editing, and sound shape what you experience? |
-| [13 · Being there is not proof you must enjoy it](book/13-live-events.md) | Which part of a live event do you actually want? |
+| [13 · If listening at home is clearer, why go live?](book/13-live-events.md) | Stage space, Jingju conventions and anticipation beyond knowing the plot |
 | [14 · Flavor does not need another justification](book/14-flavor.md) | Ice cream structure, sweetness and air: can knowledge inform taste without overruling it? |
 | [15 · Streets are not loading screens between attractions](book/15-neighborhood.md) | Footfall is not public life: staying without shopping, scheduled events or compulsory interaction. |
 | [16 · Clothes are for wearing, not waiting for a better self](book/16-dress.md) | Color blocks, bias cutting and tuxedo codes offer more to discuss than correcting a body. |

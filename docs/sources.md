@@ -77,6 +77,8 @@
 
 观赛章节的越位时点图为本项目原创简化示意，不是官方插图、真实比赛或判罚工具；SVG 源文件与 PNG 见[图解署名](../assets/media/README.md)。来源类型和简化条件不能因采用了图片就省略。
 
+现场章节的空间分类与京剧描述分别见 [F40](evidence/F40-theatre-space.md)、[F41](evidence/F41-jingju-conventions.md)。舞台图由本项目原创，不转载来源照片；中文与英文项目描述只作有限转述，申报文件不作为已观看演出的记录，也不重复计作独立研究。门、递杯与镜头场景是本书自写例子，不冒充剧目片段或标准程式。
+
 ## 公共生活观察工具
 
 [第 15 章](../book/15-neighborhood.md)与 [F35](evidence/F35-public-life-observation.md)对 PLDP 配套观察方法作了有限中文转述、缩写与重组，不是官方译本。来源采用 [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)，固定提交与读取范围见 F35，完整署名亦保留于章节、来源笔记和 LICENSE。原创假想与价值讨论不冒充机构研究；没有复制调查表版式、图标或样例个人数据。

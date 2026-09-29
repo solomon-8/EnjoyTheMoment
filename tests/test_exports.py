@@ -871,6 +871,65 @@ class ExportTests(unittest.TestCase):
         self.assertTrue(all(not ({"F38", "F39"} & set(c["background_ids"]))
                             for c in self.export["cards"]))
 
+    def test_live_chapter_and_sources_export_without_turning_into_card_evidence(self):
+        chapters = {c["id"]: c for c in json.loads(self.outputs["data/chapters.json"])["chapters"]}
+        notes = {n["id"]: n for n in json.loads(self.outputs["data/evidence.json"])["notes"]}
+        source = "book/13-live-events.md"
+        text = (ROOT / source).read_text()
+        self.assertEqual(chapters["C13"]["text"], text.strip())
+        self.assertEqual(chapters["C13"]["scope"], "full_chapter")
+        self.assertEqual(chapters["C13"]["card_ids"], [])
+        self.assertIn(text, self.outputs["llms-full.txt"])
+        html = build.markdown(text, source)
+        for anchor in ("live-medium", "live-space", "live-convention",
+                       "live-anticipation", "live-understanding"):
+            self.assertIn('id="' + anchor + '"', html)
+            self.assertIn('href="#' + anchor + '"', html)
+        for identifier, kind in (("F40", "theatre_educational_reference"),
+                                 ("F41", "heritage_description_and_nomination")):
+            note = notes[identifier]
+            self.assertEqual(note["source_kind"], kind)
+            self.assertEqual(note["text"], (ROOT / note["source"]).read_text())
+            self.assertIn(note["text"], self.outputs["llms-full.txt"])
+            self.assertIn('href="#' + identifier.lower() + '"', html)
+            self.assertIn('href="#c13"', build.markdown(note["text"], note["source"]))
+        self.assertIn('href="#f04"', html)
+        self.assertTrue(all(not ({"F40", "F41"} & set(c["background_ids"]))
+                            for c in self.export["cards"]))
+
+    def test_live_diagram_is_original_local_and_accessible(self):
+        source = "book/13-live-events.md"
+        text = (ROOT / source).read_text()
+        figures = re.findall(r"!\[([^\]]+)\]\(([^)]+)\)", text)
+        self.assertEqual(len(figures), 1)
+        alt, href = figures[0]
+        for phrase in ("镜框式", "三侧", "四周", "不是实际场馆座位图"):
+            self.assertIn(phrase, alt)
+        self.assertTrue((ROOT / "book" / href).is_file())
+        html = build.markdown(text, source)
+        self.assertEqual(html.count('src="data:image/png;base64,'), 1)
+        svg = ET.parse(ROOT / "assets/media/theatre-layouts.svg").getroot()
+        ns = {"s": "http://www.w3.org/2000/svg"}
+        self.assertEqual(svg.get("viewBox"), "0 0 440 900")
+        self.assertIn("不按比例", svg.find("s:desc", ns).text)
+        self.assertEqual(svg.findall(".//s:image", ns), [])
+        self.assertIn("theatre-layouts.png", (ROOT / "assets/media/README.md").read_text())
+
+    def test_live_sources_preserve_description_and_performance_boundary(self):
+        text = (ROOT / "book/13-live-events.md").read_text()
+        for phrase in ("作品", "这一次实现", "自己的在场关系", "黑匣子",
+                       "不是某出京剧的舞台实录", "不用功也有资格，用功也可以只是享乐",
+                       "没有观看并核验一场实际京剧演出"):
+            self.assertIn(phrase, text)
+        note = (ROOT / "docs/evidence/F41-jingju-conventions.md").read_text()
+        for phrase in ("00418", "2010", "第 3—4 页", "第 5—11 页不作为",
+                       "不把两者加申报文件说成三项独立实证研究", "不对应《三岔口》"):
+            self.assertIn(phrase, note)
+        space = (ROOT / "docs/evidence/F40-theatre-space.md").read_text()
+        for phrase in ("不固定等于", "不是互斥分类", "没有在真实场馆测量",
+                       "不能用于选座推荐"):
+            self.assertIn(phrase, space)
+
     def test_collecting_official_images_preserve_download_bytes_and_attribution(self):
         source = "book/26-collecting.md"
         text = (ROOT / source).read_text()

@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="440" height="900" viewBox="0 0 440 900" role="img" aria-labelledby="title desc">
+<title id="title">舞台把你放在哪里看？</title>
+<desc id="desc">三个原创俯视图。镜框式的观众位于舞台框架前方；伸出式的表演区伸出，观众在三侧；四面围合式的观众围绕中心表演区。点是观众，色块是表演区。图不按比例，不包含真实座位、声场或通道。</desc>
+<rect width="440" height="900" rx="16" fill="#fff8ec"/>
+<g font-family="PingFang SC, Microsoft YaHei, sans-serif" fill="#24231f" font-size="21">
+<text x="24" y="44" font-size="26" font-weight="700">舞台把你放在哪里看？</text>
+<text x="24" y="80">原创俯视示意 · 非场馆平面图</text>
+<text x="24" y="134" font-weight="700">1  镜框式</text>
+<rect x="100" y="155" width="240" height="88" rx="4" fill="#d8e9e5"/>
+<text x="188" y="209">舞台</text>
+<path d="M90 232V247H350V232" fill="none" stroke="#80654b" stroke-width="6"/>
+<g fill="#315c62">
+<circle cx="120" cy="279" r="6"/><circle cx="160" cy="279" r="6"/><circle cx="200" cy="279" r="6"/><circle cx="240" cy="279" r="6"/><circle cx="280" cy="279" r="6"/><circle cx="320" cy="279" r="6"/>
+</g>
+<text x="157" y="313">观众面向框内</text>
+<path d="M24 338H416" stroke="#d5cbb9"/>
+<text x="24" y="375" font-weight="700">2  伸出式</text>
+<path d="M100 397H340V431H273V516H167V431H100Z" fill="#d8e9e5"/>
+<text x="189" y="474">舞台</text>
+<g fill="#315c62">
+<circle cx="128" cy="449" r="6"/><circle cx="128" cy="479" r="6"/><circle cx="128" cy="509" r="6"/>
+<circle cx="312" cy="449" r="6"/><circle cx="312" cy="479" r="6"/><circle cx="312" cy="509" r="6"/>
+<circle cx="160" cy="545" r="6"/><circle cx="200" cy="545" r="6"/><circle cx="240" cy="545" r="6"/><circle cx="280" cy="545" r="6"/>
+</g>
+<text x="167" y="581">观众在三侧</text>
+<path d="M24 607H416" stroke="#d5cbb9"/>
+<text x="24" y="646" font-weight="700">3  四面围合</text>
+<rect x="149" y="696" width="142" height="87" rx="4" fill="#d8e9e5"/>
+<text x="189" y="749">舞台</text>
+<g fill="#315c62">
+<circle cx="160" cy="674" r="6"/><circle cx="200" cy="674" r="6"/><circle cx="240" cy="674" r="6"/><circle cx="280" cy="674" r="6"/>
+<circle cx="122" cy="709" r="6"/><circle cx="122" cy="739" r="6"/><circle cx="122" cy="769" r="6"/>
+<circle cx="318" cy="709" r="6"/><circle cx="318" cy="739" r="6"/><circle cx="318" cy="769" r="6"/>
+<circle cx="160" cy="810" r="6"/><circle cx="200" cy="810" r="6"/><circle cx="240" cy="810" r="6"/><circle cx="280" cy="810" r="6"/>
+</g>
+<text x="137" y="850">围合不必是圆形</text>
+<text x="24" y="881" font-size="17">点：观众位置　色块：表演区　不按比例</text>
+</g>
+</svg>
