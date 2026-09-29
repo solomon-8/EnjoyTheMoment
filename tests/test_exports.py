@@ -66,8 +66,8 @@ class ExportTests(unittest.TestCase):
     def test_background_does_not_validate_cards(self):
         research = json.loads(self.outputs["data/research.json"])
         ids = {record["id"] for record in research["records"]}
-        self.assertEqual(sum(record["access_level"] == "full_text" for record in research["records"]), 8)
-        self.assertEqual(ids, {"B01", "B02", "B03", "B04", "B05", "B06", "B07", "B08"})
+        self.assertEqual(sum(record["access_level"] == "full_text" for record in research["records"]), 10)
+        self.assertEqual(ids, {"B01", "B02", "B03", "B04", "B05", "B06", "B07", "B08", "B09", "B10"})
         for card in self.export["cards"]:
             self.assertTrue(card["background_is_not_validation"])
             self.assertTrue(set(card["background_ids"]).issubset(ids))
@@ -154,7 +154,7 @@ class ExportTests(unittest.TestCase):
         chapters = json.loads(self.outputs["data/chapters.json"])["chapters"]
         self.assertEqual({chapter["source"] for chapter in chapters},
                          {p.relative_to(ROOT).as_posix() for p in (ROOT / "book").glob("*.md")})
-        self.assertEqual(len(chapters), 18)
+        self.assertEqual(len(chapters), 20)
         self.assertEqual(len({chapter["id"] for chapter in chapters}), len(chapters))
         for chapter in chapters:
             source = ROOT / chapter["source"]
@@ -179,7 +179,7 @@ class ExportTests(unittest.TestCase):
         chapters = json.loads(self.outputs["data/chapters.json"])["chapters"]
         standalone = [chapter for chapter in chapters if chapter["scope"] == "full_chapter"]
         self.assertEqual({chapter["id"] for chapter in standalone},
-                         {"C11", "C12", "C13", "C14", "C15", "C16", "C17", "C18"})
+                         {"C11", "C12", "C13", "C14", "C15", "C16", "C17", "C18", "C19", "C20"})
         for chapter in standalone:
             self.assertEqual(chapter["card_ids"], [])
             self.assertEqual(chapter["text"], (ROOT / chapter["source"]).read_text().strip())
@@ -257,6 +257,36 @@ class ExportTests(unittest.TestCase):
             ("16-dress.md", "F08-textile-care.md", "#f08"),
             ("17-making.md", "F07-textiles.md", "#f07"),
             ("18-celebration.md", "B08-rituals.md", "#n08"),
+        ]:
+            self.assertEqual(build.local_href("../docs/evidence/" + note, "book/" + chapter), anchor)
+
+    def test_games_keep_observation_missingness_and_motivation_boundaries(self):
+        records = {item["id"]: item for item in json.loads(self.outputs["data/research.json"])["records"]}
+        notes = {item["id"]: item for item in json.loads(self.outputs["data/evidence.json"])["notes"]}
+        self.assertIn("不是随机实验", records["B09"]["fields"]["设计与对象"])
+        self.assertIn("未预注册", records["B09"]["fields"]["关键限制"])
+        self.assertIn("[−0.01, 0.18]", records["B09"]["fields"]["关键限制"])
+        self.assertIn("部分估计的方向随之改变", notes["N09"]["text"])
+        self.assertIn("不是 38,935 人都完成三轮", notes["N09"]["text"])
+        self.assertEqual(notes["F09"]["source_kind"], "technical_guidance")
+        self.assertIn("不证明目前每个产品", notes["F09"]["text"])
+
+    def test_photography_preserves_version_nulls_and_outcome_distinctions(self):
+        records = {item["id"]: item for item in json.loads(self.outputs["data/research.json"])["records"]}
+        notes = {item["id"]: item for item in json.loads(self.outputs["data/evidence.json"])["notes"]}
+        self.assertIn("提前在线发表稿", records["B10"]["fields"]["实际读取"])
+        self.assertIn("不能一概称逐人随机分配", records["B10"]["fields"]["设计与对象"])
+        for text in ("p = .133", "p = .067", "p = .373", "p = .058"):
+            self.assertIn(text, records["B10"]["fields"]["关键限制"])
+        self.assertIn("p = .091", notes["N10"]["text"])
+        self.assertIn("记得自己当时多享受，与准确记住发生过什么", notes["N10"]["text"])
+        self.assertEqual(notes["F10"]["source_kind"], "educational_reference")
+        self.assertTrue(all(not ({"B09", "B10"} & set(card["background_ids"])) for card in self.export["cards"]))
+        for chapter, note, anchor in [
+            ("19-games.md", "B09-games.md", "#n09"),
+            ("19-games.md", "F09-game-difficulty.md", "#f09"),
+            ("20-photography.md", "B10-photography.md", "#n10"),
+            ("20-photography.md", "F10-photography-language.md", "#f10"),
         ]:
             self.assertEqual(build.local_href("../docs/evidence/" + note, "book/" + chapter), anchor)
 

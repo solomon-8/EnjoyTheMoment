@@ -31,6 +31,8 @@ EVIDENCE = [
     ("N06", "docs/evidence/B06-solitude.md"),
     ("N07", "docs/evidence/B07-making.md"),
     ("N08", "docs/evidence/B08-rituals.md"),
+    ("N09", "docs/evidence/B09-games.md"),
+    ("N10", "docs/evidence/B10-photography.md"),
     ("F01", "docs/evidence/F01-time-use.md"),
     ("F02", "docs/evidence/F02-listening-language.md"),
     ("F03", "docs/evidence/F03-film-language.md"),
@@ -39,6 +41,8 @@ EVIDENCE = [
     ("F06", "docs/evidence/F06-public-space.md"),
     ("F07", "docs/evidence/F07-textiles.md"),
     ("F08", "docs/evidence/F08-textile-care.md"),
+    ("F09", "docs/evidence/F09-game-difficulty.md"),
+    ("F10", "docs/evidence/F10-photography-language.md"),
 ]
 EVIDENCE_KINDS = {
     "F01": "official_statistics",
@@ -49,6 +53,8 @@ EVIDENCE_KINDS = {
     "F06": "practice_framework",
     "F07": "educational_reference",
     "F08": "technical_guidance",
+    "F09": "technical_guidance",
+    "F10": "educational_reference",
 }
 RELATIONS = [
     {"card_ids": ["J033"], "background_ids": ["B01"], "essay_ids": ["E04"]},
