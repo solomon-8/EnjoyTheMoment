@@ -155,7 +155,7 @@ class ExportTests(unittest.TestCase):
         chapters = json.loads(self.outputs["data/chapters.json"])["chapters"]
         self.assertEqual({chapter["source"] for chapter in chapters},
                          {p.relative_to(ROOT).as_posix() for p in (ROOT / "book").glob("*.md")})
-        self.assertEqual(len(chapters), 26)
+        self.assertEqual(len(chapters), 28)
         self.assertEqual(len({chapter["id"] for chapter in chapters}), len(chapters))
         for chapter in chapters:
             source = ROOT / chapter["source"]
@@ -180,7 +180,7 @@ class ExportTests(unittest.TestCase):
         chapters = json.loads(self.outputs["data/chapters.json"])["chapters"]
         standalone = [chapter for chapter in chapters if chapter["scope"] == "full_chapter"]
         self.assertEqual({chapter["id"] for chapter in standalone},
-                         {"C11", "C12", "C13", "C14", "C15", "C16", "C17", "C18", "C19", "C20", "C21", "C22", "C23", "C24", "C25", "C26"})
+                         {"C11", "C12", "C13", "C14", "C15", "C16", "C17", "C18", "C19", "C20", "C21", "C22", "C23", "C24", "C25", "C26", "C27", "C28"})
         for chapter in standalone:
             self.assertEqual(chapter["card_ids"], [])
             self.assertEqual(chapter["text"], (ROOT / chapter["source"]).read_text().strip())
@@ -275,6 +275,43 @@ class ExportTests(unittest.TestCase):
         rendered = build.markdown(text, "book/12-film.md")
         self.assertEqual(rendered.count("<details>"), 1)
         self.assertNotIn("<details open", rendered)
+
+    def test_dance_sources_are_not_performance_or_health_claims(self):
+        notes = {item["id"]: item for item in json.loads(self.outputs["data/evidence.json"])["notes"]}
+        note = notes["F17"]
+        self.assertEqual(note["source_kind"], "dance_education_and_work_record")
+        for phrase in ("Version 1.3 June 2026", "没有观看并核验完整演出", "不把考试标准",
+                       "本书原创构作", "不是享乐效果研究"):
+            self.assertIn(phrase, note["text"])
+        self.assertEqual(build.local_href("../docs/evidence/F17-dance-language.md", "book/27-dance.md"), "#f17")
+
+    def test_sport_sources_preserve_versions_and_decision_conditions(self):
+        notes = {item["id"]: item for item in json.loads(self.outputs["data/evidence.json"])["notes"]}
+        for identifier in ("F18", "F19"):
+            self.assertEqual(notes[identifier]["source_kind"], "official_sport_rules")
+        for phrase in ("2026/27", "`latest`", "位置本身不是犯规", "门将用手抛球时采用最后接触点",
+                       "直接接到", "最低补时"):
+            self.assertIn(phrase, notes["F18"]["text"])
+        for phrase in ("2026-09-30", "2026-10-01", "生效日尚未到来", "14 秒", "24 秒",
+                       "触及对方篮圈", "本书虚构假设", "不是 NBA"):
+            self.assertIn(phrase, notes["F19"]["text"])
+        self.assertEqual(len(json.loads(self.outputs["data/research.json"])["records"]), 13)
+        self.assertEqual(build.local_href("../docs/evidence/F19-basketball-rules.md", "book/28-watching-sport.md"), "#f19")
+
+    def test_sport_illustration_and_hypothetical_math_are_explicit(self):
+        text = (ROOT / "book/28-watching-sport.md").read_text()
+        self.assertIn("本书的虚构算例，不是球员统计或球队预测", text)
+        for points, probability, expected in re.findall(r"(\d) × (0\.\d+) = (1\.\d+)", text):
+            self.assertAlmostEqual(int(points) * float(probability), float(expected))
+        self.assertEqual(len(re.findall(r"\d × 0\.\d+ = 1\.\d+", text)), 2)
+        self.assertIn("甲、乙是同一次传球的两个时点，丙是另一个情形", text)
+        rendered = build.markdown(text, "book/28-watching-sport.md")
+        self.assertEqual(rendered.count('src="data:image/png;base64,'), 1)
+        self.assertTrue((ROOT / "assets/media/offside-timing.svg").is_file())
+        diagram = (ROOT / "assets/media/offside-timing.svg").read_text()
+        self.assertIn("本书原创位置示意", diagram)
+        self.assertIn('viewBox="0 0 440 960"', diagram)
+        self.assertGreaterEqual(min(map(int, re.findall(r'font-size="(\d+)"', diagram))), 22)
 
     def test_spoilers_allow_only_fixed_safe_html(self):
         result = build.markdown("<details>\n<summary>答案</summary>\n\n内容\n\n</details>", "README.md")
