@@ -66,8 +66,8 @@ class ExportTests(unittest.TestCase):
     def test_background_does_not_validate_cards(self):
         research = json.loads(self.outputs["data/research.json"])
         ids = {record["id"] for record in research["records"]}
-        self.assertEqual(sum(record["access_level"] == "full_text" for record in research["records"]), 4)
-        self.assertEqual(ids, {"B01", "B02", "B03", "B04", "B05"})
+        self.assertEqual(sum(record["access_level"] == "full_text" for record in research["records"]), 5)
+        self.assertEqual(ids, {"B01", "B02", "B03", "B04", "B05", "B06"})
         for card in self.export["cards"]:
             self.assertTrue(card["background_is_not_validation"])
             self.assertTrue(set(card["background_ids"]).issubset(ids))
@@ -81,9 +81,24 @@ class ExportTests(unittest.TestCase):
         self.assertIn("不能转成治疗建议", records["B05"]["fields"]["关键限制"])
         self.assertEqual(records["B03"]["access_level"], "abstract_only")
         self.assertEqual(build.local_href("../docs/evidence/B05-leisure-value.md", "book/08-permission.md"), "#n05")
-        note = json.loads(self.outputs["data/evidence.json"])["notes"][-1]
+        note = next(item for item in json.loads(self.outputs["data/evidence.json"])["notes"] if item["id"] == "N05")
         self.assertEqual(note["id"], "N05")
         self.assertIn("并未显著低于量表中点", note["text"])
+
+    def test_solitude_and_statistics_keep_distinct_evidence_boundaries(self):
+        records = {item["id"]: item for item in json.loads(self.outputs["data/research.json"])["records"]}
+        self.assertIn("观察性", records["B06"]["fields"]["设计与对象"])
+        self.assertIn("16.7", records["B06"]["fields"]["设计与对象"])
+        self.assertIn("p = .032", records["B06"]["fields"]["关键限制"])
+        self.assertIn(".01", records["B06"]["fields"]["关键限制"])
+        notes = {item["id"]: item for item in json.loads(self.outputs["data/evidence.json"])["notes"]}
+        self.assertEqual(notes["N06"]["source_kind"], "study_reading_note")
+        self.assertEqual(notes["F01"]["source_kind"], "official_statistics")
+        self.assertNotIn("F01", records)
+        self.assertIn("不能把它缩写成", notes["F01"]["text"])
+        self.assertIn("不是每个人连续记了七天", notes["F01"]["text"])
+        self.assertEqual(build.local_href("../docs/evidence/B06-solitude.md", "book/07-solo.md"), "#n06")
+        self.assertEqual(build.local_href("../docs/evidence/F01-time-use.md", "book/09-constrained.md"), "#f01")
 
     def test_offline_page_contains_all_content_without_fetches(self):
         page = self.outputs["index.html"]

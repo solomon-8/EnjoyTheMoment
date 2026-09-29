@@ -94,6 +94,25 @@
       },
       "directly_validates_cards": false,
       "source": "docs/research.md#b05"
+    },
+    {
+      "id": "B06",
+      "title": "独处可能同时关联轻松与孤独",
+      "doi": "10.1038/s41598-023-44507-7",
+      "access_level": "full_text",
+      "verified_at": "2026-09-29",
+      "fields": {
+        "文献": "Netta Weinstein, Matti Vuorre, Mark Adams, Thuy-vy Nguyen (2023). *Balance between solitude and socializing: everyday solitude time both benefits and harms well-being*. Scientific Reports, 13, 21160。",
+        "DOI": "[10.1038/s41598-023-44507-7](https://doi.org/10.1038/s41598-023-44507-7)。",
+        "实际读取": "`full_text`；核读[期刊正文](https://www.nature.com/articles/s41598-023-44507-7)、期刊 PDF 和 Europe PMC 全文 XML 中的方法、主要结果、讨论与限制，并查看结果表；未重算数据、独立审计注册材料或系统核验后续复现。[详细阅读记录](evidence/B06-solitude.md)。",
+        "设计与对象": "观察性日记研究；招募英美、35 岁及以上成年人，实际 178 人，平均年龄 47 岁；安排 21 天日记，平均完成 16.7 天，共 2,967 条日记录。使用人层面变量的分析为 175 人。",
+        "有限结论": "同一个人独处比例较平常高的日子，同时关联较低压力、较高自主需要满足、较高孤独感和较低当日满意度；没有找到通用最佳比例。不同结果不能合成一个“独处更幸福”的总分。",
+        "不能推出": "独处造成上述变化、成年人都适用同一时长、只要自愿就不孤独、独处比社交高级，或某张卡片能改善心理状态。",
+        "我们如何使用": "[第 07 章](../book/07-solo.md)区分独自参与、希望有同伴和不受打扰；研究提供有限背景，不替人决定关系需要。",
+        "关键限制": "自报与回顾、特定年龄及英美样本、观察性设计；独处定义排除面对面和数字媒介互动。当天选择感与独处的孤独感交互 p = .032，未通过更严格的 .01 门槛；满意度交互 p = .003。人际差异中的非显著结果，不证明个人长期改变独处时间没有代价。"
+      },
+      "directly_validates_cards": false,
+      "source": "docs/research.md#b06"
     }
   ],
   "relations": [

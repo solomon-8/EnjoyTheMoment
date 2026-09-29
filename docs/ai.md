@@ -39,6 +39,8 @@ python3 tools/pick.py --id J019 --json
 
 `background_ids` 指向相关研究背景；`background_is_not_validation` 为真。它不能被改写成“这张卡已经被研究证实有效”。
 
+`data/evidence.json` 的记录用 `source_kind` 区分 `study_reading_note`（研究阅读记录）和 `official_statistics`（官方统计事实记录）。F01 不是快乐实验，不能混进 B 系列的研究篇数。引用时间利用数据须保留总体或参与者的分母；引用 B06 须保留观察性、样本与日层面/人层面的边界，不能转成独处黄金时长。
+
 `source_sha256` 校验对应源文件，`source_digest` 标识整组内容；它们是完整性字段，不是数字签名。远端 `main` 链接会移动，严肃引用应另记录读取时的提交 SHA。
 
 `llms-full.txt`、`index.html` 和 `data/*.json` 都是派生文件，不要只改派生文件。缺内容时回源文件，重建并运行 `--check`。
