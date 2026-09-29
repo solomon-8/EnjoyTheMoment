@@ -124,7 +124,7 @@ class ExportTests(unittest.TestCase):
 
     def test_retention_argument_is_exported_as_an_argument_not_an_activity(self):
         essays = {item["id"]: item for item in json.loads(self.outputs["data/essays.json"])["essays"]}
-        self.assertEqual(len(essays), 10)
+        self.assertEqual(len(essays), 11)
         self.assertEqual(essays["E10"]["source"], "essays/10-pleasure-not-retention.md")
         text = (ROOT / essays["E10"]["source"]).read_text()
         for phrase in ("不是某个平台的内部实验", "不是市场报价", "开始、继续、再次回来",
@@ -137,6 +137,43 @@ class ExportTests(unittest.TestCase):
         self.assertIn('href="#f20"', page)
         self.assertIn(text, self.outputs["llms-full.txt"])
         self.assertEqual(len(self.export["cards"]), 60)
+
+    def test_pleasure_argument_preserves_full_text_and_navigation(self):
+        essays = {item["id"]: item for item in json.loads(self.outputs["data/essays.json"])["essays"]}
+        essay = essays["E11"]
+        self.assertEqual(essay["source"], "essays/11-pleasure-and-reality.md")
+        text = (ROOT / essay["source"]).read_text()
+        self.assertEqual(essay["text"], text)
+        self.assertIn(text, self.outputs["llms-full.txt"])
+        self.assertEqual(build.local_href("../docs/evidence/F27-pleasure-philosophy.md",
+                                         essay["source"]), "#f27")
+        self.assertEqual(build.local_href("11-pleasure-and-reality.md",
+                                         "essays/01-pleasure-is-an-end.md"), "#e11")
+        page = self.outputs["index.html"]
+        for anchor in ("pleasure-four-claims", "pleasure-machine", "pleasure-virtual",
+                       "pleasure-quality", "pleasure-position"):
+            self.assertEqual(page.count('id="' + anchor + '"'), 1)
+            self.assertIn('href="#' + anchor + '"', page)
+        self.assertIn('id="e11"', page)
+        self.assertIn('href="#f27"', page)
+        self.assertEqual(len(self.export["cards"]), 60)
+        self.assertTrue(all("E11" not in card["essay_ids"] for card in self.export["cards"]))
+
+    def test_philosophy_sources_do_not_become_background_experiments(self):
+        notes = {item["id"]: item for item in json.loads(self.outputs["data/evidence.json"])["notes"]}
+        note = notes["F27"]
+        self.assertEqual(note["source_kind"], "philosophical_primary_and_secondary")
+        self.assertEqual(note["text"], (ROOT / note["source"]).read_text())
+        self.assertIn(note["text"], self.outputs["llms-full.txt"])
+        records = json.loads(self.outputs["data/research.json"])["records"]
+        self.assertEqual(len(records), 16)
+        self.assertNotIn("F27", {record["id"] for record in records})
+        for phrase in ("没有直接核读", "1989", "二手", "不是行为实验",
+                       "不声称独创", "不改变行动卡"):
+            self.assertIn(phrase, note["text"])
+        for path in ("README.md", "README.en.md", "docs/ai.md",
+                     "llms.txt", "skills/enjoy-the-moment/SKILL.md"):
+            self.assertIn("E11", (ROOT / path).read_text(), path)
 
     def test_leisure_research_preserves_nonclaims_and_links(self):
         records = {item["id"]: item for item in json.loads(self.outputs["data/research.json"])["records"]}
