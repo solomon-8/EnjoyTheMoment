@@ -25,6 +25,19 @@
     guideStatus.textContent = count ? `找到 ${count} 篇完整玩法。` : "没找到。可以减少关键词，不必改变自己的条件。";
   });
   const argumentsList = [...document.querySelectorAll(".argument")];
+  const chapterIntros = [...document.querySelectorAll(".chapter-intro")];
+  const chapterQuery = document.getElementById("chapter-query");
+  const chapterText = new Map(chapterIntros.map(item => [item, item.textContent.toLowerCase()]));
+  document.getElementById("chapter-search-label").hidden = false;
+  chapterQuery.addEventListener("input", () => {
+    const query = chapterQuery.value.toLowerCase().trim();
+    const words = query.split(/\s+/).filter(Boolean);
+    chapterIntros.forEach(item => {
+      item.hidden = /^c\d+$/.test(query) ? item.id !== query : !words.every(word => chapterText.get(item).includes(word));
+    });
+    const count = chapterIntros.filter(item => !item.hidden).length;
+    document.getElementById("chapter-status").textContent = count ? `找到 ${count} 个章节。` : "没有匹配的章节。可以换个问题或清空关键词。";
+  });
   const essayQuery = document.getElementById("essay-query");
   const argumentText = new Map(argumentsList.map(item => [item, item.textContent.toLowerCase()]));
   document.getElementById("essay-search-label").hidden = false;
@@ -67,6 +80,10 @@
     if (!id) return;
     const target = document.getElementById(id);
     if (!target) return;
+    if (target.classList.contains("chapter-intro") && target.hidden) {
+      chapterQuery.value = "";
+      chapterQuery.dispatchEvent(new Event("input"));
+    }
     if (target.classList.contains("argument") && target.hidden) {
       essayQuery.value = "";
       essayQuery.dispatchEvent(new Event("input"));

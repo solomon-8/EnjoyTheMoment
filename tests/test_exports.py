@@ -105,6 +105,27 @@ class ExportTests(unittest.TestCase):
         self.assertIn("<ul>", result)
         self.assertNotIn("<h2>", build.markdown("# 重复标题\n\n正文", "README.md", omit_title=True))
 
+    def test_chapter_introductions_are_preserved_without_duplicating_cards(self):
+        chapters = json.loads(self.outputs["data/chapters.json"])["chapters"]
+        self.assertEqual(len(chapters), 10)
+        for chapter in chapters:
+            source = ROOT / chapter["source"]
+            introduction = source.read_text().split('<a id="j', 1)[0].strip()
+            self.assertEqual(chapter["text"], introduction)
+            self.assertEqual(chapter["source_sha256"], hashlib.sha256(source.read_bytes()).hexdigest())
+            self.assertEqual(chapter["scope"], "chapter_introduction")
+            self.assertNotIn("<!-- pick:", chapter["text"])
+            self.assertEqual(self.outputs["llms-full.txt"].count(introduction), 1)
+            self.assertIn('id="' + chapter["id"].lower() + '"', self.outputs["index.html"])
+            self.assertEqual(chapter["card_ids"], [
+                card["id"] for card in self.export["cards"]
+                if card["source"].split("#")[0] == chapter["source"]
+            ])
+        self.assertLess(self.outputs["index.html"].index('id="chapters"'),
+                        self.outputs["index.html"].index('id="menu"'))
+        self.assertEqual(build.local_href("../book/02-senses.md", "essays/02-excitement-without-escalation.md"), "#c02")
+        self.assertEqual(build.local_href("../book/02-senses.md#j007", "essays/02-excitement-without-escalation.md"), "#j007")
+
     def test_spoilers_allow_only_fixed_safe_html(self):
         result = build.markdown("<details>\n<summary>答案</summary>\n\n内容\n\n</details>", "README.md")
         self.assertIn("<details>", result)

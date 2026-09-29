@@ -81,6 +81,8 @@ def local_href(href, source_path):
         return "#" + fragment
     clean = (Path(source_path).parent / file_part).as_posix()
     clean = str((ROOT / clean).resolve().relative_to(ROOT)).replace("\\", "/")
+    if clean.startswith("book/") and not fragment:
+        return "#c" + Path(clean).stem[:2]
     for essay_id, path in ESSAYS + EVIDENCE:
         if clean == path:
             return "#" + essay_id.lower()
@@ -193,6 +195,19 @@ def outputs(root=ROOT):
     records = research_records(root)
     digest = source_digest(root)
     chapters = {}
+    chapter_data = []
+    for path in sorted((root / "book").glob("*.md")):
+        text = path.read_text(encoding="utf-8")
+        introduction = text[:text.index('<a id="j')].strip()
+        chapter_data.append({
+            "id": "C" + path.stem[:2],
+            "title": re.search(r"^# (.+)$", text, re.MULTILINE).group(1),
+            "source": path.relative_to(root).as_posix(),
+            "source_sha256": hashlib.sha256(path.read_bytes()).hexdigest(),
+            "text": introduction,
+            "card_ids": [card.id for card in cards if card.path == path.relative_to(root)],
+            "scope": "chapter_introduction",
+        })
     card_data = []
     for card in cards:
         path = root / card.path
@@ -254,6 +269,14 @@ def outputs(root=ROOT):
     research_html = markdown((root / "docs/research.md").read_text(), "docs/research.md")
     template = (root / "web/reader.html").read_text()
     replacements = {
+        "@@CHAPTERINTROS@@": "\n".join(
+            '<details class="essay chapter-intro" id="{0}"><summary>{1}</summary>'
+            '<div class="prose">{2}<p>配套行动：{3}</p></div></details>'.format(
+                item["id"].lower(), html.escape(item["title"]),
+                markdown(item["text"], item["source"], omit_title=True),
+                " · ".join('<a href="#{0}">{1}</a>'.format(identifier.lower(), identifier)
+                           for identifier in item["card_ids"]))
+            for item in chapter_data),
         "@@GUIDES@@": "\n".join(
             '<details class="essay playbook" id="{0}"><summary>{1}<br><small>{2}</small></summary>'
             '<div class="prose">{3}</div></details>'.format(
@@ -288,13 +311,15 @@ def outputs(root=ROOT):
          "Canonical source: book/, essays/, guides/ and docs/. Values and original proposals are not validated interventions.\n"
          "Budgets are illustrative CNY caps. Preserve alternatives, stopping conditions and evidence status.\n"
          "Source digest: " + digest]
-        + ["## " + card.reference + "\n\n### " + card.id + " · " + card.title + "\n\n" + card.body for card in cards]
         + [item["text"] for item in longform]
+        + [item["text"] for item in chapter_data]
+        + ["## " + card.reference + "\n\n### " + card.id + " · " + card.title + "\n\n" + card.body for card in cards]
         + [item["text"] for item in guides]
         + [item["text"] for item in evidence]
         + [(root / path).read_text() for path in ["SHUAQI.md", "docs/research.md", "docs/culture-shuaqi.md"]]
     ).rstrip() + "\n"
     return {
+        "data/chapters.json": json_text({"schema_version": "1.0", "source_digest": digest, "chapters": chapter_data}),
         "data/guides.json": json_text({"schema_version": "1.0", "source_digest": digest, "guides": guides}),
         "data/evidence.json": json_text({"schema_version": "1.0", "source_digest": digest, "notes": evidence}),
         "data/catalog.json": json_text(export),
