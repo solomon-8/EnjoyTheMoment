@@ -66,7 +66,7 @@ class ExportTests(unittest.TestCase):
     def test_background_does_not_validate_cards(self):
         research = json.loads(self.outputs["data/research.json"])
         ids = {record["id"] for record in research["records"]}
-        self.assertEqual(sum(record["access_level"] == "full_text" for record in research["records"]), 1)
+        self.assertEqual(sum(record["access_level"] == "full_text" for record in research["records"]), 3)
         for card in self.export["cards"]:
             self.assertTrue(card["background_is_not_validation"])
             self.assertTrue(set(card["background_ids"]).issubset(ids))
@@ -86,6 +86,35 @@ class ExportTests(unittest.TestCase):
     def test_html_is_escaped(self):
         self.assertEqual(build.inline("<script>alert(1)</script>", "README.md"),
                          "&lt;script&gt;alert(1)&lt;/script&gt;")
+
+    def test_every_argument_and_evidence_note_is_exported(self):
+        essay_files = {p.relative_to(ROOT).as_posix() for p in (ROOT / "essays").glob("*.md")}
+        self.assertEqual(essay_files, {path for _, path in build.ESSAYS})
+        evidence_files = {p.relative_to(ROOT).as_posix() for p in (ROOT / "docs/evidence").glob("*.md")}
+        self.assertEqual(evidence_files, {path for _, path in build.EVIDENCE})
+        for identifier, path in build.ESSAYS + build.EVIDENCE:
+            self.assertIn('id="' + identifier.lower() + '"', self.outputs["index.html"])
+            self.assertIn((ROOT / path).read_text(), self.outputs["llms-full.txt"])
+        self.assertLess(self.outputs["index.html"].index('id="longreads"'),
+                        self.outputs["index.html"].index('id="menu"'))
+
+    def test_numbered_instructions_keep_numbers(self):
+        result = build.markdown("1. 先写\n2. 再画\n\n- 任选", "README.md")
+        self.assertIn('<ol start="1">', result)
+        self.assertIn("</ol>", result)
+        self.assertIn("<ul>", result)
+        self.assertNotIn("<h2>", build.markdown("# 重复标题\n\n正文", "README.md", omit_title=True))
+
+    def test_spoilers_allow_only_fixed_safe_html(self):
+        result = build.markdown("<details>\n<summary>答案</summary>\n\n内容\n\n</details>", "README.md")
+        self.assertIn("<details>", result)
+        self.assertIn("<summary>答案</summary>", result)
+        self.assertNotIn('<details onclick=', build.markdown('<details onclick="bad()">', "README.md"))
+
+    def test_offline_evidence_navigation(self):
+        self.assertEqual(build.local_href("../docs/evidence/B04-anticipation.md",
+                                          "essays/03-now-or-later.md"), "#n04")
+        self.assertEqual(build.local_href("README.md", "guides/01-word-studio.md"), "#playbooks")
 
     def test_search_is_and_match(self):
         matches = pick.filter_cards(pick.load_cards(), 1000, 1000, query="游戏 结束")

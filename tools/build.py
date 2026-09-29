@@ -9,6 +9,7 @@ import re
 from pathlib import Path
 
 from pick import ROOT, load_cards
+from guides import load_guides
 
 
 ESSAYS = [
@@ -18,6 +19,13 @@ ESSAYS = [
     ("E04", "essays/04-buying-pleasure.md"),
     ("E05", "essays/05-play-is-not-performance.md"),
     ("E06", "essays/06-real-life-constraints.md"),
+    ("E07", "essays/07-rest-is-not-work.md"),
+    ("E08", "essays/08-life-without-an-audience.md"),
+    ("E09", "essays/09-friends-not-assets.md"),
+]
+EVIDENCE = [
+    ("N02", "docs/evidence/B02-quantification.md"),
+    ("N04", "docs/evidence/B04-anticipation.md"),
 ]
 RELATIONS = [
     {"card_ids": ["J033"], "background_ids": ["B01"], "essay_ids": ["E04"]},
@@ -32,9 +40,10 @@ def json_text(data):
 
 
 def source_digest(root):
-    files = sorted((root / "book").glob("*.md")) + [
+    files = sorted((root / "book").glob("*.md")) + sorted((root / "guides").glob("[0-9]*.md")) + [
         root / path for _, path in ESSAYS
-    ] + [root / "docs/research.md", root / "SHUAQI.md", root / "docs/culture-shuaqi.md"]
+    ] + [root / path for _, path in EVIDENCE] + [
+        root / "docs/research.md", root / "SHUAQI.md", root / "docs/culture-shuaqi.md"]
     digest = hashlib.sha256()
     for path in files:
         digest.update(path.relative_to(root).as_posix().encode())
@@ -72,7 +81,7 @@ def local_href(href, source_path):
         return "#" + fragment
     clean = (Path(source_path).parent / file_part).as_posix()
     clean = str((ROOT / clean).resolve().relative_to(ROOT)).replace("\\", "/")
-    for essay_id, path in ESSAYS:
+    for essay_id, path in ESSAYS + EVIDENCE:
         if clean == path:
             return "#" + essay_id.lower()
     if clean == "docs/research.md":
@@ -81,6 +90,11 @@ def local_href(href, source_path):
         return "#shuaqi"
     if clean == "docs/culture-shuaqi.md":
         return "#culture"
+    if clean == "guides/README.md":
+        return "#playbooks"
+    for guide in load_guides():
+        if clean == guide["source"]:
+            return "#" + guide["id"].lower()
     return "https://github.com/solomon-8/EnjoyTheMoment/blob/main/" + clean + (
         "#" + fragment if fragment else "")
 
@@ -96,9 +110,9 @@ def inline(text, source_path):
     return escaped
 
 
-def markdown(text, source_path):
+def markdown(text, source_path, omit_title=False):
     """The essay/research sources use headings, paragraphs, lists, and tables."""
-    out, paragraph, listing, table = [], [], False, False
+    out, paragraph, listing, table = [], [], None, False
 
     def flush():
         if paragraph:
@@ -108,14 +122,22 @@ def markdown(text, source_path):
     def close_blocks():
         nonlocal listing, table
         if listing:
-            out.append("</ul>")
-            listing = False
+            out.append("</" + listing + ">")
+            listing = None
         if table:
             out.append("</tbody></table></div>")
             table = False
 
     for line in text.splitlines():
         if line.startswith("[←") or line.startswith("<!--"):
+            continue
+        if line in ("<details>", "</details>") or re.fullmatch(r"<summary>[^<>]+</summary>", line):
+            flush()
+            close_blocks()
+            if line.startswith("<summary>"):
+                out.append("<summary>" + html.escape(line[9:-10]) + "</summary>")
+            else:
+                out.append(line)
             continue
         if line.startswith('<a id="'):
             flush()
@@ -131,6 +153,8 @@ def markdown(text, source_path):
         if heading:
             flush()
             close_blocks()
+            if omit_title and len(heading.group(1)) == 1:
+                continue
             level = min(5, len(heading.group(1)) + 1)
             out.append("<h{0}>{1}</h{0}>".format(level, inline(heading.group(2), source_path)))
         elif line.startswith("|"):
@@ -147,9 +171,13 @@ def markdown(text, source_path):
                 out.append("<tr>" + "".join("<td>" + inline(c, source_path) + "</td>" for c in cells) + "</tr>")
         elif re.match(r"^(?:- |\d+\. )", line):
             flush()
+            desired = "ul" if line.startswith("- ") else "ol"
+            if listing and listing != desired:
+                close_blocks()
             if not listing:
-                out.append("<ul>")
-                listing = True
+                start = "" if desired == "ul" else ' start="' + line.split(".", 1)[0] + '"'
+                out.append("<" + desired + start + ">")
+                listing = desired
             out.append("<li>" + inline(re.sub(r"^(?:- |\d+\. )", "", line), source_path) + "</li>")
         else:
             close_blocks()
@@ -161,6 +189,7 @@ def markdown(text, source_path):
 
 def outputs(root=ROOT):
     cards = load_cards(root)
+    guides = load_guides(root)
     records = research_records(root)
     digest = source_digest(root)
     chapters = {}
@@ -188,6 +217,11 @@ def outputs(root=ROOT):
         text = (root / path).read_text(encoding="utf-8")
         title = re.search(r"^# (.+)$", text, re.MULTILINE).group(1)
         longform.append({"id": essay_id, "title": title, "source": path, "text": text})
+    evidence = []
+    for identifier, path in EVIDENCE:
+        text = (root / path).read_text(encoding="utf-8")
+        evidence.append({"id": identifier, "source": path, "text": text,
+                         "title": re.search(r"^# (.+)$", text, re.MULTILINE).group(1)})
 
     cards_html = []
     for record in card_data:
@@ -215,14 +249,27 @@ def outputs(root=ROOT):
             ))
     essays_html = []
     for item in longform:
-        essays_html.append('<details class="essay" id="{0}"><summary>{1}</summary><div class="prose">{2}</div></details>'.format(
-            item["id"].lower(), html.escape(item["title"]), markdown(item["text"], item["source"])))
+        essays_html.append('<details class="essay argument" id="{0}"><summary>{1}</summary><div class="prose">{2}</div></details>'.format(
+            item["id"].lower(), html.escape(item["title"]), markdown(item["text"], item["source"], omit_title=True)))
     research_html = markdown((root / "docs/research.md").read_text(), "docs/research.md")
     template = (root / "web/reader.html").read_text()
     replacements = {
+        "@@GUIDES@@": "\n".join(
+            '<details class="essay playbook" id="{0}"><summary>{1}<br><small>{2}</small></summary>'
+            '<div class="prose">{3}</div></details>'.format(
+                item["id"].lower(), html.escape(item["title"]), html.escape(item["summary"]),
+                markdown(item["text"], item["source"], omit_title=True)) for item in guides),
         "@@CARDS@@": "\n".join(cards_html),
         "@@ESSAYS@@": "\n".join(essays_html),
         "@@RESEARCH@@": research_html,
+        "@@EVIDENCE@@": "\n".join(
+            '<details class="essay" id="{0}"><summary>{1}</summary><div class="prose">{2}</div></details>'.format(
+                item["id"].lower(), html.escape(item["title"]), markdown(item["text"], item["source"], omit_title=True))
+            for item in evidence),
+        "@@RESEARCHCOUNT@@": str(len(records)),
+        "@@ESSAYCOUNT@@": str(len(longform)),
+        "@@FULLCOUNT@@": str(sum(r["access_level"] == "full_text" for r in records)),
+        "@@ABSTRACTCOUNT@@": str(sum(r["access_level"] == "abstract_only" for r in records)),
         "@@SHUAQI@@": markdown((root / "SHUAQI.md").read_text(), "SHUAQI.md"),
         "@@CULTURE@@": markdown((root / "docs/culture-shuaqi.md").read_text(), "docs/culture-shuaqi.md"),
         "@@CHAPTERS@@": "".join('<option value="{0}">{1}</option>'.format(k, html.escape(v))
@@ -238,14 +285,18 @@ def outputs(root=ROOT):
         raise ValueError("阅读页仍有未替换占位符")
     full_text = "\n\n".join(
         ["# Enjoy The Moment · AI full text\n\n"
-         "Canonical source: book/*.md and essays/*.md. Original proposals, not validated interventions.\n"
+         "Canonical source: book/, essays/, guides/ and docs/. Values and original proposals are not validated interventions.\n"
          "Budgets are illustrative CNY caps. Preserve alternatives, stopping conditions and evidence status.\n"
          "Source digest: " + digest]
         + ["## " + card.reference + "\n\n### " + card.id + " · " + card.title + "\n\n" + card.body for card in cards]
         + [item["text"] for item in longform]
+        + [item["text"] for item in guides]
+        + [item["text"] for item in evidence]
         + [(root / path).read_text() for path in ["SHUAQI.md", "docs/research.md", "docs/culture-shuaqi.md"]]
     ).rstrip() + "\n"
     return {
+        "data/guides.json": json_text({"schema_version": "1.0", "source_digest": digest, "guides": guides}),
+        "data/evidence.json": json_text({"schema_version": "1.0", "source_digest": digest, "notes": evidence}),
         "data/catalog.json": json_text(export),
         "data/essays.json": json_text({"schema_version": "1.0", "source_digest": digest, "essays": longform}),
         "data/research.json": json_text({"schema_version": "1.0", "records": records, "relations": RELATIONS}),
