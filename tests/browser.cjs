@@ -322,6 +322,25 @@ const { chromium } = require("playwright");
     await page.locator("#c25 a[href='#f13']").first().click();
     await page.waitForFunction(() => document.getElementById("f13").open);
     assert.match(await page.locator("#f13 .prose").textContent(), /1926.417/);
+    await page.goto(url + "#c13");
+    await page.waitForFunction(() => document.getElementById("c13").open);
+    const theatreImage = page.locator("#c13 .artwork img");
+    await theatreImage.scrollIntoViewIfNeeded();
+    await theatreImage.evaluate(img => img.decode());
+    assert.equal(await theatreImage.evaluate(img => img.naturalWidth), 880);
+    assert.equal(await page.locator("#c13 .prose table").count(), 2);
+    for (const anchor of ["live-medium", "live-space", "live-convention",
+                          "live-anticipation", "live-understanding"]) {
+      await page.locator(`#c13 a[href='#${anchor}']`).click();
+      assert.equal(new URL(page.url()).hash, `#${anchor}`);
+      assert(await page.locator("#c13 .prose").isVisible());
+    }
+    for (const id of ["f40", "f41"]) {
+      await page.locator(`#c13 a[href='#${id}']`).first().click();
+      await page.waitForFunction(id => document.getElementById(id).open, id);
+      await page.locator(`#${id} a[href='#c13']`).click();
+      await page.waitForFunction(() => document.getElementById("c13").open);
+    }
     await page.goto(url + "#c26");
     await page.waitForFunction(() => document.getElementById("c26").open);
     assert.match(await page.locator("#c26 > summary").textContent(), /永远差最后一件/);

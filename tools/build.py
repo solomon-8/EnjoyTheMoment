@@ -82,6 +82,8 @@ EVIDENCE = [
     ("F37", "docs/evidence/F37-comic-scenes.md"),
     ("F38", "docs/evidence/F38-print-comparison.md"),
     ("F39", "docs/evidence/F39-digital-collections.md"),
+    ("F40", "docs/evidence/F40-theatre-space.md"),
+    ("F41", "docs/evidence/F41-jingju-conventions.md"),
 ]
 EVIDENCE_KINDS = {
     "F01": "official_statistics",
@@ -123,6 +125,8 @@ EVIDENCE_KINDS = {
     "F37": "literary_primary_text",
     "F38": "artwork_record_and_image",
     "F39": "personal_digital_archiving_guidance",
+    "F40": "theatre_educational_reference",
+    "F41": "heritage_description_and_nomination",
 }
 RELATIONS = [
     {"card_ids": ["J033"], "background_ids": ["B01"], "essay_ids": ["E04"]},
