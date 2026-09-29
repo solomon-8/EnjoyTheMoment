@@ -44,6 +44,8 @@ Neither excitement nor spending is compulsory. Quiet enjoyment counts. Disliking
 
 [Read and filter in your browser](https://solomon-8.github.io/EnjoyTheMoment/), with no installation. Nine [long-form essays](essays/01-pleasure-is-an-end.md) explain the tradeoffs; the [research ledger](docs/research.md) distinguishes two journal full texts, one publicly hosted research manuscript, and one abstract-only check. None directly validates our activities.
 
+The chapters on senses, novelty, and spending also contain substantial discussions before their supporting cards: taste without moral judgment, novelty without a life checklist, and spending without compulsory upgrades. These discussions are in Chinese; they are value arguments and explicitly hypothetical examples, not validated interventions.
+
 | Chapter | Question |
 | --- | --- |
 | [01 · Pleasure, sooner](book/01-start-now.md) | What small wish could happen in the next five minutes? |
