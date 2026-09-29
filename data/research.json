@@ -281,6 +281,46 @@
       },
       "directly_validates_cards": false,
       "source": "docs/research.md#b14"
+    },
+    {
+      "id": "B15",
+      "title": "害怕与享受，不是同一把尺",
+      "doi": "10.1177/0956797620972116",
+      "access_level": "full_text",
+      "verified_at": "2026-09-30",
+      "fields": {
+        "核读日期": "2026-09-30。",
+        "文献": "Marc Malmdorf Andersen, Uffe Schjoedt, Henry Price, Fernando E. Rosas, Coltan Scrivner, Mathias Clasen (2020). *Playing With Fear: A Field Study in Recreational Horror*. Psychological Science, 31(12), 1497–1510。",
+        "DOI": "[10.1177/0956797620972116](https://doi.org/10.1177/0956797620972116)。",
+        "实际读取": "`full_text`；[PMC 全文](https://pmc.ncbi.nlm.nih.gov/articles/PMC7734554/)，核读方法、结果、讨论与脚注，目视核对图 4。出版商 PDF 未取得，未复核全部补充材料、原始数据与后续复现。[详细阅读记录](evidence/B15-recreational-fear.md)。",
+        "设计与对象": "丹麦一个商业鬼屋、一个晚上；110 人报名，排除 18 人后分析 92 人。自选游客、非随机强度干预；自报、心率与录像编码的测量不同。",
+        "有限结论": "三个地点的回顾评分中，害怕与享受呈二次关系；总体评分未见同样关系。平均心率不与自报享受显著相关；录像判断的享受也未与自报显著对应。",
+        "不能推出": "越怕越好玩、最佳个人心率、所有恐怖媒介相同、儿童适用、治疗焦虑或长期韧性提升。",
+        "我们如何使用": "[C31](../book/31-recreational-fear.md)区分愿意经历的紧张与他人强加的压力；边界协商属于本书主张，不是本研究验证的方案。",
+        "关键限制": "未完成体验的 4 人被排除；未预注册；总体二次项 p = .564、平均心率与享受 p = .760；频带依据样本谱图选择，不能做通用生理标准。"
+      },
+      "directly_validates_cards": false,
+      "source": "docs/research.md#b15"
+    },
+    {
+      "id": "B16",
+      "title": "想通的感觉，可以出现在错误答案旁边",
+      "doi": "10.3389/fpsyg.2016.02077",
+      "access_level": "full_text",
+      "verified_at": "2026-09-30",
+      "fields": {
+        "核读日期": "2026-09-30。",
+        "文献": "Amory H. Danek, Jennifer Wiley (2017). *What about False Insights? Deconstructing the Aha! Experience along Its Multiple Dimensions for Correct and Incorrect Solutions Separately*. Frontiers in Psychology, 7, Article 2077。发表于 2017-01-20，不因 DOI 含 2016 而改写发表年。",
+        "DOI": "[10.3389/fpsyg.2016.02077](https://doi.org/10.3389/fpsyg.2016.02077)。",
+        "实际读取": "`full_text`；[出版社 PDF](https://www.frontiersin.org/journals/psychology/articles/10.3389/fpsyg.2016.02077/pdf)与 [PMC 全文](https://pmc.ncbi.nlm.nih.gov/articles/PMC5247466/)，核读方法、结果、讨论，目视核对流程与主要计数。未观看完整实验视频、重算模型或复核全部补充资料。[详细阅读记录](evidence/B16-false-insight.md)。",
+        "设计与对象": "70 名大学生解释魔术视频；37 个正式题中 2 个无人解出，分析 35 题；剔除未解答与缺失后 1,778 次作答，654 正确、1,124 错误。重复作答不是独立人数。",
+        "有限结论": "正确答案平均伴随较强“啊哈”，但错误答案也会产生强烈体验；417 次错误作答评分高于正确作答均值。",
+        "不能推出": "37% 的所有顿悟都错误、确信总是不可靠、解谜提高智力、提示分层必然更快乐或本书题目经过实验验证。",
+        "我们如何使用": "[C32](../book/32-puzzles.md)把主观满足与条件核对分开；想保留推理过程或直接看答案，均是个人选择。",
+        "关键限制": "当时没有正确性反馈；合理替代方法也可判正确；提示语包含突然与确信；正确解的惊讶 p = .061，错误解的释然 p = .08；“继续意愿”在两个多变量模型中均未显著。未进行完整复现及勘误审核。"
+      },
+      "directly_validates_cards": false,
+      "source": "docs/research.md#b16"
     }
   ],
   "relations": [
