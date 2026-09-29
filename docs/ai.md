@@ -11,6 +11,7 @@
 - 看画与收藏见 C25/F13、C26/F14。区分官方作品记录、实际核看的数字复制图与本书解释；文本中保留图像替代描述，但替代描述不等于模型已看过图片。版数不是鉴定或价格保证，馆藏记录不证明今天正在展出。
 - 音乐细读见 C11/F15（`musical_score`），影片细读见 C12/F16（`film_and_historical_catalog`）。乐谱核读不是试听，影片抽帧不是连续观影；作品解释与作者自述、观众反应分开。不要用 1903 年的宣传效果代替观众研究，也不要给不同数字副本照搬时间点。
 - 舞蹈见 C27/F17（`dance_education_and_work_record`），观赛见 C28/F18/F19（`official_sport_rules`）。课程分类不等于身体适用性，作品页不等于实际观演；规则保留体系、版本、生效日期及关键条件。55%/36% 命中率是原创假设，不是赛事统计，不能转成预测。
+- 用户讨论平台留存、订阅与“及时享乐是否等于放任消费”：读 E10/B14/F20。网站是采样单位，不是实验人数；2019 年网站研究不测用户幸福或当今全部平台。F20 是 2022 年监管报告，历史指控不能写成当前界面或个案法律结论。
 - 用户问“梗从哪里来”：读[文化来源](culture-shuaqi.md)，区分原话、媒体评论与项目自定义。
 - 用户需要医疗、法律、财务或危机支持：本项目不是这些领域的处方库，不能拿“耍起”替代适当帮助。
 
@@ -43,9 +44,11 @@ python3 tools/pick.py --id J019 --json
 
 ## 证据与来源
 
+`data/research.json` 的 `verified_at` 逐条来自正文核读日期，不表示独立复现、全面审查或所有材料同日更新。
+
 `background_ids` 指向相关研究背景；`background_is_not_validation` 为真。它不能被改写成“这张卡已经被研究证实有效”。
 
-`data/evidence.json` 的记录用 `source_kind` 区分研究阅读、官方统计、教学、健康指导、科普、实践框架、技术指导、文学原作、访客指导、作品与图像、乐谱、影片与历史目录、舞蹈来源及体育规则。类型标识分别为 `study_reading_note`、`official_statistics`、`educational_reference`、`official_health_guidance`、`official_explainer`、`practice_framework`、`technical_guidance`、`literary_primary_text`、`official_visitor_guidance`、`artwork_record_and_image`、`musical_score`、`film_and_historical_catalog`、`dance_education_and_work_record`、`official_sport_rules`。F 系列不是快乐实验，不能混进 B 系列的研究篇数。引用时间利用数据须保留总体或参与者的分母；引用 B06 须保留观察性、样本与日层面/人层面的边界，不能转成独处黄金时长。F02/F03 提供概念，不证明学习必然提高快乐；F04 不认证任何场地或设备安全，也不表示技术标准已全文核读。
+`data/evidence.json` 的记录用 `source_kind` 区分研究阅读、官方统计、教学、健康指导、科普、实践框架、技术指导、文学原作、访客指导、作品与图像、乐谱、影片与历史目录、舞蹈来源、体育规则与监管报告。类型标识分别为 `study_reading_note`、`official_statistics`、`educational_reference`、`official_health_guidance`、`official_explainer`、`practice_framework`、`technical_guidance`、`literary_primary_text`、`official_visitor_guidance`、`artwork_record_and_image`、`musical_score`、`film_and_historical_catalog`、`dance_education_and_work_record`、`official_sport_rules`、`regulatory_staff_report`。F 系列不是快乐实验，不能混进 B 系列的研究篇数。引用时间利用数据须保留总体或参与者的分母；引用 B06 须保留观察性、样本与日层面/人层面的边界，不能转成独处黄金时长。F02/F03 提供概念，不证明学习必然提高快乐；F04 不认证任何场地或设备安全，也不表示技术标准已全文核读。
 
 F05 的 `official_explainer` 是官方感官科普；F06 的 `practice_framework` 是组织提出的实践观察框架，均不是实验。引用 B03 须保留作者托管页校样的版本边界：“更丰富”不等于“更愉快”，强制人生偏好与撤销遗憾后的假设变化不能合并。`full_text` 只记录阅读深度，不表示最终发表版、独立复现或高质量评级。
 
