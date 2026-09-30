@@ -4,6 +4,7 @@ import hashlib
 import io
 import json
 import re
+import shutil
 import subprocess
 import sys
 import tempfile
@@ -146,6 +147,26 @@ class ReadingTests(unittest.TestCase):
         self.assertEqual(code, 2)
         self.assertEqual(data["error"], "source_read_failed")
         self.assertNotIn("record", data)
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            for folder in ("book", "essays", "docs"):
+                shutil.copytree(ROOT / folder, root / folder)
+            shutil.copyfile(ROOT / "SHUAQI.md", root / "SHUAQI.md")
+            ledger = root / "docs/research.md"
+            ledger.write_text(ledger.read_text().replace("https://doi.org/", "https://invalid.example/", 1))
+            output = io.StringIO()
+            with contextlib.redirect_stdout(output):
+                code = read.main(["--id", "E09"], root)
+            data = json.loads(output.getvalue())
+            self.assertEqual(code, 2)
+            self.assertEqual(data["error"], "source_read_failed")
+            self.assertIn("DOI", data["detail"])
+            (root / "SHUAQI.md").unlink()
+            output = io.StringIO()
+            with contextlib.redirect_stdout(output):
+                code = read.main(["--id", "E09"], root)
+            self.assertEqual(code, 2)
+            self.assertEqual(json.loads(output.getvalue())["error"], "source_read_failed")
 
     def test_source_links_are_locations_not_unread_content(self):
         _, data = self.call("--id", "E09")

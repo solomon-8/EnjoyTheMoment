@@ -207,7 +207,10 @@ def research_records(root):
         block = text[match.end():end]
         # Parentheses in DOI suffixes are URL-encoded in the Markdown subset.
         # Export the DOI identifier, not its transport encoding.
-        doi = unquote(re.search(r"https://doi.org/([^)]+)", block).group(1))
+        doi_match = re.search(r"https://doi.org/([^)]+)", block)
+        if not doi_match:
+            raise ValueError("背景研究缺少 DOI 来源：" + match.group(1))
+        doi = unquote(doi_match.group(1))
         fields = dict(re.findall(r"^- \*\*(.+?)\*\*：(.+)$", block, re.MULTILINE))
         verified_at = fields.get("核读日期", "").rstrip("。")
         if not re.fullmatch(r"\d{4}-\d{2}-\d{2}", verified_at):
