@@ -1,6 +1,7 @@
 # Repository editing notes
 
 - Canonical content lives in `book/`, `essays/`, `guides/`, `SHUAQI.md` and `docs/`.
+- Keep the shared AI entrypoints short; topic-specific reading limits belong in canonical `docs/reading-map.md`, with visible links for every target ID. `data/reading-map.json` is generated. Verify full-text retrieval and route coverage with `tests/test_reading.py`; do not replace content accuracy checks with entrypoint length targets.
 - Edit canonical content first. Run `python3 tools/build.py` to regenerate `index.html`, `llms-full.txt` and exported JSON.
 - Run `python3 tools/check.py`, `python3 tools/build.py --check`, and `python3 -m unittest discover -s tests -v`.
 - Preserve published card IDs and their underlying meaning. Add a new ID for a different activity; do not silently repurpose old links.

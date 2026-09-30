@@ -176,6 +176,26 @@
 | [33 · 麦克风不是资格证](book/33-singing.md) | 移调、音色、句读和轮唱，怎样把参与一首歌与接受考核分开？ | 独立正文 |
 | [34 · 角色可以倒霉，玩家不必受气](book/34-shared-stories.md) | 从骰池、叙事后果与人物特征看：为什么主动选择麻烦，也可以是在选择乐趣？ | 独立正文 |
 
+## 按问题找到完整论证
+
+想讨论“休息真的会少赚一点，还值不值得”，不必先挑活动卡。先从[长文目录](#读深一点)进入；要核对某个说法的出处与适用范围，再查[按问题阅读地图](docs/reading-map.md)。地图帮助定位，不代替正文，也不提供新的研究结论。
+
+让 AI 协助阅读时，使用[阅读协议](docs/ai.md)或 [Skill](skills/enjoy-the-moment/SKILL.md)：先回应你的问题，需要活动时才推荐活动。只安装 Skill 不等于已经取得或读过书稿。
+
+<details>
+<summary>本地检索：先找位置，再读整篇</summary>
+
+```bash
+python3 tools/read.py --query 朋友 --kind essay --limit 5
+python3 tools/read.py --id E09
+python3 tools/read.py --id F57
+python3 tools/read.py --list --kind chapter --limit 20
+```
+
+搜索只返回标题、ID 和位置，不把截取的半句话当答案。按 ID 读取完整章节、长文或来源记录；其中的链接仍需另行打开。更多结果按 `next_offset` 继续；这些命令只读取本地文件，不联网、不安装依赖。原文可能含剧透，协助阅读时仍须尊重你想知道多少。
+
+</details>
+
 ## 怎么读一张卡
 
 每张卡写清楚六件事：

@@ -91,7 +91,7 @@ class ExportTests(unittest.TestCase):
         self.assertIn("不等于让生活过得更好", chapter["text"])
         self.assertIn('href="#n17"', self.outputs["index.html"])
         self.assertEqual(build.local_href("../../book/01-start-now.md#today-voucher", note["source"]), "#today-voucher")
-        for path in ("docs/ai.md", "skills/enjoy-the-moment/SKILL.md", "llms.txt"):
+        for path in ("docs/reading-map.md",):
             self.assertIn("C01/B17/N17", (ROOT / path).read_text())
         self.assertNotIn("二十六份", (ROOT / "docs/research.md").read_text())
 
@@ -118,7 +118,7 @@ class ExportTests(unittest.TestCase):
         self.assertIn("未来值得拥有回忆，今天的人也值得被善待", chapter["text"])
         self.assertIn('href="#n18"', self.outputs["index.html"])
         self.assertEqual(build.local_href("../../book/10-aftertaste.md#aftertaste-preference", note["source"]), "#aftertaste-preference")
-        for path in ("docs/ai.md", "skills/enjoy-the-moment/SKILL.md", "llms.txt"):
+        for path in ("docs/reading-map.md",):
             self.assertIn("C10/B18/N18", (ROOT / path).read_text())
 
     def test_senses_separates_stated_price_context_and_value(self):
@@ -145,7 +145,7 @@ class ExportTests(unittest.TestCase):
         self.assertIn('href="#n19"', self.outputs["index.html"])
         self.assertIn('<p>回到<a href="#senses-price-expectation">身体与感官：价格、喜欢及选择</a>。</p>', self.outputs["index.html"])
         self.assertEqual(build.local_href("../../book/02-senses.md#senses-price-expectation", note["source"]), "#senses-price-expectation")
-        for path in ("docs/ai.md", "skills/enjoy-the-moment/SKILL.md", "llms.txt"):
+        for path in ("docs/reading-map.md",):
             self.assertIn("C02/B19/N19", (ROOT / path).read_text())
 
     def test_spending_distinguishes_sunk_cost_use_and_pleasure(self):
@@ -173,7 +173,7 @@ class ExportTests(unittest.TestCase):
         self.assertIn('href="https://doi.org/10.1016/0749-5978%2885%2990049-4"', self.outputs["index.html"])
         self.assertNotIn('href="https://doi.org/10.1016/0749-5978(85"', self.outputs["index.html"])
         self.assertIn('<p>回到<a href="#spending-theatre-study">第6章：季票研究与剩下的晚上</a>。</p>', self.outputs["index.html"])
-        for path in ("docs/ai.md", "skills/enjoy-the-moment/SKILL.md", "llms.txt"):
+        for path in ("docs/reading-map.md",):
             self.assertIn("C06/B20/N20", (ROOT / path).read_text())
 
     def test_spending_pass_arithmetic_keeps_total_and_average_distinct(self):
@@ -229,7 +229,7 @@ class ExportTests(unittest.TestCase):
                        "不是四档亲密排行榜"):
             self.assertIn(phrase, text)
             self.assertIn(phrase, chapter["text"])
-        for path in ("docs/ai.md", "skills/enjoy-the-moment/SKILL.md", "llms.txt"):
+        for path in ("docs/reading-map.md",):
             self.assertIn("C05/B21/B22/N21/N22", (ROOT / path).read_text())
         self.assertIn('href="#connection-amplification"', self.outputs["index.html"])
         self.assertIn('href="#connection-distance"', self.outputs["index.html"])
@@ -265,7 +265,7 @@ class ExportTests(unittest.TestCase):
             self.assertIn(phrase, essay["text"])
         self.assertIn('href="#n23"', self.outputs["index.html"])
         self.assertIn('href="#waiting-marshmallow"', self.outputs["index.html"])
-        for path in ("docs/ai.md", "skills/enjoy-the-moment/SKILL.md", "llms.txt"):
+        for path in ("docs/reading-map.md",):
             self.assertIn("E03/B23/N23", (ROOT / path).read_text())
 
     def test_excitement_source_distinguishes_survey_and_threshold(self):
@@ -299,7 +299,7 @@ class ExportTests(unittest.TestCase):
             self.assertIn(phrase, essay["text"])
         self.assertIn('href="#n24"', self.outputs["index.html"])
         self.assertIn('href="#excitement-study"', self.outputs["index.html"])
-        for path in ("docs/ai.md", "skills/enjoy-the-moment/SKILL.md", "llms.txt"):
+        for path in ("docs/reading-map.md",):
             self.assertIn("E02/B24/N24", (ROOT / path).read_text())
 
     def test_rest_essay_retains_value_argument_and_deep_links(self):
@@ -348,7 +348,7 @@ class ExportTests(unittest.TestCase):
         records = json.loads(self.outputs["data/research.json"])["records"]
         self.assertNotIn("F57", {record["id"] for record in records})
         self.assertTrue(all("F57" not in card["background_ids"] for card in self.export["cards"]))
-        for path in ("docs/ai.md", "skills/enjoy-the-moment/SKILL.md", "llms.txt"):
+        for path in ("docs/reading-map.md",):
             self.assertIn("E09/F57", (ROOT / path).read_text())
 
     def test_background_does_not_validate_cards(self):
@@ -536,7 +536,7 @@ class ExportTests(unittest.TestCase):
         short = (ROOT / "docs/manifesto.md").read_text()
         self.assertIn("完整主张与反对意见", short)
         self.assertLess(len(short), len(position))
-        for path in ("docs/ai.md", "llms.txt", "skills/enjoy-the-moment/SKILL.md"):
+        for path in ("docs/reading-map.md",):
             self.assertIn("pleasure-options", (ROOT / path).read_text())
 
     def test_position_and_essay_deep_links_keep_explicit_anchors(self):
@@ -670,7 +670,7 @@ class ExportTests(unittest.TestCase):
         self.assertIn(text, self.outputs["llms-full.txt"])
         self.assertIn(note["text"], self.outputs["llms-full.txt"])
         self.assertTrue(all("F56" not in c["background_ids"] for c in self.export["cards"]))
-        for path in ("docs/ai.md", "llms.txt", "skills/enjoy-the-moment/SKILL.md"):
+        for path in ("docs/reading-map.md",):
             self.assertIn("C29/F21/F56", (ROOT / path).read_text())
 
     def test_original_moon_model_geometry_and_svg_agree(self):
@@ -823,7 +823,7 @@ class ExportTests(unittest.TestCase):
                        "不保证第二次更好笑"):
             self.assertIn(marker, text)
         self.assertNotIn("例句均由本书为解释而创作", text)
-        self.assertIn("折叠区只包住三明治场景后段", (ROOT / "docs/ai.md").read_text())
+        self.assertIn("折叠区只包住三明治场景后段", (ROOT / "docs/reading-map.md").read_text())
 
     def test_making_chapter_preserves_complete_text_and_source_kinds(self):
         chapters = {item["id"]: item for item in
@@ -1304,7 +1304,7 @@ class ExportTests(unittest.TestCase):
                        "所有蓝色标记都在桌上时不能弃牌", "6 fireworks",
                        "本书保留这处不一致", "不是完整发牌模拟"):
             self.assertIn(marker, hanabi)
-        self.assertIn("F42/F43", (ROOT / "docs/ai.md").read_text())
+        self.assertIn("F42/F43", (ROOT / "docs/reading-map.md").read_text())
 
     def test_celebration_chapter_and_sources_roundtrip(self):
         chapters = {c["id"]: c for c in json.loads(self.outputs["data/chapters.json"])["chapters"]}
@@ -1379,7 +1379,7 @@ class ExportTests(unittest.TestCase):
                 self.assertIn(marker, (ROOT / "book/03-novelty.md").read_text())
             else:
                 self.assertIn(marker, notes["N03"]["text"])
-        for path in ("docs/ai.md", "llms.txt", "skills/enjoy-the-moment/SKILL.md"):
+        for path in ("docs/reading-map.md",):
             self.assertIn("C03/F49/B03", (ROOT / path).read_text())
 
     def test_cognitive_labor_keeps_author_summary_and_original_analogy_distinct(self):
@@ -1412,7 +1412,7 @@ class ExportTests(unittest.TestCase):
                                           note["source"]), "#constrained-cognitive")
         self.assertEqual(re.findall(r'<!-- pick: .*?"id":"(J\d+)"', text),
                          [f"J{i:03d}" for i in range(49, 55)])
-        for path in ("docs/ai.md", "skills/enjoy-the-moment/SKILL.md", "llms.txt"):
+        for path in ("docs/reading-map.md",):
             self.assertIn("C09/F50", (ROOT / path).read_text())
 
     def test_solitude_literary_sources_and_navigation_survive_exports(self):
@@ -1446,7 +1446,7 @@ class ExportTests(unittest.TestCase):
         self.assertIn("不是通读整本", walden)
         self.assertIn("不是全书通读", room)
         self.assertIn("虚构地点", room)
-        for path in ("docs/ai.md", "llms.txt", "skills/enjoy-the-moment/SKILL.md"):
+        for path in ("docs/reading-map.md",):
             self.assertIn("C07/F47/F48/B06", (ROOT / path).read_text())
 
     def test_cross_file_chapter_anchors_stay_local_only_when_explicit(self):
@@ -1514,7 +1514,7 @@ class ExportTests(unittest.TestCase):
         for marker in ("2021-12-24", "2021-12-25", "相差一天", "全文",
                        "不是小说首刊日期", "不能得出昂贵礼物更感人"):
             self.assertIn(marker, magi)
-        for path in ("docs/ai.md", "skills/enjoy-the-moment/SKILL.md", "llms.txt"):
+        for path in ("docs/reading-map.md",):
             self.assertIn("F44/F45", (ROOT / path).read_text())
 
     def test_live_chapter_and_sources_export_without_turning_into_card_evidence(self):
@@ -1617,7 +1617,7 @@ class ExportTests(unittest.TestCase):
                        "同一块存储介质", "不是做过一次便永久安全",
                        "以后不许花钱"):
             self.assertIn(marker, text)
-        self.assertIn("不按文件名、像素或大小替用户删除数据", (ROOT / "docs/ai.md").read_text())
+        self.assertIn("不按文件名、像素或大小替用户删除数据", (ROOT / "docs/reading-map.md").read_text())
 
     def test_artwork_images_are_local_accessible_and_not_raw_html(self):
         source = "book/25-looking-at-art.md"
@@ -1694,7 +1694,7 @@ class ExportTests(unittest.TestCase):
                                               notes[identifier]["source"]), "#" + anchor)
         self.assertTrue(all(not ({"F54", "F55"} & set(card["background_ids"]))
                             for card in self.export["cards"]))
-        for path in ("docs/ai.md", "llms.txt", "skills/enjoy-the-moment/SKILL.md"):
+        for path in ("docs/reading-map.md",):
             self.assertIn("C25/F13/F54/F55", (ROOT / path).read_text())
 
     def test_music_and_film_media_are_local_and_described(self):
@@ -1837,7 +1837,7 @@ class ExportTests(unittest.TestCase):
             self.assertIn(marker, alt)
         self.assertTrue(all(not ({"F51", "F52"} & set(c["background_ids"]))
                             for c in self.export["cards"]))
-        for path in ("docs/ai.md", "skills/enjoy-the-moment/SKILL.md", "llms.txt"):
+        for path in ("docs/reading-map.md",):
             self.assertIn("C27/F51/F52", (ROOT / path).read_text())
 
     def test_sport_sources_preserve_versions_and_decision_conditions(self):
@@ -2041,7 +2041,7 @@ class ExportTests(unittest.TestCase):
         self.assertEqual(build.local_href("../../book/22-reading.md#reading-open-window",
                                           note["source"]), "#reading-open-window")
         self.assertTrue(all("F53" not in card["background_ids"] for card in self.export["cards"]))
-        for path in ("llms.txt", "skills/enjoy-the-moment/SKILL.md"):
+        for path in ("docs/reading-map.md",):
             text = (ROOT / path).read_text()
             self.assertIn("C22/F", text)
             self.assertIn("F53", text)

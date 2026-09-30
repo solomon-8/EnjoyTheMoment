@@ -13,6 +13,7 @@ from urllib.parse import unquote
 
 from pick import ROOT, load_cards
 from guides import load_guides
+from reading import load_routes
 
 
 ESSAYS = [
@@ -516,7 +517,15 @@ def outputs(root=ROOT):
         + [item["text"] for item in evidence]
         + [(root / path).read_text() for path in ["docs/research.md", "docs/culture-shuaqi.md"]]
     ).rstrip() + "\n"
+    reading_routes = load_routes(root, {r["id"] for r in chapter_data + longform + evidence + records}
+                                 | {"SHUAQI", "CULTURE"})
     return {
+        "data/reading-map.json": json_text({
+            "schema_version": "1.0", "canonical_source": "docs/reading-map.md",
+            "source_sha256": hashlib.sha256((root / "docs/reading-map.md").read_bytes()).hexdigest(),
+            "notice": "Reading guidance only, not new evidence or an efficacy rating.",
+            "routes": reading_routes,
+        }),
         "data/chapters.json": json_text({"schema_version": "1.0", "source_digest": digest, "chapters": chapter_data}),
         "data/guides.json": json_text({"schema_version": "1.0", "source_digest": digest, "guides": guides}),
         "data/evidence.json": json_text({"schema_version": "1.0", "source_digest": digest, "notes": evidence}),
