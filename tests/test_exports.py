@@ -1127,6 +1127,39 @@ class ExportTests(unittest.TestCase):
         for path in ("docs/ai.md", "llms.txt", "skills/enjoy-the-moment/SKILL.md"):
             self.assertIn("C03/F49/B03", (ROOT / path).read_text())
 
+    def test_cognitive_labor_keeps_author_summary_and_original_analogy_distinct(self):
+        notes = {n["id"]: n for n in json.loads(self.outputs["data/evidence.json"])["notes"]}
+        note = notes["F50"]
+        self.assertEqual(note["source_kind"], "researcher_authored_project_summary")
+        self.assertEqual(note["text"], (ROOT / note["source"]).read_text())
+        self.assertIn(note["text"], self.outputs["llms-full.txt"])
+        for phrase in ("不是本项目已核读的原始论文全文", "170余次访谈",
+                       "不能直接充当2019年论文的样本量", "不是PDF",
+                       "不是已验证的家庭公平评分", "全部是本书原创假想"):
+            self.assertIn(phrase, note["text"])
+        records = json.loads(self.outputs["data/research.json"])["records"]
+        self.assertNotIn("10.1177/0003122419859007", {r["doi"] for r in records})
+        self.assertTrue(all("F50" not in c["background_ids"] for c in self.export["cards"]))
+        chapter = next(c for c in json.loads(self.outputs["data/chapters.json"])["chapters"]
+                       if c["id"] == "C09")
+        text = (ROOT / chapter["source"]).read_text()
+        self.assertEqual(chapter["text"], text.split('<a id="j049"></a>', 1)[0].strip())
+        for anchor in ("constrained-cognitive", "constrained-three-arrangements",
+                       "constrained-authority"):
+            self.assertIn('id="' + anchor + '"', chapter["text"])
+            self.assertEqual(self.outputs["index.html"].count('id="' + anchor + '"'), 1)
+            self.assertIn('href="#' + anchor + '"', self.outputs["index.html"])
+        for phrase in ("两句话可以同时属实", "三种安排没有实验排名",
+                       "退出一段劳动，与放弃所有发言权", "喜欢有对象、强度和期限"):
+            self.assertIn(phrase, chapter["text"])
+        self.assertIn('href="#f50"', self.outputs["index.html"])
+        self.assertEqual(build.local_href("../../book/09-constrained.md#constrained-cognitive",
+                                          note["source"]), "#constrained-cognitive")
+        self.assertEqual(re.findall(r'<!-- pick: .*?"id":"(J\d+)"', text),
+                         [f"J{i:03d}" for i in range(49, 55)])
+        for path in ("docs/ai.md", "skills/enjoy-the-moment/SKILL.md", "llms.txt"):
+            self.assertIn("C09/F50", (ROOT / path).read_text())
+
     def test_solitude_literary_sources_and_navigation_survive_exports(self):
         chapters = {c["id"]: c for c in json.loads(self.outputs["data/chapters.json"])["chapters"]}
         notes = {n["id"]: n for n in json.loads(self.outputs["data/evidence.json"])["notes"]}
