@@ -112,3 +112,9 @@ The Public Life Data Protocol was jointly developed by Gehl Institute, Gehl, the
 ## 感知说明与原创线框
 
 新鲜感章节的内克尔立方体采用通用几何结构独立绘制，具体来源、研究者署名、说明文本与媒体的不同许可见 [F49](evidence/F49-novelty-and-perception.md)。未收录来源图片、文章全文或交互。图的坐标、布局与文字提示为本书原创，不声称发明既有概念；[素材说明](../assets/media/README.md)区分线框与A/B读法提示。B03图底实验不是本书图片的验证。
+
+## 电影情境研究与原创判断
+
+Cao等（2024，PLOS ONE）及Szaszkó、Loebus（2026，i-Perception）分别见[B32/N32](evidence/B32-film-context.md)、[B33/N33](evidence/B33-context-and-categorization.md)。两篇均为CC BY 4.0开放文章，本书做署名概述，不复制人物刺激图、视频或全文；取得版本与未审范围在各条说明。正负评价、强度、类别与喜欢不混为一项指标，非连续设计不冒充完整电影复刻。
+
+[电影章](../book/12-film.md#film-designed-emotion)的门前、生日会、告别与微笑镜头为独立构造，主动投入与事实证据的区分为原创论证，不是两篇论文的干预建议或已测效果。

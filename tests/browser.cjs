@@ -337,7 +337,7 @@ const { chromium } = require("playwright");
     await page.goto(url + "#c12");
     await page.waitForFunction(() => document.getElementById("c12").open);
     assert.match(await page.locator("#c12 .prose").textContent(), /长镜头说的是镜头持续/);
-    assert.equal(await page.locator("#c12 .prose table").count(), 3);
+    assert.equal(await page.locator("#c12 .prose table").count(), 4);
     assert.equal(await page.locator("#c12 .artwork img").count(), 3);
     assert.equal(await page.locator("#c12 .prose details").getAttribute("open"), null);
     assert.equal(await page.locator("#c12 .prose details img").isVisible(), false);
@@ -355,6 +355,22 @@ const { chromium } = require("playwright");
     await page.locator("#c12 a[href='#f03']").click();
     await page.waitForFunction(() => document.getElementById("f03").open);
     assert.match(await page.locator("#f03 .prose").textContent(), /实际依据是条目的文字解释/);
+    await page.goto(url + "#film-designed-emotion");
+    await page.waitForFunction(() => document.getElementById("c12").open);
+    assert.match(await page.locator("#c12 .prose").textContent(), /我已经哭了，我仍可以觉得它拍得不好/);
+    for (const [source, anchor, marker] of [
+      ["n32", "film-context-study", /同一序列内的重复/],
+      ["n33", "film-context-boundary", /p = \.293/],
+    ]) {
+      await page.locator(`#c12 a[href='#${source}']`).first().click();
+      await page.waitForFunction(id => document.getElementById(id).open, source);
+      assert.match(await page.locator(`#${source} .prose`).textContent(), marker);
+      await page.locator("#chapter-query").fill("不存在的电影XYZ");
+      await page.locator(`#${source} a[href='#${anchor}']`).first().click();
+      await page.waitForFunction(() => document.getElementById("c12").open &&
+        !document.getElementById("c12").hidden && document.getElementById("chapter-query").value === "");
+      assert.equal(new URL(page.url()).hash, "#" + anchor);
+    }
     await page.goto(url + "#c11");
     await page.waitForFunction(() => document.getElementById("c11").open);
     assert.equal(await page.locator("#c11 .prose table").count(), 4);
