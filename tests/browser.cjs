@@ -337,7 +337,7 @@ const { chromium } = require("playwright");
     await page.goto(url + "#c22");
     await page.waitForFunction(() => document.getElementById("c22").open);
     assert.match(await page.locator("#c22 .prose").textContent(), /奥斯汀的第一句话/);
-    assert.equal(await page.locator("#c22 .prose table").count(), 1);
+    assert.equal(await page.locator("#c22 .prose table").count(), 2);
     await page.locator("#c22 a[href='#f11']").click();
     await page.waitForFunction(() => document.getElementById("f11").open);
     assert.match(await page.locator("#f11 .prose").textContent(), /社区整理的原作转录/);
