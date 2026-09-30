@@ -115,6 +115,7 @@ EVIDENCE = [
     ("F56", "docs/evidence/F56-moon-rotation-and-view.md"),
     ("F57", "docs/evidence/F57-friendship-and-reciprocity.md"),
     ("F58", "docs/evidence/F58-travel-and-guidebooks.md"),
+    ("F59", "docs/evidence/F59-virtual-and-real.md"),
 ]
 EVIDENCE_KINDS = {
     "F01": "official_statistics",
@@ -175,6 +176,7 @@ EVIDENCE_KINDS = {
     "F56": "official_science_explainer_and_visualization_metadata",
     "F57": "philosophical_primary_translation",
     "F58": "literary_primary_text",
+    "F59": "philosophical_primary_argument",
 }
 RELATIONS = [
     {"card_ids": ["J033"], "background_ids": ["B01"], "essay_ids": ["E04"]},

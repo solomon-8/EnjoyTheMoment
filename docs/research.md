@@ -446,6 +446,7 @@
 - [F57 · 友爱、愉快与互惠](evidence/F57-friendship-and-reciprocity.md)：亚里士多德《尼各马可伦理学》W. D. Ross 英译数字文本的指定六节，用于 [E09](../essays/09-friends-not-assets.md#friends-aristotle)。不是全书核读、希腊文校勘或关系调查；原文的用途/愉快/德性区分不等于本项目立场，不用古代分类给现实中的朋友打分。
 
 - [F58 · 旅行、指南与观看决定权](evidence/F58-travel-and-guidebooks.md)：福斯特 *A Room with a View* 英文数字文本第二章，用于 [C23](../book/23-travel.md#travel-forster)。只核读本章，不是全书、版本校勘或旅游效果研究；区分人物发言、叙述细节与本书解释。来源与正文的情节细读默认折叠，机器全文仍含剧透。
+- [F59 · 虚拟与真实](evidence/F59-virtual-and-real.md)：查尔默斯 *The Virtual and the Real* 期刊版导言与第 1、3、6、7 节，用于 [E11](../essays/11-pleasure-and-reality.md#pleasure-digital-life)。区分数字对象、互动、虚构解释和价值；丰富虚拟现实是假想，不是当前产品效果或永久可用的保证。未核读全部章节，论文内诺齐克引文仍是转引；不增加行为背景研究数量。
 
 F 系列不计入上面的 B 系列背景研究。事实、教学、文学文本、访客指导、作品与图像、乐谱、影片与历史目录、舞蹈来源、体育规则、监管报告、供应商技术手册、服装记录、哲学与创作者文本、声学、型号说明、嗓音指导、游戏规则、数学教材、剧场与文化遗产描述及研究阅读记录共同收入 `data/evidence.json`，用 `source_kind` 区分。
 
