@@ -48,6 +48,8 @@ Neither excitement nor spending is compulsory. Quiet enjoyment counts. Disliking
 
 [E11 · If pleasure could be generated on demand, would we still want real life?](essays/11-pleasure-and-reality.md) distinguishes valuing pleasure from valuing nothing else. It examines the experience-machine question, genuine participation in fictional worlds, and whether differences in enjoyment justify ranking other people's tastes. Philosophical arguments are not behavioral evidence; the Nozick passage was read through a secondary encyclopedia quotation, not in his original book.
 
+[Solitude](book/07-solo.md) asks what freedom from coordinating every preference can offer, without declaring relationships a burden. It reads selected passages of *Walden* and *A Room of One’s Own*: literary voices are not verified biography, and Woolf’s argument about women and writing is not a leisure experiment. The chapter also asks whose labor makes uninterrupted time possible.
+
 The chapters on senses, novelty, play, relationships, spending, and permission to enjoy contain substantial discussions before their supporting cards. They address taste without moral judgment, novelty without a life checklist, serious play without compulsory achievement, shared time without identical preferences, and leisure without a productivity test. These discussions are in Chinese; value arguments and hypothetical examples are distinguished from limited research findings.
 
 | Chapter | Question |
@@ -58,7 +60,7 @@ The chapters on senses, novelty, play, relationships, spending, and permission t
 | [04 · Play without turning professional](book/04-play.md) | What would you play if you never had to get good? |
 | [05 · People are not a network](book/05-connection.md) | Can spending time together be the whole point? |
 | [06 · Buy pleasure, not an identity](book/06-spending.md) | Which specific experience is worth its cost to you? |
-| [07 · Being alone is not a reason to skip the occasion](book/07-solo.md) | Does enjoyment still count without an audience? |
+| [07 · Being alone is not a reason to skip the occasion](book/07-solo.md) | What makes solitude enjoyable—and who controls its time and space? |
 | [08 · Take a break from being useful](book/08-permission.md) | Must rest always be a reward? |
 | [09 · Limited resources, real enjoyment](book/09-constrained.md) | What fits the constraints you actually have? |
 | [10 · Leaving is part of enjoying](book/10-aftertaste.md) | Are you still choosing to continue? |

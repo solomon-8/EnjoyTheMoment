@@ -89,6 +89,8 @@ EVIDENCE = [
     ("F44", "docs/evidence/F44-festival-and-time.md"),
     ("F45", "docs/evidence/F45-magi-and-giving.md"),
     ("F46", "docs/evidence/F46-puzzle-structures.md"),
+    ("F47", "docs/evidence/F47-walden-solitude.md"),
+    ("F48", "docs/evidence/F48-room-and-freedom.md"),
 ]
 EVIDENCE_KINDS = {
     "F01": "official_statistics",
@@ -137,6 +139,8 @@ EVIDENCE_KINDS = {
     "F44": "official_heritage_description",
     "F45": "literary_primary_text",
     "F46": "mathematics_textbook_and_original_examples",
+    "F47": "literary_primary_text",
+    "F48": "literary_primary_text",
 }
 RELATIONS = [
     {"card_ids": ["J033"], "background_ids": ["B01"], "essay_ids": ["E04"]},
@@ -199,8 +203,16 @@ def local_href(href, source_path):
         return "#" + fragment
     clean = (Path(source_path).parent / file_part).as_posix()
     clean = str((ROOT / clean).resolve().relative_to(ROOT)).replace("\\", "/")
-    if clean.startswith("book/") and not fragment:
-        return "#c" + Path(clean).stem[:2]
+    if clean.startswith("book/"):
+        if not fragment:
+            return "#c" + Path(clean).stem[:2]
+        # Explicit chapter anchors are rendered in the offline reader too.
+        # Keep unknown/automatic GitHub heading fragments on the source page.
+        target = ROOT / clean
+        if target.is_file() and re.search(
+                r'^<a id="' + re.escape(fragment) + r'"></a>$',
+                target.read_text(encoding="utf-8"), re.MULTILINE):
+            return "#" + fragment
     for essay_id, path in ESSAYS + EVIDENCE:
         if clean == path:
             return "#" + essay_id.lower()
