@@ -103,7 +103,7 @@ The Public Life Data Protocol was jointly developed by Gehl Institute, Gehl, the
 
 ## 开放游戏规则
 
-[第 34 章](../book/34-shared-stories.md)及 [F32](evidence/F32-action-and-consequences.md)、[F33](evidence/F33-aspects-and-shared-fiction.md)转述 *Blades in the Dark* 与 *Fate Condensed* 的指定开放规则。两者相应 SRD 采用 CC BY 3.0 Unported；本书的中文解释、对比和场景是改写，不是官方中文译本。完整要求署名保留在章节、来源笔记和仓库 LICENSE 中，不把开放规则冒称 MIT 原创。
+[第 34 章](../book/34-shared-stories.md)及 [F32](evidence/F32-action-and-consequences.md)、[F33](evidence/F33-aspects-and-shared-fiction.md)、[F65](evidence/F65-clocks-and-flashbacks.md)转述 *Blades in the Dark* 与 *Fate Condensed* 的指定开放规则。两者相应 SRD 采用 CC BY 3.0 Unported；本书的中文解释、对比和场景是改写，不是官方中文译本。完整要求署名保留在章节、来源笔记和仓库 LICENSE 中，不把开放规则冒称 MIT 原创。F65的装船／关闭双时钟、文件时间关系表为本书原创构造，不转载官方图示，不等于完整实况或快乐效果研究。
 
 *Fate Condensed* 以官方许可入口下载 ZIP 内的 SRD 文件为底本，未只凭网站改编呈现取代官方文件。下载文件署名名单比网页页脚多 Leonard Balsera 与 Ryan Macklin，按文件完整保留。读取范围和未核验项见 F33。
 

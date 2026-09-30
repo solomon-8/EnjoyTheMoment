@@ -205,17 +205,19 @@ const { chromium } = require("playwright");
     assert.equal(await readingSpoiler.getAttribute("open"), null);
     await page.goto(url + "#c34");
     await page.waitForFunction(() => document.getElementById("c34").open);
-    assert.equal(await page.locator("#c34 .prose table").count(), 3);
-    for (const anchor of ["story-choice", "story-dice", "story-aspects", "story-table"]) {
+    assert.equal(await page.locator("#c34 .prose table").count(), 5);
+    for (const anchor of ["story-choice", "story-dice", "story-aspects", "story-table",
+                         "story-clocks", "story-flashbacks", "story-uncertainty"]) {
       await page.locator(`#c34 a[href='#${anchor}']`).click();
       assert.equal(new URL(page.url()).hash, `#${anchor}`);
       assert(await page.locator("#c34 .prose").isVisible());
     }
-    for (const id of ["f32", "f33"]) {
+    for (const [id, target] of [["f32", "c34"], ["f33", "c34"], ["f65", "story-flashbacks"]]) {
       await page.locator(`#c34 a[href='#${id}']`).first().click();
       await page.waitForFunction(id => document.getElementById(id).open, id);
-      await page.locator(`#${id} a[href='#c34']`).click();
+      await page.locator(`#${id} a[href='#${target}']`).click();
       await page.waitForFunction(() => document.getElementById("c34").open);
+      assert.equal(new URL(page.url()).hash, "#" + target);
     }
     await page.goto(url + "#c33");
     await page.waitForFunction(() => document.getElementById("c33").open);
@@ -1144,8 +1146,11 @@ const { chromium } = require("playwright");
     assert.equal(await staticPage.locator("#c33 .prose table").count(), 4);
     assert.match(await staticPage.locator("#c33 .prose").textContent(), /低八度本身也是移调的一种/);
     await staticPage.locator("#c34 > summary").click();
-    assert.equal(await staticPage.locator("#c34 .prose table").count(), 3);
+    assert.equal(await staticPage.locator("#c34 .prose table").count(), 5);
     assert.match(await staticPage.locator("#c34 .prose").textContent(), /11\/36/);
+    assert.match(await staticPage.locator("#c34 .prose").textContent(), /钟箱已经在船上，离港窗口也已经关闭/);
+    await staticPage.locator("#f65 > summary").click();
+    assert.match(await staticPage.locator("#f65 .prose").textContent(), /不是随机模拟/);
     await staticPage.locator("#c24 > summary").click();
     const staticComicFold = staticPage.locator("#c24 .prose details");
     assert.equal(await staticComicFold.locator("p").first().isVisible(), false);
