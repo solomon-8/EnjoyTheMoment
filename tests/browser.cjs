@@ -837,6 +837,46 @@ const { chromium } = require("playwright");
       assert(await image.isVisible());
     }
     await nojs.close();
+    // Opening argument: readable without JS; evidence links must not become card validation.
+    for (const javaScriptEnabled of [true, false]) {
+      const context = await browser.newContext({viewport: {width: 390, height: 844}, javaScriptEnabled, reducedMotion: "reduce"});
+      const opening = await context.newPage();
+      const failures = [], network = [];
+      opening.on("pageerror", error => failures.push(error.message));
+      opening.on("request", request => {if (/^https?:/.test(request.url())) network.push(request.url());});
+      await opening.goto(url + (javaScriptEnabled ? "#c01" : ""));
+      if (!javaScriptEnabled) await opening.locator("#c01 > summary").click();
+      assert.match(await opening.locator("#c01 .prose").textContent(), /兑换比例/);
+      for (const anchor of ["today-voucher", "today-future", "today-not-redemption"]) {
+        if (javaScriptEnabled) {
+          await opening.locator(`#c01 a[href='#${anchor}']`).first().click();
+          assert.equal(new URL(opening.url()).hash, "#" + anchor);
+        }
+        await opening.locator("#" + anchor).scrollIntoViewIfNeeded();
+      }
+      const table = opening.locator("#c01 .prose table");
+      assert.equal(await table.count(), 1);
+      assert((await table.boundingBox()).width <= 350);
+      if (javaScriptEnabled) {
+        await opening.locator("#c01 a[href='#n17']").first().click();
+        await opening.waitForFunction(() => document.getElementById("n17").open);
+      } else {
+        await opening.locator("#n17 > summary").click();
+      }
+      for (const selector of ["#c01 .prose", "#n17 .prose"]) {
+        const shape = await opening.locator(selector).evaluate(el => ({client: el.clientWidth, scroll: el.scrollWidth}));
+        assert(shape.scroll <= shape.client + 1, selector);
+      }
+      assert.match(await opening.locator("#n17 .prose").textContent(), /4.64/);
+      if (javaScriptEnabled) {
+        await opening.locator("#n17 a[href='#today-voucher']").last().click();
+        assert.equal(new URL(opening.url()).hash, "#today-voucher");
+        assert(await opening.locator("#c01 .prose").isVisible());
+      }
+      assert.deepEqual(failures, []);
+      assert.deepEqual(network, []);
+      await context.close();
+    }
     console.log("OK: offline, filters, empty state, deep links, keyboard, 390px, dark/reduced motion, print, no-JS, zero external requests");
   } finally {
     await browser.close();
