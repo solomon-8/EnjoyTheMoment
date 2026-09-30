@@ -696,6 +696,37 @@ class ExportTests(unittest.TestCase):
                      "llms.txt", "skills/enjoy-the-moment/SKILL.md"):
             self.assertIn("E11", (ROOT / path).read_text(), path)
 
+    def test_virtual_life_argument_keeps_participation_and_promises_distinct(self):
+        essays = {item["id"]: item for item in json.loads(self.outputs["data/essays.json"])["essays"]}
+        essay = essays["E11"]
+        text = (ROOT / essay["source"]).read_text()
+        self.assertEqual(essay["text"], text)
+        self.assertIn(text, self.outputs["llms-full.txt"])
+        for anchor in ("pleasure-digital-life", "pleasure-interaction", "pleasure-promises",
+                       "pleasure-ended-world", "pleasure-medium"):
+            self.assertEqual(self.outputs["index.html"].count('id="' + anchor + '"'), 1)
+        for phrase in ("本书的假想", "不是从低到高的娱乐等级", "感动可以是真的",
+                       "不是直接核读诺齐克原书", "没有朋友和建造"):
+            self.assertIn(phrase, text)
+        self.assertEqual(build.local_href("../docs/evidence/F59-virtual-and-real.md",
+                                         essay["source"]), "#f59")
+        self.assertTrue(all("E11" not in card["essay_ids"] for card in self.export["cards"]))
+
+    def test_virtual_reality_source_is_a_scoped_argument_not_an_effect_study(self):
+        notes = {item["id"]: item for item in json.loads(self.outputs["data/evidence.json"])["notes"]}
+        note = notes["F59"]
+        self.assertEqual(note["source_kind"], "philosophical_primary_argument")
+        self.assertEqual(note["text"], (ROOT / note["source"]).read_text())
+        self.assertIn(note["text"], self.outputs["llms-full.txt"])
+        for phrase in ("没有完整核读", "337–344", "rich virtual reality",
+                       "仍不是我们直接核读诺齐克原书", "不增加行为背景研究数量",
+                       "不验证任何 J 卡", "CC BY-NC-ND 3.0"):
+            self.assertIn(phrase, note["text"])
+        records = json.loads(self.outputs["data/research.json"])["records"]
+        self.assertEqual(len(records), 28)
+        self.assertNotIn("F59", {record["id"] for record in records})
+        self.assertIn('"id":"R52"', (ROOT / "docs/reading-map.md").read_text())
+
     def test_leisure_research_preserves_nonclaims_and_links(self):
         records = {item["id"]: item for item in json.loads(self.outputs["data/research.json"])["records"]}
         self.assertIn("p = .053", records["B05"]["fields"]["关键限制"])

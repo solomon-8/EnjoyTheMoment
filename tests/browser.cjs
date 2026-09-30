@@ -233,7 +233,9 @@ const { chromium } = require("playwright");
     }
     await page.goto(url + "#e11");
     await page.waitForFunction(() => document.getElementById("e11").open);
-    assert.equal(await page.locator("#e11 .prose table tbody tr").count(), 4);
+    assert.equal(await page.locator("#e11 .prose table").count(), 2);
+    assert.equal(await page.locator("#e11 .prose table").first().locator("tbody tr").count(), 4);
+    assert.equal(await page.locator("#e11 .prose table").nth(1).locator("tbody tr").count(), 3);
     await page.locator("#e11 a[href='#pleasure-virtual']").click();
     assert.equal(new URL(page.url()).hash, "#pleasure-virtual");
     assert(await page.locator("#e11 .prose").isVisible());
@@ -242,6 +244,17 @@ const { chromium } = require("playwright");
     assert.match(await page.locator("#f27 .prose").textContent(), /没有直接核读/);
     await page.locator("#f27 a[href='#e11']").click();
     await page.waitForFunction(() => document.getElementById("e11").open);
+    await page.locator("#e11 a[href='#pleasure-digital-life']").click();
+    assert.equal(new URL(page.url()).hash, "#pleasure-digital-life");
+    await page.locator("#e11 a[href='#f59']").first().click();
+    await page.waitForFunction(() => document.getElementById("f59").open);
+    assert.match(await page.locator("#f59 .prose").textContent(), /没有完整核读/);
+    assert.match(await page.locator("#f59 .prose").textContent(), /不是现有头显/);
+    await page.locator("#essay-query").fill("不存在的长文XYZ");
+    await page.locator("#f59 a[href='#pleasure-promises']").click();
+    await page.waitForFunction(() => document.getElementById("e11").open &&
+      !document.getElementById("e11").hidden && document.getElementById("essay-query").value === "");
+    assert.equal(new URL(page.url()).hash, "#pleasure-promises");
     await page.goto(url + "#e01");
     await page.waitForFunction(() => document.getElementById("e01").open);
     await page.locator("#e01 a[href='#e11']").click();
@@ -877,7 +890,7 @@ const { chromium } = require("playwright");
     }
     await page.goto(url + "#e11");
     await page.waitForFunction(() => document.getElementById("e11").open);
-    await page.locator("#e11 .prose table").scrollIntoViewIfNeeded();
+    await page.locator("#e11 .prose table").first().scrollIntoViewIfNeeded();
     assert(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth));
     await page.screenshot({path: "/tmp/enjoythemoment-pleasure-reality-mobile.png", fullPage: false});
     await page.goto(url + "#e10");
