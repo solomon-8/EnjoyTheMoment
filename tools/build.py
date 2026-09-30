@@ -56,6 +56,7 @@ EVIDENCE = [
     ("N25", "docs/evidence/B25-practice-and-performance.md"),
     ("N26", "docs/evidence/B26-permissible-consumption.md"),
     ("N27", "docs/evidence/B27-discretionary-time.md"),
+    ("N28", "docs/evidence/B28-digital-choice.md"),
     ("F01", "docs/evidence/F01-time-use.md"),
     ("F02", "docs/evidence/F02-listening-language.md"),
     ("F03", "docs/evidence/F03-film-language.md"),
