@@ -116,6 +116,7 @@ EVIDENCE = [
     ("F57", "docs/evidence/F57-friendship-and-reciprocity.md"),
     ("F58", "docs/evidence/F58-travel-and-guidebooks.md"),
     ("F59", "docs/evidence/F59-virtual-and-real.md"),
+    ("F60", "docs/evidence/F60-conspicuous-leisure.md"),
 ]
 EVIDENCE_KINDS = {
     "F01": "official_statistics",
@@ -177,6 +178,7 @@ EVIDENCE_KINDS = {
     "F57": "philosophical_primary_translation",
     "F58": "literary_primary_text",
     "F59": "philosophical_primary_argument",
+    "F60": "historical_social_theory_primary",
 }
 RELATIONS = [
     {"card_ids": ["J033"], "background_ids": ["B01"], "essay_ids": ["E04"]},

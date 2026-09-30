@@ -274,6 +274,18 @@ const { chromium } = require("playwright");
     assert.equal(await page.locator("#c06 .prose table").count(), 3);
     await page.goto(url + "#c08");
     await page.waitForFunction(() => document.getElementById("c08").open);
+    assert.equal(await page.locator("#c08 .prose table").count(), 2);
+    await page.locator("#c08 a[href='#permission-status']").click();
+    assert.equal(new URL(page.url()).hash, "#permission-status");
+    await page.locator("#c08 a[href='#f60']").first().click();
+    await page.waitForFunction(() => document.getElementById("f60").open);
+    assert.match(await page.locator("#f60 .prose").textContent(), /完整核读第三章，不是完整核读全书/);
+    assert.match(await page.locator("#f60 .prose").textContent(), /不是当代人群调查/);
+    await page.locator("#chapter-query").fill("不存在的章节XYZ");
+    await page.locator("#f60 a[href='#permission-vicarious']").click();
+    await page.waitForFunction(() => document.getElementById("c08").open &&
+      !document.getElementById("c08").hidden && document.getElementById("chapter-query").value === "");
+    assert.equal(new URL(page.url()).hash, "#permission-vicarious");
     await page.locator("#c08 a[href='#n05']").click();
     await page.waitForFunction(() => document.getElementById("n05").open);
     assert.match(await page.locator("#n05 .prose").textContent(), /p = \.053/);
