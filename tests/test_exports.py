@@ -212,7 +212,7 @@ class ExportTests(unittest.TestCase):
                        "p=.14", "p=.09", "助手在共同条件里实际吃的是较愉快的巧克力", "没有对品尝评价产生中介效应"):
             self.assertIn(phrase, notes["N21"]["text"])
         for phrase in ("44名", "另招21人", "40名", "p=.330", "p=.243", "p=.261",
-                       "p=.127", "p=.064", "复合指标", "同一随机分配流程", "不是独立团队确认"):
+                       "p=.127", "p=.064", "复合指标", "同一随机分配流程", "不是独立团队确认", "未明确说明空间条件的随机分配程序"):
             self.assertIn(phrase, notes["N22"]["text"])
 
     def test_connection_chapter_keeps_argument_and_deep_links(self):

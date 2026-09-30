@@ -2,7 +2,7 @@
 
 Canonical source: book/, essays/, guides/ and docs/. Values and original proposals are not validated interventions.
 Budgets are illustrative CNY caps. Preserve alternatives, stopping conditions and evidence status.
-Source digest: 0d5acaf9f644edb4a4900363e3726bb443245fa5524820b553bda09a53566dfd
+Source digest: 23428aa68075514f2d34f58dbd7ede3b90f7396bbbdcbf77316d9cf05dbca5a9
 
 [← 首页](README.md) · [语境与来源](docs/culture-shuaqi.md)
 
@@ -11607,7 +11607,7 @@ Erica J. Boothby、Leigh K. Smith、Margaret S. Clark、John A. Bargh，*Psychol
 
 ## 研究2：同室，还是没有音视频联系的两室
 
-40名耶鲁大学学生，18—24岁，女性约48%；一人未提供人口资料，但报告无实验数据排除。所有人先做熟悉任务，再随机分成同室与分室，每组20人。两室隔着走廊约15英尺，没有音视频互通；开始前在同室听安排，以便知道助手将做什么。
+40名耶鲁大学学生，18—24岁，女性约48%；一人未提供人口资料，但报告无实验数据排除。所有人先做熟悉任务，再分成同室与分室，每组20人。这段方法写明两组各半，未明确说明空间条件的随机分配程序，不自行补写。两室隔着走廊约15英尺，没有音视频互通；开始前在同室听安排，以便知道助手将做什么。
 
 | 0—10分复合指标 | 同室：共同／非共同 | 两室：共同／非共同 | 距离×共享交互 |
 | --- | --- | --- | --- |
