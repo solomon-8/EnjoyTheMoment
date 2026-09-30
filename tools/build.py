@@ -88,6 +88,7 @@ EVIDENCE = [
     ("F43", "docs/evidence/F43-hanabi-information.md"),
     ("F44", "docs/evidence/F44-festival-and-time.md"),
     ("F45", "docs/evidence/F45-magi-and-giving.md"),
+    ("F46", "docs/evidence/F46-puzzle-structures.md"),
 ]
 EVIDENCE_KINDS = {
     "F01": "official_statistics",
@@ -135,6 +136,7 @@ EVIDENCE_KINDS = {
     "F43": "publisher_game_rules",
     "F44": "official_heritage_description",
     "F45": "literary_primary_text",
+    "F46": "mathematics_textbook_and_original_examples",
 }
 RELATIONS = [
     {"card_ids": ["J033"], "background_ids": ["B01"], "essay_ids": ["E04"]},

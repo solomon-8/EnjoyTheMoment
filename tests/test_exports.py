@@ -832,7 +832,7 @@ class ExportTests(unittest.TestCase):
             self.assertEqual(chapters[identifier]["card_ids"], [])
             self.assertIn(chapters[identifier]["text"], self.outputs["llms-full.txt"])
         self.assertEqual(chapters["C31"]["text"].count("<details>"), 1)
-        self.assertEqual(chapters["C32"]["text"].count("<details>"), 4)
+        self.assertEqual(chapters["C32"]["text"].count("<details>"), 8)
         self.assertEqual(notes["F24"]["text"].count("<details>"), 1)
         self.assertIn("没有直接交代第三个愿望的具体措辞", chapters["C31"]["text"])
         self.assertIn("不是作者访谈、观众反应研究", notes["F24"]["text"])
@@ -951,6 +951,41 @@ class ExportTests(unittest.TestCase):
         self.assertIn('href="#n08"', html)
         self.assertTrue(all(not ({"F44", "F45"} & set(c["background_ids"]))
                             for c in self.export["cards"]))
+
+    def test_puzzle_structures_export_conditions_and_folded_answers(self):
+        chapters = {c["id"]: c for c in json.loads(self.outputs["data/chapters.json"])["chapters"]}
+        notes = {n["id"]: n for n in json.loads(self.outputs["data/evidence.json"])["notes"]}
+        text = (ROOT / "book/32-puzzles.md").read_text()
+        self.assertEqual(chapters["C32"]["text"], text.strip())
+        self.assertIn(text, self.outputs["llms-full.txt"])
+        html = build.markdown(text, "book/32-puzzles.md")
+        for anchor in ("puzzle-cards", "puzzle-roads", "puzzle-invariants",
+                       "puzzle-rule-change", "puzzle-knowing"):
+            self.assertIn('id="' + anchor + '"', html)
+            self.assertIn('href="#' + anchor + '"', html)
+        note = notes["F46"]
+        self.assertEqual(note["source_kind"], "mathematics_textbook_and_original_examples")
+        self.assertEqual(note["text"], (ROOT / note["source"]).read_text())
+        self.assertIn(note["text"], self.outputs["llms-full.txt"])
+        self.assertIn('href="#f46"', html)
+        self.assertIn('href="#c32"', build.markdown(note["text"], note["source"]))
+        self.assertEqual(html.count("<details>"), 8)
+        self.assertNotIn("<details open", html)
+        folds = re.findall(r"<details>(.*?)</details>", text, re.S)
+        self.assertIn("B → A → C → B → D → C", folds[5])
+        self.assertIn("00000 → 11000 → 10100 → 10010 → 10001", folds[6])
+        self.assertIn("8个可达状态", folds[7])
+        for marker in ("有边地点连通", "却已不足以保证可达", "不是实际景区路线",
+                       "不要求接电", "必要条件"):
+            self.assertIn(marker, text)
+        self.assertEqual(html.count('src="data:image/png;base64,'), 1)
+        figures = re.findall(r"!\[([^\]]+)\]\(([^)]+)\)", text)
+        self.assertEqual(len(figures), 1)
+        self.assertGreater(len(figures[0][0]), 100)
+        self.assertTrue(all("F46" not in card["background_ids"] for card in self.export["cards"]))
+        for marker in ("2018-06-06", "1,048", "17th century", "未读取Euler论文",
+                       "未核读该习题", "63个", "32种", "16个", "8个"):
+            self.assertIn(marker, note["text"])
 
     def test_celebration_spoilers_dates_and_evidence_limits(self):
         text = (ROOT / "book/18-celebration.md").read_text()

@@ -95,6 +95,10 @@ The Public Life Data Protocol was jointly developed by Gehl Institute, Gehl, the
 
 [F36](evidence/F36-midtown-public-space.md)另采用 NACTO 托管的 NYC DOT 历史报告。托管方、报告作者、观察记录与本书解释分开，不把两份材料说成同一项目的数据链。各机构未审核或为本项目背书。
 
+## 数学知识与原创题面
+
+[解谜章节](../book/32-puzzles.md)以 Eric Lehman、F Thomson Leighton、Albert R Meyer 的 *Mathematics for Computer Science*（指定2018年修订稿）为欧拉路线与不变量的知识来源，实际读取及版本问题见 [F46](evidence/F46-puzzle-structures.md)。来源标为CC BY-SA 3.0；本书不转载其页面、插图、题目表述或逐段翻译。四地点道路题、五灯规则及变体、图解和有限程序由本项目独立编写，数学事实不冒称本项目发现，教材也不替享乐主张背书。
+
 ## 开放游戏规则
 
 [第 34 章](../book/34-shared-stories.md)及 [F32](evidence/F32-action-and-consequences.md)、[F33](evidence/F33-aspects-and-shared-fiction.md)转述 *Blades in the Dark* 与 *Fate Condensed* 的指定开放规则。两者相应 SRD 采用 CC BY 3.0 Unported；本书的中文解释、对比和场景是改写，不是官方中文译本。完整要求署名保留在章节、来源笔记和仓库 LICENSE 中，不把开放规则冒称 MIT 原创。
