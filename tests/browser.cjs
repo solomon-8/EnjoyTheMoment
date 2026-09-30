@@ -466,7 +466,22 @@ const { chromium } = require("playwright");
     assert.equal(await page.locator(".chapter-intro:visible").count(), 1);
     await page.goto(url + "#c29");
     await page.waitForFunction(() => document.getElementById("c29").open);
-    assert.equal(await page.locator("#c29 .prose table").count(), 2);
+    assert.equal(await page.locator("#c29 .prose table").count(), 3);
+    for (const anchor of ["moon-rotation", "moon-day-and-night", "moon-changing-view",
+                          "moon-knowledge-and-wonder"]) {
+      await page.locator(`#c29 a[href='#${anchor}']`).first().click();
+      assert.equal(new URL(page.url()).hash, "#" + anchor);
+      assert(await page.locator("#c29 .prose").isVisible());
+    }
+    const moonImage = page.locator("#c29 .prose img");
+    await moonImage.scrollIntoViewIfNeeded();
+    await moonImage.evaluate(img => img.decode());
+    assert(await moonImage.evaluate(img => img.naturalWidth === 720 && img.alt.includes("1右")));
+    await page.locator("#c29 a[href='#f56']").first().click();
+    await page.waitForFunction(() => document.getElementById("f56").open);
+    assert.match(await page.locator("#f56 .prose").textContent(), /不把静态占位当成2026年的有效星历/);
+    await page.locator("#f56 a[href='#moon-rotation']").last().click();
+    assert.equal(new URL(page.url()).hash, "#moon-rotation");
     assert.match(await page.locator("#c29 .prose").textContent(), /多数纬度/);
     await page.locator("#c29 .prose table").first().scrollIntoViewIfNeeded();
     await page.screenshot({path: "/tmp/enjoythemoment-sky-desktop.png", fullPage: false});
@@ -832,8 +847,11 @@ const { chromium } = require("playwright");
     for (const id of ["c29", "c30"]) {
       await staticPage.locator(`#${id} > summary`).click();
       assert(await staticPage.locator(`#${id} .prose`).isVisible());
-      assert.equal(await staticPage.locator(`#${id} .prose table`).count(), 2);
+      assert.equal(await staticPage.locator(`#${id} .prose table`).count(), id === "c29" ? 3 : 2);
     }
+    await staticPage.locator("#c29 .prose img").scrollIntoViewIfNeeded();
+    await staticPage.locator("#c29 .prose img").evaluate(img => img.decode());
+    assert(await staticPage.locator("#c29 .prose img").isVisible());
     await staticPage.locator("#c31 > summary").click();
     assert.equal(await staticPage.locator("#c31 .prose details p").first().isVisible(), false);
     await staticPage.locator("#c31 .prose details > summary").click();

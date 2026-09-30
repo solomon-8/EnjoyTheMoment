@@ -47,3 +47,7 @@
 ## 新鲜感原创线框
 
 `novelty-cube.svg` 与同源渲染的 `novelty-cube.png` 是本书按通用内克尔立方体结构独立绘制的说明图，原创坐标、排版与提示采用MIT许可，不声称发明该概念。上图十二边同粗，A/B下图分别加粗左下和右上正方形；不是动画、照片、实验刺激或视觉训练。没有复制或描摹来源图片及交互，也未将源端CC BY-NC-SA文字或CC BY-NC-ND媒体收入本地资产；来源与边界见 [F49](../../docs/evidence/F49-novelty-and-perception.md)。
+
+## 月球自转原创关系图
+
+`moon-rotation.svg` 与同源渲染的 `moon-rotation.png` 是本项目原创四位置图，采用MIT许可，由 [moon_examples.py](../../tools/moon_examples.py)生成。上图同一面始终朝地，下图相对图纸不自转；黑点是固定标记，不表示受光区域。图为二维理想圆轨道、均匀运动与俯视模型，大小距离不按比例，不是星历、当地夜空或NASA动画复刻。没有使用月面照片、视频、地图、机构标志或AI生成图像。正文及替代文本同时给出方向顺序；来源与有限检验范围见 [F56](../../docs/evidence/F56-moon-rotation-and-view.md)。

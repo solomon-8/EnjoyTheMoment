@@ -337,6 +337,7 @@
 - [F53 · 场景、说法与推断](evidence/F53-open-window.md)：Saki《The Open Window》的指定数字文本，用于[阅读章节](../book/22-reading.md#reading-open-window)。保留人物所述事故与场景事实、相似特征与因果解释的区别；完整情节置于剧透折叠区，文本分析不是受众实验。
 - [F54 · 作者自述与作品版本](evidence/F54-bedroom-letters.md)：《梵高书信》705、706的学术编辑版英译、元数据及注释，用于[看画章节](../book/25-looking-at-art.md#art-letters-and-versions)。1888年信件不等于1889年第二版的同期说明；编者定年、草图判断、作者意图与观众反应分开，保留馆藏简介与信件引文差异。
 - [F55 · 变色、修复与数字重建](evidence/F55-bedroom-conservation.md)：梵高博物馆1888年《卧室》的对象记录与修复科普，用于[材料历史](../book/25-looking-at-art.md#art-material-history)。遮光边缘、旧补色和染料研究按馆方说明转述；未读完整实验、未核看微观图像或重建交互，不将重建解释当观众效果实验。
+- [F56 · 月球自转、昼夜与观看角度](evidence/F56-moon-rotation-and-view.md)：NASA潮汐锁定科普与SVS可视化文字说明，用于[同步自转图解](../book/29-night-sky.md#moon-rotation)。同一面朝地不等于不自转或永久白昼；月相、天平动、轴的位置角及视直径分开。未查看动画或年度星历数据，原创四位置模型不是实际预报或快乐效果研究。
 
 F 系列不计入上面的二十篇背景研究。事实、教学、文学文本、访客指导、作品与图像、乐谱、影片与历史目录、舞蹈来源、体育规则、监管报告、供应商技术手册、服装记录、哲学与创作者文本、声学、型号说明、嗓音指导、游戏规则、数学教材、剧场与文化遗产描述及研究阅读记录共同收入 `data/evidence.json`，用 `source_kind` 区分。
 
