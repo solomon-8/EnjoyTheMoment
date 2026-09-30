@@ -959,6 +959,49 @@ const { chromium } = require("playwright");
       assert.deepEqual(network, []);
       await context.close();
     }
+    // Spending: future costs and use remain distinct from original payments.
+    for (const javaScriptEnabled of [true, false]) {
+      const context = await browser.newContext({viewport: {width: 390, height: 844}, javaScriptEnabled, reducedMotion: "reduce"});
+      const spending = await context.newPage();
+      const failures = [], network = [];
+      spending.on("pageerror", error => failures.push(error.message));
+      spending.on("request", request => {if (/^https?:/.test(request.url())) network.push(request.url());});
+      await spending.goto(url + (javaScriptEnabled ? "#c06" : ""));
+      if (!javaScriptEnabled) await spending.locator("#c06 > summary").click();
+      assert.match(await spending.locator("#c06 .prose").textContent(), /钱买来的应该是你想过的生活/);
+      for (const anchor of ["spending-pass-arithmetic", "spending-theatre-study", "spending-future-cost"]) {
+        if (javaScriptEnabled) {
+          await spending.locator(`#c06 a[href='#${anchor}']`).first().click();
+          assert.equal(new URL(spending.url()).hash, "#" + anchor);
+        }
+        await spending.locator("#" + anchor).scrollIntoViewIfNeeded();
+      }
+      assert.equal(await spending.locator("#c06 .prose table").count(), 3);
+      for (const table of await spending.locator("#c06 .prose table").all()) {
+        assert((await table.boundingBox()).width <= 350);
+      }
+      if (javaScriptEnabled) {
+        await spending.locator("#c06 a[href='#n20']").first().click();
+        await spending.waitForFunction(() => document.getElementById("n20").open);
+      } else {
+        await spending.locator("#n20 > summary").click();
+      }
+      for (const selector of ["#c06 .prose", "#n20 .prose"]) {
+        const shape = await spending.locator(selector).evaluate(el => ({client: el.clientWidth, scroll: el.scrollWidth}));
+        assert(shape.scroll <= shape.client + 1, selector);
+      }
+      assert.match(await spending.locator("#n20 .prose").textContent(), /单尾p < .05/);
+      const doi = spending.locator("#n20 a[href='https://doi.org/10.1016/0749-5978%2885%2990049-4']");
+      assert.equal(await doi.count(), 1);
+      if (javaScriptEnabled) {
+        await spending.locator("#n20 a[href='#spending-theatre-study']").last().click();
+        assert.equal(new URL(spending.url()).hash, "#spending-theatre-study");
+        assert(await spending.locator("#c06 .prose").isVisible());
+      }
+      assert.deepEqual(failures, []);
+      assert.deepEqual(network, []);
+      await context.close();
+    }
     console.log("OK: offline, filters, empty state, deep links, keyboard, 390px, dark/reduced motion, print, no-JS, zero external requests");
   } finally {
     await browser.close();
