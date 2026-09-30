@@ -48,6 +48,8 @@ EVIDENCE = [
     ("N18", "docs/evidence/B18-experience-and-memory.md"),
     ("N19", "docs/evidence/B19-price-and-pleasantness.md"),
     ("N20", "docs/evidence/B20-sunk-cost.md"),
+    ("N21", "docs/evidence/B21-shared-amplification.md"),
+    ("N22", "docs/evidence/B22-shared-distance.md"),
     ("F01", "docs/evidence/F01-time-use.md"),
     ("F02", "docs/evidence/F02-listening-language.md"),
     ("F03", "docs/evidence/F03-film-language.md"),

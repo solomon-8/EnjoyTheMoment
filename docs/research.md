@@ -267,6 +267,30 @@
 - **我们如何使用**：[第6章](../book/06-spending.md#spending-theatre-study)区别旧付款、未来代价、已有机会与喜欢；平均单价算例为本书假设，不是研究数据。
 - **关键限制**：一处剧场早期购买者、分配后排除、来宾票解释与单尾检验；多数为情境问卷，未测福祉。晚餐题去掉2个回答、补充实验细节不足、个人卷入结果不一，均保留在阅读记录中。
 
+## B21 · 共同经历不等于共同变开心
+
+- **核读日期**：2026-09-30。
+- **文献**：Erica J. Boothby, Margaret S. Clark, John A. Bargh. *Shared Experiences Are Amplified*. Psychological Science, 25(12), 2209–2216（2014）。
+- **DOI**：[10.1177/0956797614551162](https://doi.org/10.1177/0956797614551162)。
+- **实际读取**：`full_text`；[作者实验室托管的分期版PDF](https://clarkrelationshiplab.yale.edu/sites/default/files/files/BoothbyClarkBargh%281%29.pdf)，8页；核读方法、结果和讨论，核看结果图，并与OnlineFirst提取正文比较。Crossref核对标识与日期；未核验原始数据、全部复现和勘误。[详细记录](evidence/B21-shared-amplification.md)。
+- **设计与对象**：23名、22名女性本科生的两项被试内实验，比较共同品尝与助手在场但看别的材料；没有独处组。
+- **有限结论**：愉快材料共同条件喜欢评分7.00对5.46；苦材料共同条件2.45对3.16。与放大解释相符，不是共享必然愉快；其他指标不全显著。
+- **不能推出**：朋友越多越开心、共同经历胜过独处、心情或关系必然改善，或注意力中介已经成立。
+- **我们如何使用**：[第5章](../book/05-connection.md#connection-amplification)区分对象评价、强度、心情与相处价值，不给行动卡效果背书。
+- **关键限制**：小样本、短时实验、助手不是实际朋友；研究2助手实际吃较愉快巧克力，参与者以为在共享；沉浸p=.14，事后心理思考p=.09，中介未成立。
+
+## B22 · 共同经历受到哪些条件影响
+
+- **核读日期**：2026-09-30。
+- **文献**：Erica J. Boothby, Leigh K. Smith, Margaret S. Clark, John A. Bargh. *Psychological Distance Moderates the Amplification of Shared Experience*. Personality and Social Psychology Bulletin, 42(10), 1431–1444（2016）。
+- **DOI**：[10.1177/0146167216662869](https://doi.org/10.1177/0146167216662869)。
+- **实际读取**：`full_text`；[作者实验室托管的分期版PDF](https://clarkrelationshiplab.yale.edu/sites/default/files/files/BoothbySmithClarkBargh.pdf)，14页；读取两实验方法、结果、讨论、附录与脚注，目视核看图表，并对照提前在线副本。Crossref核对标识与日期，未核验原始数据、全部复现和勘误。[详细记录](evidence/B22-shared-distance.md)。
+- **设计与对象**：研究1主要44名女性，先交谈或不交谈，另21名独处者作探索比较；研究2有40名学生，先认识再分同室或无音视频的两室。共享因素为被试内。
+- **有限结论**：共享与非共享评分差异受到上述条件调节；研究2体验享受交互显著，但同室p=.127、两室p=.064的简单比较均未显著。
+- **不能推出**：熟人全面胜过陌生人、独处最差、线上相聚无效，或每次见面都有固定收益。
+- **我们如何使用**：[第5章](../book/05-connection.md#connection-distance)保留具体参与者、共同内容与在场方式的区别；价值立场与日常例子为本书论证。
+- **关键限制**：同B21团队而非独立复现；复合指标含风味或沉浸；另招独处组的探索比较不全显著，十分钟熟悉不是多年好友，分室不是网络相聚。
+
 ## 事实、教学与文本来源：与背景研究分开
 
 [F01 · 平均的空闲，不是每个人的空闲](evidence/F01-time-use.md)核读国家统计局于 2024 年 10 月 31 日发布的第三次全国时间利用调查第二、第三号公报。它用于[第 09 章](../book/09-constrained.md)的时间与分工讨论，保留总体均值、参与者均值、参与率及活动定义的区别。

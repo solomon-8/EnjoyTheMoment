@@ -191,11 +191,54 @@ class ExportTests(unittest.TestCase):
         for phrase in ("不对应任何实际商家", "没有其他费用", "用了第四次，之后就少一次可用", "不可退款"):
             self.assertIn(phrase, text)
 
+    def test_shared_experience_sources_preserve_design_and_limits(self):
+        records = {item["id"]: item for item in json.loads(self.outputs["data/research.json"])["records"]}
+        notes = {item["id"]: item for item in json.loads(self.outputs["data/evidence.json"])["notes"]}
+        for bid, nid, doi in (
+            ("B21", "N21", "10.1177/0956797614551162"),
+            ("B22", "N22", "10.1177/0146167216662869"),
+        ):
+            self.assertEqual(records[bid]["doi"], doi)
+            self.assertEqual(records[bid]["verified_at"], "2026-09-30")
+            self.assertEqual(records[bid]["access_level"], "full_text")
+            self.assertFalse(records[bid]["directly_validates_cards"])
+            note = notes[nid]
+            self.assertEqual(note["source_kind"], "study_reading_note")
+            self.assertEqual(note["text"], (ROOT / note["source"]).read_text())
+            self.assertIn(note["text"], self.outputs["llms-full.txt"])
+            self.assertTrue(all(bid not in card["background_ids"] for card in self.export["cards"]))
+            self.assertIn('href="#' + nid.lower() + '"', self.outputs["index.html"])
+        for phrase in ("没有独处组", "23名", "22名", "7.00", "5.46", "2.45", "3.16",
+                       "p=.14", "p=.09", "助手在共同条件里实际吃的是较愉快的巧克力", "没有对品尝评价产生中介效应"):
+            self.assertIn(phrase, notes["N21"]["text"])
+        for phrase in ("44名", "另招21人", "40名", "p=.330", "p=.243", "p=.261",
+                       "p=.127", "p=.064", "复合指标", "同一随机分配流程", "不是独立团队确认", "未明确说明空间条件的随机分配程序"):
+            self.assertIn(phrase, notes["N22"]["text"])
+
+    def test_connection_chapter_keeps_argument_and_deep_links(self):
+        chapter = next(item for item in json.loads(self.outputs["data/chapters.json"])["chapters"] if item["id"] == "C05")
+        # Chapter exports contain the full introduction; published action cards stay separate.
+        text = (ROOT / "book/05-connection.md").read_text().split('<a id="j025">')[0].strip()
+        self.assertIn("不是为了给未来存一笔人情", chapter["text"])
+        for anchor in ("connection-shared-attention", "connection-amplification", "connection-distance",
+                       "connection-difference", "connection-not-a-tool"):
+            self.assertIn('id="' + anchor + '"', chapter["text"])
+            self.assertEqual(self.outputs["index.html"].count('id="' + anchor + '"'), 1)
+        for phrase in ("两种情况下助手都在场", "注意力是不是中间机制，论文没有证明",
+                       "没有视频、语音或聊天", "共同注意和相互考核", "这一晚也可以已经兑现",
+                       "不是四档亲密排行榜"):
+            self.assertIn(phrase, text)
+            self.assertIn(phrase, chapter["text"])
+        for path in ("docs/ai.md", "skills/enjoy-the-moment/SKILL.md", "llms.txt"):
+            self.assertIn("C05/B21/B22/N21/N22", (ROOT / path).read_text())
+        self.assertIn('href="#connection-amplification"', self.outputs["index.html"])
+        self.assertIn('href="#connection-distance"', self.outputs["index.html"])
+
     def test_background_does_not_validate_cards(self):
         research = json.loads(self.outputs["data/research.json"])
         ids = {record["id"] for record in research["records"]}
-        self.assertEqual(sum(record["access_level"] == "full_text" for record in research["records"]), 20)
-        self.assertEqual(ids, {"B01", "B02", "B03", "B04", "B05", "B06", "B07", "B08", "B09", "B10", "B11", "B12", "B13", "B14", "B15", "B16", "B17", "B18", "B19", "B20"})
+        self.assertEqual(sum(record["access_level"] == "full_text" for record in research["records"]), 22)
+        self.assertEqual(ids, {"B01", "B02", "B03", "B04", "B05", "B06", "B07", "B08", "B09", "B10", "B11", "B12", "B13", "B14", "B15", "B16", "B17", "B18", "B19", "B20", "B21", "B22"})
         for card in self.export["cards"]:
             self.assertTrue(card["background_is_not_validation"])
             self.assertTrue(set(card["background_ids"]).issubset(ids))
@@ -212,7 +255,7 @@ class ExportTests(unittest.TestCase):
         self.assertEqual(records["B14"]["verified_at"], "2026-09-30")
         self.assertEqual(records["B03"]["verified_at"], "2026-09-30")
         self.assertTrue(all(item["verified_at"] == "2026-09-29"
-                            for key, item in records.items() if key not in {"B03", "B14", "B15", "B16", "B17", "B18", "B19", "B20"}))
+                            for key, item in records.items() if key not in {"B03", "B14", "B15", "B16", "B17", "B18", "B19", "B20", "B21", "B22"}))
         for item in records.values():
             self.assertEqual(item["verified_at"], item["fields"]["核读日期"].rstrip("。"))
         # A newly read source must not silently inherit a global date.
@@ -292,7 +335,7 @@ class ExportTests(unittest.TestCase):
         self.assertEqual(note["text"], (ROOT / note["source"]).read_text())
         self.assertIn(note["text"], self.outputs["llms-full.txt"])
         records = json.loads(self.outputs["data/research.json"])["records"]
-        self.assertEqual(len(records), 20)
+        self.assertEqual(len(records), 22)
         self.assertNotIn("F27", {record["id"] for record in records})
         for phrase in ("没有直接核读", "1989", "二手", "不是行为实验",
                        "不声称独创", "不改变行动卡"):
@@ -548,7 +591,7 @@ class ExportTests(unittest.TestCase):
         notes = {item["id"]: item for item in
                  json.loads(self.outputs["data/evidence.json"])["notes"]}
         records = json.loads(self.outputs["data/research.json"])["records"]
-        self.assertEqual(len(records), 20)
+        self.assertEqual(len(records), 22)
         self.assertEqual(notes["F25"]["source_kind"], "supplier_technical_handbook")
         self.assertEqual(notes["F26"]["source_kind"], "fashion_record_and_image")
         for identifier in ("F25", "F26"):
@@ -630,7 +673,7 @@ class ExportTests(unittest.TestCase):
         self.assertIn('href="#f37"', rendered)
         self.assertIn('href="#n13"', rendered)
         self.assertIn('href="#c24"', build.markdown(note["text"], note["source"]))
-        self.assertEqual(len(json.loads(self.outputs["data/research.json"])["records"]), 20)
+        self.assertEqual(len(json.loads(self.outputs["data/research.json"])["records"]), 22)
         self.assertTrue(all("F37" not in card["background_ids"]
                             for card in self.export["cards"]))
 
@@ -688,7 +731,7 @@ class ExportTests(unittest.TestCase):
             self.assertIn(note["text"], self.outputs["llms-full.txt"])
             self.assertIn('href="#' + identifier.lower() + '"', rendered)
             self.assertIn('href="#c17"', build.markdown(note["text"], note["source"]))
-        self.assertEqual(len(json.loads(self.outputs["data/research.json"])["records"]), 20)
+        self.assertEqual(len(json.loads(self.outputs["data/research.json"])["records"]), 22)
         self.assertIn("同一页面", notes["F28"]["text"])
         self.assertIn("1965 A.D.", notes["F28"]["text"])
         self.assertIn("未取得原始手稿", notes["F28"]["text"])
@@ -877,7 +920,7 @@ class ExportTests(unittest.TestCase):
         self.assertIn("技能为 2，合计 3，对难度 4 还差 1", text)
         self.assertIn("结果变为 5", text)
         self.assertEqual(len(self.export["cards"]), 60)
-        self.assertEqual(len(json.loads(self.outputs["data/research.json"])["records"]), 20)
+        self.assertEqual(len(json.loads(self.outputs["data/research.json"])["records"]), 22)
 
     def test_shared_stories_dice_table_matches_exhaustive_outcomes(self):
         text = (ROOT / "book/34-shared-stories.md").read_text()
@@ -944,7 +987,7 @@ class ExportTests(unittest.TestCase):
         self.assertIn("未播放页面音视频", notes["F30"]["text"])
         self.assertIn("Version: 6.4 (2024-F)", notes["F31"]["text"])
         self.assertIn("June 11, 2025", notes["F31"]["text"])
-        self.assertEqual(len(json.loads(self.outputs["data/research.json"])["records"]), 20)
+        self.assertEqual(len(json.loads(self.outputs["data/research.json"])["records"]), 22)
         self.assertEqual(len(self.export["cards"]), 60)
 
     def test_singing_examples_preserve_intervals_and_round_offset(self):
@@ -1085,7 +1128,7 @@ class ExportTests(unittest.TestCase):
             self.assertIn(note["text"], self.outputs["llms-full.txt"])
             self.assertIn('href="#' + identifier.lower() + '"', rendered)
             self.assertIn('href="#c26"', build.markdown(note["text"], note["source"]))
-        self.assertEqual(len(json.loads(self.outputs["data/research.json"])["records"]), 20)
+        self.assertEqual(len(json.loads(self.outputs["data/research.json"])["records"]), 22)
         self.assertTrue(all(not ({"F38", "F39"} & set(c["background_ids"]))
                             for c in self.export["cards"]))
 
@@ -1576,7 +1619,7 @@ class ExportTests(unittest.TestCase):
             self.assertIn(text, notes["F16"]["text"])
         self.assertEqual(build.local_href("../docs/evidence/F15-musical-scores.md", "book/11-music.md"), "#f15")
         self.assertEqual(build.local_href("../docs/evidence/F16-train-robbery.md", "book/12-film.md"), "#f16")
-        self.assertEqual(len(json.loads(self.outputs["data/research.json"])["records"]), 20)
+        self.assertEqual(len(json.loads(self.outputs["data/research.json"])["records"]), 22)
 
     def test_film_ending_is_inside_opt_in_spoiler_block(self):
         text = (ROOT / "book/12-film.md").read_text()
@@ -1689,7 +1732,7 @@ class ExportTests(unittest.TestCase):
         for phrase in ("2026-09-30", "2026-10-01", "生效日尚未到来", "14 秒", "24 秒",
                        "触及对方篮圈", "本书虚构假设", "不是 NBA"):
             self.assertIn(phrase, notes["F19"]["text"])
-        self.assertEqual(len(json.loads(self.outputs["data/research.json"])["records"]), 20)
+        self.assertEqual(len(json.loads(self.outputs["data/research.json"])["records"]), 22)
         self.assertEqual(build.local_href("../docs/evidence/F19-basketball-rules.md", "book/28-watching-sport.md"), "#f19")
 
     def test_sport_illustration_and_hypothetical_math_are_explicit(self):
