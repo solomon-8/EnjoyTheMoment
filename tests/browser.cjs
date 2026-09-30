@@ -95,7 +95,7 @@ const { chromium } = require("playwright");
     assert.match(await page.locator("#c03 .prose").textContent(), /新鲜感，不是生活不及格后的补考/);
     await page.goto(url + "#c06");
     await page.waitForFunction(() => document.getElementById("c06").open);
-    assert.equal(await page.locator("#c06 .prose table").count(), 1);
+    assert.equal(await page.locator("#c06 .prose table").count(), 3);
     await page.goto(url + "#c08");
     await page.waitForFunction(() => document.getElementById("c08").open);
     await page.locator("#c08 a[href='#n05']").click();
