@@ -87,8 +87,9 @@ class ExportTests(unittest.TestCase):
     def test_research_reading_dates_come_from_each_canonical_record(self):
         records = {item["id"]: item for item in json.loads(self.outputs["data/research.json"])["records"]}
         self.assertEqual(records["B14"]["verified_at"], "2026-09-30")
+        self.assertEqual(records["B03"]["verified_at"], "2026-09-30")
         self.assertTrue(all(item["verified_at"] == "2026-09-29"
-                            for key, item in records.items() if key not in {"B14", "B15", "B16"}))
+                            for key, item in records.items() if key not in {"B03", "B14", "B15", "B16"}))
         for item in records.values():
             self.assertEqual(item["verified_at"], item["fields"]["核读日期"].rstrip("。"))
         # A newly read source must not silently inherit a global date.
@@ -951,6 +952,57 @@ class ExportTests(unittest.TestCase):
         self.assertIn('href="#n08"', html)
         self.assertTrue(all(not ({"F44", "F45"} & set(c["background_ids"]))
                             for c in self.export["cards"]))
+
+    def test_novelty_chapter_keeps_prose_card_and_source_boundaries(self):
+        chapters = {c["id"]: c for c in json.loads(self.outputs["data/chapters.json"])["chapters"]}
+        notes = {n["id"]: n for n in json.loads(self.outputs["data/evidence.json"])["notes"]}
+        text = (ROOT / "book/03-novelty.md").read_text()
+        prose = text.split('<a id="j013"></a>', 1)[0].strip()
+        self.assertEqual(chapters["C03"]["text"], prose)
+        self.assertIn(prose, self.outputs["llms-full.txt"])
+        self.assertEqual(chapters["C03"]["card_ids"], [f"J{i:03d}" for i in range(13, 19)])
+        html = build.markdown(prose, "book/03-novelty.md")
+        for anchor in ("novelty-cube", "novelty-uncertainty", "novelty-learning",
+                       "novelty-repeat", "novelty-intensity"):
+            self.assertIn('id="' + anchor + '"', html)
+            self.assertIn('href="#' + anchor + '"', html)
+        note = notes["F49"]
+        self.assertEqual(note["source_kind"], "researcher_authored_explainer")
+        self.assertEqual(note["text"], (ROOT / note["source"]).read_text())
+        self.assertIn(note["text"], self.outputs["llms-full.txt"])
+        self.assertIn('href="#f49"', html)
+        self.assertIn('href="#n03"', html)
+        self.assertIn('href="#novelty-cube"', build.markdown(note["text"], note["source"]))
+        self.assertTrue(all("F49" not in c["background_ids"] for c in self.export["cards"]))
+        self.assertEqual(html.count('src="data:image/png;base64,'), 1)
+        self.assertIn("不是本书这张立方体图的实验", text)
+
+    def test_novelty_diagram_is_static_and_described_without_color_dependency(self):
+        svg = (ROOT / "assets/media/novelty-cube.svg").read_text()
+        root = ET.fromstring(svg)
+        self.assertEqual(root.attrib["viewBox"], "0 0 840 880")
+        self.assertNotIn("<animate", svg)
+        self.assertNotIn("<script", svg)
+        self.assertNotIn("<image", svg)
+        ns = {"s": "http://www.w3.org/2000/svg"}
+        wires = [root.find(f".//s:g[@id='{key}']/s:path", ns).attrib["d"]
+                 for key in ("wireframe", "interpretation-a", "interpretation-b")]
+        self.assertEqual(len(set(wires)), 1)
+        text = (ROOT / "book/03-novelty.md").read_text()
+        alt = re.search(r"!\[([^\]]+)\]\(\.\./assets/media/novelty-cube.png\)", text).group(1)
+        for marker in ("十二条边", "左下", "右上", "没有动画", "平面线条"):
+            self.assertIn(marker, alt)
+        self.assertGreater(len(alt), 100)
+
+    def test_novelty_policy_does_not_upgrade_the_richness_proof(self):
+        notes = {n["id"]: n for n in json.loads(self.outputs["data/evidence.json"])["notes"]}
+        for marker in ("Under Review", "HTTP 403", "没有把这层转引", "内克尔立方体"):
+            if marker == "没有把这层转引":
+                self.assertIn(marker, (ROOT / "book/03-novelty.md").read_text())
+            else:
+                self.assertIn(marker, notes["N03"]["text"])
+        for path in ("docs/ai.md", "llms.txt", "skills/enjoy-the-moment/SKILL.md"):
+            self.assertIn("C03/F49/B03", (ROOT / path).read_text())
 
     def test_solitude_literary_sources_and_navigation_survive_exports(self):
         chapters = {c["id"]: c for c in json.loads(self.outputs["data/chapters.json"])["chapters"]}

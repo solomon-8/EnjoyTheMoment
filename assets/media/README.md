@@ -43,3 +43,7 @@
 `theatre-layouts.svg` 与从其渲染的 `theatre-layouts.png` 为本项目原创俯视示意，采用 MIT 许可。图只表达镜框式、伸出式与四面围合的观众方向关系，未使用馆方照片、真实场馆图纸、人物影像或 AI 图像；不按比例，不提供选座、声场、无障碍或疏散方案。分类来源见 [F40](../../docs/evidence/F40-theatre-space.md)，正文与替代文本见[现场章节](../../book/13-live-events.md#live-space)。
 
 `offside-timing.svg` 为本项目原创的越位判断时点示意，`offside-timing.png` 由该 SVG 渲染供正文和离线阅读页使用，采用本仓库 MIT 许可。没有使用真实比赛画面、官方插图、球员肖像或队标，也不是实际判罚的比例图。图点与简化情形的条件见[观赛章节](../../book/28-watching-sport.md)，规则来源见 [F18](../../docs/evidence/F18-football-rules.md)。
+
+## 新鲜感原创线框
+
+`novelty-cube.svg` 与同源渲染的 `novelty-cube.png` 是本书按通用内克尔立方体结构独立绘制的说明图，原创坐标、排版与提示采用MIT许可，不声称发明该概念。上图十二边同粗，A/B下图分别加粗左下和右上正方形；不是动画、照片、实验刺激或视觉训练。没有复制或描摹来源图片及交互，也未将源端CC BY-NC-SA文字或CC BY-NC-ND媒体收入本地资产；来源与边界见 [F49](../../docs/evidence/F49-novelty-and-perception.md)。

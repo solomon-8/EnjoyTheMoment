@@ -91,6 +91,7 @@ EVIDENCE = [
     ("F46", "docs/evidence/F46-puzzle-structures.md"),
     ("F47", "docs/evidence/F47-walden-solitude.md"),
     ("F48", "docs/evidence/F48-room-and-freedom.md"),
+    ("F49", "docs/evidence/F49-novelty-and-perception.md"),
 ]
 EVIDENCE_KINDS = {
     "F01": "official_statistics",
@@ -141,6 +142,7 @@ EVIDENCE_KINDS = {
     "F46": "mathematics_textbook_and_original_examples",
     "F47": "literary_primary_text",
     "F48": "literary_primary_text",
+    "F49": "researcher_authored_explainer",
 }
 RELATIONS = [
     {"card_ids": ["J033"], "background_ids": ["B01"], "essay_ids": ["E04"]},
