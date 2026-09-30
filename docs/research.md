@@ -332,6 +332,8 @@
 
 - [F49 · 同一组线的不同读法](evidence/F49-novelty-and-perception.md)：研究者署名说明与本书原创线框，用于[新鲜感章节](../book/03-novelty.md)。两种空间读法、二维读法与本书日常类比分开；不是快乐实验，也不是B03所用刺激。
 - [F50 · 认知劳动与能否下班](evidence/F50-cognitive-labor.md)：Allison Daminger的作者项目介绍，用于[自由与分工章节](../book/09-constrained.md#constrained-cognitive)。预见、寻找、决定、跟进与执行分开；未读2019论文全文，项目170余次访谈不能当该文样本。朋友活动为本书类比，不是已验证的分工干预。
+- [F51 · Rosas的作品与参与版本](evidence/F51-rosas-repetition.md)：舞团作品页及Re:Rosas!项目说明，用于[舞蹈章节](../book/27-dance.md#dance-rosas)。保留编舞/共同创作/演出署名、原作与椅子段简化版的区别；未完整观演或核看教程，重复和疲惫的机构阐释不作快乐效果证据。
+- [F52 · 偶然编排与音乐舞蹈关系](evidence/F52-cunningham-chance.md)：Merce Cunningham Trust的作品记录与方法介绍，用于[舞蹈章节](../book/27-dance.md#dance-chance)。图表与偶然选择不等于临场随便跳；PQR的六种排列、三种限制结果、不同抽选分布及时间图都是本书原创模型，不是原作复原。
 
 F 系列不计入上面的二十篇背景研究。事实、教学、文学文本、访客指导、作品与图像、乐谱、影片与历史目录、舞蹈来源、体育规则、监管报告、供应商技术手册、服装记录、哲学与创作者文本、声学、型号说明、嗓音指导、游戏规则、数学教材、剧场与文化遗产描述及研究阅读记录共同收入 `data/evidence.json`，用 `source_kind` 区分。
 

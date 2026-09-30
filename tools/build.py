@@ -98,6 +98,8 @@ EVIDENCE = [
     ("F48", "docs/evidence/F48-room-and-freedom.md"),
     ("F49", "docs/evidence/F49-novelty-and-perception.md"),
     ("F50", "docs/evidence/F50-cognitive-labor.md"),
+    ("F51", "docs/evidence/F51-rosas-repetition.md"),
+    ("F52", "docs/evidence/F52-cunningham-chance.md"),
 ]
 EVIDENCE_KINDS = {
     "F01": "official_statistics",
@@ -150,6 +152,8 @@ EVIDENCE_KINDS = {
     "F48": "literary_primary_text",
     "F49": "researcher_authored_explainer",
     "F50": "researcher_authored_project_summary",
+    "F51": "creator_work_and_participation_record",
+    "F52": "artist_trust_work_and_method_record",
 }
 RELATIONS = [
     {"card_ids": ["J033"], "background_ids": ["B01"], "essay_ids": ["E04"]},
