@@ -561,6 +561,26 @@
       },
       "directly_validates_cards": false,
       "source": "docs/research.md#b28"
+    },
+    {
+      "id": "B29",
+      "title": "咖啡的感官描述，不是饮用者偏好",
+      "doi": "10.1038/s41598-020-73341-4",
+      "access_level": "full_text",
+      "verified_at": "2026-10-01",
+      "fields": {
+        "核读日期": "2026-10-01。",
+        "文献": "Mackenzie E. Batali、William D. Ristenpart、Jean-Xavier Guinard（2020）. *Brew temperature, at fixed brew strength and extraction, has little impact on the sensory profile of drip brew coffee*. Scientific Reports，10，16450。",
+        "DOI": "[10.1038/s41598-020-73341-4](https://doi.org/10.1038/s41598-020-73341-4)。",
+        "实际读取": "`full_text`；[期刊正文](https://www.nature.com/articles/s41598-020-73341-4)及14页PDF的主文、方法、资助与声明，核对公式1、表2、图6；11页补充材料重点核读表S2、S5，非全附录审核。另读[2021年勘误](https://www.nature.com/articles/s41598-021-82505-9)。[详细核读](evidence/B29-coffee-sensory.md)保留未解决图文差异。",
+        "设计与对象": "一种咖啡与商用滴滤设备，3种冲煮温度×3种目标浓度×3种目标萃取率，共27种条件、270次冲煮；12名受训成人品评员评价31种属性强度。不是270人，也没有测量喜欢程度。",
+        "有限结论": "在调整其他冲煮参数、控制目标TDS、PE及品评温度后，87–93℃范围内温度整体主效应未达显著；浓度与萃取率影响描述，不同属性不沿同一方向变化。",
+        "不能推出": "温度从来不重要、每种咖啡均适用、调低原配方水温就一定不改变风味、某一格参数人人最喜欢，或实验温度适合作饮用建议。",
+        "我们如何使用": "[C14](../book/14-flavor.md#flavor-coffee)区分浓度、萃取、描述、偏好与约定。质量账、点单情境和知识不替人决定喜欢的论证为原创，不是研究验证的家庭配方或行动卡。",
+        "关键限制": "单种咖啡、狭窄温度范围、受训小样本、统一服务温度和存放条件；温度主效应p = .11不证明等效。2021年勘误把配水量由每升改为每100升；主文仍可见旧写法，且Nutty差值、交互项和属性计数有图文差异。未复算数据、未核查现行行业认证，保留行业资助与无竞争性利益声明。"
+      },
+      "directly_validates_cards": false,
+      "source": "docs/research.md#b29"
     }
   ],
   "relations": [
