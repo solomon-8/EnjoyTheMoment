@@ -621,6 +621,46 @@
       },
       "directly_validates_cards": false,
       "source": "docs/research.md#b31"
+    },
+    {
+      "id": "B32",
+      "title": "电影情境、情绪方向与强度",
+      "doi": "10.1371/journal.pone.0308295",
+      "access_level": "full_text",
+      "verified_at": "2026-10-01",
+      "fields": {
+        "核读日期": "2026-10-01。",
+        "文献": "Zhengcao Cao等（2024），*Reexamining the Kuleshov effect: Behavioral and neural evidence from authentic film experiments*. PLOS ONE，19(8)，e0308295；2024-08-05发表。",
+        "DOI": "[10.1371/journal.pone.0308295](https://doi.org/10.1371/journal.pone.0308295)。",
+        "实际读取": "`full_text`；[出版商HTML/XML](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0308295)主文、图注与声明，目视图1/3。未核读全部补充材料、观看视频或运行数据；下载工作簿不算复核。[详细核读](evidence/B32-film-context.md)。",
+        "设计与对象": "北师大招募102人，分为12材料评级者、59行为实验、31扫描实验；2019–2023招募。灰度无声的脸—场景—同脸序列，30张脸分配三类情境，不是每张脸跨全部情境。",
+        "有限结论": "两实验面孔正负评分有条件差异；实验一演员情绪强度p = .879，未显著；实验二唤醒评分有差异，但量尺与表述须另看。正负评价不等于喜欢。",
+        "不能推出": "每个人都被剪辑操纵、导演能任意控制情绪、脑活动证明电影更好看、知识永远不影响反应，或本书看片建议能提高快乐。",
+        "我们如何使用": "[C12](../book/12-film.md#film-context-study)区分方向、强度、类别和享受；主动投入与事实核实为原创论证。",
+        "关键限制": "不同面孔与背景合成、区组顺序、量尺差异、特定样本。保留唤醒偏η²正文.406/图注.005、预评均值符号差、评价对象歧义及自由度疑问；未重算神经影像，不验证J卡。"
+      },
+      "directly_validates_cards": false,
+      "source": "docs/research.md#b32"
+    },
+    {
+      "id": "B33",
+      "title": "情境评价与明确情绪分类的不同结果",
+      "doi": "10.1177/20416695251410119",
+      "access_level": "full_text",
+      "verified_at": "2026-10-01",
+      "fields": {
+        "核读日期": "2026-10-01。",
+        "文献": "Bence Szaszkó、Mark Andrej Loebus（2026），*Context shapes evaluation of emotional valence, not emotional categorization: A fresh look at the Kuleshov effect*. i-Perception，17(2)；2026-03-09发表。",
+        "DOI": "[10.1177/20416695251410119](https://doi.org/10.1177/20416695251410119)。",
+        "实际读取": "`full_text`；[PMC存档](https://pmc.ncbi.nlm.nih.gov/articles/PMC12972553/)的Europe PMC全文XML，主文、表1/2结构化内容、图1图注和声明。出版商入口403，未目视PDF/图像、读取视频、请求数据或运行代码。[详细核读](evidence/B33-context-and-categorization.md)。",
+        "设计与对象": "32名维也纳心理学学生，18段面孔跨三类情境，每人486次序列；分析排除两张脸。静态情境先评级，再看直视面孔；没有电影式返回镜头，是非连续设计的边界检验。",
+        "有限结论": "1–7面孔正负评价的估计均值为3.98/3.93/3.87，情境效应小但显著；分类模型比较p = .293，未显著。不是评价、分类和喜欢同时变化。",
+        "不能推出": "分类作用精确为零、剪辑没有用、恢复连续性必然改变分类，或比B32更新就推翻B32。",
+        "我们如何使用": "[C12](../book/12-film.md#film-context-boundary)为夸大“情绪控制”的说法设置边界；不把显著性当影响强度，不以主动投入取消批评。",
+        "关键限制": "特定小样本、长任务与材料筛选，缺少连续性等因素未逐一操纵；保留angry/fearful类别矛盾、分类模型随机结构与表2单位/效应量疑问。没有享受指标，不验证J卡。"
+      },
+      "directly_validates_cards": false,
+      "source": "docs/research.md#b33"
     }
   ],
   "relations": [
