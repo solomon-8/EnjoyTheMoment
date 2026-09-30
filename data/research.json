@@ -461,6 +461,26 @@
       },
       "directly_validates_cards": false,
       "source": "docs/research.md#b23"
+    },
+    {
+      "id": "B24",
+      "title": "负面感受也可能被喜欢，但没有通用极限",
+      "doi": "10.1017/S1930297500005295",
+      "access_level": "full_text",
+      "verified_at": "2026-09-30",
+      "fields": {
+        "核读日期": "2026-09-30。",
+        "文献": "Paul Rozin, Lily Guillot, Katrina Fincher, Alexander Rozin, Eli Tsukayama. *Glad to be sad, and other examples of benign masochism*. Judgment and Decision Making, 8(4), 439–447（2013年7月）。",
+        "DOI": "[10.1017/S1930297500005295](https://doi.org/10.1017/S1930297500005295)。",
+        "实际读取": "`full_text`；[出版商PDF](https://www.cambridge.org/core/services/aop-cambridge-core/content/view/S1930297500005295)，9页，读取方法、结果、讨论、参考文献，目视核对方法及表3—6；对照HTML相关段落和Crossref日期。未取得原始数据、程序及全部勘误／复现。[详细记录](evidence/B24-hedonic-reversals.md)。",
+        "设计与对象": "美国243名本科生、147名MTurk受访者的喜欢程度问卷；30项保留29项，26项进入因素模型。66名MTurk受访者另答偏好强度陈述，不喜欢者逐题排除，各题48—58个有效回答。",
+        "有限结论": "一些受访者喜欢通常带负面感受的活动；对“最喜欢刚好还能承受的那档”陈述的赞同因活动和分母而异。过山车有效回答中59%、高喜欢子群体82%，悲伤音乐相应37%和56%。",
+        "不能推出": "越接近极限越快乐、每人存在相同强度处方、“良性”代表实际安全，或因果机制已经确认；没有现场递增强度或长期福祉测量。",
+        "我们如何使用": "[E02](../essays/02-excitement-without-escalation.md#excitement-study)区分复杂感受、喜欢程度与追求强度；时间代价与自主选择属于本书价值论证。",
+        "关键限制": "美国便利样本、自述、不熟悉记0、部分量表一致性低；子群体阈值措辞与部分表文数值／排序有疑点，核读记录保留，不猜测修订。2023年Cambridge平台日期不等于2013年研究发生于2023年。"
+      },
+      "directly_validates_cards": false,
+      "source": "docs/research.md#b24"
     }
   ],
   "relations": [
