@@ -18,6 +18,7 @@
 - [E03: Now or later](essays/03-now-or-later.md): credible waiting, long-term commitments and the future self.
 - [E04: Paying for pleasure](essays/04-buying-pleasure.md): functional substitutes, preferred differences, shared budgets and real opportunity costs.
 - [E05: Hobbies and standards](essays/05-play-is-not-performance.md): wanting to improve, private enjoyment, shared commitments and criticism; practice correlations are not personal success guarantees.
+- [E06: Pleasure without a necessity test](essays/06-real-life-constraints.md): resource constraints, shared responsibilities and the limits of judging or directing someone else's enjoyment.
 - [E07: Rest is not work](essays/07-rest-is-not-work.md): choosing leisure may really mean earning less; no hidden productivity guarantee.
 - [E08: Life and its audience](essays/08-life-without-an-audience.md): reach, understanding, feedback and shared creation; wanting an audience is not a failed authenticity test.
 - [E09: Friends are not assets](essays/09-friends-not-assets.md): shared enjoyment, reciprocity, care and limited companionship.
