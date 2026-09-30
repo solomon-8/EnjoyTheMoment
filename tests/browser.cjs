@@ -235,6 +235,26 @@ const { chromium } = require("playwright");
     assert.match(await page.locator("#n07 .prose").textContent(), /不是长期幸福或整个制作过程的愉快程度/);
     await page.goto(url + "#c18");
     await page.waitForFunction(() => document.getElementById("c18").open);
+    for (const anchor of ["celebration-calendar", "celebration-repetition",
+                          "celebration-magi", "celebration-generosity",
+                          "celebration-objection", "celebration-top"]) {
+      await page.locator(`#c18 a[href='#${anchor}']`).click();
+      assert.equal(new URL(page.url()).hash, `#${anchor}`);
+      assert(await page.locator("#c18 .prose").isVisible());
+    }
+    const magiFold = page.locator("#c18 .prose details");
+    assert.equal(await magiFold.count(), 1);
+    assert.equal(await magiFold.evaluate(el => el.open), false);
+    await magiFold.locator("summary").click();
+    assert.equal(await magiFold.evaluate(el => el.open), true);
+    assert.match(await magiFold.textContent(), /自己卖掉了金表来买发梳/);
+    await magiFold.locator("summary").click();
+    for (const id of ["f44", "f45"]) {
+      await page.locator(`#c18 a[href='#${id}']`).first().click();
+      await page.waitForFunction(id => document.getElementById(id).open, id);
+      await page.locator(`#${id} a[href='#c18']`).last().click();
+      assert(await page.locator("#c18 .prose").isVisible());
+    }
     await page.locator("#c18 a[href='#n08']").click();
     await page.waitForFunction(() => document.getElementById("n08").open);
     assert.match(await page.locator("#n08 .prose").textContent(), /实际享受的交互 F < 1/);

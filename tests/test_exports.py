@@ -927,6 +927,52 @@ class ExportTests(unittest.TestCase):
             self.assertIn(marker, hanabi)
         self.assertIn("F42/F43", (ROOT / "docs/ai.md").read_text())
 
+    def test_celebration_chapter_and_sources_roundtrip(self):
+        chapters = {c["id"]: c for c in json.loads(self.outputs["data/chapters.json"])["chapters"]}
+        notes = {n["id"]: n for n in json.loads(self.outputs["data/evidence.json"])["notes"]}
+        text = (ROOT / "book/18-celebration.md").read_text()
+        self.assertEqual(chapters["C18"]["text"], text.strip())
+        self.assertEqual(chapters["C18"]["scope"], "full_chapter")
+        self.assertEqual(chapters["C18"]["card_ids"], [])
+        self.assertIn(text, self.outputs["llms-full.txt"])
+        html = build.markdown(text, "book/18-celebration.md")
+        for anchor in ("celebration-top", "celebration-calendar", "celebration-repetition",
+                       "celebration-magi", "celebration-generosity", "celebration-objection"):
+            self.assertIn('id="' + anchor + '"', html)
+            self.assertIn('href="#' + anchor + '"', html)
+        for identifier, kind in (("F44", "official_heritage_description"),
+                                 ("F45", "literary_primary_text")):
+            note = notes[identifier]
+            self.assertEqual(note["source_kind"], kind)
+            self.assertEqual(note["text"], (ROOT / note["source"]).read_text())
+            self.assertIn(note["text"], self.outputs["llms-full.txt"])
+            self.assertIn('href="#' + identifier.lower() + '"', html)
+            self.assertIn('href="#c18"', build.markdown(note["text"], note["source"]))
+        self.assertIn('href="#n08"', html)
+        self.assertTrue(all(not ({"F44", "F45"} & set(c["background_ids"]))
+                            for c in self.export["cards"]))
+
+    def test_celebration_spoilers_dates_and_evidence_limits(self):
+        text = (ROOT / "book/18-celebration.md").read_text()
+        html = build.markdown(text, "book/18-celebration.md")
+        self.assertEqual(html.count("<details>"), 1)
+        self.assertNotIn("<details open", html)
+        folded = text.split("<details>", 1)[1].split("</details>", 1)[0]
+        self.assertIn("自己卖掉了金表来买发梳", folded)
+        for marker in ("欣赏一种付出，与取得要求别人付出的权利",
+                       "不等于送礼说明书", "必购清单"):
+            self.assertIn(marker, text)
+        festival = (ROOT / "docs/evidence/F44-festival-and-time.md").read_text()
+        magi = (ROOT / "docs/evidence/F45-magi-and-giving.md").read_text()
+        for marker in ("02126", "19.COM 7.b.29", "2024-12-13", "12 月 4 日",
+                       "并非三次独立", "不是经过对照或追踪"):
+            self.assertIn(marker, festival)
+        for marker in ("2021-12-24", "2021-12-25", "相差一天", "全文",
+                       "不是小说首刊日期", "不能得出昂贵礼物更感人"):
+            self.assertIn(marker, magi)
+        for path in ("docs/ai.md", "skills/enjoy-the-moment/SKILL.md", "llms.txt"):
+            self.assertIn("F44/F45", (ROOT / path).read_text())
+
     def test_live_chapter_and_sources_export_without_turning_into_card_evidence(self):
         chapters = {c["id"]: c for c in json.loads(self.outputs["data/chapters.json"])["chapters"]}
         notes = {n["id"]: n for n in json.loads(self.outputs["data/evidence.json"])["notes"]}

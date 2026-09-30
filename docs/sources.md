@@ -83,6 +83,10 @@
 
 [游戏章节](../book/19-games.md)有限转述 WOF 黑白棋规则和 R&R Games 的 Hanabi 英文规则，版本、实际读取及不一致分别见 [F42](evidence/F42-othello-choice.md)、[F43](evidence/F43-hanabi-information.md)。黑白棋图、18手局面、手牌和对话均为原创，不转载官方棋盘、牌面、规则全文或视频；不据作品名称声称授权背书。规则书的可读性不是素材的统一开放许可，有限计算也不是行为效果或棋力认证。
 
+## 庆祝、文化材料与礼物故事
+
+[庆祝章节](../book/18-celebration.md)使用春节的官方项目介绍及欧·亨利 *The Gift of the Magi* 的指定英文数字文本，见 [F44](evidence/F44-festival-and-time.md)、[F45](evidence/F45-magi-and-giving.md)。前者支持具体实践、名称和日期，不能证明人人快乐；后者是文学文本，不是现实送礼实验。小说中文情节由本书自行转述，不采用现代译本段落，不转载源站配图。关于共同时间、慷慨与感动义务的论证是本书自己的解释，不冒充传统定论、作者意图或机构背书。
+
 ## 公共生活观察工具
 
 [第 15 章](../book/15-neighborhood.md)与 [F35](evidence/F35-public-life-observation.md)对 PLDP 配套观察方法作了有限中文转述、缩写与重组，不是官方译本。来源采用 [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)，固定提交与读取范围见 F35，完整署名亦保留于章节、来源笔记和 LICENSE。原创假想与价值讨论不冒充机构研究；没有复制调查表版式、图标或样例个人数据。
