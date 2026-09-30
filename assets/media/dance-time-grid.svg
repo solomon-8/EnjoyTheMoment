@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="1080" viewBox="0 0 720 1080" role="img" aria-labelledby="title desc">
+<title id="title">同一材料的齐做与依次进入</title>
+<desc id="desc">横向五格时间，纵向甲乙丙。齐做同时在第1至3格做PQR；依次进入分别从第1、2、3格开始，第3格从上到下为R、Q、P。圆点只表示不执行这段材料，不是静止指令。</desc>
+<rect width="720" height="1080" fill="#fff8ed"/>
+<g font-family="PingFang SC, Noto Sans CJK SC, sans-serif" fill="#27251f">
+<text x="360" y="60" text-anchor="middle" font-size="33" font-weight="700">动作材料没换，时间关系换了</text>
+<text x="360" y="104" text-anchor="middle" font-size="29">每人做一次 P → Q → R；每项占一格</text>
+<text x="40" y="160" font-size="30" font-weight="700">齐做：一起开始，一起结束</text>
+<text x="142" y="209" text-anchor="middle" font-size="29">1</text>
+<text x="254" y="209" text-anchor="middle" font-size="29">2</text>
+<text x="366" y="209" text-anchor="middle" font-size="29">3</text>
+<text x="478" y="209" text-anchor="middle" font-size="29">4</text>
+<text x="590" y="209" text-anchor="middle" font-size="29">5</text>
+<text x="42" y="284" font-size="31">甲</text>
+<g data-panel="unison" data-row="0" data-slot="1" data-value="P"><rect x="87" y="229" width="110" height="86" fill="#f1e5d4" stroke="#a39580" stroke-width="1.5"/><text x="142" y="285" text-anchor="middle" font-size="38" font-weight="700">P</text></g>
+<g data-panel="unison" data-row="0" data-slot="2" data-value="Q"><rect x="199" y="229" width="110" height="86" fill="#f1e5d4" stroke="#a39580" stroke-width="1.5"/><text x="254" y="285" text-anchor="middle" font-size="38" font-weight="700">Q</text></g>
+<g data-panel="unison" data-row="0" data-slot="3" data-value="R"><rect x="311" y="229" width="110" height="86" fill="#f1e5d4" stroke="#a39580" stroke-width="1.5"/><text x="366" y="285" text-anchor="middle" font-size="38" font-weight="700">R</text></g>
+<g data-panel="unison" data-row="0" data-slot="4" data-value="."><rect x="423" y="229" width="110" height="86" fill="#fff8ed" stroke="#a39580" stroke-width="1.5"/><text x="478" y="285" text-anchor="middle" font-size="38" font-weight="700">·</text></g>
+<g data-panel="unison" data-row="0" data-slot="5" data-value="."><rect x="535" y="229" width="110" height="86" fill="#fff8ed" stroke="#a39580" stroke-width="1.5"/><text x="590" y="285" text-anchor="middle" font-size="38" font-weight="700">·</text></g>
+<text x="42" y="372" font-size="31">乙</text>
+<g data-panel="unison" data-row="1" data-slot="1" data-value="P"><rect x="87" y="317" width="110" height="86" fill="#f1e5d4" stroke="#a39580" stroke-width="1.5"/><text x="142" y="373" text-anchor="middle" font-size="38" font-weight="700">P</text></g>
+<g data-panel="unison" data-row="1" data-slot="2" data-value="Q"><rect x="199" y="317" width="110" height="86" fill="#f1e5d4" stroke="#a39580" stroke-width="1.5"/><text x="254" y="373" text-anchor="middle" font-size="38" font-weight="700">Q</text></g>
+<g data-panel="unison" data-row="1" data-slot="3" data-value="R"><rect x="311" y="317" width="110" height="86" fill="#f1e5d4" stroke="#a39580" stroke-width="1.5"/><text x="366" y="373" text-anchor="middle" font-size="38" font-weight="700">R</text></g>
+<g data-panel="unison" data-row="1" data-slot="4" data-value="."><rect x="423" y="317" width="110" height="86" fill="#fff8ed" stroke="#a39580" stroke-width="1.5"/><text x="478" y="373" text-anchor="middle" font-size="38" font-weight="700">·</text></g>
+<g data-panel="unison" data-row="1" data-slot="5" data-value="."><rect x="535" y="317" width="110" height="86" fill="#fff8ed" stroke="#a39580" stroke-width="1.5"/><text x="590" y="373" text-anchor="middle" font-size="38" font-weight="700">·</text></g>
+<text x="42" y="460" font-size="31">丙</text>
+<g data-panel="unison" data-row="2" data-slot="1" data-value="P"><rect x="87" y="405" width="110" height="86" fill="#f1e5d4" stroke="#a39580" stroke-width="1.5"/><text x="142" y="461" text-anchor="middle" font-size="38" font-weight="700">P</text></g>
+<g data-panel="unison" data-row="2" data-slot="2" data-value="Q"><rect x="199" y="405" width="110" height="86" fill="#f1e5d4" stroke="#a39580" stroke-width="1.5"/><text x="254" y="461" text-anchor="middle" font-size="38" font-weight="700">Q</text></g>
+<g data-panel="unison" data-row="2" data-slot="3" data-value="R"><rect x="311" y="405" width="110" height="86" fill="#f1e5d4" stroke="#a39580" stroke-width="1.5"/><text x="366" y="461" text-anchor="middle" font-size="38" font-weight="700">R</text></g>
+<g data-panel="unison" data-row="2" data-slot="4" data-value="."><rect x="423" y="405" width="110" height="86" fill="#fff8ed" stroke="#a39580" stroke-width="1.5"/><text x="478" y="461" text-anchor="middle" font-size="38" font-weight="700">·</text></g>
+<g data-panel="unison" data-row="2" data-slot="5" data-value="."><rect x="535" y="405" width="110" height="86" fill="#fff8ed" stroke="#a39580" stroke-width="1.5"/><text x="590" y="461" text-anchor="middle" font-size="38" font-weight="700">·</text></g>
+<text x="40" y="537" font-size="27">第3格：三人都是 R；第4、5格均为空</text>
+<text x="40" y="590" font-size="30" font-weight="700">依次进入：同一刻处在不同阶段</text>
+<text x="142" y="639" text-anchor="middle" font-size="29">1</text>
+<text x="254" y="639" text-anchor="middle" font-size="29">2</text>
+<text x="366" y="639" text-anchor="middle" font-size="29">3</text>
+<text x="478" y="639" text-anchor="middle" font-size="29">4</text>
+<text x="590" y="639" text-anchor="middle" font-size="29">5</text>
+<text x="42" y="714" font-size="31">甲</text>
+<g data-panel="canon" data-row="0" data-slot="1" data-value="P"><rect x="87" y="659" width="110" height="86" fill="#f1e5d4" stroke="#a39580" stroke-width="1.5"/><text x="142" y="715" text-anchor="middle" font-size="38" font-weight="700">P</text></g>
+<g data-panel="canon" data-row="0" data-slot="2" data-value="Q"><rect x="199" y="659" width="110" height="86" fill="#f1e5d4" stroke="#a39580" stroke-width="1.5"/><text x="254" y="715" text-anchor="middle" font-size="38" font-weight="700">Q</text></g>
+<g data-panel="canon" data-row="0" data-slot="3" data-value="R"><rect x="311" y="659" width="110" height="86" fill="#f1e5d4" stroke="#a39580" stroke-width="1.5"/><text x="366" y="715" text-anchor="middle" font-size="38" font-weight="700">R</text></g>
+<g data-panel="canon" data-row="0" data-slot="4" data-value="."><rect x="423" y="659" width="110" height="86" fill="#fff8ed" stroke="#a39580" stroke-width="1.5"/><text x="478" y="715" text-anchor="middle" font-size="38" font-weight="700">·</text></g>
+<g data-panel="canon" data-row="0" data-slot="5" data-value="."><rect x="535" y="659" width="110" height="86" fill="#fff8ed" stroke="#a39580" stroke-width="1.5"/><text x="590" y="715" text-anchor="middle" font-size="38" font-weight="700">·</text></g>
+<text x="42" y="802" font-size="31">乙</text>
+<g data-panel="canon" data-row="1" data-slot="1" data-value="."><rect x="87" y="747" width="110" height="86" fill="#fff8ed" stroke="#a39580" stroke-width="1.5"/><text x="142" y="803" text-anchor="middle" font-size="38" font-weight="700">·</text></g>
+<g data-panel="canon" data-row="1" data-slot="2" data-value="P"><rect x="199" y="747" width="110" height="86" fill="#f1e5d4" stroke="#a39580" stroke-width="1.5"/><text x="254" y="803" text-anchor="middle" font-size="38" font-weight="700">P</text></g>
+<g data-panel="canon" data-row="1" data-slot="3" data-value="Q"><rect x="311" y="747" width="110" height="86" fill="#f1e5d4" stroke="#a39580" stroke-width="1.5"/><text x="366" y="803" text-anchor="middle" font-size="38" font-weight="700">Q</text></g>
+<g data-panel="canon" data-row="1" data-slot="4" data-value="R"><rect x="423" y="747" width="110" height="86" fill="#f1e5d4" stroke="#a39580" stroke-width="1.5"/><text x="478" y="803" text-anchor="middle" font-size="38" font-weight="700">R</text></g>
+<g data-panel="canon" data-row="1" data-slot="5" data-value="."><rect x="535" y="747" width="110" height="86" fill="#fff8ed" stroke="#a39580" stroke-width="1.5"/><text x="590" y="803" text-anchor="middle" font-size="38" font-weight="700">·</text></g>
+<text x="42" y="890" font-size="31">丙</text>
+<g data-panel="canon" data-row="2" data-slot="1" data-value="."><rect x="87" y="835" width="110" height="86" fill="#fff8ed" stroke="#a39580" stroke-width="1.5"/><text x="142" y="891" text-anchor="middle" font-size="38" font-weight="700">·</text></g>
+<g data-panel="canon" data-row="2" data-slot="2" data-value="."><rect x="199" y="835" width="110" height="86" fill="#fff8ed" stroke="#a39580" stroke-width="1.5"/><text x="254" y="891" text-anchor="middle" font-size="38" font-weight="700">·</text></g>
+<g data-panel="canon" data-row="2" data-slot="3" data-value="P"><rect x="311" y="835" width="110" height="86" fill="#f1e5d4" stroke="#a39580" stroke-width="1.5"/><text x="366" y="891" text-anchor="middle" font-size="38" font-weight="700">P</text></g>
+<g data-panel="canon" data-row="2" data-slot="4" data-value="Q"><rect x="423" y="835" width="110" height="86" fill="#f1e5d4" stroke="#a39580" stroke-width="1.5"/><text x="478" y="891" text-anchor="middle" font-size="38" font-weight="700">Q</text></g>
+<g data-panel="canon" data-row="2" data-slot="5" data-value="R"><rect x="535" y="835" width="110" height="86" fill="#f1e5d4" stroke="#a39580" stroke-width="1.5"/><text x="590" y="891" text-anchor="middle" font-size="38" font-weight="700">R</text></g>
+<text x="40" y="967" font-size="27">第3格：甲是 R，乙是 Q，丙是 P</text>
+<text x="40" y="1022" font-size="27">· 仅表示未做这段材料，不规定姿势</text>
+<text x="40" y="1060" font-size="25">原创关系图；不是动作教程，也不是作品舞谱</text>
+</g></svg>

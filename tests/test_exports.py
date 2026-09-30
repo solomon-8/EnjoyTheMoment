@@ -1463,6 +1463,89 @@ class ExportTests(unittest.TestCase):
             self.assertIn(phrase, note["text"])
         self.assertEqual(build.local_href("../docs/evidence/F17-dance-language.md", "book/27-dance.md"), "#f17")
 
+    def test_dance_timeline_preserves_individual_material_and_changes_relations(self):
+        import dance_examples
+        together = dance_examples.timeline((0, 0, 0))
+        staggered = dance_examples.timeline((0, 1, 2))
+        self.assertEqual(together, (("P", "Q", "R", ".", "."),) * 3)
+        self.assertEqual(staggered, (("P", "Q", "R", ".", "."),
+                                     (".", "P", "Q", "R", "."),
+                                     (".", ".", "P", "Q", "R")))
+        for grid in (together, staggered):
+            self.assertEqual(sum(v != "." for row in grid for v in row), 9)
+            self.assertTrue(all(tuple(v for v in row if v != ".") == ("P", "Q", "R")
+                                for row in grid))
+        self.assertEqual(tuple(row[2] for row in staggered), ("R", "Q", "P"))
+        with self.assertRaises(ValueError):
+            dance_examples.timeline((0, 3))
+        with self.assertRaises(ValueError):
+            dance_examples.timeline((-1,))
+        svg = (ROOT / "assets/media/dance-time-grid.svg").read_text()
+        self.assertEqual(svg, dance_examples.svg())
+        root = ET.fromstring(svg)
+        self.assertEqual(root.attrib["viewBox"], "0 0 720 1080")
+        cells = [el for el in root.iter() if "data-value" in el.attrib]
+        self.assertEqual(len(cells), 30)
+        for el in cells:
+            grid = together if el.attrib["data-panel"] == "unison" else staggered
+            self.assertEqual(el.attrib["data-value"],
+                             grid[int(el.attrib["data-row"])][int(el.attrib["data-slot"]) - 1])
+        for forbidden in ("<script", "<animate", "<image"):
+            self.assertNotIn(forbidden, svg)
+
+    def test_dance_chance_rules_have_distinct_exact_distributions(self):
+        import dance_examples
+        permutations = tuple(itertools.permutations(("P", "Q", "R")))
+        self.assertEqual(len(permutations), 6)
+        allowed = dance_examples.allowed_orders()
+        self.assertEqual(allowed, (("P", "Q", "R"), ("P", "R", "Q"), ("R", "P", "Q")))
+        by_order, by_first = dance_examples.distributions()
+        self.assertEqual(set(by_order), set(allowed))
+        self.assertEqual(set(by_first), set(allowed))
+        self.assertEqual(sum(by_order.values()), 1)
+        self.assertEqual(sum(by_first.values()), 1)
+        self.assertEqual(set(by_order.values()), {Fraction(1, 3)})
+        self.assertEqual(by_first, {("P", "Q", "R"): Fraction(1, 4),
+                                   ("P", "R", "Q"): Fraction(1, 4),
+                                   ("R", "P", "Q"): Fraction(1, 2)})
+        self.assertEqual(sum(p for order, p in by_order.items() if order[0] == "P"),
+                         Fraction(2, 3))
+        self.assertEqual(sum(p for order, p in by_first.items() if order[0] == "P"),
+                         Fraction(1, 2))
+
+    def test_dance_work_records_and_original_diagram_survive_exports(self):
+        notes = {n["id"]: n for n in json.loads(self.outputs["data/evidence.json"])["notes"]}
+        chapter = next(c for c in json.loads(self.outputs["data/chapters.json"])["chapters"]
+                       if c["id"] == "C27")
+        text = (ROOT / "book/27-dance.md").read_text()
+        self.assertEqual(chapter["text"], text.strip())
+        self.assertIn(chapter["text"], self.outputs["llms-full.txt"])
+        for identifier, kind, anchor in (
+            ("F51", "creator_work_and_participation_record", "dance-rosas"),
+            ("F52", "artist_trust_work_and_method_record", "dance-chance"),
+        ):
+            note = notes[identifier]
+            self.assertEqual(note["source_kind"], kind)
+            self.assertEqual(note["text"], (ROOT / note["source"]).read_text())
+            self.assertIn(note["text"], self.outputs["llms-full.txt"])
+            self.assertIn('href="#' + identifier.lower() + '"', self.outputs["index.html"])
+            self.assertIn('href="#' + anchor + '"', build.markdown(note["text"], note["source"]))
+        for phrase in ("未观看并核验完整演出", "简化版本", "不是该作动作或舞谱的复原"):
+            self.assertIn(phrase, notes["F51"]["text"])
+        for phrase in ("舞团成立", "没有取得那些图表", "不是Cunningham使用过的算法", "1/4"):
+            self.assertIn(phrase, notes["F52"]["text"])
+        for anchor in ("dance-time-grid", "dance-rosas", "dance-remix", "dance-chance"):
+            self.assertEqual(self.outputs["index.html"].count('id="' + anchor + '"'), 1)
+        html = build.markdown(text, "book/27-dance.md")
+        self.assertEqual(html.count('src="data:image/png;base64,'), 1)
+        alt = re.search(r"!\[([^\]]+)\]\(\.\./assets/media/dance-time-grid.png\)", text).group(1)
+        for marker in ("第1至第5格", "第3格甲为R", "不指定其他姿势", "没有动画"):
+            self.assertIn(marker, alt)
+        self.assertTrue(all(not ({"F51", "F52"} & set(c["background_ids"]))
+                            for c in self.export["cards"]))
+        for path in ("docs/ai.md", "skills/enjoy-the-moment/SKILL.md", "llms.txt"):
+            self.assertIn("C27/F51/F52", (ROOT / path).read_text())
+
     def test_sport_sources_preserve_versions_and_decision_conditions(self):
         notes = {item["id"]: item for item in json.loads(self.outputs["data/evidence.json"])["notes"]}
         for identifier in ("F18", "F19"):

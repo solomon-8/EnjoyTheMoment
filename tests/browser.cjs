@@ -1043,6 +1043,59 @@ const { chromium } = require("playwright");
       assert.deepEqual(network, []);
       await context.close();
     }
+    // Dance: static time relations, original arithmetic, and scoped work records.
+    for (const javaScriptEnabled of [true, false]) {
+      const context = await browser.newContext({viewport: {width: 390, height: 844}, javaScriptEnabled, reducedMotion: "reduce"});
+      const dance = await context.newPage();
+      const failures = [], network = [];
+      dance.on("pageerror", error => failures.push(error.message));
+      dance.on("request", request => {if (/^https?:/.test(request.url())) network.push(request.url());});
+      await dance.goto(url + (javaScriptEnabled ? "#c27" : ""));
+      if (!javaScriptEnabled) await dance.locator("#c27 > summary").click();
+      for (const anchor of ["dance-time-grid", "dance-rosas", "dance-chance"]) {
+        if (javaScriptEnabled) {
+          await dance.locator(`#c27 a[href='#${anchor}']`).first().click();
+          assert.equal(new URL(dance.url()).hash, "#" + anchor);
+        }
+        await dance.locator("#" + anchor).scrollIntoViewIfNeeded();
+      }
+      const image = dance.locator("#c27 .prose img");
+      await image.scrollIntoViewIfNeeded();
+      await image.evaluate(el => el.decode());
+      assert.equal(await image.count(), 1);
+      assert.match(await image.getAttribute("alt"), /第3格甲为R、乙为Q、丙为P/);
+      const imageShape = await image.evaluate(el => ({
+        natural: [el.naturalWidth, el.naturalHeight], width: el.getBoundingClientRect().width
+      }));
+      assert.deepEqual(imageShape.natural, [720, 1080]);
+      assert(imageShape.width <= 350);
+      assert.match(await dance.locator("#c27 .prose").textContent(), /三分之二/);
+      assert.equal(await dance.locator("#c27 .prose table").count(), 2);
+      for (const [id, anchor, phrase] of [
+        ["f51", "dance-rosas", /未观看并核验完整演出/],
+        ["f52", "dance-chance", /不是Cunningham使用过的算法/]
+      ]) {
+        if (javaScriptEnabled) {
+          await dance.locator(`#c27 a[href='#${id}']`).first().click();
+          await dance.waitForFunction(id => document.getElementById(id).open, id);
+        } else {
+          await dance.locator(`#${id} > summary`).click();
+        }
+        assert.match(await dance.locator(`#${id} .prose`).textContent(), phrase);
+        const shape = await dance.locator(`#${id} .prose`).evaluate(el => ({client: el.clientWidth, scroll: el.scrollWidth}));
+        assert(shape.scroll <= shape.client + 1, id);
+        if (javaScriptEnabled) {
+          await dance.locator(`#${id} a[href='#${anchor}']`).last().click();
+          assert.equal(new URL(dance.url()).hash, "#" + anchor);
+          assert(await dance.locator("#c27 .prose").isVisible());
+        }
+      }
+      const shape = await dance.locator("#c27 .prose").evaluate(el => ({client: el.clientWidth, scroll: el.scrollWidth}));
+      assert(shape.scroll <= shape.client + 1);
+      assert.deepEqual(failures, []);
+      assert.deepEqual(network, []);
+      await context.close();
+    }
     console.log("OK: offline, filters, empty state, deep links, keyboard, 390px, dark/reduced motion, print, no-JS, zero external requests");
   } finally {
     await browser.close();
