@@ -22,6 +22,10 @@ We don't treat living longest, saving most, or appearing most disciplined as the
 
 Within costs we can genuinely afford, we are willing to pay a little more for something we prefer, accept some inconvenience for an experience we want, and leave some time unoptimized.
 
+**We prefer turning resources into a life we want to experience, rather than only turning life into more resources.** Keeping options open and actually taking an option are different goods. When responsibilities are arranged, a desire is clear and postponement has no more specific purpose, our bias is toward letting the experience happen—not toward declaring it universally optimal.
+
+That means accepting real tradeoffs: less output, some forgone convenience, or uncertainty about whether another choice would have been better. It does not make other people's consent expendable. See [the position and its objections](SHUAQI.md) and [the argument about options and “best” choices](essays/01-pleasure-is-an-end.md#pleasure-options) in Chinese.
+
 This is not a disguised productivity system. The punchline is not “rest so you can work harder.” **The point of enjoyment is enjoyment.**
 
 Our boundary is simple: **you choose it, other people consent, the costs are visible, and you can stop.** We are changing the priority of present enjoyment—not reversing safety advice or promoting self-destruction.
