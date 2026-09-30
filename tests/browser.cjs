@@ -480,7 +480,7 @@ const { chromium } = require("playwright");
     await page.waitForFunction(() => document.getElementById("c32").open);
     assert.equal(await page.locator("#chapter-query").inputValue(), "");
     const hints = page.locator("#c32 .prose details");
-    assert.equal(await hints.count(), 4);
+    assert.equal(await hints.count(), 8);
     for (const hint of await hints.all()) assert.equal(await hint.getAttribute("open"), null);
     await hints.nth(0).locator("summary").click();
     assert(await hints.nth(0).locator("p").first().isVisible());
@@ -490,6 +490,25 @@ const { chromium } = require("playwright");
     await hints.nth(2).locator("summary").click();
     assert.match(await hints.nth(2).textContent(), /伞、地图、船、月亮/);
     assert.equal(await hints.nth(3).locator("p").first().isVisible(), false);
+    for (const anchor of ["puzzle-cards", "puzzle-roads", "puzzle-invariants",
+                          "puzzle-rule-change", "puzzle-knowing"]) {
+      await page.locator(`#c32 a[href='#${anchor}']`).first().click();
+      assert.equal(new URL(page.url()).hash, `#${anchor}`);
+    }
+    const roadImage = page.locator("#c32 .artwork img");
+    await roadImage.scrollIntoViewIfNeeded();
+    await roadImage.evaluate(img => img.decode());
+    assert.equal(await roadImage.evaluate(img => img.naturalWidth), 880);
+    for (const [index, phrase] of [[4, "起点和终点"], [5, "B → A → C → B → D → C"],
+                                   [6, "00000 → 11000"], [7, "8个可达状态"]]) {
+      assert.equal(await hints.nth(index).evaluate(el => el.open), false);
+      await hints.nth(index).locator("summary").click();
+      assert.match(await hints.nth(index).textContent(), new RegExp(phrase));
+      await hints.nth(index).locator("summary").click();
+    }
+    await page.locator("#c32 a[href='#f46']").first().click();
+    await page.waitForFunction(() => document.getElementById("f46").open);
+    await page.locator("#f46 a[href='#c32']").last().click();
     await page.locator("#c32 a[href='#n16']").first().click();
     await page.waitForFunction(() => document.getElementById("n16").open);
     assert.match(await page.locator("#n16 .prose").textContent(), /不是所有顿悟中有 37%/);
@@ -788,10 +807,15 @@ const { chromium } = require("playwright");
     assert(await staticPage.locator("#c31 .prose details p").first().isVisible());
     await staticPage.locator("#c32 > summary").click();
     const staticHints = staticPage.locator("#c32 .prose details");
-    assert.equal(await staticHints.count(), 4);
+    assert.equal(await staticHints.count(), 8);
     await staticHints.nth(0).locator("summary").click();
     assert(await staticHints.nth(0).locator("p").first().isVisible());
     assert.equal(await staticHints.nth(2).locator("p").first().isVisible(), false);
+    await staticPage.locator("#c32 .artwork img").scrollIntoViewIfNeeded();
+    await staticPage.locator("#c32 .artwork img").evaluate(img => img.decode());
+    assert.equal(await staticHints.nth(6).locator("table").isVisible(), false);
+    await staticHints.nth(6).locator("summary").click();
+    assert(await staticHints.nth(6).locator("table").isVisible());
     await staticPage.locator("#c33 > summary").click();
     assert.equal(await staticPage.locator("#c33 .prose table").count(), 3);
     assert.match(await staticPage.locator("#c33 .prose").textContent(), /低八度本身也是移调的一种/);
