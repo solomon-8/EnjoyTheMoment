@@ -122,6 +122,7 @@ EVIDENCE = [
     ("F61", "docs/evidence/F61-tragedy-and-enjoyment.md"),
     ("F62", "docs/evidence/F62-paghjella-and-listeners.md"),
     ("F63", "docs/evidence/F63-play-and-chosen-goals.md"),
+    ("F64", "docs/evidence/F64-tennis-scoring.md"),
 ]
 EVIDENCE_KINDS = {
     "F01": "official_statistics",
@@ -187,6 +188,7 @@ EVIDENCE_KINDS = {
     "F61": "philosophical_primary_text",
     "F62": "official_heritage_description_and_decision",
     "F63": "philosophical_primary_argument",
+    "F64": "official_sport_rules",
 }
 RELATIONS = [
     {"card_ids": ["J033"], "background_ids": ["B01"], "essay_ids": ["E04"]},
