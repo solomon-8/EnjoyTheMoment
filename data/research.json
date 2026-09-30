@@ -381,6 +381,26 @@
       },
       "directly_validates_cards": false,
       "source": "docs/research.md#b19"
+    },
+    {
+      "id": "B20",
+      "title": "季票、用票与沉没成本",
+      "doi": "10.1016/0749-5978(85)90049-4",
+      "access_level": "full_text",
+      "verified_at": "2026-09-30",
+      "fields": {
+        "核读日期": "2026-09-30。",
+        "文献": "Hal R. Arkes, Catherine Blumer. *The Psychology of Sunk Cost*. Organizational Behavior and Human Decision Processes, 35(1), 124–140（1985年2月）。",
+        "DOI": "[10.1016/0749-5978(85)90049-4](https://doi.org/10.1016/0749-5978%2885%2990049-4)。",
+        "实际读取": "`full_text`；[第三方镜像托管的期刊扫描PDF](https://www.communicationcache.com/uploads/1/0/8/8/10887248/the_psychology_of_sunk_cost.pdf)，通读17页，目视核对滑雪、季票及课程经历数据。Crossref与Elsevier接口核对元数据；出版社正文403，未逐字比对出版商副本，未核验原始数据、全部复现与勘误。[详细阅读记录](evidence/B20-sunk-cost.md)。",
+        "设计与对象": "十项研究，多为大学生假想选择；季票现场实验最初60名购买者，排除6份结伴数据后分析54人，实际支付15、13、8美元，记录用票而非享受。",
+        "有限结论": "前五部剧原价组平均用票4.11张，两优惠组3.32、3.29张，计划单尾比较显著；后半季未检出相同组间差异，整体价格主效应与交互不显著。滑雪题61人中33人选择更贵但预计较不喜欢的旅行。",
+        "不能推出": "付得多就快乐多、使用越多越值得、所有持续投入都不理性、课程无效、前半显著后半不显著就证明效应衰减，或卡片的退出建议获得验证。",
+        "我们如何使用": "[第6章](../book/06-spending.md#spending-theatre-study)区别旧付款、未来代价、已有机会与喜欢；平均单价算例为本书假设，不是研究数据。",
+        "关键限制": "一处剧场早期购买者、分配后排除、来宾票解释与单尾检验；多数为情境问卷，未测福祉。晚餐题去掉2个回答、补充实验细节不足、个人卷入结果不一，均保留在阅读记录中。"
+      },
+      "directly_validates_cards": false,
+      "source": "docs/research.md#b20"
     }
   ],
   "relations": [

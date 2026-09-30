@@ -9,6 +9,7 @@ import json
 import re
 from datetime import date
 from pathlib import Path
+from urllib.parse import unquote
 
 from pick import ROOT, load_cards
 from guides import load_guides
@@ -46,6 +47,7 @@ EVIDENCE = [
     ("N17", "docs/evidence/B17-enjoyable-procrastination.md"),
     ("N18", "docs/evidence/B18-experience-and-memory.md"),
     ("N19", "docs/evidence/B19-price-and-pleasantness.md"),
+    ("N20", "docs/evidence/B20-sunk-cost.md"),
     ("F01", "docs/evidence/F01-time-use.md"),
     ("F02", "docs/evidence/F02-listening-language.md"),
     ("F03", "docs/evidence/F03-film-language.md"),
@@ -182,7 +184,9 @@ def research_records(root):
         next_heading = re.search(r"^## ", text[match.end():], re.MULTILINE)
         end = match.end() + next_heading.start() if next_heading else len(text)
         block = text[match.end():end]
-        doi = re.search(r"https://doi.org/([^)]+)", block).group(1)
+        # Parentheses in DOI suffixes are URL-encoded in the Markdown subset.
+        # Export the DOI identifier, not its transport encoding.
+        doi = unquote(re.search(r"https://doi.org/([^)]+)", block).group(1))
         fields = dict(re.findall(r"^- \*\*(.+?)\*\*：(.+)$", block, re.MULTILINE))
         verified_at = fields.get("核读日期", "").rstrip("。")
         if not re.fullmatch(r"\d{4}-\d{2}-\d{2}", verified_at):
