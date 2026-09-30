@@ -712,6 +712,37 @@ class ExportTests(unittest.TestCase):
                                          essay["source"]), "#f59")
         self.assertTrue(all("E11" not in card["essay_ids"] for card in self.export["cards"]))
 
+    def test_leisure_status_chapter_preserves_full_text_and_boundaries(self):
+        chapters = {item["id"]: item for item in json.loads(self.outputs["data/chapters.json"])["chapters"]}
+        chapter = chapters["C08"]
+        text = (ROOT / chapter["source"]).read_text()
+        self.assertEqual(chapter["text"], text.split('<a id="j043"></a>', 1)[0].strip())
+        self.assertIn(chapter["text"], self.outputs["llms-full.txt"])
+        for anchor in ("permission-status", "permission-refinement", "permission-no-new-rank",
+                       "permission-vicarious", "permission-belonging"):
+            self.assertEqual(self.outputs["index.html"].count('id="' + anchor + '"'), 1)
+        for phrase in ("均为本书假想", "不是说每个懂音乐", "不把它们直接套到今天所有家庭",
+                       "退出工作绩效表之后", "谁反而多费了力"):
+            self.assertIn(phrase, text)
+        self.assertEqual(build.local_href("../docs/evidence/F60-conspicuous-leisure.md",
+                                         chapter["source"]), "#f60")
+        self.assertEqual(len(self.export["cards"]), 60)
+
+    def test_veblen_source_is_historical_theory_not_a_motive_diagnosis(self):
+        notes = {item["id"]: item for item in json.loads(self.outputs["data/evidence.json"])["notes"]}
+        note = notes["F60"]
+        self.assertEqual(note["source_kind"], "historical_social_theory_primary")
+        self.assertEqual(note["text"], (ROOT / note["source"]).read_text())
+        self.assertIn(note["text"], self.outputs["llms-full.txt"])
+        for phrase in ("完整核读第三章，不是完整核读全书", "不是当代人群调查", "体谅与善意",
+                       "第 29 段", "不验证 J043–J048", "没有另行核验初版书目",
+                       "不冒充原书段号", "没有核读现代"):
+            self.assertIn(phrase, note["text"])
+        records = json.loads(self.outputs["data/research.json"])["records"]
+        self.assertEqual(len(records), 28)
+        self.assertNotIn("F60", {record["id"] for record in records})
+        self.assertIn('"id":"R53"', (ROOT / "docs/reading-map.md").read_text())
+
     def test_virtual_reality_source_is_a_scoped_argument_not_an_effect_study(self):
         notes = {item["id"]: item for item in json.loads(self.outputs["data/evidence.json"])["notes"]}
         note = notes["F59"]

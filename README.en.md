@@ -79,7 +79,7 @@ The chapters on senses, novelty, play, relationships, spending, and permission t
 | [05 · People are not a network](book/05-connection.md) | Can spending time together be the whole point? |
 | [06 · Buy pleasure, not an identity](book/06-spending.md) | Which specific experience is worth its cost to you? |
 | [07 · Being alone is not a reason to skip the occasion](book/07-solo.md) | What makes solitude enjoyable—and who controls its time and space? |
-| [08 · Take a break from being useful](book/08-permission.md) | Must rest always be a reward? |
+| [08 · Take a break from being useful](book/08-permission.md) | When does refinement become a status barrier—and whose work makes another person look effortless? |
 | [09 · Limited resources, real enjoyment](book/09-constrained.md) | Who is still organizing while everyone else gets to relax? |
 | [10 · Leaving is part of enjoying](book/10-aftertaste.md) | Are you still choosing to continue? |
 | [11 · Your ears are not a taste certificate](book/11-music.md) | Can listening concepts open possibilities without becoming a test? |
