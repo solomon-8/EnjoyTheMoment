@@ -355,6 +355,17 @@ const { chromium } = require("playwright");
     assert.match(await page.locator("#f03 .prose").textContent(), /实际依据是条目的文字解释/);
     await page.goto(url + "#c11");
     await page.waitForFunction(() => document.getElementById("c11").open);
+    assert.equal(await page.locator("#c11 .prose table").count(), 4);
+    await page.locator("#c11 a[href='#music-natural']").click();
+    assert.equal(new URL(page.url()).hash, "#music-natural");
+    await page.locator("#c11 a[href='#n31']").first().click();
+    await page.waitForFunction(() => document.getElementById("n31").open);
+    assert.match(await page.locator("#n31 .prose").textContent(), /p = .31/);
+    await page.locator("#chapter-query").fill("不存在的章节XYZ");
+    await page.locator("#n31 a[href='#music-natural']").click();
+    await page.waitForFunction(() => document.getElementById("c11").open &&
+      !document.getElementById("c11").hidden && document.getElementById("chapter-query").value === "");
+    assert.equal(new URL(page.url()).hash, "#music-natural");
     assert.equal(await page.locator("#c11 .artwork img").count(), 2);
     for (const image of await page.locator("#c11 .artwork img").all()) {
       await image.scrollIntoViewIfNeeded();
