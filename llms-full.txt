@@ -2,7 +2,7 @@
 
 Canonical source: book/, essays/, guides/ and docs/. Values and original proposals are not validated interventions.
 Budgets are illustrative CNY caps. Preserve alternatives, stopping conditions and evidence status.
-Source digest: 2b2970b23dff275f2e98f69f2249c9799149400130c1fa960b4b0602c900bcf2
+Source digest: f31a54059adce1bb6fe111c93f7835248825cc26530ed9b20eaf0d56f00f616b
 
 [← 首页](README.md) · [语境与来源](docs/culture-shuaqi.md)
 
@@ -14370,7 +14370,7 @@ PDF 带卷期、DOI与版权栏，但未与出版商站点另一份文件逐字�
 
 ## 本书的使用边界
 
-用于C12区分情绪方向、强度、类别、观看者感受和喜欢。门前与生日会的镜头、告别的两种表达、事故新闻后的微笑均为本书原创设例，没有真实拍摄或受试者数据。关于主动投入与事实核实的立场也不是论文的因果结论。
+用于[C12的情绪判断讨论](../../book/12-film.md#film-context-study)，区分情绪方向、强度、类别、观看者感受和喜欢。门前与生日会的镜头、告别的两种表达、事故新闻后的微笑均为本书原创设例，没有真实拍摄或受试者数据。关于主动投入与事实核实的立场也不是论文的因果结论。
 
 论文开放许可为CC BY 4.0；本书只做注明来源的概述，不复制可辨认参与者图像。不验证看片方式、行动卡或快乐效果。另一种非连续设计见[N33](B33-context-and-categorization.md)；不可把它当作本研究的同设计胜负裁决。
 
@@ -14423,7 +14423,7 @@ PDF 带卷期、DOI与版权栏，但未与出版商站点另一份文件逐字�
 
 作者声明无资助、无利益冲突，并披露使用生成式AI修订语言及论证。披露本身既不证明结论可靠，也不是忽略研究的理由；仍需检查设计、结果和限制。伦理段关于适用要求为作者声明，本书没有独立法律核查。
 
-本书据此限制C12的研究表述；“感动有制作过程不等于伪造”、电影欣赏与现实证据的区分，为原创价值论证，不是此研究验证的结果。论文为CC BY 4.0开放文本，本书不复制刺激图片。
+本书据此限制[C12的研究表述](../../book/12-film.md#film-context-boundary)；“感动有制作过程不等于伪造”、电影欣赏与现实证据的区分，为原创价值论证，不是此研究验证的结果。论文为CC BY 4.0开放文本，本书不复制刺激图片。
 
 
 [← 研究与事实台账](../research.md) · [资源与照料正文](../../book/09-constrained.md)

@@ -71,6 +71,12 @@ class FilmContextTests(unittest.TestCase):
                                          "book/12-film.md"), "#n32")
         self.assertEqual(build.local_href("../../book/12-film.md#film-context-boundary",
                                          sources["N33"]), "#film-context-boundary")
+        # The renderer omits breadcrumb lines. The body must retain real backlinks.
+        for identifier, anchor in (("N32", "film-context-study"),
+                                   ("N33", "film-context-boundary")):
+            rendered = build.markdown((ROOT / sources[identifier]).read_text(),
+                                      sources[identifier])
+            self.assertIn('href="#' + anchor + '"', rendered)
 
     def test_route_has_visible_links_to_every_declared_target(self):
         routes = json.loads((ROOT / "data/reading-map.json").read_text())["routes"]
