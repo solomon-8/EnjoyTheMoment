@@ -321,6 +321,36 @@ class ExportTests(unittest.TestCase):
         self.assertLess(index.index("essays/07-rest-is-not-work.md"),
                         index.index("## Optional practical companions"))
 
+    def test_friendship_source_and_value_arguments_preserve_scope(self):
+        essay = next(item for item in json.loads(self.outputs["data/essays.json"])["essays"]
+                     if item["id"] == "E09")
+        note = next(item for item in json.loads(self.outputs["data/evidence.json"])["notes"]
+                    if item["id"] == "F57")
+        self.assertEqual(essay["text"], (ROOT / "essays/09-friends-not-assets.md").read_text())
+        self.assertEqual(note["text"], (ROOT / "docs/evidence/F57-friendship-and-reciprocity.md").read_text())
+        self.assertEqual(note["source_kind"], "philosophical_primary_translation")
+        self.assertIn(essay["text"], self.outputs["llms-full.txt"])
+        self.assertIn(note["text"], self.outputs["llms-full.txt"])
+        for anchor in ("friends-not-a-service", "friends-aristotle", "friends-reciprocity",
+                       "friends-hard-times", "friends-limited", "friends-ending"):
+            self.assertIn('id="' + anchor + '"', essay["text"])
+            self.assertEqual(self.outputs["index.html"].count('id="' + anchor + '"'), 1)
+        for phrase in ("不是对所有职场、城市或年轻人社交方式的统计判断",
+                       "设想一个虚构场景", "关系的范围可以有限", "只有自己知道的期待",
+                       "不必把辛苦偷偷改名成享受", "不要求先把过去写坏"):
+            self.assertIn(phrase, essay["text"])
+        for phrase in ("W. D. Ross", "2、3、4、13", "3、12", "没有通读全书",
+                       "没有读取希腊文", "不是心理实验", "the must", "现代法律性质"):
+            self.assertIn(phrase, note["text"])
+        self.assertEqual(build.local_href("../docs/evidence/F57-friendship-and-reciprocity.md",
+                                          "essays/09-friends-not-assets.md"), "#f57")
+        self.assertIn('href="#friends-reciprocity"', self.outputs["index.html"])
+        records = json.loads(self.outputs["data/research.json"])["records"]
+        self.assertNotIn("F57", {record["id"] for record in records})
+        self.assertTrue(all("F57" not in card["background_ids"] for card in self.export["cards"]))
+        for path in ("docs/ai.md", "skills/enjoy-the-moment/SKILL.md", "llms.txt"):
+            self.assertIn("E09/F57", (ROOT / path).read_text())
+
     def test_background_does_not_validate_cards(self):
         research = json.loads(self.outputs["data/research.json"])
         ids = {record["id"] for record in research["records"]}

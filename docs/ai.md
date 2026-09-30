@@ -12,6 +12,8 @@
 
 ## 先分清在做什么
 
+朋友关系见 E09/F57：[正文](../essays/09-friends-not-assets.md#friends-not-a-service)与[来源范围](evidence/F57-friendship-and-reciprocity.md)。只核读 Ross 英译指定六节，非全书、希腊文或实证研究。原作的德性层级与本书立场分开；不把情绪价值当服务承诺，不按古代分类诊断朋友或自动建议绝交。
+
 舞蹈结构见 C27/F51/F52：[时间图与论证](../book/27-dance.md#dance-time-grid)、[Rosas记录](evidence/F51-rosas-repetition.md)、[Cunningham记录](evidence/F52-cunningham-chance.md)。未完整观演或核看教程；PQR及抽选分布是原创模型，不是作品复原。随机程序不等于即兴，简化版不等于原作；先回应表达与乐趣，不默认给身体训练。
 
 涉及分工与闲暇时，读 C09/F50：[正文](../book/09-constrained.md#constrained-cognitive)讨论执行、组织与决定权；[来源](evidence/F50-cognitive-labor.md)是作者项目介绍，不是论文全文。170余次访谈不当2019论文样本，野餐为原创类比。回应责任与自由的冲突，不自动缩成小份活动。
