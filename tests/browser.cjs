@@ -43,6 +43,24 @@ const { chromium } = require("playwright");
     await page.locator("#e01 a[href='#shuaqi-position']").first().click();
     assert.equal(new URL(page.url()).hash, "#shuaqi-position");
     await page.locator("#shuaqi-content > summary").click();
+    await page.goto(url + "#connection-shared-attention");
+    await page.waitForFunction(() => document.getElementById("c05").open);
+    assert.equal(await page.locator("#c05 .prose table").count(), 1);
+    for (const anchor of ["connection-shared-attention", "connection-amplification", "connection-not-a-tool"]) {
+      await page.locator(`#c05 a[href='#${anchor}']`).first().click();
+      assert.equal(new URL(page.url()).hash, "#" + anchor);
+      assert(await page.locator("#c05 .prose").isVisible());
+    }
+    for (const [note, target] of [["n21", "connection-amplification"], ["n22", "connection-distance"]]) {
+      await page.locator(`#c05 a[href='#${note}']`).first().click();
+      await page.waitForFunction(id => document.getElementById(id).open && !document.getElementById(id).hidden, note);
+      assert.equal(new URL(page.url()).hash, "#" + note);
+      assert(await page.locator(`#${note} .prose`).isVisible());
+      await page.locator("#chapter-query").fill("不存在的章节XYZ");
+      await page.locator(`#${note} a[href='#${target}']`).first().click();
+      await page.waitForFunction(() => document.getElementById("c05").open && !document.getElementById("c05").hidden);
+      assert.equal(new URL(page.url()).hash, "#" + target);
+    }
     await page.goto(url + "#c24");
     await page.waitForFunction(() => document.getElementById("c24").open);
     assert.equal(await page.locator("#c24 .prose table").count(), 2);

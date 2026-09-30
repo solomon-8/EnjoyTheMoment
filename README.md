@@ -26,7 +26,7 @@
 **从你在意的问题开始：**
 
 - **先看主张**：[核心宣言](SHUAQI.md)说明偏向和愿付代价；[核心长文](#读深一点)展开工作、快乐、消费与关系。你不必先认同我们，反对意见也在正文里。
-- **先看真实矛盾**：[独处是在享受自由，还是被劝着不需要人](book/07-solo.md)、[为什么坐下来休息的人仍没下班](book/09-constrained.md#constrained-cognitive)、[省下来的时间归谁](book/21-free-time.md)、[没有功劳，可不可以有节日](book/18-celebration.md)、[旅行要不要改变人生](book/23-travel.md)。
+- **先看真实矛盾**：[朋友不是“猜你喜欢”，共同经历多出了什么](book/05-connection.md#connection-shared-attention)、[独处是在享受自由，还是被劝着不需要人](book/07-solo.md)、[为什么坐下来休息的人仍没下班](book/09-constrained.md#constrained-cognitive)、[省下来的时间归谁](book/21-free-time.md)、[没有功劳，可不可以有节日](book/18-celebration.md)、[旅行要不要改变人生](book/23-travel.md)。
 - **先进入一种乐趣**：[听音乐](book/11-music.md)、[玩游戏](book/19-games.md)、[读文学](book/22-reading.md)、[看画](book/25-looking-at-art.md)。[恐怖与悬念](book/31-recreational-fear.md)、[解谜](book/32-puzzles.md)、[夜空](book/29-night-sky.md)也从具体差异讲起。其他领域见[完整目录](#目录)，不只给活动名称，也展开具体内容。
 - **想试一个不同的晚上**：[配套行动](#现在就选一件)按时间、预算筛选；不想试，也不影响参与讨论。
 - **让 AI 协助阅读或选择**：[AI 阅读协议](docs/ai.md)、[Skill](skills/enjoy-the-moment/SKILL.md) 或 `llms.txt`。先理解你在问什么，不把所有问题都变成活动推荐。
@@ -68,7 +68,7 @@
 | [E08 · 你要的是快乐，还是看起来很精彩的人生？](essays/08-life-without-an-audience.md) | 经历、表达与被回应；不把拍照羞辱成虚荣，也不让观众取消生活 |
 | [E09 · 朋友不是人脉，一起没干什么也算相处](essays/09-friends-not-assets.md) | 非功利相处不等于无边界付出；认真讨论预算、分工与拒绝 |
 
-另有[20 篇背景研究台账](docs/research.md)：十五篇期刊全文、一篇带期刊排版的 arXiv 稿、两篇提前在线发表稿、一篇公开研究手稿、一篇作者托管页校样；统计、科普、教学、实践框架、文学文本、访客指导与监管报告等另外记录，均写明来源能支持到哪里。**这些材料不直接验证 60 张行动卡。**
+另有[22 篇背景研究台账](docs/research.md)：十七篇期刊全文、一篇带期刊排版的 arXiv 稿、两篇提前在线发表稿、一篇公开研究手稿、一篇作者托管页校样；统计、科普、教学、实践框架、文学文本、访客指导与监管报告等另外记录，均写明来源能支持到哪里。**这些材料不直接验证 60 张行动卡。**
 
 **把主张放进具体生活：**
 
