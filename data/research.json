@@ -321,6 +321,26 @@
       },
       "directly_validates_cards": false,
       "source": "docs/research.md#b16"
+    },
+    {
+      "id": "B17",
+      "title": "更多时间，不保证会把享乐兑现",
+      "doi": "10.1509/jmkr.47.5.933",
+      "access_level": "full_text",
+      "verified_at": "2026-09-30",
+      "fields": {
+        "核读日期": "2026-09-30。",
+        "文献": "Suzanne B. Shu, Ayelet Gneezy (2010). *Procrastination of Enjoyable Experiences*. Journal of Marketing Research, 47(5), 933–944。",
+        "DOI": "[10.1509/jmkr.47.5.933](https://doi.org/10.1509/jmkr.47.5.933)。",
+        "实际读取": "`full_text`；[UCLA 托管的期刊排版 PDF](https://anderson-review.ucla.edu/wp-content/uploads/2021/03/Shu-Gneezy_ProcrastinationofEnjoyable_2010.pdf)，通读五项研究、总讨论及城市清单附录；目视核对首页与主要兑换结果。Crossref 书目信息一致，出版社入口 403；未核对原始数据、复现与全部勘误。[详细阅读记录](evidence/B17-enjoyable-procrastination.md)。",
+        "设计与对象": "城市调查 199 人；搬离者调查 51 人；按摩券情境 85 人；甜点券预测 80 人、发券 64 人、随访回应 33 人；电影券主研究 240 人、随访回应 175 人。多个群体、观察与条件实验不可合成一个样本。",
+        "有限结论": "甜点券三周期限 10/32 兑换、两个月期限 2/32；电影券各条件合并后两周 59/120、六周 42/120。更多可用时间不保证更多实际使用；不是所有电影券条件内的比较都显著。",
+        "不能推出": "期限越短越好、未兑换必然损失幸福、所有延期都来自错误时间预期、营销倒计时对消费者有益，或本书行动卡已经验证。",
+        "我们如何使用": "[第 01 章](../book/01-start-now.md#today-voucher)区分保留机会、实现体验与提高兑换率；主张及时享乐不是接受商家的待办清单。",
+        "关键限制": "小型便利样本、两项回忆调查、预测与行动分属不同人群、事后回应流失、分组程序未清楚交代；电影券收益差异的期限效应比较 p = .10，不能写成已显著；预试报告量表上限与均值存在未解决的不一致。"
+      },
+      "directly_validates_cards": false,
+      "source": "docs/research.md#b17"
     }
   ],
   "relations": [
