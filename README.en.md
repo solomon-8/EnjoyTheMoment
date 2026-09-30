@@ -94,7 +94,7 @@ The chapters on senses, novelty, play, relationships, spending, and permission t
 | [20 · Photos can keep a moment without becoming its report card](book/20-photography.md) | Zooming is not moving closer: viewpoint, motion, sequencing and the pleasure of an audience. |
 | [21 · Time saved does not automatically belong to the next task](book/21-free-time.md) | Does disappointing free time justify more busyness? Why can two free schedules still fail to overlap? |
 | [22 · A book can take up an evening without upgrading its reader](book/22-reading.md) | How do Austen's dialogue and Li Bai's words invite us to stay with a text? |
-| [23 · A trip need not transform your life to be worth taking](book/23-travel.md) | How do routes, company and pace serve the experience you actually want? |
+| [23 · A trip need not transform your life to be worth taking](book/23-travel.md) | Can rejecting guidebooks still surrender choice? What if this may be your only visit? |
 | [24 · Being funny is a craft, not an obligation for others to play along](book/24-humor.md) | How do setups and turns work, and why is laughter not blanket permission? |
 | [25 · An exhibition is not a taste exam](book/25-looking-at-art.md) | What do three actual paintings let us notice about color, space and brushwork? |
 | [26 · A collection need not be complete](book/26-collecting.md) | What does an edition number tell us, and who gets to define the last missing piece? |

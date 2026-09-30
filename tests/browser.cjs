@@ -494,8 +494,27 @@ const { chromium } = require("playwright");
     assert.equal(await page.locator(".chapter-intro:visible").count(), 1);
     await page.goto(url + "#c23");
     await page.waitForFunction(() => document.getElementById("c23").open);
-    assert.equal(await page.locator("#c23 .prose table").count(), 2);
+    assert.equal(await page.locator("#c23 .prose table").count(), 3);
     assert.match(await page.locator("#c23 .prose").textContent(), /310 分钟/);
+    for (const anchor of ["travel-once", "travel-guide", "travel-authenticity", "travel-forster"]) {
+      await page.locator(`#c23 a[href='#${anchor}']`).first().click();
+      assert.equal(new URL(page.url()).hash, "#" + anchor);
+      assert(await page.locator("#c23 .prose").isVisible());
+    }
+    assert.equal(await page.locator("#c23 .prose details").evaluate(e => e.open), false);
+    await page.locator("#c23 .prose details > summary").click();
+    assert.equal(await page.locator("#c23 .prose details").evaluate(e => e.open), true);
+    assert.match(await page.locator("#c23 .prose details").textContent(), /Miss Lavish/);
+    await page.locator("#c23 a[href='#f58']").first().click();
+    await page.waitForFunction(() => document.getElementById("f58").open);
+    assert.equal(await page.locator("#f58 .prose details").evaluate(e => e.open), false);
+    await page.locator("#f58 .prose details > summary").click();
+    assert.match(await page.locator("#f58 .prose details").textContent(), /不是福斯特本人/);
+    await page.locator("#chapter-query").fill("不存在的章节XYZ");
+    await page.locator("#f58 a[href='#travel-forster']").first().click();
+    await page.waitForFunction(() => document.getElementById("c23").open &&
+      !document.getElementById("c23").hidden && document.getElementById("chapter-query").value === "");
+    assert.equal(new URL(page.url()).hash, "#travel-forster");
     await page.locator("#c23 a[href='#n12']").click();
     await page.waitForFunction(() => document.getElementById("n12").open);
     assert.match(await page.locator("#n12 .prose").textContent(), /不是把同一批人逐日追踪八周/);
