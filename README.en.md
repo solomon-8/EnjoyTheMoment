@@ -48,6 +48,8 @@ Neither excitement nor spending is compulsory. Quiet enjoyment counts. Disliking
 
 [E11 · If pleasure could be generated on demand, would we still want real life?](essays/11-pleasure-and-reality.md) distinguishes valuing pleasure from valuing nothing else. It examines the experience-machine question, genuine participation in fictional worlds, and whether differences in enjoyment justify ranking other people's tastes. Philosophical arguments are not behavioral evidence; the Nozick passage was read through a secondary encyclopedia quotation, not in his original book.
 
+[Novelty](book/03-novelty.md) uses an original wire-cube illustration to distinguish a new object from a new interpretation, then asks how rules can preserve suspense and why repetition need not erase enjoyment. The image is not an experimental stimulus validated by B03: that paper’s author-hosted page proof summarizes different figure-ground studies whose original report has not been independently reviewed here. “You need not escalate” does not mean “you must always choose the smallest version.”
+
 [Solitude](book/07-solo.md) asks what freedom from coordinating every preference can offer, without declaring relationships a burden. It reads selected passages of *Walden* and *A Room of One’s Own*: literary voices are not verified biography, and Woolf’s argument about women and writing is not a leisure experiment. The chapter also asks whose labor makes uninterrupted time possible.
 
 The chapters on senses, novelty, play, relationships, spending, and permission to enjoy contain substantial discussions before their supporting cards. They address taste without moral judgment, novelty without a life checklist, serious play without compulsory achievement, shared time without identical preferences, and leisure without a productivity test. These discussions are in Chinese; value arguments and hypothetical examples are distinguished from limited research findings.
@@ -56,7 +58,7 @@ The chapters on senses, novelty, play, relationships, spending, and permission t
 | --- | --- |
 | [01 · Today is not a trial version of your future](book/01-start-now.md) | Why must a wish for a whole evening be reduced to five minutes? |
 | [02 · Your senses are not just work equipment](book/02-senses.md) | Can taste, sound, and comfort matter on their own? |
-| [03 · Make a little room for surprise](book/03-novelty.md) | Can an ordinary day contain a small detour? |
+| [03 · Make a little room for surprise](book/03-novelty.md) | New objects, new interpretations, and the pleasures of familiarity |
 | [04 · Play without turning professional](book/04-play.md) | What would you play if you never had to get good? |
 | [05 · People are not a network](book/05-connection.md) | Can spending time together be the whole point? |
 | [06 · Buy pleasure, not an identity](book/06-spending.md) | Which specific experience is worth its cost to you? |

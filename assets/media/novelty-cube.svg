@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="840" height="880" viewBox="0 0 840 880" role="img" aria-labelledby="title desc">
+<title id="title">同一组线，可以有不同的前后读法</title>
+<desc id="desc">上图为等粗线的立方体线框：左下与右上各一个正方形，以四条斜线连接对应角。下方A、B两图用加粗边框分别提示把左下或右上正方形理解为前面。下方着色是解释提示，不是上图发生了变化。</desc>
+<rect width="840" height="880" fill="#fff8ed"/>
+<g font-family="PingFang SC, Noto Sans CJK SC, sans-serif" fill="#27251f">
+<text x="420" y="57" text-anchor="middle" font-size="30" font-weight="700">线没有换，前后关系可以换一种读法</text>
+<text x="420" y="98" text-anchor="middle" font-size="23">先看上图；看不出切换，也不必勉强</text>
+</g>
+<g id="wireframe" transform="translate(222 166)" stroke="#27251f" stroke-width="5" fill="none" stroke-linejoin="round">
+<path d="M0 102H270V372H0Z M126 0H396V270H126Z M0 102L126 0 M270 102L396 0 M270 372L396 270 M0 372L126 270"/>
+</g>
+<g font-family="PingFang SC, Noto Sans CJK SC, sans-serif" fill="#27251f" text-anchor="middle">
+<text x="214" y="609" font-size="25" font-weight="700">A · 左下方作为前面</text>
+<text x="626" y="609" font-size="25" font-weight="700">B · 右上方作为前面</text>
+</g>
+<g id="interpretation-a" transform="translate(94 640) scale(.55)" stroke="#77736b" stroke-width="4" fill="none" stroke-linejoin="round">
+<path d="M0 102H270V372H0Z M126 0H396V270H126Z M0 102L126 0 M270 102L396 0 M270 372L396 270 M0 372L126 270"/>
+<path d="M0 102H270V372H0Z" stroke="#c04420" stroke-width="10"/>
+</g>
+<g id="interpretation-b" transform="translate(518 640) scale(.55)" stroke="#77736b" stroke-width="4" fill="none" stroke-linejoin="round">
+<path d="M0 102H270V372H0Z M126 0H396V270H126Z M0 102L126 0 M270 102L396 0 M270 372L396 270 M0 372L126 270"/>
+<path d="M126 0H396V270H126Z" stroke="#c04420" stroke-width="10"/>
+</g>
+</svg>

@@ -108,3 +108,7 @@ The Public Life Data Protocol was jointly developed by Gehl Institute, Gehl, the
 *Fate Condensed* 以官方许可入口下载 ZIP 内的 SRD 文件为底本，未只凭网站改编呈现取代官方文件。下载文件署名名单比网页页脚多 Leonard Balsera 与 Ryan Macklin，按文件完整保留。读取范围和未核验项见 F33。
 
 没有使用两套游戏的标识、字体、世界设定、人物、插图或地图；会说谎的钟、修钟匠和码头为本项目原创虚构，不是实况转写。概率枚举只验证模型，不表示试玩、玩家反馈或快乐效果。权利方没有审核、赞助或为本项目背书。
+
+## 感知说明与原创线框
+
+新鲜感章节的内克尔立方体采用通用几何结构独立绘制，具体来源、研究者署名、说明文本与媒体的不同许可见 [F49](evidence/F49-novelty-and-perception.md)。未收录来源图片、文章全文或交互。图的坐标、布局与文字提示为本书原创，不声称发明既有概念；[素材说明](../assets/media/README.md)区分线框与A/B读法提示。B03图底实验不是本书图片的验证。
