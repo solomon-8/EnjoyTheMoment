@@ -1404,6 +1404,44 @@ class ExportTests(unittest.TestCase):
         self.assertEqual(len(json.loads(self.outputs["data/research.json"])["records"]), 28)
         self.assertEqual(len(self.export["cards"]), 60)
 
+    def test_singing_relations_preserve_full_text_and_original_example_boundaries(self):
+        chapters = {item["id"]: item for item in
+                    json.loads(self.outputs["data/chapters.json"])["chapters"]}
+        chapter = chapters["C33"]
+        text = (ROOT / chapter["source"]).read_text()
+        self.assertEqual(chapter["text"], text.strip())
+        self.assertIn(text, self.outputs["llms-full.txt"])
+        for anchor in ("singing-relations", "singing-paghjella", "singing-listeners",
+                       "singing-role-choice", "singing-living-context"):
+            self.assertEqual(self.outputs["index.html"].count('id="' + anchor + '"'), 1)
+        for phrase in ("四行是先后时段，不保证等长", "不是 paghjella 的谱子",
+                       "承托是音乐中的职责", "没有听评一段演唱",
+                       "2009 年的决定", "不是本书对 2026 年现状的调查"):
+            self.assertIn(phrase, text)
+        rendered = build.markdown(text, chapter["source"])
+        self.assertEqual(rendered.count("<table>"), 4)
+        self.assertEqual(build.local_href("../docs/evidence/F62-paghjella-and-listeners.md",
+                                         chapter["source"]), "#f62")
+        self.assertEqual(chapter["card_ids"], [])
+
+    def test_paghjella_source_retains_historical_scope_and_failed_download_boundary(self):
+        notes = {item["id"]: item for item in
+                 json.loads(self.outputs["data/evidence.json"])["notes"]}
+        note = notes["F62"]
+        self.assertEqual(note["source_kind"], "official_heritage_description_and_decision")
+        self.assertEqual(note["text"], (ROOT / note["source"]).read_text())
+        self.assertIn(note["text"], self.outputs["llms-full.txt"])
+        for phrase in ("完整核读决定正文", "HTTP 200 不能当作成功读到正文",
+                       "没有播放页面视频或录音", "本次没有打开和核读这些报告",
+                       "2009 年的威胁判断不能升级为 2026 年现状结论",
+                       "不是前文轮唱的同义词", "不增加 B 系列背景研究数量"):
+            self.assertIn(phrase, note["text"])
+        records = json.loads(self.outputs["data/research.json"])["records"]
+        self.assertEqual(len(records), 28)
+        self.assertNotIn("F62", {item["id"] for item in records})
+        self.assertEqual(len(self.export["cards"]), 60)
+        self.assertIn('"id":"R55"', (ROOT / "docs/reading-map.md").read_text())
+
     def test_singing_examples_preserve_intervals_and_round_offset(self):
         text = (ROOT / "book/33-singing.md").read_text()
         note_values = {"C": 0, "D": 2, "E": 4, "F": 5, "G": 7, "B": 11}
