@@ -61,6 +61,18 @@ const { chromium } = require("playwright");
       await page.waitForFunction(() => document.getElementById("c05").open && !document.getElementById("c05").hidden);
       assert.equal(new URL(page.url()).hash, "#" + target);
     }
+    await page.goto(url + "#rest-returns");
+    await page.waitForFunction(() => document.getElementById("e07").open);
+    for (const anchor of ["rest-real-income", "rest-paid-evening"]) {
+      await page.locator(`#e07 a[href='#${anchor}']`).first().click();
+      assert.equal(new URL(page.url()).hash, "#" + anchor);
+      assert(await page.locator("#e07 .prose").isVisible());
+    }
+    await page.locator("#essay-query").fill("未匹配论证XYZ");
+    await page.evaluate(() => { window.location.hash = "#rest-no-verdict"; });
+    await page.waitForFunction(() => document.getElementById("e07").open &&
+      !document.getElementById("e07").hidden && document.getElementById("essay-query").value === "");
+    assert.match(await page.locator("#e07 .prose").textContent(), /不喜欢这次安排，不等于没有资格拥有这段时间/);
     await page.goto(url + "#excitement-information");
     await page.waitForFunction(() => document.getElementById("e02").open);
     await page.locator("#e02 a[href='#excitement-costs']").first().click();
