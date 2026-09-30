@@ -1478,6 +1478,41 @@ class ExportTests(unittest.TestCase):
             self.assertIsNotNone(svg.find(ns + "title"))
             self.assertIsNotNone(svg.find(ns + "desc"))
 
+    def test_tragedy_argument_keeps_full_text_source_and_counterexamples(self):
+        chapters = {item["id"]: item for item in
+                    json.loads(self.outputs["data/chapters.json"])["chapters"]}
+        chapter = chapters["C31"]
+        text = (ROOT / chapter["source"]).read_text()
+        self.assertEqual(chapter["text"], text.strip())
+        self.assertIn(text, self.outputs["llms-full.txt"])
+        self.assertEqual(chapter["card_ids"], [])
+        self.assertEqual(text.count("<details>"), 1)
+        for anchor in ("fear-three-explanations", "fear-two-wishes",
+                       "fear-conversion-limit", "fear-not-a-status-test"):
+            self.assertEqual(self.outputs["index.html"].count('id="' + anchor + '"'), 1)
+        for phrase in ("下面的观影情境是本书假想", "休谟先转述迪博", "转述丰特奈尔",
+                       "解释必须容纳不喜欢的人", "对人物命运的愿望", "探索也可能以确认不喜欢结束"):
+            self.assertIn(phrase, text)
+        self.assertEqual(build.local_href("../docs/evidence/F61-tragedy-and-enjoyment.md",
+                                         chapter["source"]), "#f61")
+        self.assertEqual(len(self.export["cards"]), 60)
+
+    def test_tragedy_source_distinguishes_secondary_attribution_and_reading_scope(self):
+        notes = {item["id"]: item for item in
+                 json.loads(self.outputs["data/evidence.json"])["notes"]}
+        note = notes["F61"]
+        self.assertEqual(note["source_kind"], "philosophical_primary_text")
+        self.assertEqual(note["text"], (ROOT / note["source"]).read_text())
+        self.assertIn(note["text"], self.outputs["llms-full.txt"])
+        for phrase in ("完整核读正文 Tr 1–28", "没有独立读取迪博或丰特奈尔原作",
+                       "未作拉丁语校勘或独立翻译", "Tr 20–24", "不是当代观众调查",
+                       "不增加 B 系列背景研究数量", "不验证任何行动卡"):
+            self.assertIn(phrase, note["text"])
+        records = json.loads(self.outputs["data/research.json"])["records"]
+        self.assertEqual(len(records), 28)
+        self.assertNotIn("F61", {item["id"] for item in records})
+        self.assertIn('"id":"R54"', (ROOT / "docs/reading-map.md").read_text())
+
     def test_fear_and_insight_sources_keep_samples_nonresults_and_spoilers(self):
         chapters = {item["id"]: item for item in
                     json.loads(self.outputs["data/chapters.json"])["chapters"]}

@@ -102,7 +102,7 @@ The chapters on senses, novelty, play, relationships, spending, and permission t
 | [28 · The score can stay still while the game changes](book/28-watching-sport.md) | What do off-ball movement, two clocks and a missed shot let us notice beyond results? |
 | [29 · The sky owes you no photograph](book/29-night-sky.md) | Lunar phases, shadows and earthshine: what is worth seeing when the image or planned spectacle disappoints? |
 | [30 · Must a bird be rare to deserve attention?](book/30-birdwatching.md) | Identification, behavior and honest records without making a checklist the only purpose of looking. |
-| [31 · I paid to be scared—and enjoy it](book/31-recreational-fear.md) | A haunted-house study and The Monkey’s Paw distinguish suspense, enjoyment and actual loss of choice. |
+| [31 · I paid to be scared—and enjoy it](book/31-recreational-fear.md) | Why pay for discomfort? Competing explanations, and the difference between wanting a character safe and wanting the story to continue. |
 | [32 · The fastest answer is not always the most fun](book/32-puzzles.md) | Four cards, six roads and five lamps: discovery, impossibility and what survives a rule change |
 | [33 · A microphone is not a qualification](book/33-singing.md) | Transposition, timbre, phrasing and rounds distinguish participating in a song from submitting to an uninvited audition. |
 | [34 · Characters may suffer; players need not](book/34-shared-stories.md) | Dice pools, fictional consequences and aspects explain why choosing trouble can be part of choosing enjoyment. |
