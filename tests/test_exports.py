@@ -351,6 +351,35 @@ class ExportTests(unittest.TestCase):
         for path in ("docs/reading-map.md",):
             self.assertIn("E09/F57", (ROOT / path).read_text())
 
+    def test_purchase_essay_preserves_argument_anchors_and_source_scope(self):
+        source = "essays/04-buying-pleasure.md"
+        essay = next(item for item in json.loads(self.outputs["data/essays.json"])["essays"]
+                     if item["id"] == "E04")
+        self.assertEqual(essay["text"], (ROOT / source).read_text())
+        self.assertIn(essay["text"], self.outputs["llms-full.txt"])
+        for anchor in ("purchase-substitute", "purchase-claim", "purchase-shared",
+                       "purchase-options", "purchase-authorship", "purchase-uncertainty",
+                       "purchase-objections"):
+            self.assertIn('id="' + anchor + '"', essay["text"])
+            self.assertEqual(self.outputs["index.html"].count('id="' + anchor + '"'), 1)
+        # Export retention only; these assertions do not evaluate persuasiveness.
+        for phrase in ("功能上的替代品，不一定是愿望的替代品",
+                       "两个愿望都真，也可以只能实现一个",
+                       "不能把所有互斥用途的好处相加",
+                       "不花钱可以是积极的偏好",
+                       "未来收益需要诚实估计，当下享受也应得到诚实承认",
+                       "本文不会用“多沟通”假装已经找到答案",
+                       "仅凭结果，不能证明他购买前必然草率",
+                       "我们不要求他把遗憾改写成“其实一样”",
+                       "数字仅帮助看清差别，不是商品报价或预算建议",
+                       "这个启发不验证"):
+            self.assertIn(phrase, essay["text"])
+        self.assertEqual(build.local_href("../docs/research.md#b01", source), "#b01")
+        self.assertEqual(build.local_href("01-pleasure-is-an-end.md#pleasure-options", source),
+                         "#pleasure-options")
+        self.assertEqual(len(json.loads(self.outputs["data/research.json"])["records"]), 24)
+        self.assertIn('"id":"R46"', (ROOT / "docs/reading-map.md").read_text())
+
     def test_audience_essay_exports_full_argument_and_scoped_source_links(self):
         source = "essays/08-life-without-an-audience.md"
         essay = next(item for item in json.loads(self.outputs["data/essays.json"])["essays"]
