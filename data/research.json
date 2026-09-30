@@ -341,6 +341,26 @@
       },
       "directly_validates_cards": false,
       "source": "docs/research.md#b17"
+    },
+    {
+      "id": "B18",
+      "title": "想要怎样的一生，与怎样的下一小时",
+      "doi": "10.1080/17439760.2018.1460688",
+      "access_level": "full_text",
+      "verified_at": "2026-09-30",
+      "fields": {
+        "核读日期": "2026-09-30。",
+        "文献": "Cassie Mogilner, Michael I. Norton. *Preferences for experienced versus remembered happiness*. 2018-04-05在线发表；最终卷期为 The Journal of Positive Psychology, 14(2), 244–251（2019）。本次读取提前在线排版版本。",
+        "DOI": "[10.1080/17439760.2018.1460688](https://doi.org/10.1080/17439760.2018.1460688)。",
+        "实际读取": "`full_text`；[哈佛商学院托管PDF](https://www.hbs.edu/ris/Publication%20Files/Mogilner%20Norton%202018_cb9d78a7-bbfd-47dd-9995-c8f582abd99e.pdf)，通读五项研究方法、结果与讨论；目视核对研究1、春假日历与跨国结果。Crossref核对书目，出版社403；未逐字核对最终版本、原始数据、复现与全部勘误。[详细阅读记录](evidence/B18-experience-and-memory.md)。",
+        "设计与对象": "五项研究共3,351人，分别1,145、960、313、185、748；美国网络样本与大学生，以及英格兰、荷兰、中国、日本网络面板。强制选择过程快乐或回忆快乐，不是实际人生或旅行体验的效果试验。",
+        "有限结论": "研究1一生组225/284选择过程快乐，小时组140/285；相同一周春假在年历/月历呈现下分别37/62与47/61选择过程快乐。偏好依时间范围与呈现而变，跨国样本模式不一。",
+        "不能推出": "同一个人实际言行矛盾、回忆不如体验、月历改善假期、国别等于民族性格、好结尾补偿全部过程，或收尾卡片被验证。",
+        "我们如何使用": "[第10章](../book/10-aftertaste.md#aftertaste-preference)区分当时感受、现在回想与下一次选择；难忘与舒适可以取舍，问卷多数不替读者决定。",
+        "关键限制": "强制二选一、组间而非个人轨迹、未测实际春假结果、文化机制未验证；研究1今年组196/290与正文65%不一致，图标68%；研究3有p值印刷疑点；这些数值均不用于正文主论据。"
+      },
+      "directly_validates_cards": false,
+      "source": "docs/research.md#b18"
     }
   ],
   "relations": [
