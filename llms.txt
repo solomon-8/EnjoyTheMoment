@@ -5,6 +5,7 @@
 
 ## Read first
 - [Position and real tradeoffs](SHUAQI.md), then [E01: options and actually choosing](essays/01-pleasure-is-an-end.md#pleasure-options) and [worthwhile is not globally optimal](essays/01-pleasure-is-an-end.md#pleasure-enough). These are original normative arguments and hypothetical cases, not empirically validated decision rules. Do not reduce pleasure to tiny comforts, demand maximum happiness, or answer a value dispute with an unsolicited activity.
+- [Rest is not work](essays/07-rest-is-not-work.md): core value argument about real forgone income, productivity as a condition, and work preferences versus authority over others; fictional cases, not proven financial or happiness outcomes.
 - [Experience, memory and choosing again](book/10-aftertaste.md): C10/B18/N18 separate lived experience, retrospective evaluation and future choice. B18 is a 2018 advance-online version, assigned to a 2019 issue; forced preferences are not measured experience, memory accuracy or a peak-end intervention. Between-group differences do not prove an individual contradicted a life philosophy. Chinese/Japanese samples did not show the same timeframe pattern; do not infer national character or religious causes. Reported numeric inconsistencies remain unresolved. No ending ritual or J055–J060 action is validated.
 - [Today counts](book/01-start-now.md): C01/B17/N17 distinguish owning an opportunity, using it and living well. The pastry prediction group (80) differs from actual recipients (64); redemption was 10/32 versus 2/32 for shorter versus longer deadlines. Movie-coupon totals (59/120 versus 42/120) do not make every condition significant. Redemption is not welfare; the 85-person imagined spa study did not track future free time. A reported pretest scale/mean inconsistency remains unresolved. No card or universal deadline is validated; do not reduce a requested full experience to a tiny activity.
 - [Novelty, interpretation and repetition](book/03-novelty.md): C03/F49/B03 distinguish a researcher-authored explainer, an original static wire-cube illustration, a page-proof review and the project’s arguments. Two spatial readings or a flat-line reading are possible; do not claim an unobserved perceptual flip, ability score or pleasure effect. B03 summarizes different figure-ground stimuli; the original report was marked Under Review in the consulted proof and was not independently read. Rules can be known while outcomes remain uncertain. Repetition may be wanted without new insight; stronger experiences need not be replaced by smaller ones.
@@ -49,7 +50,6 @@ alternatives, stopping conditions or evidence status to save tokens.
 ## Optional practical companions
 - [Playbook index](guides/README.md): full original rules and examples, not validation.
 - [Playbooks JSON](data/guides.json): complete texts and provenance.
-- [Rest is not work](essays/07-rest-is-not-work.md): core argument with objections.
 
 python3 tools/guides.py --query 朋友 --limit 2
 python3 tools/guides.py --id P010

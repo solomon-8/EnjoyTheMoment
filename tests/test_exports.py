@@ -302,6 +302,25 @@ class ExportTests(unittest.TestCase):
         for path in ("docs/ai.md", "skills/enjoy-the-moment/SKILL.md", "llms.txt"):
             self.assertIn("E02/B24/N24", (ROOT / path).read_text())
 
+    def test_rest_essay_retains_value_argument_and_deep_links(self):
+        essay = next(item for item in json.loads(self.outputs["data/essays.json"])["essays"]
+                     if item["id"] == "E07")
+        self.assertEqual(essay["text"], (ROOT / "essays/07-rest-is-not-work.md").read_text())
+        self.assertIn(essay["text"], self.outputs["llms-full.txt"])
+        for anchor in ("rest-returns", "rest-real-income", "rest-paid-evening",
+                       "rest-work-authority", "rest-no-verdict"):
+            self.assertIn('id="' + anchor + '"', essay["text"])
+            self.assertEqual(self.outputs["index.html"].count('id="' + anchor + '"'), 1)
+        for phrase in ("附带收益获得资格", "假设，不是收入调查", "设想一个虚构周六",
+                       "自愿安排能否止于本人", "不喜欢这次安排，不等于没有资格拥有这段时间",
+                       "不是对任何劳动合同或法定权利作判断", "原创价值论证"):
+            self.assertIn(phrase, essay["text"])
+        self.assertIn('href="#rest-paid-evening"', self.outputs["index.html"])
+        self.assertIn('href="#b05"', self.outputs["index.html"])
+        index = (ROOT / "llms.txt").read_text()
+        self.assertLess(index.index("essays/07-rest-is-not-work.md"),
+                        index.index("## Optional practical companions"))
+
     def test_background_does_not_validate_cards(self):
         research = json.loads(self.outputs["data/research.json"])
         ids = {record["id"] for record in research["records"]}
