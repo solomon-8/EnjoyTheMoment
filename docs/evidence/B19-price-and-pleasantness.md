@@ -68,3 +68,5 @@ Hilke Plassmann、John O’Doherty、Baba Shiv、Antonio Rangel，*Marketing act
 - 任何饮酒、盲品练习或J007–J012行动已获得验证。
 
 材料涉及酒，是因为原实验使用酒，不是邀请读者以饮酒重做实验。本书没有新增饮用动作或剂量建议。
+
+回到[身体与感官：价格、喜欢及选择](../../book/02-senses.md#senses-price-expectation)。

@@ -143,6 +143,7 @@ class ExportTests(unittest.TestCase):
         for phrase in ("身体还是生活发生的地方", "被欺骗也不必被原谅", "不是为了把欲望说小"):
             self.assertIn(phrase, chapter["text"])
         self.assertIn('href="#n19"', self.outputs["index.html"])
+        self.assertIn('<p>回到<a href="#senses-price-expectation">身体与感官：价格、喜欢及选择</a>。</p>', self.outputs["index.html"])
         self.assertEqual(build.local_href("../../book/02-senses.md#senses-price-expectation", note["source"]), "#senses-price-expectation")
         for path in ("docs/ai.md", "skills/enjoy-the-moment/SKILL.md", "llms.txt"):
             self.assertIn("C02/B19/N19", (ROOT / path).read_text())
