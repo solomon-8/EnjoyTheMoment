@@ -61,6 +61,22 @@ const { chromium } = require("playwright");
       await page.waitForFunction(() => document.getElementById("c05").open && !document.getElementById("c05").hidden);
       assert.equal(new URL(page.url()).hash, "#" + target);
     }
+    await page.goto(url + "#time-overlap");
+    await page.waitForFunction(() => document.getElementById("c21").open);
+    assert.equal(await page.locator("#c21 .prose table").count(), 2);
+    for (const anchor of ["time-overlap", "time-empty", "time-study"]) {
+      await page.locator(`#c21 a[href='#${anchor}']`).first().click();
+      assert.equal(new URL(page.url()).hash, "#" + anchor);
+      assert(await page.locator("#c21 .prose").isVisible());
+    }
+    await page.locator("#c21 a[href='#n27']").first().click();
+    await page.waitForFunction(() => document.getElementById("n27").open);
+    assert.match(await page.locator("#n27 .prose").textContent(), /p = .066/);
+    await page.locator("#chapter-query").fill("不存在的章节XYZ");
+    await page.locator("#n27 a[href='#time-study']").first().click();
+    await page.waitForFunction(() => document.getElementById("c21").open &&
+      !document.getElementById("c21").hidden && document.getElementById("chapter-query").value === "");
+    assert.equal(new URL(page.url()).hash, "#time-study");
     await page.goto(url + "#friends-not-a-service");
     await page.waitForFunction(() => document.getElementById("e09").open);
     await page.locator("#e09 a[href='#friends-reciprocity']").first().click();
