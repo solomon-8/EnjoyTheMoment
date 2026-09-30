@@ -1373,6 +1373,58 @@ class ExportTests(unittest.TestCase):
         self.assertNotEqual(sum(min(dice) <= 3 for dice in two_dice),
                             sum(max(dice) <= 3 for dice in two_dice))
 
+    def test_play_goals_example_and_exports_preserve_the_actual_decision(self):
+        chapters = {item["id"]: item for item in
+                    json.loads(self.outputs["data/chapters.json"])["chapters"]}
+        chapter = chapters["C04"]
+        text = (ROOT / chapter["source"]).read_text()
+        # C01–C10 export the essay before the cards; tools/read.py returns
+        # the complete canonical file. Preserve both documented contracts.
+        self.assertEqual(chapter["scope"], "chapter_introduction")
+        self.assertEqual(chapter["text"], text.partition('<a id="j')[0].strip())
+        self.assertIn(chapter["text"], self.outputs["llms-full.txt"])
+        for card in self.export["cards"]:
+            if card["id"] in chapter["card_ids"]:
+                self.assertIn(card["body"], self.outputs["llms-full.txt"])
+        self.assertEqual(chapter["card_ids"],
+                         ["J019", "J020", "J021", "J022", "J023", "J024"])
+        for anchor in ("play-wanting-to-win", "play-changing-goals", "play-finish",
+                       "play-honest-result", "play-score-boundary"):
+            self.assertEqual(self.outputs["index.html"].count('id="' + anchor + '"'), 1)
+        # Check the stated finite example, not a claim of enjoyment or a full game.
+        self.assertIn("**2 和 4**", text)
+        self.assertIn("**3、5、8**", text)
+        self.assertIn("没有后续回合、隐藏奖励或对手行动", text)
+        totals = {choice: 2 + 4 + choice for choice in (3, 5, 8)}
+        rows = re.findall(r"^\| (总和尽可能[^|]+) \| (\d+) \| (.+) \|$", text, re.M)
+        self.assertEqual(len(rows), 2)
+        self.assertEqual(int(rows[0][1]), max(totals, key=totals.get))
+        self.assertEqual(int(rows[1][1]), min(totals, key=lambda c: abs(totals[c] - 9)))
+        self.assertEqual(totals, {3: 9, 5: 11, 8: 14})
+        self.assertIn("总和为 14", rows[0][2])
+        self.assertIn("总和正好为 9", rows[1][2])
+        self.assertIn("不是完整游戏", text)
+        self.assertEqual(build.local_href("../docs/evidence/F63-play-and-chosen-goals.md",
+                                         chapter["source"]), "#f63")
+        self.assertEqual(build.markdown(text, chapter["source"]).count("<table>"), 1)
+
+    def test_play_philosophy_source_keeps_read_scope_and_nonexperimental_status(self):
+        notes = {item["id"]: item for item in
+                 json.loads(self.outputs["data/evidence.json"])["notes"]}
+        note = notes["F63"]
+        self.assertEqual(note["source_kind"], "philosophical_primary_argument")
+        self.assertEqual(note["text"], (ROOT / note["source"]).read_text())
+        self.assertIn(note["text"], self.outputs["llms-full.txt"])
+        for phrase in ("427–429", "433–438", "第 439 页", "没有独立核读 Suits 原书",
+                       "两种取向可以共存", "不是游戏效果实验", "不是完整游戏",
+                       "不新增 B 系列背景研究", "没有将抽取等同整篇核读"):
+            self.assertIn(phrase, note["text"])
+        records = json.loads(self.outputs["data/research.json"])["records"]
+        self.assertEqual(len(records), 28)
+        self.assertNotIn("F63", {item["id"] for item in records})
+        self.assertEqual(len(self.export["cards"]), 60)
+        self.assertIn('"id":"R56"', (ROOT / "docs/reading-map.md").read_text())
+
     def test_singing_chapter_and_heterogeneous_sources_remain_complete(self):
         chapters = {item["id"]: item for item in
                     json.loads(self.outputs["data/chapters.json"])["chapters"]}

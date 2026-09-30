@@ -242,6 +242,22 @@ const { chromium } = require("playwright");
     await page.waitForFunction(() => document.getElementById("c33").open &&
       !document.getElementById("c33").hidden && document.getElementById("chapter-query").value === "");
     assert.equal(new URL(page.url()).hash, "#singing-role-choice");
+    await page.goto(url + "#play-wanting-to-win");
+    await page.waitForFunction(() => document.getElementById("c04").open);
+    assert.equal(await page.locator("#c04 .prose table").count(), 1);
+    assert.equal(await page.locator("#c04 .prose table tbody tr").count(), 2);
+    assert.match(await page.locator("#c04 .prose").textContent(), /总和正好为 9/);
+    await page.locator("#c04 a[href='#play-changing-goals']").click();
+    assert.equal(new URL(page.url()).hash, "#play-changing-goals");
+    await page.locator("#c04 a[href='#f63']").first().click();
+    await page.waitForFunction(() => document.getElementById("f63").open);
+    assert.match(await page.locator("#f63 .prose").textContent(), /没有独立核读 Suits 原书/);
+    assert.match(await page.locator("#f63 .prose").textContent(), /没有将抽取等同整篇核读/);
+    await page.locator("#chapter-query").fill("不存在的章节XYZ");
+    await page.locator("#f63 a[href='#play-score-boundary']").click();
+    await page.waitForFunction(() => document.getElementById("c04").open &&
+      !document.getElementById("c04").hidden && document.getElementById("chapter-query").value === "");
+    assert.equal(new URL(page.url()).hash, "#play-score-boundary");
     await page.goto(url + "#e11");
     await page.waitForFunction(() => document.getElementById("e11").open);
     assert.equal(await page.locator("#e11 .prose table").count(), 2);
