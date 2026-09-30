@@ -1403,6 +1403,45 @@ class ExportTests(unittest.TestCase):
         self.assertIn("下面是虚构例子", chapters["C26"]["text"])
         self.assertIn("不提供价格预测、鉴定结论或投资建议", chapters["C26"]["text"])
 
+    def test_art_letters_conservation_and_reactions_stay_distinct(self):
+        notes = {item["id"]: item for item in json.loads(self.outputs["data/evidence.json"])["notes"]}
+        chapters = {item["id"]: item for item in json.loads(self.outputs["data/chapters.json"])["chapters"]}
+        self.assertEqual(notes["F54"]["source_kind"], "artist_letters_in_scholarly_edition")
+        self.assertEqual(notes["F55"]["source_kind"], "museum_conservation_explainer")
+        for phrase in ("没有逐字核读法文原文", "两封信的日期来自编辑判断",
+                       "706致Gauguin", "705的对应措辞并不完全相同",
+                       "后来的版本沿用了", "不是观众实验"):
+            self.assertIn(phrase, notes["F54"]["text"])
+        for phrase in ("不是完整实验报告", "不计为四项独立实验",
+                       "没有独立读取那封完整书信", "没有核看显微照片",
+                       "不采用其年限作为普遍预测", "没有新增到仓库",
+                       "800 × 634", "1888年10月"):
+            self.assertIn(phrase, notes["F55"]["text"])
+        chapter = chapters["C25"]
+        self.assertNotIn("木地板", chapter["text"])
+        for phrase in ("不是上方芝加哥所藏的1889年第二版", "只凭这些条纹",
+                       "旧补色", "不是实验完整报告", "耍起不是反对费心",
+                       "不是用屏幕测量原作颜料的厚度"):
+            self.assertIn(phrase, chapter["text"])
+        rendered = build.markdown(chapter["text"], chapter["source"])
+        self.assertEqual(rendered.count("<table>"), 3)
+        self.assertEqual(rendered.count('<figure class="artwork">'), 3)
+        for anchor in ("art-letters-and-versions", "art-material-history",
+                       "art-traces-and-meaning", "art-knowledge-and-pleasure"):
+            self.assertIn('<span id="' + anchor + '"></span>', rendered)
+        for identifier, path, anchor in (
+            ("F54", "F54-bedroom-letters.md", "art-letters-and-versions"),
+            ("F55", "F55-bedroom-conservation.md", "art-material-history")
+        ):
+            self.assertEqual(build.local_href("../docs/evidence/" + path,
+                                              chapter["source"]), "#" + identifier.lower())
+            self.assertEqual(build.local_href("../../book/25-looking-at-art.md#" + anchor,
+                                              notes[identifier]["source"]), "#" + anchor)
+        self.assertTrue(all(not ({"F54", "F55"} & set(card["background_ids"]))
+                            for card in self.export["cards"]))
+        for path in ("docs/ai.md", "llms.txt", "skills/enjoy-the-moment/SKILL.md"):
+            self.assertIn("C25/F13/F54/F55", (ROOT / path).read_text())
+
     def test_music_and_film_media_are_local_and_described(self):
         for path, count, mime in (("book/11-music.md", 2, "png"),
                                   ("book/12-film.md", 3, "jpeg")):

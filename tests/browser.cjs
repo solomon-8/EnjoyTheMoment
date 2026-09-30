@@ -373,6 +373,25 @@ const { chromium } = require("playwright");
     await page.locator("#c25 a[href='#f13']").first().click();
     await page.waitForFunction(() => document.getElementById("f13").open);
     assert.match(await page.locator("#f13 .prose").textContent(), /1926.417/);
+    await page.goto(url + "#c25");
+    assert.equal(await page.locator("#c25 .prose table").count(), 3);
+    for (const anchor of ["art-letters-and-versions", "art-material-history",
+                          "art-traces-and-meaning", "art-knowledge-and-pleasure"]) {
+      await page.locator(`#c25 a[href='#${anchor}']`).first().click();
+      assert.equal(new URL(page.url()).hash, "#" + anchor);
+      assert(await page.locator("#c25 .prose").isVisible());
+    }
+    for (const [id, anchor, phrase] of [
+      ["f54", "art-letters-and-versions", /两封信的日期来自编辑判断/],
+      ["f55", "art-material-history", /不是完整实验报告/]
+    ]) {
+      await page.locator(`#c25 a[href='#${id}']`).first().click();
+      await page.waitForFunction(id => document.getElementById(id).open, id);
+      assert.match(await page.locator(`#${id} .prose`).textContent(), phrase);
+      await page.locator(`#${id} a[href='#${anchor}']`).last().click();
+      assert.equal(new URL(page.url()).hash, "#" + anchor);
+      assert(await page.locator("#c25 .prose").isVisible());
+    }
     await page.goto(url + "#c13");
     await page.waitForFunction(() => document.getElementById("c13").open);
     const theatreImage = page.locator("#c13 .artwork img");
