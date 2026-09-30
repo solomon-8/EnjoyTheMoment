@@ -918,6 +918,47 @@ const { chromium } = require("playwright");
       assert.deepEqual(network, []);
       await context.close();
     }
+    // Senses: distinguish reported price, enjoyment, and what a blind test excludes.
+    for (const javaScriptEnabled of [true, false]) {
+      const context = await browser.newContext({viewport: {width: 390, height: 844}, javaScriptEnabled, reducedMotion: "reduce"});
+      const senses = await context.newPage();
+      const failures = [], network = [];
+      senses.on("pageerror", error => failures.push(error.message));
+      senses.on("request", request => {if (/^https?:/.test(request.url())) network.push(request.url());});
+      await senses.goto(url + (javaScriptEnabled ? "#c02" : ""));
+      if (!javaScriptEnabled) await senses.locator("#c02 > summary").click();
+      assert.match(await senses.locator("#c02 .prose").textContent(), /身体还是生活发生的地方/);
+      for (const anchor of ["senses-three-layers", "senses-price-expectation", "senses-blind-test"]) {
+        if (javaScriptEnabled) {
+          await senses.locator(`#c02 a[href='#${anchor}']`).first().click();
+          assert.equal(new URL(senses.url()).hash, "#" + anchor);
+        }
+        await senses.locator("#" + anchor).scrollIntoViewIfNeeded();
+      }
+      assert.equal(await senses.locator("#c02 .prose table").count(), 2);
+      for (const table of await senses.locator("#c02 .prose table").all()) {
+        assert((await table.boundingBox()).width <= 350);
+      }
+      if (javaScriptEnabled) {
+        await senses.locator("#c02 a[href='#n19']").first().click();
+        await senses.waitForFunction(() => document.getElementById("n19").open);
+      } else {
+        await senses.locator("#n19 > summary").click();
+      }
+      for (const selector of ["#c02 .prose", "#n19 .prose"]) {
+        const shape = await senses.locator(selector).evaluate(el => ({client: el.clientWidth, scroll: el.scrollWidth}));
+        assert(shape.scroll <= shape.client + 1, selector);
+      }
+      assert.match(await senses.locator("#n19 .prose").textContent(), /告知价格/);
+      if (javaScriptEnabled) {
+        await senses.locator("#n19 a[href='#senses-price-expectation']").last().click();
+        assert.equal(new URL(senses.url()).hash, "#senses-price-expectation");
+        assert(await senses.locator("#c02 .prose").isVisible());
+      }
+      assert.deepEqual(failures, []);
+      assert.deepEqual(network, []);
+      await context.close();
+    }
     console.log("OK: offline, filters, empty state, deep links, keyboard, 390px, dark/reduced motion, print, no-JS, zero external requests");
   } finally {
     await browser.close();

@@ -361,6 +361,26 @@
       },
       "directly_validates_cards": false,
       "source": "docs/research.md#b18"
+    },
+    {
+      "id": "B19",
+      "title": "同一种酒，价格线索与喜欢评分",
+      "doi": "10.1073/pnas.0706929105",
+      "access_level": "full_text",
+      "verified_at": "2026-09-30",
+      "fields": {
+        "核读日期": "2026-09-30。",
+        "文献": "Hilke Plassmann, John O’Doherty, Baba Shiv, Antonio Rangel. *Marketing actions can modulate neural representations of experienced pleasantness*. PNAS, 105(3), 1050–1054（2008）。",
+        "DOI": "[10.1073/pnas.0706929105](https://doi.org/10.1073/pnas.0706929105)。",
+        "实际读取": "`full_text`；[Caltech研究团队托管的期刊PDF](https://www.rnl.caltech.edu/publications/pdf/plassmann2008.pdf)，通读5页，目视核对图1、方法及原文交叉引用。团队目录与Crossref核对书目；PMC附属入口只返回中间页，未读SI；未复核原始数据、复现和全部勘误。[详细阅读记录](evidence/B19-price-and-pleasantness.md)。",
+        "设计与对象": "分析20名21–30岁、喜欢并至少偶尔饮用红酒的参与者。三种酒介绍为五种，两种酒各用两个价格呈现；六类条件共96次，不是96名参与者；测喜欢、强度评分与fMRI信号。",
+        "有限结论": "同一种酒在较高告知价格下，两对重复酒的喜欢评分均更高；未发现类似的强度评分效应。操纵告知价格，不是实际支出。",
+        "不能推出": "多付钱使人更幸福、脑图证明每个人真心喜欢、所有感官都有相同效应、欺骗因此合理，或家中盲测与行动卡获得验证。",
+        "我们如何使用": "[第2章](../book/02-senses.md#senses-price-expectation)讨论对象、情境与评价，区分享受和知情选择；盲测不能代答被拿掉的服务与场面是否值得。",
+        "关键限制": "小且经过筛选的样本、特定实验任务、可能迎合实验要求、未测真实购买和长期福祉；补充材料与随访完整统计未取得。图表引用、价格涨跌幅和p值印刷疑点见详细记录，不擅自修正。"
+      },
+      "directly_validates_cards": false,
+      "source": "docs/research.md#b19"
     }
   ],
   "relations": [
