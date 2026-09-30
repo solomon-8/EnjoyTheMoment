@@ -129,7 +129,23 @@ The filters use each card's main activity allowance; smaller alternatives are in
 
 The output is currently Chinese. A random suggestion is an invitation, not an instruction.
 
-For AI retrieval, use [the reading contract](docs/ai.md), `llms.txt`, and [structured JSON](data/catalog.json). JSON output is bounded and deterministic; exact-ID lookup bypasses filters. Generated exports retain the full conditions, source hashes, and original-proposal status.
+For arguments rather than activity suggestions, start with [the reading contract](docs/ai.md), `llms.txt`, or the [on-demand topic map](docs/reading-map.md). The map locates relevant texts and source limits; it is not new evidence. Installing the [Skill](skills/enjoy-the-moment/SKILL.md) alone does not include the book.
+
+<details>
+<summary>Find a source, then read it in full</summary>
+
+```bash
+python3 tools/read.py --query 朋友 --kind essay --limit 5
+python3 tools/read.py --id E09
+python3 tools/read.py --id F57
+python3 tools/read.py --list --kind chapter --limit 20
+```
+
+Search returns bounded locations, not answer snippets; continue with `next_offset`. Exact IDs return complete canonical texts, including objections and source limits. Linked locations have not themselves been read. Full text may contain spoilers; respect the reader's requested scope before revealing them. These commands only read local files and require no network or extra dependencies.
+
+</details>
+
+Only use the [activity catalog](data/catalog.json) and picker when activities are wanted. Picker JSON is bounded and deterministic; its exact-ID lookup bypasses activity filters. Generated exports retain the full conditions, source hashes, and original-proposal status.
 
 `index.html` is also a self-contained offline reader: download it and open it directly. No analytics or local storage; external source links still require a network connection.
 

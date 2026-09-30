@@ -2,7 +2,7 @@
 
 Canonical source: book/, essays/, guides/ and docs/. Values and original proposals are not validated interventions.
 Budgets are illustrative CNY caps. Preserve alternatives, stopping conditions and evidence status.
-Source digest: 5c4acaeeb9f016b5ae49d7e21177a44337dc9a5f0f1994bc986e8410ba572f04
+Source digest: ba52ed2ab96dc1e4d84975509774c2881450a40864ffd30b4d671306c2f4143c
 
 [← 首页](README.md) · [语境与来源](docs/culture-shuaqi.md)
 
@@ -15052,6 +15052,7 @@ E09 用它提出反对意见：把资源收益换成让自己开心，不自动�
 - **我们如何使用**：[第6章](../book/06-spending.md#spending-theatre-study)区别旧付款、未来代价、已有机会与喜欢；平均单价算例为本书假设，不是研究数据。
 - **关键限制**：一处剧场早期购买者、分配后排除、来宾票解释与单尾检验；多数为情境问卷，未测福祉。晚餐题去掉2个回答、补充实验细节不足、个人卷入结果不一，均保留在阅读记录中。
 
+<a id="b21"></a>
 ## B21 · 共同经历不等于共同变开心
 
 - **核读日期**：2026-09-30。
@@ -15064,6 +15065,7 @@ E09 用它提出反对意见：把资源收益换成让自己开心，不自动�
 - **我们如何使用**：[第5章](../book/05-connection.md#connection-amplification)区分对象评价、强度、心情与相处价值，不给行动卡效果背书。
 - **关键限制**：小样本、短时实验、助手不是实际朋友；研究2助手实际吃较愉快巧克力，参与者以为在共享；沉浸p=.14，事后心理思考p=.09，中介未成立。
 
+<a id="b22"></a>
 ## B22 · 共同经历受到哪些条件影响
 
 - **核读日期**：2026-09-30。
