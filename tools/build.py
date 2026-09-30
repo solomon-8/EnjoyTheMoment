@@ -45,6 +45,7 @@ EVIDENCE = [
     ("N16", "docs/evidence/B16-false-insight.md"),
     ("N17", "docs/evidence/B17-enjoyable-procrastination.md"),
     ("N18", "docs/evidence/B18-experience-and-memory.md"),
+    ("N19", "docs/evidence/B19-price-and-pleasantness.md"),
     ("F01", "docs/evidence/F01-time-use.md"),
     ("F02", "docs/evidence/F02-listening-language.md"),
     ("F03", "docs/evidence/F03-film-language.md"),
