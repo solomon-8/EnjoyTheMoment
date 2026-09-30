@@ -354,6 +354,43 @@ class ExportTests(unittest.TestCase):
         self.assertEqual(build.inline("<script>alert(1)</script>", "README.md"),
                          "&lt;script&gt;alert(1)&lt;/script&gt;")
 
+    def test_position_precedes_actions_and_preserves_value_argument_scope(self):
+        page = self.outputs["index.html"]
+        position = (ROOT / "SHUAQI.md").read_text()
+        essay = (ROOT / "essays/01-pleasure-is-an-end.md").read_text()
+        self.assertLess(page.index('id="shuaqi"'), page.index('id="longreads"'))
+        self.assertLess(page.index('id="shuaqi"'), page.index('id="menu"'))
+        self.assertEqual(page.count('id="shuaqi-content"'), 1)
+        self.assertIn('class="primary" href="#shuaqi-content"', page)
+        for phrase in ("我们愿意少得到什么", "保留选择的能力", "第三种不是天然不合理",
+                       "不必先证明它是世界上最好的东西", "不存在的晚上"):
+            self.assertIn(phrase, position + essay)
+        for phrase in ("不是一个普遍最优算法", "不是用户案例", "不是关于人们通常怎样后悔"):
+            self.assertIn(phrase, essay)
+        self.assertIn(position, self.outputs["llms-full.txt"])
+        self.assertIn(essay, self.outputs["llms-full.txt"])
+        self.assertEqual(self.outputs["llms-full.txt"].count(position), 1)
+        self.assertLess(self.outputs["llms-full.txt"].index(position),
+                        self.outputs["llms-full.txt"].index(essay))
+        short = (ROOT / "docs/manifesto.md").read_text()
+        self.assertIn("完整主张与反对意见", short)
+        self.assertLess(len(short), len(position))
+        for path in ("docs/ai.md", "llms.txt", "skills/enjoy-the-moment/SKILL.md"):
+            self.assertIn("pleasure-options", (ROOT / path).read_text())
+
+    def test_position_and_essay_deep_links_keep_explicit_anchors(self):
+        for source, target, anchors in (
+            ("essays/01-pleasure-is-an-end.md", "../SHUAQI.md",
+             ("shuaqi-position", "shuaqi-costs", "shuaqi-objections", "shuaqi-reading")),
+            ("SHUAQI.md", "essays/01-pleasure-is-an-end.md",
+             ("pleasure-options", "pleasure-enough")),
+        ):
+            for anchor in anchors:
+                self.assertEqual(build.local_href(target + "#" + anchor, source), "#" + anchor)
+                self.assertIn(f'<span id="{anchor}"></span>', self.outputs["index.html"])
+        self.assertEqual(build.local_href("SHUAQI.md", "README.md"), "#shuaqi")
+        self.assertEqual(build.local_href("essays/01-pleasure-is-an-end.md", "README.md"), "#e01")
+
     def test_every_argument_and_evidence_note_is_exported(self):
         essay_files = {p.relative_to(ROOT).as_posix() for p in (ROOT / "essays").glob("*.md")}
         self.assertEqual(essay_files, {path for _, path in build.ESSAYS})

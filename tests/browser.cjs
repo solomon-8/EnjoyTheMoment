@@ -22,6 +22,27 @@ const { chromium } = require("playwright");
     assert.equal(await page.locator(".argument").count(), 11);
     assert.equal(await page.locator(".playbook").count(), 10);
     assert.equal(await page.locator(".chapter-intro").count(), 34);
+    await page.locator(".primary").click();
+    await page.waitForFunction(() => document.getElementById("shuaqi-content").open);
+    assert.equal(new URL(page.url()).hash, "#shuaqi-content");
+    for (const anchor of ["shuaqi-position", "shuaqi-costs", "shuaqi-objections", "shuaqi-reading"]) {
+      await page.locator(`#shuaqi-content a[href='#${anchor}']`).first().click();
+      assert.equal(new URL(page.url()).hash, "#" + anchor);
+      assert(await page.locator("#shuaqi-content .prose").isVisible());
+    }
+    await page.locator("#essay-query").fill("不存在的论证XYZ");
+    assert.equal(await page.locator("#e01").isVisible(), false);
+    await page.locator("#shuaqi-content a[href='#pleasure-options']").first().click();
+    await page.waitForFunction(() => document.getElementById("e01").open &&
+      !document.getElementById("e01").hidden && document.getElementById("essay-query").value === "");
+    assert.equal(new URL(page.url()).hash, "#pleasure-options");
+    assert(await page.locator("#e01").isVisible());
+    await page.locator("#e01 a[href='#pleasure-enough']").first().click();
+    assert.equal(new URL(page.url()).hash, "#pleasure-enough");
+    assert.match(await page.locator("#e01 .prose").textContent(), /不存在的晚上/);
+    await page.locator("#e01 a[href='#shuaqi-position']").first().click();
+    assert.equal(new URL(page.url()).hash, "#shuaqi-position");
+    await page.locator("#shuaqi-content > summary").click();
     await page.goto(url + "#c24");
     await page.waitForFunction(() => document.getElementById("c24").open);
     assert.equal(await page.locator("#c24 .prose table").count(), 2);

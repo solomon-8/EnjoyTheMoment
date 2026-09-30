@@ -80,25 +80,26 @@
     if (!id) return;
     const target = document.getElementById(id);
     if (!target) return;
-    if (target.classList.contains("chapter-intro") && target.hidden) {
-      chapterQuery.value = "";
-      chapterQuery.dispatchEvent(new Event("input"));
-    }
-    if (target.classList.contains("argument") && target.hidden) {
-      essayQuery.value = "";
-      essayQuery.dispatchEvent(new Event("input"));
-    }
-    if (target.classList.contains("playbook") && target.hidden) {
-      guideQuery.value = "";
-      guideQuery.dispatchEvent(new Event("input"));
-    }
-    if (target.classList.contains("card") && target.hidden) {
-      // The reset button's id also creates a named form property.
-      HTMLFormElement.prototype.reset.call(form);
-      cards.forEach(card => { card.hidden = false; });
-    }
     let ancestor = target;
     while (ancestor) {
+      // A deep link can point inside a filtered-out container, not only at it.
+      if (ancestor.classList.contains("chapter-intro") && ancestor.hidden) {
+        chapterQuery.value = "";
+        chapterQuery.dispatchEvent(new Event("input"));
+      }
+      if (ancestor.classList.contains("argument") && ancestor.hidden) {
+        essayQuery.value = "";
+        essayQuery.dispatchEvent(new Event("input"));
+      }
+      if (ancestor.classList.contains("playbook") && ancestor.hidden) {
+        guideQuery.value = "";
+        guideQuery.dispatchEvent(new Event("input"));
+      }
+      if (ancestor.classList.contains("card") && ancestor.hidden) {
+        // The reset button's id also creates a named form property.
+        HTMLFormElement.prototype.reset.call(form);
+        cards.forEach(card => { card.hidden = false; });
+      }
       if (ancestor.tagName === "DETAILS") ancestor.open = true;
       ancestor = ancestor.parentElement;
     }

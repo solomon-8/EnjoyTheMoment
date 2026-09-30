@@ -238,10 +238,18 @@ def local_href(href, source_path):
             return "#" + fragment
     for essay_id, path in ESSAYS + EVIDENCE:
         if clean == path:
+            if fragment and re.search(
+                    r'^<a id="' + re.escape(fragment) + r'"></a>$',
+                    (ROOT / clean).read_text(encoding="utf-8"), re.MULTILINE):
+                return "#" + fragment
             return "#" + essay_id.lower()
     if clean == "docs/research.md":
         return "#" + (fragment or "research")
     if clean == "SHUAQI.md":
+        if fragment and re.search(
+                r'^<a id="' + re.escape(fragment) + r'"></a>$',
+                (ROOT / clean).read_text(encoding="utf-8"), re.MULTILINE):
+            return "#" + fragment
         return "#shuaqi"
     if clean == "docs/culture-shuaqi.md":
         return "#culture"
@@ -494,12 +502,13 @@ def outputs(root=ROOT):
          "Canonical source: book/, essays/, guides/ and docs/. Values and original proposals are not validated interventions.\n"
          "Budgets are illustrative CNY caps. Preserve alternatives, stopping conditions and evidence status.\n"
          "Source digest: " + digest]
+        + [(root / "SHUAQI.md").read_text()]
         + [item["text"] for item in longform]
         + [item["text"] for item in chapter_data]
         + ["## " + card.reference + "\n\n### " + card.id + " · " + card.title + "\n\n" + card.body for card in cards]
         + [item["text"] for item in guides]
         + [item["text"] for item in evidence]
-        + [(root / path).read_text() for path in ["SHUAQI.md", "docs/research.md", "docs/culture-shuaqi.md"]]
+        + [(root / path).read_text() for path in ["docs/research.md", "docs/culture-shuaqi.md"]]
     ).rstrip() + "\n"
     return {
         "data/chapters.json": json_text({"schema_version": "1.0", "source_digest": digest, "chapters": chapter_data}),
