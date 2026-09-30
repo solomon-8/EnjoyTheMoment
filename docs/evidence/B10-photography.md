@@ -75,3 +75,5 @@ Kristin Diehl、Gal Zauberman、Alixandra Barasch，*How taking photos increases
 2026-09-29，Crossref 与 Europe PMC 核对到最终发表元数据；本次所查记录未给出更正关系。[Crossmark](https://crossmark.crossref.org/dialog-content?doi=10.1037/pspa0000055&domain=pdf)返回暂无该内容数据，出版方 PDF 未成功取得。这不证明没有更正、质疑或其他版本差异。
 
 第 20 章借此反对“拍照必然不在场”的一概判断，同时保留拍摄可能妨碍参与的边界。构图、同伴协商、分享与隐私的提议是本书原创分析，没有因引用这篇研究而获得效果验证。
+
+[E08](../../essays/08-life-without-an-audience.md#audience-photo-study)采用研究5、研究8及文末的范围说明，区分拍摄、实际参与和观众回应。该文对传播、理解、摆拍、共同创作与发布失败的判断，以及其中人物和情境，均不是本研究的实测结果。不能把论文讨论中的未来研究问题，当成它已经检验过的分享效果。

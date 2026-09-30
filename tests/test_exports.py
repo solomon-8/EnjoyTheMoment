@@ -351,6 +351,39 @@ class ExportTests(unittest.TestCase):
         for path in ("docs/reading-map.md",):
             self.assertIn("E09/F57", (ROOT / path).read_text())
 
+    def test_audience_essay_exports_full_argument_and_scoped_source_links(self):
+        source = "essays/08-life-without-an-audience.md"
+        essay = next(item for item in json.loads(self.outputs["data/essays.json"])["essays"]
+                     if item["id"] == "E08")
+        note = next(item for item in json.loads(self.outputs["data/evidence.json"])["notes"]
+                    if item["id"] == "N10")
+        self.assertEqual(essay["text"], (ROOT / source).read_text())
+        self.assertIn(essay["text"], self.outputs["llms-full.txt"])
+        for anchor in ("audience-not-a-purity-test", "audience-three-requests",
+                       "audience-photo-study", "audience-staging",
+                       "audience-shared-creation", "audience-verdict", "audience-admiration"):
+            self.assertIn('id="' + anchor + '"', essay["text"])
+            self.assertEqual(self.outputs["index.html"].count('id="' + anchor + '"'), 1)
+        # Guard selected distinctions at export boundaries, not a score of argument quality.
+        for phrase in ("不能当作鉴定真心的试纸", "也不把这个目标偷偷缩小",
+                       "这次合作仍然发生过", "并不愿意成为作品的一部分",
+                       "没有产出可以尽兴，认真想产出也不必向尽兴道歉",
+                       "作品、传播与经历可以互相影响", "不需要被安慰成",
+                       "不必先把愿望洗成", "不是“禁止享受被夸”的规定"):
+            self.assertIn(phrase, essay["text"])
+        for phrase in ("223名线上参与者", "观看第一人称巴士观光视频",
+                       "这不证明效果严格相等", "刻意没有让参与者回看照片",
+                       "发布与点赞也不是这篇论文直接验证的收益"):
+            self.assertIn(phrase, essay["text"])
+        self.assertIn("不能把论文讨论中的未来研究问题", note["text"])
+        self.assertEqual(build.local_href("../docs/evidence/B10-photography.md", source), "#n10")
+        self.assertEqual(build.local_href("../../" + source + "#audience-photo-study",
+                                          note["source"]), "#audience-photo-study")
+        self.assertIn('href="#n10"', self.outputs["index.html"])
+        self.assertIn("E08/B10/N10", (ROOT / "docs/reading-map.md").read_text())
+        records = json.loads(self.outputs["data/research.json"])["records"]
+        self.assertEqual(len(records), 24)  # Reuse of B10 is not a new study.
+
     def test_background_does_not_validate_cards(self):
         research = json.loads(self.outputs["data/research.json"])
         ids = {record["id"] for record in research["records"]}
