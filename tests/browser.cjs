@@ -1002,6 +1002,47 @@ const { chromium } = require("playwright");
       assert.deepEqual(network, []);
       await context.close();
     }
+    // Cognitive labor: the project summary is not promoted to a full-paper record.
+    for (const javaScriptEnabled of [true, false]) {
+      const context = await browser.newContext({viewport: {width: 390, height: 844}, javaScriptEnabled, reducedMotion: "reduce"});
+      const constrained = await context.newPage();
+      const failures = [], network = [];
+      constrained.on("pageerror", error => failures.push(error.message));
+      constrained.on("request", request => {if (/^https?:/.test(request.url())) network.push(request.url());});
+      await constrained.goto(url + (javaScriptEnabled ? "#c09" : ""));
+      if (!javaScriptEnabled) await constrained.locator("#c09 > summary").click();
+      assert.match(await constrained.locator("#c09 .prose").textContent(), /三种安排没有实验排名/);
+      for (const anchor of ["constrained-cognitive", "constrained-three-arrangements", "constrained-authority"]) {
+        if (javaScriptEnabled) {
+          await constrained.locator(`#c09 a[href='#${anchor}']`).first().click();
+          assert.equal(new URL(constrained.url()).hash, "#" + anchor);
+        }
+        await constrained.locator("#" + anchor).scrollIntoViewIfNeeded();
+      }
+      assert.equal(await constrained.locator("#c09 .prose table").count(), 2);
+      for (const table of await constrained.locator("#c09 .prose table").all()) {
+        assert((await table.boundingBox()).width <= 350);
+      }
+      if (javaScriptEnabled) {
+        await constrained.locator("#c09 a[href='#f50']").first().click();
+        await constrained.waitForFunction(() => document.getElementById("f50").open);
+      } else {
+        await constrained.locator("#f50 > summary").click();
+      }
+      for (const selector of ["#c09 .prose", "#f50 .prose"]) {
+        const shape = await constrained.locator(selector).evaluate(el => ({client: el.clientWidth, scroll: el.scrollWidth}));
+        assert(shape.scroll <= shape.client + 1, selector);
+      }
+      assert.match(await constrained.locator("#f50 .prose").textContent(), /不能直接充当2019年论文的样本量/);
+      if (javaScriptEnabled) {
+        await constrained.locator("#f50 a[href='#constrained-cognitive']").last().click();
+        assert.equal(new URL(constrained.url()).hash, "#constrained-cognitive");
+        assert(await constrained.locator("#c09 .prose").isVisible());
+      }
+      assert.deepEqual(failures, []);
+      assert.deepEqual(network, []);
+      await context.close();
+    }
     console.log("OK: offline, filters, empty state, deep links, keyboard, 390px, dark/reduced motion, print, no-JS, zero external requests");
   } finally {
     await browser.close();

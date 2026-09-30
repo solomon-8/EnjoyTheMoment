@@ -97,6 +97,7 @@ EVIDENCE = [
     ("F47", "docs/evidence/F47-walden-solitude.md"),
     ("F48", "docs/evidence/F48-room-and-freedom.md"),
     ("F49", "docs/evidence/F49-novelty-and-perception.md"),
+    ("F50", "docs/evidence/F50-cognitive-labor.md"),
 ]
 EVIDENCE_KINDS = {
     "F01": "official_statistics",
@@ -148,6 +149,7 @@ EVIDENCE_KINDS = {
     "F47": "literary_primary_text",
     "F48": "literary_primary_text",
     "F49": "researcher_authored_explainer",
+    "F50": "researcher_authored_project_summary",
 }
 RELATIONS = [
     {"card_ids": ["J033"], "background_ids": ["B01"], "essay_ids": ["E04"]},
