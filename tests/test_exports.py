@@ -952,6 +952,52 @@ class ExportTests(unittest.TestCase):
         self.assertTrue(all(not ({"F44", "F45"} & set(c["background_ids"]))
                             for c in self.export["cards"]))
 
+    def test_solitude_literary_sources_and_navigation_survive_exports(self):
+        chapters = {c["id"]: c for c in json.loads(self.outputs["data/chapters.json"])["chapters"]}
+        notes = {n["id"]: n for n in json.loads(self.outputs["data/evidence.json"])["notes"]}
+        text = (ROOT / "book/07-solo.md").read_text()
+        self.assertEqual(chapters["C07"]["text"], text.split('<a id="j037"></a>', 1)[0].strip())
+        self.assertIn(chapters["C07"]["text"], self.outputs["llms-full.txt"])
+        html = build.markdown(text, "book/07-solo.md")
+        for anchor in ("solo-own-pace", "solo-walden", "solo-room",
+                       "solo-availability", "solo-not-audition"):
+            self.assertIn('id="' + anchor + '"', html)
+            self.assertIn('href="#' + anchor + '"', html)
+        for identifier, anchor in (("F47", "solo-walden"), ("F48", "solo-room")):
+            note = notes[identifier]
+            self.assertEqual(note["source_kind"], "literary_primary_text")
+            self.assertEqual(note["text"], (ROOT / note["source"]).read_text())
+            self.assertIn(note["text"], self.outputs["llms-full.txt"])
+            self.assertIn('href="#' + identifier.lower() + '"', html)
+            self.assertIn('href="#' + anchor + '"',
+                          build.markdown(note["text"], note["source"]))
+        self.assertIn('href="#n06"', html)
+        self.assertEqual(re.findall(r"<!-- pick: .*?\"id\":\"(J\d+)\"", text),
+                         [f"J{i:03d}" for i in range(37, 43)])
+        self.assertTrue(all(not ({"F47", "F48"} & set(c["background_ids"]))
+                            for c in self.export["cards"]))
+
+    def test_solitude_machine_policy_keeps_text_and_research_distinct(self):
+        walden = (ROOT / "docs/evidence/F47-walden-solitude.md").read_text()
+        room = (ROOT / "docs/evidence/F48-room-and-freedom.md").read_text()
+        self.assertIn("不是通读整本", walden)
+        self.assertIn("不是全书通读", room)
+        self.assertIn("虚构地点", room)
+        for path in ("docs/ai.md", "llms.txt", "skills/enjoy-the-moment/SKILL.md"):
+            self.assertIn("C07/F47/F48/B06", (ROOT / path).read_text())
+
+    def test_cross_file_chapter_anchors_stay_local_only_when_explicit(self):
+        for fragment in ("solo-room", "solo-walden"):
+            self.assertEqual(build.local_href("../../book/07-solo.md#" + fragment,
+                                              "docs/evidence/F48-room-and-freedom.md"),
+                             "#" + fragment)
+        self.assertEqual(build.local_href("../book/32-puzzles.md#puzzle-invariants",
+                                          "docs/research.md"), "#puzzle-invariants")
+        self.assertEqual(build.local_href("../book/07-solo.md#not-an-explicit-anchor",
+                                          "docs/research.md"),
+                         "https://github.com/solomon-8/EnjoyTheMoment/blob/main/"
+                         "book/07-solo.md#not-an-explicit-anchor")
+
     def test_puzzle_structures_export_conditions_and_folded_answers(self):
         chapters = {c["id"]: c for c in json.loads(self.outputs["data/chapters.json"])["chapters"]}
         notes = {n["id"]: n for n in json.loads(self.outputs["data/evidence.json"])["notes"]}

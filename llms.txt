@@ -4,6 +4,7 @@
 > not an endorsement by a performer or an instruction to ignore costs.
 
 ## Read first
+- [Solitude, attention and material conditions](book/07-solo.md): C07/F47/F48/B06 distinguish selected literary passages, the project’s arguments and an observational diary study. Thoreau’s three chairs are not a social schedule or verified biography; Woolf’s fictional narrative about women and writing is not a leisure experiment. Her narrator’s annual income is not a contemporary budget. Neither source validates activities or eliminates loneliness. Discuss freedom from constant coordination and availability without prescribing independence from all relationships.
 - [Core position](SHUAQI.md): this project's own definition, not a quotation.
 - [AI reading contract](docs/ai.md): retrieval, constraints, provenance, and limits.
 - [Culture sources](docs/culture-shuaqi.md): dated context, secondary reporting, attribution boundaries.
