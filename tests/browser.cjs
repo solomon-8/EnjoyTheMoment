@@ -88,6 +88,21 @@ const { chromium } = require("playwright");
     await page.waitForFunction(() => document.getElementById("e08").open &&
       !document.getElementById("e08").hidden && document.getElementById("essay-query").value === "");
     assert.equal(new URL(page.url()).hash, "#audience-photo-study");
+    await page.goto(url + "#amateur-want-better");
+    await page.waitForFunction(() => document.getElementById("e05").open);
+    for (const anchor of ["amateur-practice-study", "amateur-shared-standards", "amateur-criticism"]) {
+      await page.locator(`#e05 a[href='#${anchor}']`).first().click();
+      assert.equal(new URL(page.url()).hash, "#" + anchor);
+      assert(await page.locator("#e05 .prose").isVisible());
+    }
+    await page.locator("#e05 a[href='#n25']").first().click();
+    await page.waitForFunction(() => document.getElementById("n25").open);
+    assert.match(await page.locator("#n25 .prose").textContent(), /摘要和图3仍显示原报告/);
+    await page.locator("#essay-query").fill("未匹配的爱好XYZ");
+    await page.locator("#n25 a[href='#amateur-practice-study']").first().click();
+    await page.waitForFunction(() => document.getElementById("e05").open &&
+      !document.getElementById("e05").hidden && document.getElementById("essay-query").value === "");
+    assert.equal(new URL(page.url()).hash, "#amateur-practice-study");
     await page.goto(url + "#rest-returns");
     await page.waitForFunction(() => document.getElementById("e07").open);
     for (const anchor of ["rest-real-income", "rest-paid-evening"]) {
