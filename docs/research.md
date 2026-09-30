@@ -449,6 +449,7 @@
 - [F59 · 虚拟与真实](evidence/F59-virtual-and-real.md)：查尔默斯 *The Virtual and the Real* 期刊版导言与第 1、3、6、7 节，用于 [E11](../essays/11-pleasure-and-reality.md#pleasure-digital-life)。区分数字对象、互动、虚构解释和价值；丰富虚拟现实是假想，不是当前产品效果或永久可用的保证。未核读全部章节，论文内诺齐克引文仍是转引；不增加行为背景研究数量。
 - [F60 · 有闲与体面](evidence/F60-conspicuous-leisure.md)：凡勃伦 *The Theory of the Leisure Class* 英文数字文本第三章，用于 [C08](../book/08-permission.md#permission-status)。完整核读本章，不是全书、版本校勘或当代人群调查；区分有闲作为证据、礼貌与善意、代理性有闲与实际舒适劳动。不用旧理论判定个人动机，不增加 B 系列研究。
 - [F61 · 不适、表达与享受](evidence/F61-tragedy-and-enjoyment.md)：休谟 *Of Tragedy* 英文数字文本，用于 [C31](../book/31-recreational-fear.md#fear-three-explanations)。完整核读正文 Tr 1–28 与页面英文注释，不含拉丁文校勘；区分休谟转述迪博、丰特奈尔与自己的论证。保留表达可能增加痛苦的反向结果，不把哲学解释当当代心理机制或题材等级表，不增加 B 系列研究。
+- [F62 · 歌者、听者与实践情境](evidence/F62-paghjella-and-listeners.md)：联合国教科文组织 cantu in paghjella 项目说明与 2009 年决定 4.COM 14.05，用于 [C33](../book/33-singing.md#singing-paghjella)。区分声部关系、口传与听者角色；未试听录音、未读完整申报文件或后续报告，不将旧保护判断当作 2026 年现状、音乐效果或私人聚会规则。
 
 F 系列不计入上面的 B 系列背景研究。事实、教学、文学文本、访客指导、作品与图像、乐谱、影片与历史目录、舞蹈来源、体育规则、监管报告、供应商技术手册、服装记录、哲学与创作者文本、声学、型号说明、嗓音指导、游戏规则、数学教材、剧场与文化遗产描述及研究阅读记录共同收入 `data/evidence.json`，用 `source_kind` 区分。
 

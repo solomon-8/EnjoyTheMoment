@@ -219,7 +219,7 @@ const { chromium } = require("playwright");
     }
     await page.goto(url + "#c33");
     await page.waitForFunction(() => document.getElementById("c33").open);
-    assert.equal(await page.locator("#c33 .prose table").count(), 3);
+    assert.equal(await page.locator("#c33 .prose table").count(), 4);
     for (const anchor of ["singing-transpose", "singing-timbre", "singing-together", "singing-microphone"]) {
       await page.locator(`#c33 a[href='#${anchor}']`).click();
       assert.equal(new URL(page.url()).hash, `#${anchor}`);
@@ -231,6 +231,17 @@ const { chromium } = require("playwright");
       await page.locator(`#${id} a[href='#c33']`).click();
       await page.waitForFunction(() => document.getElementById("c33").open);
     }
+    await page.locator("#c33 a[href='#singing-paghjella']").click();
+    assert.equal(new URL(page.url()).hash, "#singing-paghjella");
+    await page.locator("#c33 a[href='#f62']").first().click();
+    await page.waitForFunction(() => document.getElementById("f62").open);
+    assert.match(await page.locator("#f62 .prose").textContent(), /完整核读决定正文/);
+    assert.match(await page.locator("#f62 .prose").textContent(), /HTTP 200 不能当作成功读到正文/);
+    await page.locator("#chapter-query").fill("不存在的章节XYZ");
+    await page.locator("#f62 a[href='#singing-role-choice']").click();
+    await page.waitForFunction(() => document.getElementById("c33").open &&
+      !document.getElementById("c33").hidden && document.getElementById("chapter-query").value === "");
+    assert.equal(new URL(page.url()).hash, "#singing-role-choice");
     await page.goto(url + "#e11");
     await page.waitForFunction(() => document.getElementById("e11").open);
     assert.equal(await page.locator("#e11 .prose table").count(), 2);
@@ -1090,7 +1101,7 @@ const { chromium } = require("playwright");
     await staticHints.nth(6).locator("summary").click();
     assert(await staticHints.nth(6).locator("table").isVisible());
     await staticPage.locator("#c33 > summary").click();
-    assert.equal(await staticPage.locator("#c33 .prose table").count(), 3);
+    assert.equal(await staticPage.locator("#c33 .prose table").count(), 4);
     assert.match(await staticPage.locator("#c33 .prose").textContent(), /低八度本身也是移调的一种/);
     await staticPage.locator("#c34 > summary").click();
     assert.equal(await staticPage.locator("#c34 .prose table").count(), 3);

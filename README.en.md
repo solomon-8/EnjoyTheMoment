@@ -104,7 +104,7 @@ The chapters on senses, novelty, play, relationships, spending, and permission t
 | [30 · Must a bird be rare to deserve attention?](book/30-birdwatching.md) | Identification, behavior and honest records without making a checklist the only purpose of looking. |
 | [31 · I paid to be scared—and enjoy it](book/31-recreational-fear.md) | Why pay for discomfort? Competing explanations, and the difference between wanting a character safe and wanting the story to continue. |
 | [32 · The fastest answer is not always the most fun](book/32-puzzles.md) | Four cards, six roads and five lamps: discovery, impossibility and what survives a rule change |
-| [33 · A microphone is not a qualification](book/33-singing.md) | Transposition, timbre, phrasing and rounds distinguish participating in a song from submitting to an uninvited audition. |
+| [33 · A microphone is not a qualification](book/33-singing.md) | What changes when people sing together? Transposition, vocal roles and listeners—and why a shared goal cannot permanently assign someone to the background. |
 | [34 · Characters may suffer; players need not](book/34-shared-stories.md) | Dice pools, fictional consequences and aspects explain why choosing trouble can be part of choosing enjoyment. |
 
 Each card has a concrete action, a hoped-for experience, visible costs, a smaller alternative, a stopping point, and a statement of its evidential status.
