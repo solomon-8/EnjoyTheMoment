@@ -491,6 +491,7 @@
 - [F62 · 歌者、听者与实践情境](evidence/F62-paghjella-and-listeners.md)：联合国教科文组织 cantu in paghjella 项目说明与 2009 年决定 4.COM 14.05，用于 [C33](../book/33-singing.md#singing-paghjella)。区分声部关系、口传与听者角色；未试听录音、未读完整申报文件或后续报告，不将旧保护判断当作 2026 年现状、音乐效果或私人聚会规则。
 - [F63 · 玩得认真，目标却可以有边界](evidence/F63-play-and-chosen-goals.md)：C. Thi Nguyen 的 *Games and the Art of Agency* 期刊版两个章节，用于 [C04](../book/04-play.md#play-wanting-to-win)。区分以获胜为目的、为了经历争胜、局内目标与局外理由；保留取向可共存及游戏形式多样。未完整核读论文，不把哲学分析当心理实验，筹码末步例为本书原创。
 - [F64 · 网球计分与观看过程](evidence/F64-tennis-scoring.md)：USTA《2026 Friend at Court》所收 ITF 规则 5–7、14 第一段及附录 VI 指定段落，用于 [C28](../book/28-watching-sport.md#sport-tennis)。区分分／局／盘、标准局与无占先、替代整盘与盘内十分抢七。48∶80 却赢得比赛是原创合法计分构造，不是赛事统计、概率估计或幸福效果证据。
+- [F65 · 时钟、准备与闪回](evidence/F65-clocks-and-flashbacks.md)：*Blades in the Dark* 官方 SRD 的 Progress Clocks、Effect、Planning & Engagement 正文与许可要求，用于 [C34](../book/34-shared-stories.md#story-clocks)。区分记录与支配情境、格数与概率、初始处境与整场结局、补充过去与取消现在。双时钟账本和文件时间关系是本书构造，不是完整检定实况、独立玩家研究或J卡效果背书；保留 CC BY 署名。
 
 F 系列不计入上面的 B 系列背景研究。事实、教学、文学文本、访客指导、作品与图像、乐谱、影片与历史目录、舞蹈来源、体育规则、监管报告、供应商技术手册、服装记录、哲学与创作者文本、声学、型号说明、嗓音指导、游戏规则、数学教材、剧场与文化遗产描述及研究阅读记录共同收入 `data/evidence.json`，用 `source_kind` 区分。
 
