@@ -103,6 +103,21 @@ const { chromium } = require("playwright");
     await page.waitForFunction(() => document.getElementById("e05").open &&
       !document.getElementById("e05").hidden && document.getElementById("essay-query").value === "");
     assert.equal(new URL(page.url()).hash, "#amateur-practice-study");
+    await page.goto(url + "#constraints-necessity");
+    await page.waitForFunction(() => document.getElementById("e06").open);
+    for (const anchor of ["constraints-standing", "constraints-help", "constraints-permission-study"]) {
+      await page.locator(`#e06 a[href='#${anchor}']`).first().click();
+      assert.equal(new URL(page.url()).hash, "#" + anchor);
+      assert(await page.locator("#e06 .prose").isVisible());
+    }
+    await page.locator("#e06 a[href='#n26']").first().click();
+    await page.waitForFunction(() => document.getElementById("n26").open);
+    assert.match(await page.locator("#n26 .prose").textContent(), /4,189/);
+    await page.locator("#essay-query").fill("没有匹配的必要性XYZ");
+    await page.locator("#n26 a[href='#constraints-permission-study']").first().click();
+    await page.waitForFunction(() => document.getElementById("e06").open &&
+      !document.getElementById("e06").hidden && document.getElementById("essay-query").value === "");
+    assert.equal(new URL(page.url()).hash, "#constraints-permission-study");
     await page.goto(url + "#rest-returns");
     await page.waitForFunction(() => document.getElementById("e07").open);
     for (const anchor of ["rest-real-income", "rest-paid-evening"]) {

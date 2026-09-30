@@ -501,6 +501,26 @@
       },
       "directly_validates_cards": false,
       "source": "docs/research.md#b25"
+    },
+    {
+      "id": "B26",
+      "title": "收入与消费许可判断",
+      "doi": "10.1073/pnas.2005475117",
+      "access_level": "full_text",
+      "verified_at": "2026-09-30",
+      "fields": {
+        "核读日期": "2026-09-30。",
+        "文献": "Serena F. Hagerty、Kate Barasz（2020）. *Inequality in socially permissible consumption*. PNAS，117(25)，14084–14093。",
+        "DOI": "[10.1073/pnas.2005475117](https://doi.org/10.1073/pnas.2005475117)。",
+        "实际读取": "`full_text`；[PMC期刊HTML全文](https://pmc.ncbi.nlm.nih.gov/articles/PMC7321998/)，读取11项主实验方法、结果、三张表、总讨论和脚注，目视核对两幅原图。论文PDF、完整补充材料未取得，未比对每份预注册或复算数据。[详细核读与冲突记录](evidence/B26-permissible-consumption.md)。",
+        "设计与对象": "美国收入标签情境下的购买评价、必要性评价和假设分配；含街头与网络样本。概述总样本4,179与逐项方法相加4,189不一致，不擅自校正。",
+        "有限结论": "部分相同购买被评为对低收入人物较不被许可；必要性判断也可随收入标签改变，但不是所有物品同向。9B给出接收者偏好后，两组多数仍选符合偏好的卡，比例为73%与87%。",
+        "不能推出": "所有预算提醒都是偏见、所有人否认低收入者需要、非必需消费必然改善生活，或某一正式救助方案已被验证。",
+        "我们如何使用": "[E06](../essays/06-real-life-constraints.md#constraints-permission-study)区分预算约束、观察者评价与享乐资格；互助和共同责任的规范性主张由本书论证，不为J卡提供效果背书。",
+        "关键限制": "情境评价不等于实际购买或长期援助效果；主文有总数、均值/区间和主效应概括冲突，未解决处不抽取精确统计。未穷尽勘误、独立复现与其他文化人群。"
+      },
+      "directly_validates_cards": false,
+      "source": "docs/research.md#b26"
     }
   ],
   "relations": [
