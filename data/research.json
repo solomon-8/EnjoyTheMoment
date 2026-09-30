@@ -541,6 +541,26 @@
       },
       "directly_validates_cards": false,
       "source": "docs/research.md#b27"
+    },
+    {
+      "id": "B28",
+      "title": "数字使用、主动限额与模型边界",
+      "doi": "10.1257/aer.20210867",
+      "access_level": "full_text",
+      "verified_at": "2026-10-01",
+      "fields": {
+        "核读日期": "2026-10-01。",
+        "文献": "Hunt Allcott、Matthew Gentzkow、Lena Song（2022）. *Digital Addiction*. American Economic Review，112(7)，2424–2463。",
+        "DOI": "[10.1257/aer.20210867](https://doi.org/10.1257/aer.20210867)。",
+        "实际读取": "`full_text`；[作者托管2022-03-07稿](https://web.stanford.edu/~gentzkow/research/DigitalAddiction.pdf)，核读主文概念、方法、数据、结果、模型与讨论；131页文件含附录，不是全131页逐行审核。期刊主文下载返回HTML，未与最终版逐字比对；[官方附录](https://www.aeaweb.org/articles/materials/17009)重点核对图A2、表A6、图A25，非全附录复核。[详细核读](evidence/B28-digital-choice.md)。",
+        "设计与对象": "2020年美国成人Android使用者，广告招募；奖金与开放自选应用限额分别随机分配，主要分析为完成者平衡面板1,933人。记录六类应用前台时间，不记录内容，不直接监测其他设备。",
+        "有限结论": "奖金阶段六类应用日均少约56分钟，结束后两个阶段仍少约19和12分钟；开放限额在12周内少约22分钟，但其他手机应用增加约12分钟。行为、自报指标与模型估计不能合成一种结果。",
+        "不能推出": "人人应该少用31%、少用就是更快乐、实验诊断了某个人、特定工具有效，或限额应由他人强制设置。",
+        "我们如何使用": "[E10](../essays/10-pleasure-not-retention.md#digital-chosen-limits)讨论为另一种快乐主动设限的可能；小乔的晚上和限制委托框架是原创假想，不是研究访谈或J卡验证。",
+        "关键限制": "主观福祉综合指标的奖金效应p = .026、调整q = .09；限额p = .18、q = .24。31%来自依赖假设的长期反事实模型，非直接观察比例；模型与限额效应趋势有张力，未完成全面福利分析。样本非代表、疫情背景、引导设置、跨设备自报、未复算数据及模型均保留。"
+      },
+      "directly_validates_cards": false,
+      "source": "docs/research.md#b28"
     }
   ],
   "relations": [
