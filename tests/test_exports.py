@@ -1718,6 +1718,40 @@ class ExportTests(unittest.TestCase):
             self.assertIn("游戏", card.title + card.body)
             self.assertIn("结束", card.title + card.body)
 
+    def test_reading_inference_keeps_claims_and_spoilers_scoped(self):
+        notes = {item["id"]: item for item in json.loads(self.outputs["data/evidence.json"])["notes"]}
+        note = notes["F53"]
+        self.assertEqual(note["source_kind"], "literary_primary_text")
+        for phrase in ("没有通读整本短篇集", "事故是她所述",
+                       "不是已被来客证实的恐犬病史", "不是心理实验",
+                       "作者说明", "2011-12-26"):
+            self.assertIn(phrase, note["text"])
+        chapter = next(c for c in json.loads(self.outputs["data/chapters.json"])["chapters"]
+                       if c["id"] == "C22")
+        self.assertIn("搭在手臂上", chapter["text"])
+        self.assertIn("披在肩上", chapter["text"])
+        self.assertIn("好笑与残忍，可以同时成立", chapter["text"])
+        self.assertIn("有些时间不是信息运送得太慢", chapter["text"])
+        for text in (chapter["text"], note["text"]):
+            before, after = text.split("<details>", 1)
+            spoiler, remainder = after.split("</details>", 1)
+            self.assertIn("完整情节与结局", spoiler)
+            self.assertIn("恒河", spoiler)
+            self.assertNotIn("恒河", before + remainder)
+            self.assertNotIn("<details open", text)
+        rendered = build.markdown(chapter["text"], chapter["source"])
+        self.assertIn('<span id="reading-detail-and-cause"></span>', rendered)
+        self.assertIn("<table>", rendered)
+        self.assertEqual(build.local_href("../docs/evidence/F53-open-window.md",
+                                          "book/22-reading.md"), "#f53")
+        self.assertEqual(build.local_href("../../book/22-reading.md#reading-open-window",
+                                          note["source"]), "#reading-open-window")
+        self.assertTrue(all("F53" not in card["background_ids"] for card in self.export["cards"]))
+        for path in ("llms.txt", "skills/enjoy-the-moment/SKILL.md"):
+            text = (ROOT / path).read_text()
+            self.assertIn("C22/F", text)
+            self.assertIn("F53", text)
+
     def test_travel_keeps_observation_outcomes_and_scoped_guidance(self):
         records = {item["id"]: item for item in json.loads(self.outputs["data/research.json"])["records"]}
         notes = {item["id"]: item for item in json.loads(self.outputs["data/evidence.json"])["notes"]}
