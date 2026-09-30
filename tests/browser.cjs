@@ -877,6 +877,47 @@ const { chromium } = require("playwright");
       assert.deepEqual(network, []);
       await context.close();
     }
+    // Aftertaste: a preference study must remain distinct from an activity effect.
+    for (const javaScriptEnabled of [true, false]) {
+      const context = await browser.newContext({viewport: {width: 390, height: 844}, javaScriptEnabled, reducedMotion: "reduce"});
+      const aftertaste = await context.newPage();
+      const failures = [], network = [];
+      aftertaste.on("pageerror", error => failures.push(error.message));
+      aftertaste.on("request", request => {if (/^https?:/.test(request.url())) network.push(request.url());});
+      await aftertaste.goto(url + (javaScriptEnabled ? "#c10" : ""));
+      if (!javaScriptEnabled) await aftertaste.locator("#c10 > summary").click();
+      assert.match(await aftertaste.locator("#c10 .prose").textContent(), /回忆不是当下的敌人/);
+      for (const anchor of ["aftertaste-three-questions", "aftertaste-preference", "aftertaste-story"]) {
+        if (javaScriptEnabled) {
+          await aftertaste.locator(`#c10 a[href='#${anchor}']`).first().click();
+          assert.equal(new URL(aftertaste.url()).hash, "#" + anchor);
+        }
+        await aftertaste.locator("#" + anchor).scrollIntoViewIfNeeded();
+      }
+      assert.equal(await aftertaste.locator("#c10 .prose table").count(), 2);
+      for (const table of await aftertaste.locator("#c10 .prose table").all()) {
+        assert((await table.boundingBox()).width <= 350);
+      }
+      if (javaScriptEnabled) {
+        await aftertaste.locator("#c10 a[href='#n18']").first().click();
+        await aftertaste.waitForFunction(() => document.getElementById("n18").open);
+      } else {
+        await aftertaste.locator("#n18 > summary").click();
+      }
+      for (const selector of ["#c10 .prose", "#n18 .prose"]) {
+        const shape = await aftertaste.locator(selector).evaluate(el => ({client: el.clientWidth, scroll: el.scrollWidth}));
+        assert(shape.scroll <= shape.client + 1, selector);
+      }
+      assert.match(await aftertaste.locator("#n18 .prose").textContent(), /196 \/ 290/);
+      if (javaScriptEnabled) {
+        await aftertaste.locator("#n18 a[href='#aftertaste-preference']").last().click();
+        assert.equal(new URL(aftertaste.url()).hash, "#aftertaste-preference");
+        assert(await aftertaste.locator("#c10 .prose").isVisible());
+      }
+      assert.deepEqual(failures, []);
+      assert.deepEqual(network, []);
+      await context.close();
+    }
     console.log("OK: offline, filters, empty state, deep links, keyboard, 390px, dark/reduced motion, print, no-JS, zero external requests");
   } finally {
     await browser.close();
