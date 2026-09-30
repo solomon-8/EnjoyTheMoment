@@ -17,6 +17,7 @@
 - [E02: Excitement without a scoreboard](essays/02-excitement-without-escalation.md): novelty, intensity, mixed feelings and real costs.
 - [E03: Now or later](essays/03-now-or-later.md): credible waiting, long-term commitments and the future self.
 - [E07: Rest is not work](essays/07-rest-is-not-work.md): choosing leisure may really mean earning less; no hidden productivity guarantee.
+- [E08: Life and its audience](essays/08-life-without-an-audience.md): reach, understanding, feedback and shared creation; wanting an audience is not a failed authenticity test.
 - [E09: Friends are not assets](essays/09-friends-not-assets.md): shared enjoyment, reciprocity, care and limited companionship.
 - [E10: Pleasure, not retention](essays/10-pleasure-not-retention.md): attention and purchases are not automatically satisfaction.
 - [E11: Pleasure and reality](essays/11-pleasure-and-reality.md): valuing pleasure does not imply valuing nothing else.
