@@ -51,3 +51,7 @@
 ## 月球自转原创关系图
 
 `moon-rotation.svg` 与同源渲染的 `moon-rotation.png` 是本项目原创四位置图，采用MIT许可，由 [moon_examples.py](../../tools/moon_examples.py)生成。上图同一面始终朝地，下图相对图纸不自转；黑点是固定标记，不表示受光区域。图为二维理想圆轨道、均匀运动与俯视模型，大小距离不按比例，不是星历、当地夜空或NASA动画复刻。没有使用月面照片、视频、地图、机构标志或AI生成图像。正文及替代文本同时给出方向顺序；来源与有限检验范围见 [F56](../../docs/evidence/F56-moon-rotation-and-view.md)。
+
+## 鸟群近邻原创几何图
+
+`bird-neighbors.svg`与同源渲染的`bird-neighbors.png`由本项目[bird_examples.py](../../tools/bird_examples.py)生成，采用MIT许可。参考点O右侧的A–E距离为1至5，第二幅整体乘二；比较固定阈值3.5与最近三个点。单位任意，是一维静态例子，不是鸟群实测、飞行仿真或论文配图的复制描摹。没有使用野鸟照片、音视频、机构标志或AI生成图片。文字替代说明在[C30](../../book/30-birdwatching.md#birds-neighbors)，研究与图解边界见[N30](../../docs/evidence/B30-flock-relations.md)。
