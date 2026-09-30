@@ -1,0 +1,81 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="1060" viewBox="0 0 720 1060" role="img" aria-labelledby="title desc">
+<title id="title">距离变大，近邻名次可以不变</title>
+<desc id="desc">原创一维点阵。距离从1至5变为2至10，固定阈值3.5内由ABC变为A；最近三个仍为ABC。起点O不算邻居，不是鸟群实测或仿真。</desc>
+<rect width="720" height="1060" fill="#fff8ed"/>
+<g fill="#302d26" font-family="PingFang SC,Noto Sans CJK SC,sans-serif">
+<text x="30" y="56" font-size="35" font-weight="700">距离变大，近邻名次可以不变</text>
+<text x="30" y="106" font-size="28">O是参考点，不算邻居；所有点在同一侧</text>
+<g data-panel="compact" data-scale="1">
+<text x="30" y="187" font-size="32" font-weight="700">上图 · 原间距</text>
+<line x1="60" y1="290" x2="675" y2="290" stroke="#9c9387" stroke-width="3"/>
+<line x1="270" y1="225" x2="270" y2="355" stroke="#316e83" stroke-width="3" stroke-dasharray="8 7"/>
+<text x="287" y="241" font-size="28" fill="#316e83">阈值 3.5</text>
+<circle cx="60" cy="290" r="10" fill="#302d26"/>
+<text x="60" y="341" text-anchor="middle" font-size="29">O</text>
+<g data-point="A" data-distance="1" data-fixed="true" data-nearest="true">
+<circle cx="120" cy="290" r="12" fill="#b34325"/>
+<text x="120" y="269" text-anchor="middle" font-size="30">A</text>
+<text x="120" y="341" text-anchor="middle" font-size="29">1</text>
+</g>
+<g data-point="B" data-distance="2" data-fixed="true" data-nearest="true">
+<circle cx="180" cy="290" r="12" fill="#b34325"/>
+<text x="180" y="269" text-anchor="middle" font-size="30">B</text>
+<text x="180" y="341" text-anchor="middle" font-size="29">2</text>
+</g>
+<g data-point="C" data-distance="3" data-fixed="true" data-nearest="true">
+<circle cx="240" cy="290" r="12" fill="#b34325"/>
+<text x="240" y="269" text-anchor="middle" font-size="30">C</text>
+<text x="240" y="341" text-anchor="middle" font-size="29">3</text>
+</g>
+<g data-point="D" data-distance="4" data-fixed="false" data-nearest="false">
+<circle cx="300" cy="290" r="12" fill="#b34325"/>
+<text x="300" y="269" text-anchor="middle" font-size="30">D</text>
+<text x="300" y="341" text-anchor="middle" font-size="29">4</text>
+</g>
+<g data-point="E" data-distance="5" data-fixed="false" data-nearest="false">
+<circle cx="360" cy="290" r="12" fill="#b34325"/>
+<text x="360" y="269" text-anchor="middle" font-size="30">E</text>
+<text x="360" y="341" text-anchor="middle" font-size="29">5</text>
+</g>
+<text x="30" y="406" font-size="29">距离 ≤ 3.5：A、B、C</text>
+<text x="30" y="453" font-size="29">最近三个：A、B、C</text>
+</g>
+<g data-panel="expanded" data-scale="2">
+<text x="30" y="547" font-size="32" font-weight="700">下图 · 所有距离乘二</text>
+<line x1="60" y1="650" x2="675" y2="650" stroke="#9c9387" stroke-width="3"/>
+<line x1="270" y1="585" x2="270" y2="715" stroke="#316e83" stroke-width="3" stroke-dasharray="8 7"/>
+<text x="287" y="601" font-size="28" fill="#316e83">阈值 3.5</text>
+<circle cx="60" cy="650" r="10" fill="#302d26"/>
+<text x="60" y="701" text-anchor="middle" font-size="29">O</text>
+<g data-point="A" data-distance="2" data-fixed="true" data-nearest="true">
+<circle cx="180" cy="650" r="12" fill="#b34325"/>
+<text x="180" y="629" text-anchor="middle" font-size="30">A</text>
+<text x="180" y="701" text-anchor="middle" font-size="29">2</text>
+</g>
+<g data-point="B" data-distance="4" data-fixed="false" data-nearest="true">
+<circle cx="300" cy="650" r="12" fill="#b34325"/>
+<text x="300" y="629" text-anchor="middle" font-size="30">B</text>
+<text x="300" y="701" text-anchor="middle" font-size="29">4</text>
+</g>
+<g data-point="C" data-distance="6" data-fixed="false" data-nearest="true">
+<circle cx="420" cy="650" r="12" fill="#b34325"/>
+<text x="420" y="629" text-anchor="middle" font-size="30">C</text>
+<text x="420" y="701" text-anchor="middle" font-size="29">6</text>
+</g>
+<g data-point="D" data-distance="8" data-fixed="false" data-nearest="false">
+<circle cx="540" cy="650" r="12" fill="#b34325"/>
+<text x="540" y="629" text-anchor="middle" font-size="30">D</text>
+<text x="540" y="701" text-anchor="middle" font-size="29">8</text>
+</g>
+<g data-point="E" data-distance="10" data-fixed="false" data-nearest="false">
+<circle cx="660" cy="650" r="12" fill="#b34325"/>
+<text x="660" y="629" text-anchor="middle" font-size="30">E</text>
+<text x="660" y="701" text-anchor="middle" font-size="29">10</text>
+</g>
+<text x="30" y="766" font-size="29">距离 ≤ 3.5：A</text>
+<text x="30" y="813" font-size="29">最近三个：A、B、C</text>
+</g>
+<text x="30" y="899" font-size="28">固定阈值：数量改变；固定名次：距离改变</text>
+<text x="30" y="949" font-size="28">长度单位任意；三个不是研究测得的鸟数</text>
+<text x="30" y="999" font-size="27">静态几何例子，不含飞行、遮挡或感知极限</text>
+</g></svg>
