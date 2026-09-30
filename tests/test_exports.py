@@ -2239,6 +2239,51 @@ class ExportTests(unittest.TestCase):
             self.assertIn("C22/F", text)
             self.assertIn("F53", text)
 
+    def test_travel_agency_and_original_distinctions_export_completely(self):
+        chapter = next(item for item in json.loads(self.outputs["data/chapters.json"])["chapters"]
+                       if item["id"] == "C23")
+        text = (ROOT / "book/23-travel.md").read_text()
+        self.assertEqual(chapter["text"], text.strip())
+        self.assertIn(text, self.outputs["llms-full.txt"])
+        for anchor in ("travel-once", "travel-guide", "travel-forster", "travel-lived-place",
+                       "travel-authenticity", "travel-incomplete"):
+            self.assertIn('id="' + anchor + '"', text)
+            self.assertEqual(self.outputs["index.html"].count('id="' + anchor + '"'), 1)
+        for phrase in ("不等于你欠这个地方的一百件事", "不能让一天凭空变长",
+                       "把路线从一本书换到一个人手里", "一家虚构的手艺展示场所",
+                       "不是鉴定服务或行业调查", "准备确实不够好"):
+            self.assertIn(phrase, text)
+        self.assertEqual(build.local_href("../docs/evidence/F58-travel-and-guidebooks.md",
+                                          chapter["source"]), "#f58")
+        self.assertIn('"id":"R50"', (ROOT / "docs/reading-map.md").read_text())
+
+    def test_forster_reading_keeps_chapter_scope_and_opt_in_details(self):
+        note = next(item for item in json.loads(self.outputs["data/evidence.json"])["notes"]
+                    if item["id"] == "F58")
+        self.assertEqual(note["source_kind"], "literary_primary_text")
+        self.assertEqual(note["text"], (ROOT / note["source"]).read_text())
+        self.assertIn(note["text"], self.outputs["llms-full.txt"])
+        for phrase in ("2026-10-01", "2001-05-01", "2025-08-11", "不是全书核读",
+                       "不是小说初版日期", "人物发言", "不作为现实知识或旅行指导",
+                       "没有核对书中地点今天的状况"):
+            self.assertIn(phrase, note["text"])
+        chapter = (ROOT / "book/23-travel.md").read_text()
+        for text in (chapter, note["text"]):
+            before, after = text.split("<details>", 1)
+            details, remainder = after.split("</details>", 1)
+            self.assertIn("不涉及全书结局", details)
+            self.assertIn("Miss Lavish", details)
+            self.assertNotIn("Miss Lavish", before + remainder)
+            self.assertNotIn("<details open", text)
+            rendered = build.markdown(text, note["source"] if text == note["text"] else "book/23-travel.md")
+            self.assertEqual(rendered.count("<details>"), 1)
+            self.assertEqual(rendered.count("</details>"), 1)
+        self.assertEqual(build.local_href("../../book/23-travel.md#travel-forster", note["source"]), "#travel-forster")
+        records = json.loads(self.outputs["data/research.json"])["records"]
+        self.assertEqual(len(records), 27)
+        self.assertNotIn("F58", {item["id"] for item in records})
+        self.assertTrue(all("F58" not in card["background_ids"] for card in self.export["cards"]))
+
     def test_travel_keeps_observation_outcomes_and_scoped_guidance(self):
         records = {item["id"]: item for item in json.loads(self.outputs["data/research.json"])["records"]}
         notes = {item["id"]: item for item in json.loads(self.outputs["data/evidence.json"])["notes"]}
