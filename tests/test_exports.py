@@ -448,6 +448,63 @@ class ExportTests(unittest.TestCase):
                               chapters[chapter]["text"])
                 self.assertIn('href="#' + identifier.lower() + '"', self.outputs["index.html"])
 
+    def test_moon_geometry_source_and_reader_boundaries(self):
+        chapters = {c["id"]: c for c in json.loads(self.outputs["data/chapters.json"])["chapters"]}
+        notes = {n["id"]: n for n in json.loads(self.outputs["data/evidence.json"])["notes"]}
+        text = chapters["C29"]["text"]
+        note = notes["F56"]
+        self.assertEqual(note["source_kind"], "official_science_explainer_and_visualization_metadata")
+        self.assertEqual(chapters["C29"]["card_ids"], [])
+        for phrase in ("同步自转", "近侧、远侧", "今天的地球并没有总以同一面",
+                       "天球北方", "新鲜不只发生在目的地", "不是某个城市阳台"):
+            self.assertIn(phrase, text)
+        for phrase in ("未观看完整动画", "2025年12月11日", "2025年12月17日",
+                       "不把静态占位当成2026年的有效星历", "不是本项目观测",
+                       "1、0、-1、0", "没有研究看月亮是否增加快乐"):
+            self.assertIn(phrase, note["text"])
+        for anchor in ("moon-rotation", "moon-day-and-night", "moon-changing-view",
+                       "moon-knowledge-and-wonder"):
+            self.assertIn(f'<span id="{anchor}"></span>', self.outputs["index.html"])
+            self.assertIn(f'href="#{anchor}"', self.outputs["index.html"])
+            self.assertEqual(build.local_href(f"../../book/29-night-sky.md#{anchor}",
+                                              note["source"]), "#" + anchor)
+        self.assertEqual(build.local_href(note["source"], "README.md"), "#f56")
+        self.assertIn(text, self.outputs["llms-full.txt"])
+        self.assertIn(note["text"], self.outputs["llms-full.txt"])
+        self.assertTrue(all("F56" not in c["background_ids"] for c in self.export["cards"]))
+        for path in ("docs/ai.md", "llms.txt", "skills/enjoy-the-moment/SKILL.md"):
+            self.assertIn("C29/F21/F56", (ROOT / path).read_text())
+
+    def test_original_moon_model_geometry_and_svg_agree(self):
+        import moon_examples
+        sync, fixed = moon_examples.frames(True), moon_examples.frames(False)
+        self.assertEqual([f["earth_alignment"] for f in sync], [1, 1, 1, 1])
+        self.assertEqual([f["earth_alignment"] for f in fixed], [1, 0, -1, 0])
+        self.assertEqual([f["marker"] for f in sync], [(-1, 0), (0, -1), (1, 0), (0, 1)])
+        self.assertEqual([f["marker"] for f in fixed], [(-1, 0)] * 4)
+        for i in range(4):
+            self.assertEqual(moon_examples.quarter_turn(sync[i]["position"]),
+                             sync[(i + 1) % 4]["position"])
+            self.assertEqual(moon_examples.quarter_turn(sync[i]["marker"]),
+                             sync[(i + 1) % 4]["marker"])
+        with self.assertRaises(TypeError):
+            moon_examples.frames("yes")
+        svg = (ROOT / "assets/media/moon-rotation.svg").read_text()
+        self.assertEqual(svg, moon_examples.svg())
+        tree = ET.fromstring(svg)
+        self.assertEqual(tree.attrib["viewBox"], "0 0 720 1480")
+        for name, model in (("synchronous", sync), ("no-spin", fixed)):
+            groups = [g for g in tree.iter() if g.attrib.get("data-panel") == name]
+            self.assertEqual(len(groups), 4)
+            for group, frame in zip(groups, model):
+                self.assertEqual(int(group.attrib["data-position"]), frame["number"])
+                self.assertEqual((int(group.attrib["data-marker-x"]),
+                                  int(group.attrib["data-marker-y"])), frame["marker"])
+        png = (ROOT / "assets/media/moon-rotation.png").read_bytes()
+        self.assertEqual(png[:8], b"\x89PNG\r\n\x1a\n")
+        self.assertEqual(int.from_bytes(png[16:20], "big"), 720)
+        self.assertEqual(int.from_bytes(png[20:24], "big"), 1480)
+
     def test_flavor_and_dress_close_readings_preserve_provenance(self):
         chapters = {item["id"]: item for item in
                     json.loads(self.outputs["data/chapters.json"])["chapters"]}

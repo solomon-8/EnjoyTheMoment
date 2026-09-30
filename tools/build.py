@@ -103,6 +103,7 @@ EVIDENCE = [
     ("F53", "docs/evidence/F53-open-window.md"),
     ("F54", "docs/evidence/F54-bedroom-letters.md"),
     ("F55", "docs/evidence/F55-bedroom-conservation.md"),
+    ("F56", "docs/evidence/F56-moon-rotation-and-view.md"),
 ]
 EVIDENCE_KINDS = {
     "F01": "official_statistics",
@@ -160,6 +161,7 @@ EVIDENCE_KINDS = {
     "F53": "literary_primary_text",
     "F54": "artist_letters_in_scholarly_edition",
     "F55": "museum_conservation_explainer",
+    "F56": "official_science_explainer_and_visualization_metadata",
 }
 RELATIONS = [
     {"card_ids": ["J033"], "background_ids": ["B01"], "essay_ids": ["E04"]},

@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="1480" viewBox="0 0 720 1480" role="img" aria-labelledby="title desc">
+<title id="title">朝向地球，需要绕行也转身</title>
+<desc id="desc">原创圆轨道四位置双模型。上图标记朝向依次左下右上，始终朝地；下图标记一直朝图左，从地球看依次朝地、侧向、背地、另一侧向。不是月相图。</desc>
+<rect width="720" height="1480" fill="#fff8ed"/>
+<g fill="#302d26" font-family="PingFang SC,Noto Sans CJK SC,sans-serif">
+<text x="36" y="58" font-size="35" font-weight="700">朝向地球，需要绕行也转身</text>
+<text x="36" y="103" font-size="27">按1 → 2 → 3 → 4 → 1读；图左方向不变</text>
+<text x="36" y="168" font-size="32" font-weight="700">上图 · 同一面始终朝地</text>
+<circle cx="360" cy="408" r="162" fill="none" stroke="#9c9387" stroke-width="3" stroke-dasharray="9 9"/>
+<circle cx="360" cy="408" r="46" fill="#b8d6d3"/>
+<text x="360" y="418" font-size="29" text-anchor="middle">地球</text>
+<g data-panel="synchronous" data-position="1" data-marker-x="-1" data-marker-y="0"><circle cx="522" cy="408" r="41" fill="#e8d9be" stroke="#302d26" stroke-width="2"/><line x1="522" y1="408" x2="494" y2="408" stroke="#302d26" stroke-width="4"/><circle cx="494" cy="408" r="8" fill="#302d26"/><text x="589" y="418" font-size="33" font-weight="700" text-anchor="middle">1</text></g>
+<g data-panel="synchronous" data-position="2" data-marker-x="0" data-marker-y="-1"><circle cx="360" cy="246" r="41" fill="#e8d9be" stroke="#302d26" stroke-width="2"/><line x1="360" y1="246" x2="360" y2="274" stroke="#302d26" stroke-width="4"/><circle cx="360" cy="274" r="8" fill="#302d26"/><text x="427" y="256" font-size="33" font-weight="700" text-anchor="middle">2</text></g>
+<g data-panel="synchronous" data-position="3" data-marker-x="1" data-marker-y="0"><circle cx="198" cy="408" r="41" fill="#e8d9be" stroke="#302d26" stroke-width="2"/><line x1="198" y1="408" x2="226" y2="408" stroke="#302d26" stroke-width="4"/><circle cx="226" cy="408" r="8" fill="#302d26"/><text x="131" y="418" font-size="33" font-weight="700" text-anchor="middle">3</text></g>
+<g data-panel="synchronous" data-position="4" data-marker-x="0" data-marker-y="1"><circle cx="360" cy="570" r="41" fill="#e8d9be" stroke="#302d26" stroke-width="2"/><line x1="360" y1="570" x2="360" y2="542" stroke="#302d26" stroke-width="4"/><circle cx="360" cy="542" r="8" fill="#302d26"/><text x="360" y="645" font-size="33" font-weight="700" text-anchor="middle">4</text></g>
+<text x="36" y="704" font-size="29">标记转向：左 → 下 → 右 → 上</text>
+<text x="36" y="808" font-size="32" font-weight="700">下图 · 相对图纸不自转</text>
+<circle cx="360" cy="1048" r="162" fill="none" stroke="#9c9387" stroke-width="3" stroke-dasharray="9 9"/>
+<circle cx="360" cy="1048" r="46" fill="#b8d6d3"/>
+<text x="360" y="1058" font-size="29" text-anchor="middle">地球</text>
+<g data-panel="no-spin" data-position="1" data-marker-x="-1" data-marker-y="0"><circle cx="522" cy="1048" r="41" fill="#e8d9be" stroke="#302d26" stroke-width="2"/><line x1="522" y1="1048" x2="494" y2="1048" stroke="#302d26" stroke-width="4"/><circle cx="494" cy="1048" r="8" fill="#302d26"/><text x="589" y="1058" font-size="33" font-weight="700" text-anchor="middle">1</text></g>
+<g data-panel="no-spin" data-position="2" data-marker-x="-1" data-marker-y="0"><circle cx="360" cy="886" r="41" fill="#e8d9be" stroke="#302d26" stroke-width="2"/><line x1="360" y1="886" x2="332" y2="886" stroke="#302d26" stroke-width="4"/><circle cx="332" cy="886" r="8" fill="#302d26"/><text x="427" y="896" font-size="33" font-weight="700" text-anchor="middle">2</text></g>
+<g data-panel="no-spin" data-position="3" data-marker-x="-1" data-marker-y="0"><circle cx="198" cy="1048" r="41" fill="#e8d9be" stroke="#302d26" stroke-width="2"/><line x1="198" y1="1048" x2="170" y2="1048" stroke="#302d26" stroke-width="4"/><circle cx="170" cy="1048" r="8" fill="#302d26"/><text x="131" y="1058" font-size="33" font-weight="700" text-anchor="middle">3</text></g>
+<g data-panel="no-spin" data-position="4" data-marker-x="-1" data-marker-y="0"><circle cx="360" cy="1210" r="41" fill="#e8d9be" stroke="#302d26" stroke-width="2"/><line x1="360" y1="1210" x2="332" y2="1210" stroke="#302d26" stroke-width="4"/><circle cx="332" cy="1210" r="8" fill="#302d26"/><text x="360" y="1285" font-size="33" font-weight="700" text-anchor="middle">4</text></g>
+<text x="36" y="1344" font-size="29">标记从头到尾朝图左，不跟着圆心转</text>
+<text x="36" y="1400" font-size="27">黑点是同一面上的标记，不是光照或阴影</text>
+<text x="36" y="1444" font-size="26">理想圆轨道／均匀运动／俯视；大小距离不按比例</text>
+</g></svg>
