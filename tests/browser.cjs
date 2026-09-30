@@ -61,6 +61,18 @@ const { chromium } = require("playwright");
       await page.waitForFunction(() => document.getElementById("c05").open && !document.getElementById("c05").hidden);
       assert.equal(new URL(page.url()).hash, "#" + target);
     }
+    await page.goto(url + "#friends-not-a-service");
+    await page.waitForFunction(() => document.getElementById("e09").open);
+    await page.locator("#e09 a[href='#friends-reciprocity']").first().click();
+    assert.equal(new URL(page.url()).hash, "#friends-reciprocity");
+    await page.locator("#e09 a[href='#f57']").first().click();
+    await page.waitForFunction(() => document.getElementById("f57").open);
+    assert.match(await page.locator("#f57 .prose").textContent(), /没有通读全书/);
+    await page.locator("#essay-query").fill("不存在的关系XYZ");
+    await page.locator("#f57 a[href='#friends-ending']").first().click();
+    await page.waitForFunction(() => document.getElementById("e09").open &&
+      !document.getElementById("e09").hidden && document.getElementById("essay-query").value === "");
+    assert.equal(new URL(page.url()).hash, "#friends-ending");
     await page.goto(url + "#rest-returns");
     await page.waitForFunction(() => document.getElementById("e07").open);
     for (const anchor of ["rest-real-income", "rest-paid-evening"]) {
