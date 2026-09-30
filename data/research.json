@@ -521,6 +521,26 @@
       },
       "directly_validates_cards": false,
       "source": "docs/research.md#b26"
+    },
+    {
+      "id": "B27",
+      "title": "可支配时间与生活评价",
+      "doi": "10.1037/pspp0000391",
+      "access_level": "full_text",
+      "verified_at": "2026-09-30",
+      "fields": {
+        "核读日期": "2026-09-30。",
+        "文献": "Marissa A. Sharif、Cassie Mogilner、Hal E. Hershfield（2021）. *Having too little or too much time is linked to lower subjective well-being*. Journal of Personality and Social Psychology，121(4)，933–947。",
+        "DOI": "[10.1037/pspp0000391](https://doi.org/10.1037/pspp0000391)。",
+        "实际读取": "`full_text`；[作者托管的期刊排版PDF](https://pigeon-maracas-9ccm.squarespace.com/s/Sharif-Mogilner-Hershfield-JPSP-2021-Too-Little-and-Too-Much-Time-compressed.pdf)，内部页码1–15，未与最终版逐字比对。OCR辅助读取主研究方法、结果、讨论，关键段落与图形目视复核；补充DOCX只读部分方法与附加分析，未逐格审核全部表图。[详细核读](evidence/B27-discretionary-time.md)。",
+        "设计与对象": "两组美国调查，13,639与21,736人；两项美国MTurk想象实验，完成2,565与5,001人，后一项排除后分析4,046人。不是追踪半年或多国干预。",
+        "有限结论": "时间与生活评价的关联并非持续线性上升；研究1高时长段未显著下降，研究2有下降关联；想象实验的结果还受时间内容和分析模型影响。",
+        "不能推出": "每人每天2至5小时最优、7小时必然有害、取消责任或增加工作一定改善生活，或没有产出的娱乐不值得。",
+        "我们如何使用": "[C21](../book/21-free-time.md#time-study)反对既把增加空闲当幸福保证，又把平均结果当个人限额。共同时间表与时间决定权论证为原创，不是论文验证的行动方案。",
+        "关键限制": "研究3的7小时/3.5小时未调整比较p = .066，调整后p = .02；研究4想象“值得”时的同一时长比较p = .068。范围来自分箱图粗略观察；活动分类与个体意愿不同，托管稿及补充文件有未解决的统计/量表表述冲突，未复算数据或穷尽复现。"
+      },
+      "directly_validates_cards": false,
+      "source": "docs/research.md#b27"
     }
   ],
   "relations": [
