@@ -50,6 +50,7 @@ EVIDENCE = [
     ("N20", "docs/evidence/B20-sunk-cost.md"),
     ("N21", "docs/evidence/B21-shared-amplification.md"),
     ("N22", "docs/evidence/B22-shared-distance.md"),
+    ("N23", "docs/evidence/B23-reliable-waiting.md"),
     ("F01", "docs/evidence/F01-time-use.md"),
     ("F02", "docs/evidence/F02-listening-language.md"),
     ("F03", "docs/evidence/F03-film-language.md"),

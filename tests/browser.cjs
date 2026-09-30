@@ -61,6 +61,19 @@ const { chromium } = require("playwright");
       await page.waitForFunction(() => document.getElementById("c05").open && !document.getElementById("c05").hidden);
       assert.equal(new URL(page.url()).hash, "#" + target);
     }
+    await page.goto(url + "#waiting-credible-promise");
+    await page.waitForFunction(() => document.getElementById("e03").open);
+    assert(await page.locator("#e03 .prose").isVisible());
+    await page.locator("#e03 a[href='#waiting-long-term-defense']").first().click();
+    assert.equal(new URL(page.url()).hash, "#waiting-long-term-defense");
+    await page.locator("#e03 a[href='#n23']").first().click();
+    await page.waitForFunction(() => document.getElementById("n23").open);
+    assert.match(await page.locator("#n23 .prose").textContent(), /右截尾/);
+    await page.locator("#essay-query").fill("未匹配论证XYZ");
+    await page.locator("#n23 a[href='#waiting-marshmallow']").first().click();
+    await page.waitForFunction(() => document.getElementById("e03").open &&
+      !document.getElementById("e03").hidden && document.getElementById("essay-query").value === "");
+    assert.equal(new URL(page.url()).hash, "#waiting-marshmallow");
     await page.goto(url + "#c24");
     await page.waitForFunction(() => document.getElementById("c24").open);
     assert.equal(await page.locator("#c24 .prose table").count(), 2);
