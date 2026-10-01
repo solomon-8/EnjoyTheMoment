@@ -646,3 +646,5 @@ F 系列不计入上面的 B 系列背景研究。事实、教学、文学文本
 - [F77 · 《行走的人》：物件、组合与观看角度](evidence/F77-sculpture-and-viewpoint.md)：芝加哥藏品API、罗丹馆法英文说明与Mx. Granger署名CC0照片，用于[C25](../book/25-looking-at-art.md#art-sculpture-recognition)。两件馆藏的尺寸日期、两馆的躯干来源分歧与两照片日期分别保留；不是亲访、连续绕行、步态实验或幸福研究，不从艺术省略推论现实身体的价值。
 
 - [F78 · 伊姆斯住宅：保存什么，允许什么变化](evidence/F78-eames-and-lived-preservation.md)：Getty保护项目与环境管理文字、2018年管理计划相关页及2022年具名报道，用于[C36](../book/36-home.md#home-eames)。分开物件保存、开放感受、使用痕迹、替代展示和持续实践；计划不是全部已实施的效果报告，家族回忆不是行业共识，故居保护目标不是普通家庭义务。没有新增幸福实验、护理方案或参观推荐。
+
+- [F79 · 越留越特别：作者访谈与使用门槛](evidence/F79-specialness-interview.md)：2021年11月16日Knowledge at Wharton对Jonah Berger的编辑访谈及论文书目，用于[C01](../book/01-start-now.md#today-first-page)。仅核访谈，未核原论文、录音、六项实验或干预效果；个人回忆、假想情境与营销建议分开。本子与第一行是本书原创，不把闲置诊断为心理问题，不让使用率与复购率替代生活价值。

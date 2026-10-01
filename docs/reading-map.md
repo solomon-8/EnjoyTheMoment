@@ -22,11 +22,15 @@
 <a id="r02"></a>
 ## R02 · 今天、机会与兑现
 
-<!-- reading-route: {"id":"R02","targets":["C01","B17","N17"]} -->
+<!-- reading-route: {"id":"R02","targets":["C01","B17","N17","F79","E01","E03","E10","C18"]} -->
 
-正文与来源：[C01](../book/01-start-now.md) · [B17](research.md#b17) · [N17](evidence/B17-enjoyable-procrastination.md)
+正文与来源：[C01](../book/01-start-now.md) · [B17](research.md#b17) · [N17](evidence/B17-enjoyable-procrastination.md) · [F79作者访谈与使用门槛](evidence/F79-specialness-interview.md) · [E01保留选项](../essays/01-pleasure-is-an-end.md#pleasure-options) · [E03等待](../essays/03-now-or-later.md) · [E10消费与自主](../essays/10-pleasure-not-retention.md) · [C18庆祝](../book/18-celebration.md)
 
 开篇见 C01/B17/N17：享乐的解释负担、拥有与使用、未来安排与兑换率是不同问题。甜点券预测组80人与发券64人不同，短期限10/32、长期限2/32；电影券合并59/120与42/120不代表各条件均显著，金额描述方向略反。兑换不是福祉，未兑换不是自动失败；85人情境没有跟踪未来闲暇。B17预试量表上限与均值不一致尚未解决，不能修补猜测。不给卡片增添效果背书，不用倒计时替读者决定需求，也不把完整体验默认缩成五分钟。
+
+[C01本子情境](../book/01-start-now.md#today-first-page)与第一行的代价为原创假想，不是实验或作者经历。分清明确用途的等待、不断抬高的使用条件，以及保留空白和期待本身的价值；不能凭放了多久或没有开封诊断。开始不产生写满、用尽或复购义务，第一次不满意也不能强迫继续；“普通今天有资格”不是强制庆祝和要求同住者配合。
+
+F79仅核2021年11月16日Knowledge at Wharton的编辑访谈及书目，未听录音、未读论文正文，不能称已核六项实验、长期实用效果或统计结果。访谈中的鞋在面试时已穿过，不说从未使用；普通袜子是个人回忆。假想酒情境、意向回答不转成实际饮用数据；无样本与效应量可报。specialness spiral为受访者解释，非对所有闲置的定律；商业建议与本书目标分开，不以使用率、开封率或复购率替代福祉，不给非易腐商品虚构使用期限。先回应完整论证和保留理由，不自动生成清库存或采购清单。
 
 <a id="r03"></a>
 ## R03 · 刺激与复杂感受
