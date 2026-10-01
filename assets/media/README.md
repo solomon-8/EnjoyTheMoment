@@ -55,3 +55,11 @@
 ## 鸟群近邻原创几何图
 
 `bird-neighbors.svg`与同源渲染的`bird-neighbors.png`由本项目[bird_examples.py](../../tools/bird_examples.py)生成，采用MIT许可。参考点O右侧的A–E距离为1至5，第二幅整体乘二；比较固定阈值3.5与最近三个点。单位任意，是一维静态例子，不是鸟群实测、飞行仿真或论文配图的复制描摹。没有使用野鸟照片、音视频、机构标志或AI生成图片。文字替代说明在[C30](../../book/30-birdwatching.md#birds-neighbors)，研究与图解边界见[N30](../../docs/evidence/B30-flock-relations.md)。
+
+## 系带口袋藏品图像
+
+`pocket-met-157045.jpg`：The Metropolitan Museum of Art，*Pocket*，American，ca. 1784，藏品2009.300.2241（API对象157045），cotton, wool。完整馆方credit line：Brooklyn Museum Costume Collection at The Metropolitan Museum of Art, Gift of the Brooklyn Museum, 2009; Bequest of Marie Bernice Bitzer, by exchange, 1996。
+
+[馆藏API](https://collectionapi.metmuseum.org/public/collection/v1/objects/157045)本次返回isPublicDomain=true与[主图](https://images.metmuseum.org/CRDImages/ci/original/1996.2_CP4.jpg)；[官方API文档](https://metmuseum.github.io/)说明对应开放图像的公有领域状态。它不是本书MIT原创，也不因CSV元数据的CC0自动推断图像许可。网页访问限制、对象字段与读取范围见[F66](../../docs/evidence/F66-pockets-and-dress.md)。
+
+原图2000 × 1895，等比例缩为880 × 833、JPEG编码；不裁切、不补绘、不主动调色。原图SHA-256为 `8319e29ef8a4d5f9f4e458249f429d929683f51ec2acc1d81de8fbb6c6613288`；本地版本为 `880475a581642d5ffd745c833a00580d0c72824e3696e2b939613d1f059a9598`。图像不展示背面、内部、穿着或装载状态，不是纸样、复制品或实物接触记录。没有转载V&A图片。

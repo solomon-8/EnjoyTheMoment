@@ -44,6 +44,8 @@ Neither excitement nor spending is compulsory. Quiet enjoyment counts. Disliking
 
 **Can a deliberately crafted emotion still be genuine?** [The film chapter](book/12-film.md#film-designed-emotion) separates being moved from liking the filmmaking, and cinematic invitation from evidence about real events. Its examples are original; the two studies do not test enjoyment.
 
+**Some beauty does not need an audience.** [The clothing chapter](book/16-dress.md#dress-private-beauty) uses a historical pocket to discuss hidden decoration, carrying and participation—not to mandate utility or invent its wearer’s motives.
+
 ## The guide
 
 **34 chapters. 60 original activity cards.** Chapters 11–34 are standalone discussions, not extra activity lists. The full chapters and cards are currently in Chinese; this page is an English introduction, not a complete translation.

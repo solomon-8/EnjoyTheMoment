@@ -127,6 +127,7 @@ EVIDENCE = [
     ("F63", "docs/evidence/F63-play-and-chosen-goals.md"),
     ("F64", "docs/evidence/F64-tennis-scoring.md"),
     ("F65", "docs/evidence/F65-clocks-and-flashbacks.md"),
+    ("F66", "docs/evidence/F66-pockets-and-dress.md"),
 ]
 EVIDENCE_KINDS = {
     "F01": "official_statistics",
@@ -194,6 +195,7 @@ EVIDENCE_KINDS = {
     "F63": "philosophical_primary_argument",
     "F64": "official_sport_rules",
     "F65": "official_game_srd_and_original_examples",
+    "F66": "museum_history_record_and_image",
 }
 RELATIONS = [
     {"card_ids": ["J033"], "background_ids": ["B01"], "essay_ids": ["E04"]},
