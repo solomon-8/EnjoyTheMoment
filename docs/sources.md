@@ -142,3 +142,9 @@ Do、Rupert与Wolford（2008）的[B34/N34](evidence/B34-gifts-and-endings.md)�
 [F68](evidence/F68-repair-and-conservation.md)采用Japan House London金缮页面，以及Abigail Duckor在LACMA Unframed于2021-08-04发表的修复师问答。读取文字，不转载两机构的图片、视频、标志或全文，也不将文化解释当心理研究。传统材料与调整练习、私人碗与馆藏处理分开；起源故事按来源保留传说性质。
 
 [制作章节](../book/17-making.md#making-repair-goals)的三种补片关系图由本书独立绘制并从SVG渲染PNG，采用MIT许可。它不是馆方图解、历史器物复刻、材料试验或修补教程；小册子补页与手写纸盒为原创假想，不声称亲测、机构背书或使用安全。
+
+## 成人亲密、研究与身份立场
+
+[B36/N36](evidence/B36-sexual-frequency.md)采用Loewenstein等人的CMU托管期刊排版稿，保留Elsevier权利，不转载论文、原图或完整翻译。[F69](evidence/F69-sexual-health-and-asexuality.md)为WHO工作定义与AASECT组织立场的署名概述；不复制机构标志、图片或全文，也不把官方网页当本仓库MIT资产。
+
+[C35](../book/35-intimacy.md)的情境、对话、概念表与反对意见为原创说明，不是受访者隐私记录，不声称亲测、疗效或机构背书。WHO性权利定义脚注的非正式立场限制保留；未采用访问失败的RAINN与Planned Parenthood候选页。没有来源提供本章的个体医疗、诊断或当地法律结论。

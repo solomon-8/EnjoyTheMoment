@@ -21,7 +21,25 @@ const { chromium } = require("playwright");
     assert.equal(await page.locator("#filters").isVisible(), true);
     assert.equal(await page.locator(".argument").count(), 11);
     assert.equal(await page.locator(".playbook").count(), 10);
-    assert.equal(await page.locator(".chapter-intro").count(), 34);
+    assert.equal(await page.locator(".chapter-intro").count(), 35);
+    await page.goto(url + "#intimacy-value");
+    await page.waitForFunction(() => document.getElementById("c35").open);
+    assert.equal(await page.locator("#c35 .prose table").count(), 2);
+    assert.match(await page.locator("#c35 .prose").textContent(), /亲密不必拿次数证明/);
+    for (const [id, anchor, phrase] of [
+      ["n36", "intimacy-frequency", /没有回答自发发生/],
+      ["f69", "intimacy-spectrum", /不代表WHO正式立场/]
+    ]) {
+      await page.locator(`#c35 a[href='#${id}']`).first().click();
+      await page.waitForFunction(id => document.getElementById(id).open, id);
+      assert.match(await page.locator(`#${id} .prose`).textContent(), phrase);
+      await page.locator("#chapter-query").fill("不存在的亲密XYZ");
+      await page.locator(`#${id} a[href='#${anchor}']`).last().click();
+      await page.waitForFunction(() => document.getElementById("c35").open &&
+        !document.getElementById("c35").hidden && document.getElementById("chapter-query").value === "");
+      assert.equal(new URL(page.url()).hash, "#" + anchor);
+    }
+    await page.goto(url);
     await page.locator(".primary").click();
     await page.waitForFunction(() => document.getElementById("shuaqi-content").open);
     assert.equal(new URL(page.url()).hash, "#shuaqi-content");
