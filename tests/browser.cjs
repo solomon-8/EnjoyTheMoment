@@ -449,7 +449,7 @@ const { chromium } = require("playwright");
     assert.match(await page.locator("#c03 .prose").textContent(), /新鲜感，不是生活不及格后的补考/);
     await page.goto(url + "#c06");
     await page.waitForFunction(() => document.getElementById("c06").open);
-    assert.equal(await page.locator("#c06 .prose table").count(), 3);
+    assert.equal(await page.locator("#c06 .prose table").count(), 4);
     await page.goto(url + "#c08");
     await page.waitForFunction(() => document.getElementById("c08").open);
     assert.equal(await page.locator("#c08 .prose table").count(), 2);
@@ -1532,14 +1532,14 @@ const { chromium } = require("playwright");
       await spending.goto(url + (javaScriptEnabled ? "#c06" : ""));
       if (!javaScriptEnabled) await spending.locator("#c06 > summary").click();
       assert.match(await spending.locator("#c06 .prose").textContent(), /钱买来的应该是你想过的生活/);
-      for (const anchor of ["spending-pass-arithmetic", "spending-theatre-study", "spending-future-cost"]) {
+      for (const anchor of ["spending-pass-arithmetic", "spending-learning", "spending-theatre-study", "spending-future-cost"]) {
         if (javaScriptEnabled) {
           await spending.locator(`#c06 a[href='#${anchor}']`).first().click();
           assert.equal(new URL(spending.url()).hash, "#" + anchor);
         }
         await spending.locator("#" + anchor).scrollIntoViewIfNeeded();
       }
-      assert.equal(await spending.locator("#c06 .prose table").count(), 3);
+      assert.equal(await spending.locator("#c06 .prose table").count(), 4);
       for (const table of await spending.locator("#c06 .prose table").all()) {
         assert((await table.boundingBox()).width <= 350);
       }
