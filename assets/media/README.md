@@ -63,3 +63,9 @@
 [馆藏API](https://collectionapi.metmuseum.org/public/collection/v1/objects/157045)本次返回isPublicDomain=true与[主图](https://images.metmuseum.org/CRDImages/ci/original/1996.2_CP4.jpg)；[官方API文档](https://metmuseum.github.io/)说明对应开放图像的公有领域状态。它不是本书MIT原创，也不因CSV元数据的CC0自动推断图像许可。网页访问限制、对象字段与读取范围见[F66](../../docs/evidence/F66-pockets-and-dress.md)。
 
 原图2000 × 1895，等比例缩为880 × 833、JPEG编码；不裁切、不补绘、不主动调色。原图SHA-256为 `8319e29ef8a4d5f9f4e458249f429d929683f51ec2acc1d81de8fbb6c6613288`；本地版本为 `880475a581642d5ffd745c833a00580d0c72824e3696e2b939613d1f059a9598`。图像不展示背面、内部、穿着或装载状态，不是纸样、复制品或实物接触记录。没有转载V&A图片。
+
+## Anna Atkins蓝晒册页图像
+
+`atkins-met-291575.jpg`来自The Metropolitan Museum of Art对象API291575指定的公有领域主图。Anna Atkins，*Delesseria hypoglassum*，ca.1853，2005.100.557 (78)。署名：**Gilman Collection, Purchase, The Horace W. Goldsmith Foundation Gift, through Joyce and Robert Menschel, 2005。** 对象开放状态、来源链接和读取边界见[F67](../../docs/evidence/F67-cyanotype-and-selection.md)；CSV元数据许可不自动覆盖全部图像，本图不是本项目MIT原创。
+
+原图3266 × 4000，等比例缩为720 × 882并JPEG编码；未裁切、补绘或主动调色，不是本书制作的蓝晒。原图SHA-256为 `91b251b68f0f4ad27cde83f6bce0134f597f6f0de8dd78cad106c796ab66e8e9`，本地版本为 `fdc021e8e7e2675a5e7e03522c163cdf8bba4fc7dd41cfe92f4a49fcd91ffd14`。画面保留册页边缘，不可从屏幕显示直接测原物；没有转载V&A图像。

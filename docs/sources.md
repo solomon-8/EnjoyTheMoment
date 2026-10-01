@@ -124,3 +124,9 @@ Cao等（2024，PLOS ONE）及Szaszkó、Loebus（2026，i-Perception）分别�
 [穿衣章](../book/16-dress.md#dress-pocket-object)采用V&A的系带口袋历史说明，以及The Metropolitan Museum of Art的Pocket藏品2009.300.2241（API157045）元数据与正面数字图。[F66](evidence/F66-pockets-and-dress.md)区分机构的历史解释、可见细节与本书原创论证，没有独立核读原始庭审、报刊或历史专著，也没有穿着实验。
 
 Met对象记录及官方API文档标示相应公有领域图像；等比例缩放和JPEG编码另见[素材署名](../assets/media/README.md#系带口袋藏品图像)。不把元数据CC0误套到所有馆藏图片，不复制V&A图片，不将“看不见的漂亮”写成历史使用者已知的心理动机。
+
+## 蓝晒、物影与图像取舍
+
+[摄影章](../book/20-photography.md#photo-cyanotype-object)采用V&A的工艺教学与Rose Teanby的历史解读，以及Met所藏Anna Atkins的*Delesseria hypoglassum*（约1853，2005.100.557 (78)，API291575）元数据和主图。具体读取范围、未读档案/书籍、不同作品及动机推测的边界见[F67](evidence/F67-cyanotype-and-selection.md)。
+
+馆方公有领域数字图只缩小并JPEG编码，保留署名，不冒称MIT原创或本书复刻。V&A图片、全文与化学制作步骤未转载。接触成像、观看用途与事实承诺分开；票根/钥匙/桌面的设例和价值论证为本书原创，不是机构背书或效果研究。

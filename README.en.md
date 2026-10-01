@@ -46,6 +46,8 @@ Neither excitement nor spending is compulsory. Quiet enjoyment counts. Disliking
 
 **Some beauty does not need an audience.** [The clothing chapter](book/16-dress.md#dress-private-beauty) uses a historical pocket to discuss hidden decoration, carrying and participation—not to mandate utility or invent its wearer’s motives.
 
+**A photograph need not record more to reward a longer look.** [The photography chapter](book/20-photography.md#photo-cyanotype-object) uses an Anna Atkins cyanotype to distinguish contact, composition and claims about a scene. Choosing what to omit does not excuse misleading a viewer.
+
 ## The guide
 
 **34 chapters. 60 original activity cards.** Chapters 11–34 are standalone discussions, not extra activity lists. The full chapters and cards are currently in Chinese; this page is an English introduction, not a complete translation.

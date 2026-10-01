@@ -550,18 +550,36 @@ const { chromium } = require("playwright");
     assert.match(await page.locator("#n09 .prose").textContent(), /不是 38,935 人都完成三轮/);
     await page.goto(url + "#c20");
     await page.waitForFunction(() => document.getElementById("c20").open);
-    assert.equal(await page.locator("#c20 .artwork img").count(), 2);
+    assert.equal(await page.locator("#c20 .artwork img").count(), 3);
     for (const anchor of ["photo-viewpoint", "photo-duration", "photo-sequence", "photo-audience"]) {
       await page.locator(`#c20 a[href='#${anchor}']`).click();
       assert.equal(new URL(page.url()).hash, `#${anchor}`);
       assert(await page.locator("#c20 .prose").isVisible());
     }
-    for (const image of await page.locator("#c20 .artwork img").all()) {
+    for (const image of await page.locator("#c20 .artwork img").all().then(images => images.slice(0, 2))) {
       await image.evaluate(img => img.decode());
       assert.equal(await image.evaluate(img => img.naturalWidth), 880);
       assert.match(await image.getAttribute("src"), /^data:image\/png;base64,/);
       assert((await image.getAttribute("alt")).length > 40);
     }
+    for (const anchor of ["photo-cyanotype-object", "photo-selective-truth"]) {
+      await page.locator(`#c20 a[href='#${anchor}']`).first().click();
+      assert.equal(new URL(page.url()).hash, "#" + anchor);
+    }
+    const cyanotypeImage = page.locator("#c20 .artwork img").nth(2);
+    await cyanotypeImage.scrollIntoViewIfNeeded();
+    await cyanotypeImage.evaluate(img => img.decode());
+    assert.deepEqual(await cyanotypeImage.evaluate(img => [img.naturalWidth, img.naturalHeight]), [720, 882]);
+    assert.match(await cyanotypeImage.getAttribute("src"), /^data:image\/jpeg;base64,/);
+    assert.match(await cyanotypeImage.getAttribute("alt"), /不是植物原色照片/);
+    await page.locator("#c20 a[href='#f67']").first().click();
+    await page.waitForFunction(() => document.getElementById("f67").open);
+    assert.match(await page.locator("#f67 .prose").textContent(), /不提供制作教程/);
+    await page.locator("#chapter-query").fill("不存在的蓝晒XYZ");
+    await page.locator("#f67 a[href='#photo-selective-truth']").click();
+    await page.waitForFunction(() => document.getElementById("c20").open &&
+      !document.getElementById("c20").hidden && document.getElementById("chapter-query").value === "");
+    assert.equal(new URL(page.url()).hash, "#photo-selective-truth");
     await page.locator("#c20 a[href='#f34']").first().click();
     await page.waitForFunction(() => document.getElementById("f34").open);
     assert.match(await page.locator("#f34 .prose").textContent(), /没有运行/);
@@ -958,7 +976,7 @@ const { chromium } = require("playwright");
       await image.scrollIntoViewIfNeeded();
       await image.evaluate(img => img.decode());
       assert(await image.evaluate(img => img.getBoundingClientRect().right <= innerWidth));
-      assert(await image.evaluate(img => 20 * (img.getBoundingClientRect().width - 2) / 440 >= 15));
+      if (i < 2) assert(await image.evaluate(img => 20 * (img.getBoundingClientRect().width - 2) / 440 >= 15));
       assert(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth));
       await page.screenshot({path: "/tmp/enjoythemoment-photography-" + i + "-mobile.png", fullPage: false});
     }
@@ -1119,10 +1137,10 @@ const { chromium } = require("playwright");
     await staticPage.locator("#f36 > summary").click();
     assert.equal(await staticPage.locator("#f36 table tbody tr").count(), 3);
     await staticPage.locator("#c20 > summary").click();
-    for (const image of await staticPage.locator("#c20 .artwork img").all()) {
+    for (const [i, image] of (await staticPage.locator("#c20 .artwork img").all()).entries()) {
       await image.scrollIntoViewIfNeeded();
       await image.evaluate(img => img.decode());
-      assert.equal(await image.evaluate(img => img.naturalWidth), 880);
+      assert.equal(await image.evaluate(img => img.naturalWidth), i < 2 ? 880 : 720);
     }
     await staticPage.locator("#f34 > summary").click();
     assert.match(await staticPage.locator("#f34 .prose").textContent(), /沿光轴/);
