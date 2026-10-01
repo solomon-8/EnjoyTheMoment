@@ -166,3 +166,9 @@ Do、Rupert与Wolford（2008）的[B34/N34](evidence/B34-gifts-and-endings.md)�
 [F75](evidence/F75-time-choice-and-discounting.md)采用Frederick、Loewenstein与O’Donoghue的2002年综述相关章节；书目经AEA记录与Crossref核对，正文取自CMU托管的51页扫描PDF。首次下载不全、期刊全文入口返回HTML、扫描件OCR误识均不作为成功全文读取；完成下载后按页核读，并目视采用的段落与脚注。没有转载PDF、OCR全文或图表，没有声称读完全部51页或独立核实所有底层实验。
 
 E03的A／B假想答卷依据论文的比较结构改写，署明关联，不冒充原创实验或纵向跟踪。演出、阅读和准备情境为本书原创；条件改变、目标改变与反复偏离的分类是编辑推演，不是诊断量表。“及时享乐不等于及时省事”不是论文原话，也不由模型证明为所有人的最佳生活。
+
+## 雕塑物件与署名照片
+
+[F77](evidence/F77-sculpture-and-viewpoint.md)采用芝加哥艺术博物馆藏品API和罗丹博物馆法英文作品说明，区分物件元数据、机构解释、图中观察与本书推导。芝加哥API的description按其CC BY 4.0提示署名概述，不全文转载；罗丹馆版权照片与文字全文未收录。
+
+[C25](../book/25-looking-at-art.md#art-sculpture-recognition)采用Mx. Granger的《行走的人》正、背两张摄影作品，依据各Commons文件页的CC0标记，而不是因为雕塑在公有领域就推断任意照片可用。馆藏署名为Bequest of A. James Speyer；照片各缩小重编码、不裁切或调色，署名、文件页、尺寸和哈希见[图像资产表](../assets/art/README.md)。不是本书亲访、同次连续绕行或机构背书，照片不重新声称为MIT原创；没有识别画面参观者。
