@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="670" viewBox="0 0 400 670" role="img" aria-labelledby="title desc">
+<title id="title">两段材料，两个时间关系</title>
+<desc id="desc">原创抽象图，不是真实演出。横向八格。甲的A占第1至4格，B占第5至8格，合计八格；乙的A占第1至4格，B占第3至6格，重叠两格，合计六格。第7、8格为空。没有指定秒数、速度、音量、调性或真实音频。</desc>
+<rect width="400" height="670" fill="#f8f1e4"/>
+<defs>
+ <pattern id="ticks" width="38" height="56" patternUnits="userSpaceOnUse" patternTransform="translate(66 0)"><path d="M0 0V56" fill="none" stroke="#afa795"/></pattern>
+</defs>
+<g font-family="PingFang SC, Noto Sans CJK SC, sans-serif" fill="#302d27">
+ <text x="26" y="42" font-size="26" font-weight="700">两段材料，两个时间关系</text>
+ <text x="26" y="77" font-size="22">每段四格 · 不指定声音</text>
+ <text x="26" y="127" font-size="24" font-weight="700">甲 · 依次进入</text>
+ <g font-size="19" text-anchor="middle">
+  <text x="85" y="161">1</text><text x="123" y="161">2</text><text x="161" y="161">3</text><text x="199" y="161">4</text><text x="237" y="161">5</text><text x="275" y="161">6</text><text x="313" y="161">7</text><text x="351" y="161">8</text>
+ </g>
+ <text x="26" y="206" font-size="23">A</text><text x="26" y="263" font-size="23">B</text>
+ <g id="sequential">
+  <rect x="66" y="174" width="304" height="43" fill="#fffcf5" stroke="#afa795"/>
+  <rect x="66" y="231" width="304" height="43" fill="#fffcf5" stroke="#afa795"/>
+  <rect id="sequential-a" x="66" y="174" width="152" height="43" fill="#bc502f"/>
+  <rect id="sequential-b" x="218" y="231" width="152" height="43" fill="#337591"/>
+  <rect x="66" y="174" width="304" height="43" fill="url(#ticks)"/>
+  <rect x="66" y="231" width="304" height="43" fill="url(#ticks)"/>
+ </g>
+ <text x="66" y="308" font-size="22">总跨度：八格</text>
+ <text x="26" y="360" font-size="24" font-weight="700">乙 · B提早进入</text>
+ <g font-size="19" text-anchor="middle">
+  <text x="85" y="394">1</text><text x="123" y="394">2</text><text x="161" y="394">3</text><text x="199" y="394">4</text><text x="237" y="394">5</text><text x="275" y="394">6</text><text x="313" y="394">7</text><text x="351" y="394">8</text>
+ </g>
+ <text x="26" y="439" font-size="23">A</text><text x="26" y="496" font-size="23">B</text>
+ <g id="overlapping">
+  <rect x="66" y="407" width="304" height="43" fill="#fffcf5" stroke="#afa795"/>
+  <rect x="66" y="464" width="304" height="43" fill="#fffcf5" stroke="#afa795"/>
+  <rect id="overlapping-a" x="66" y="407" width="152" height="43" fill="#bc502f"/>
+  <rect id="overlapping-b" x="142" y="464" width="152" height="43" fill="#337591"/>
+  <rect x="66" y="407" width="304" height="43" fill="url(#ticks)"/>
+  <rect x="66" y="464" width="304" height="43" fill="url(#ticks)"/>
+  <path d="M142 515V523H218V515" fill="none" stroke="#302d27" stroke-width="2"/>
+ </g>
+ <text x="66" y="554" font-size="22">重叠两格，总跨度六格</text>
+ <path d="M26 576H374" stroke="#afa795"/>
+ <text x="26" y="610" font-size="22">图示关系，不预测好听程度</text>
+ <text x="26" y="645" font-size="21">没有音频 · 不是历史实录</text>
+</g>
+</svg>

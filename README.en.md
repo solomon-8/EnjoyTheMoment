@@ -50,7 +50,7 @@ Neither excitement nor spending is compulsory. Quiet enjoyment counts. Disliking
 
 ## The guide
 
-**36 chapters. 60 original activity cards.** Chapters 11–36 are standalone discussions, not extra activity lists. The full chapters and cards are currently in Chinese; this page is an English introduction, not a complete translation.
+**37 chapters. 60 original activity cards.** Chapters 11–37 are standalone discussions, not extra activity lists. The full chapters and cards are currently in Chinese; this page is an English introduction, not a complete translation.
 
 [Read and filter in your browser](https://solomon-8.github.io/EnjoyTheMoment/), with no installation. Eleven [long-form essays](essays/01-pleasure-is-an-end.md) explain the tradeoffs; the [research ledger](docs/research.md) records 37 background studies: twenty-seven journal full texts (including one journal XML accessed through PMC), one journal-formatted arXiv version, two advance online publications, two publicly hosted research manuscripts, one author-hosted page proof, three author-hosted journal-formatted articles, and one third-party mirror of a journal-formatted article. The latter ten have not been compared line by line with their final publisher versions; some online appendices have not been fully reviewed.
 
@@ -75,6 +75,8 @@ B37 uses selected studies and public materials to distinguish predicted repetiti
 [E08 · Enjoying life, or making it look interesting?](essays/08-life-without-an-audience.md) asks whether wanting an audience makes enjoyment less genuine. It separates reach, understanding, feedback and shared creation; carefully staged work can be part of a real experience. A failed publication need not erase a good evening, but neither does a good evening excuse false claims or disregard for collaborators. The cases are fictional; the cited photo-taking research does not establish the effects of posting or receiving likes.
 
 [E11 · If pleasure could be generated on demand, would we still want real life?](essays/11-pleasure-and-reality.md) distinguishes valuing pleasure from valuing nothing else. Why treat online life as a counterfeit? Can real enjoyment fulfill a promise that was never kept? A hypothetical digital harbor separates interaction, watching and merely feeling that one participated; its later disappearance need not erase the evenings already lived. The essay examines Chalmers's argument without treating imagined rich virtual reality as a current product claim. Philosophical arguments are not behavioral evidence; Nozick is read through secondary quotations, not in his original books.
+
+[Nightlife is not daytime gone wrong](book/37-nightlife.md) takes a lively evening seriously without reducing it to stress relief or networking. The Haçienda and the Warehouse make space, musical sequence and belonging concrete; an original timing diagram separates overlap from duration. Historical accounts do not certify current venues or promise happiness.
 
 [Does a pleasure lose its value simply because it is the second time?](book/03-novelty.md#novelty-repeat) separates actual decline from exaggerated predictions, willingness-to-pay bids from transactions, and repeated enjoyment from compulsory contentment. Limited opportunities, curiosity and shared choices can make a new experience genuinely worthwhile.
 
@@ -122,6 +124,7 @@ The chapters on senses, novelty, play, relationships, spending, and permission t
 | [34 · Characters may suffer; players need not](book/34-shared-stories.md) | Wanting uncertainty is not consent to arbitrary rulings: dice, competing clocks, flashbacks and aspects give choices consequences. |
 | [35 · Intimacy is worthwhile, not a relationship quota](book/35-intimacy.md) | Desire, consent, enjoyment and relationship satisfaction answer different questions. Respecting limits need not erase wanting. |
 | [36 · A home can be lived in, not only held as an asset](book/36-home.md) | The Schröder House as a changing home: shared space, privacy, unfinished activities and the value of temporary living. |
+| [37 · Nightlife is not daytime gone wrong](book/37-nightlife.md) | More than a playlist: club design, DJ transitions, belonging, shared costs and the freedom to leave. |
 
 Each card has a concrete action, a hoped-for experience, visible costs, a smaller alternative, a stopping point, and a statement of its evidential status.
 
