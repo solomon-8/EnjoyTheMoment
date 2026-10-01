@@ -1411,14 +1411,14 @@ const { chromium } = require("playwright");
       await senses.goto(url + (javaScriptEnabled ? "#c02" : ""));
       if (!javaScriptEnabled) await senses.locator("#c02 > summary").click();
       assert.match(await senses.locator("#c02 .prose").textContent(), /身体还是生活发生的地方/);
-      for (const anchor of ["senses-three-layers", "senses-price-expectation", "senses-blind-test"]) {
+      for (const anchor of ["senses-thermal-touch", "senses-three-layers", "senses-price-expectation", "senses-blind-test"]) {
         if (javaScriptEnabled) {
           await senses.locator(`#c02 a[href='#${anchor}']`).first().click();
           assert.equal(new URL(senses.url()).hash, "#" + anchor);
         }
         await senses.locator("#" + anchor).scrollIntoViewIfNeeded();
       }
-      assert.equal(await senses.locator("#c02 .prose table").count(), 2);
+      assert.equal(await senses.locator("#c02 .prose table").count(), 3);
       for (const table of await senses.locator("#c02 .prose table").all()) {
         assert((await table.boundingBox()).width <= 350);
       }
