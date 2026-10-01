@@ -76,7 +76,7 @@ class StoryClockTests(unittest.TestCase):
             self.assertIn(attribution, (ROOT / filename).read_text())
         self.assertIn(str(path.relative_to(ROOT)), (ROOT / "LICENSE").read_text())
         studies = json.loads((ROOT / "data/research.json").read_text())["records"]
-        self.assertEqual(len(studies), 40)
+        self.assertEqual(len(studies), 41)
         self.assertNotIn("F65", {r["id"] for r in studies})
 
     def test_chapter_and_route_have_visible_full_text_targets(self):
