@@ -22,6 +22,11 @@ const { chromium } = require("playwright");
     assert.match(await page.locator("#c38 .prose").textContent(), /不是完整单循环/);
     assert.equal(await page.locator("#c38 .prose table").count(), 2);
     const doublesImage = page.locator("#c38 .prose img");
+    await doublesImage.scrollIntoViewIfNeeded();
+    await page.waitForFunction(() => {
+      const image = document.querySelector("#c38 .prose img");
+      return image.complete && image.naturalWidth > 0;
+    }, null, {timeout: 10000});
     await doublesImage.evaluate(el => el.decode());
     assert.deepEqual(await doublesImage.evaluate(el => [el.naturalWidth, el.naturalHeight]), [800, 1680]);
     for (const [id, anchor, phrase] of [
