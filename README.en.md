@@ -99,7 +99,7 @@ The chapters on senses, novelty, play, relationships, spending, and permission t
 
 | Chapter | Question |
 | --- | --- |
-| [01 · Today is not a trial version of your future](book/01-start-now.md) | Why must a wish for a whole evening be reduced to five minutes? |
+| [01 · Today is not a trial version of your future](book/01-start-now.md) | Why keep postponing the use of things you already like? Does redeeming more mean enjoying more? |
 | [02 · Your senses are not just work equipment](book/02-senses.md) | Can equal temperatures feel different? Contact, material labels, preference, and the difference between compromise and denying a wish. |
 | [03 · Make a little room for surprise](book/03-novelty.md) | New objects, new interpretations, and the pleasures of familiarity |
 | [04 · Play without turning professional](book/04-play.md) | Why care about winning if you play for enjoyment? Taking a goal seriously need not give it authority over your whole life. |
@@ -119,7 +119,7 @@ The chapters on senses, novelty, play, relationships, spending, and permission t
 | [18 · You do not have to earn a celebration](book/18-celebration.md) | Spring Festival and The Gift of the Magi: shared time, gifts and the right not to perform gratitude |
 | [19 · Paying not just to win, but for obstacles worth choosing](book/19-games.md) | Othello and Hanabi: immediate rewards, future choices and shared information |
 | [20 · Photos can keep a moment without becoming its report card](book/20-photography.md) | Zooming is not moving closer: viewpoint, motion, sequencing and the pleasure of an audience. |
-| [21 · Time saved does not automatically belong to the next task](book/21-free-time.md) | Does disappointing free time justify more busyness? Why can two free schedules still fail to overlap? |
+| [21 · Time saved does not automatically belong to the next task](book/21-free-time.md) | Why do free schedules fail to overlap? How does leaving your afternoon empty differ from holding a shared room? |
 | [22 · A book can take up an evening without upgrading its reader](book/22-reading.md) | How do Austen's dialogue and Li Bai's words invite us to stay with a text? |
 | [23 · A trip need not transform your life to be worth taking](book/23-travel.md) | Can rejecting guidebooks still surrender choice? What if this may be your only visit? |
 | [24 · Being funny is a craft, not an obligation for others to play along](book/24-humor.md) | How do setups and turns work, and why is laughter not blanket permission? |
