@@ -610,3 +610,5 @@ F 系列不计入上面的 B 系列背景研究。事实、教学、文学文本
 - [F70 · 施罗德住宅与居住变化](evidence/F70-home-and-schroder.md)：Rietveld Schröder House官网住宅、共同作者与居住史说明，用于[C36](../book/36-home.md#home-schroder)。空间转换与居住者改变不等于性能或幸福实验；未读完整传记、原档或实地核验，原创三图不是名宅图纸。
 
 - [F71 · 夜店设计、舞池与House的具体来路](evidence/F71-clubs-design-and-house.md)：Night Fever馆方文字、Ben Kelly的Haçienda项目陈述与芝加哥Warehouse历史报告，用于[C37](../book/37-nightlife.md)。区分空间设计、DJ工作、社群来路及现场体验；展期不是当前推荐，报告不替代认定条例，未亲访场地、核完档案或测量幸福效果。
+
+- [F72 · 《人群中的人》：观看、归类与叙述限度](evidence/F72-man-of-the-crowd.md)：Poe Society托管的小说数字文本及版本索引，用于[C07](../book/07-solo.md#solo-man-of-crowd)。咖啡馆观看、身份归类、尾随与结尾判词分开；叙述者不是作者亲历或独立调查，小说不是独处效果实验，不把刻板描写当识人方法。

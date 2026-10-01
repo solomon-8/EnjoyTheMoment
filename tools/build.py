@@ -138,6 +138,7 @@ EVIDENCE = [
     ("F69", "docs/evidence/F69-sexual-health-and-asexuality.md"),
     ("F70", "docs/evidence/F70-home-and-schroder.md"),
     ("F71", "docs/evidence/F71-clubs-design-and-house.md"),
+    ("F72", "docs/evidence/F72-man-of-the-crowd.md"),
 ]
 EVIDENCE_KINDS = {
     "F01": "official_statistics",
@@ -211,6 +212,7 @@ EVIDENCE_KINDS = {
     "F69": "public_health_working_definition_and_professional_position",
     "F70": "museum_architectural_and_residential_history",
     "F71": "museum_exhibition_designer_account_and_historical_report",
+    "F72": "literary_primary_text",
 }
 RELATIONS = [
     {"card_ids": ["J033"], "background_ids": ["B01"], "essay_ids": ["E04"]},
