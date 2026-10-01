@@ -761,6 +761,26 @@
       },
       "directly_validates_cards": false,
       "source": "docs/research.md#b38"
+    },
+    {
+      "id": "B39",
+      "title": "回报、请求与关系规则",
+      "doi": "10.1037/0022-3514.37.1.12",
+      "access_level": "full_text",
+      "verified_at": "2026-10-01",
+      "fields": {
+        "核读日期": "2026-10-01。",
+        "文献": "Margaret S. Clark、Judson Mills（1979），*Interpersonal Attraction in Exchange and Communal Relationships*，Journal of Personality and Social Psychology，37(1)，12–24。",
+        "DOI": "[10.1037/0022-3514.37.1.12](https://doi.org/10.1037/0022-3514.37.1.12)。",
+        "实际读取": "`full_text`；取得[作者实验室托管13页期刊排版PDF](https://clarkrelationshiplab.yale.edu/sites/default/files/files/Interpersonal%20attraction%20in%20exchance%20and%20commual%20relationships.pdf)，核读概念、两实验方法结果讨论及总讨论，目视三表；与Crossref书目相符，未与出版社当前文件逐字比较，未取得原始数据或独立复现材料。[详细核读](evidence/B39-relationship-rules.md)。",
+        "设计与对象": "实验1为96名未婚男性心理学入门学生、四条件；实验2为80名女性心理学入门学生、八条件。预录女性影像、词汇帮助、课程加分的返还或请求、复合关系线索；不是长期朋友的自然交往。",
+        "有限结论": "特定关系期待下，帮助后的返还或请求与喜欢评分呈不同方向；实验2未获帮助时，关怀式期待下“请求增加喜欢”的预测未获显著支持。",
+        "不能推出": "朋友应不谈费用、应放弃回报、请求必然增加亲近、已婚女性不能交朋友，或关系边界会损害感情。",
+        "我们如何使用": "[E09](../essays/09-friends-not-assets.md#friends-exchange-study)区分给付内容、关系期待与事后追认的要求；聚会及安慰场景与规范判断为本书原创。",
+        "关键限制": "小规模学生样本、排除个案、复合线索、喜欢评分与预期讨论感受不同、未测长期结果；作者婚前约定推论不是实验发现。同一论文两实验不是独立团队复现，没有直接验证任何J卡。"
+      },
+      "directly_validates_cards": false,
+      "source": "docs/research.md#b39"
     }
   ],
   "relations": [

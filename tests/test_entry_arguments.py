@@ -24,7 +24,7 @@ class EntryArgumentTests(unittest.TestCase):
         self.assertNotIn("entry-arguments:start", rendered)
         self.assertNotIn("@@ENTRYARGUMENTS@@", self.outputs["index.html"])
         self.assertEqual(rendered.count("<h2>"), 1)
-        self.assertEqual(rendered.count("<h3>"), 4)
+        self.assertEqual(rendered.count("<h3>"), 5)
         self.assertNotIn("&lt;br", rendered)
 
     def test_argument_routes_precede_activities_and_work_offline(self):
@@ -33,7 +33,7 @@ class EntryArgumentTests(unittest.TestCase):
         excerpt = page.split('id="disagreements"', 1)[1].split("</section>", 1)[0]
         self.assertNotIn("<details", excerpt)
         links = re.findall(r'href="([^"]+)"', excerpt)
-        self.assertEqual(len(links), 4)
+        self.assertEqual(len(links), 5)
         for href in links:
             self.assertTrue(href.startswith("#"))
             self.assertEqual(page.count('id="' + href[1:] + '"'), 1)

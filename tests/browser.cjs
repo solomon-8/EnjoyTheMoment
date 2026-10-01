@@ -44,7 +44,7 @@ const { chromium } = require("playwright");
     }
     await page.goto(url);
     const entryLinks = await page.locator("#disagreements .prose h3 a").all();
-    assert.equal(entryLinks.length, 4);
+    assert.equal(entryLinks.length, 5);
     assert(await page.locator("#disagreements").isVisible());
     for (const link of entryLinks) {
       const href = await link.getAttribute("href");
@@ -217,6 +217,16 @@ const { chromium } = require("playwright");
     await page.waitForFunction(() => document.getElementById("e09").open);
     await page.locator("#e09 a[href='#friends-reciprocity']").first().click();
     assert.equal(new URL(page.url()).hash, "#friends-reciprocity");
+    await page.goto(url + "#friends-exchange-study");
+    await page.waitForFunction(() => document.getElementById("e09").open);
+    assert.equal(await page.locator("#e09 .prose table tbody tr").count(), 2);
+    assert.match(await page.locator("#e09 .prose").textContent(), /不是两项实验实际检验的结果/);
+    await page.locator("#e09 a[href='#n39']").first().click();
+    await page.waitForFunction(() => document.getElementById("n39").open);
+    assert.equal(await page.locator("#n39 .prose table").count(), 3);
+    assert.match(await page.locator("#n39 .prose").textContent(), /这项预测没有得到支持/);
+    await page.locator("#n39 a[href='#e09']").first().click();
+    await page.waitForFunction(() => document.getElementById("e09").open);
     await page.locator("#e09 a[href='#f57']").first().click();
     await page.waitForFunction(() => document.getElementById("f57").open);
     assert.match(await page.locator("#f57 .prose").textContent(), /没有通读全书/);
