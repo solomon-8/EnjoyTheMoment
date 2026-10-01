@@ -75,3 +75,7 @@
 ## 居住关系原创示意
 
 `home-relations.svg`为本项目独立绘制的400×1040示意，`home-relations.png`由同一SVG以2倍像素渲染为800×2080；采用MIT许可。三组共享同一外框和窗标记，B与C共享人和桌的几何，C仅多出一段局部遮挡。不是施罗德住宅图纸，不按比例，不提供隔音、通行、结构或施工结论；蓝色、橙色圆点只区分两人，不代表身份。没有复制馆方图片或使用AI补绘。正文与完整替代文字见[C36](../../book/36-home.md#home-modes)，材料来源范围见[F70](../../docs/evidence/F70-home-and-schroder.md)。
+
+## 夜生活时间关系原创图
+
+`nightlife-sequence.svg`为本项目独立绘制的400×670时间示意，`nightlife-sequence.png`由同一SVG以2倍像素渲染为800×1340，采用MIT许可。每格仅表示抽象时间单位；两组A、B各持续四格，甲依次共八格，乙在第3、4格重叠，共六格。颜色只区分材料，没有音频、调性、音量或速度，不是Warehouse、Haçienda或任何真实DJ演出的转录。文字替代见[C37](../../book/37-nightlife.md#nightlife-sequence)，史料边界见[F71](../../docs/evidence/F71-clubs-design-and-house.md)。没有使用场馆照片、机构标志或AI生成图。

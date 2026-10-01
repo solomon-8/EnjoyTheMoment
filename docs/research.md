@@ -595,3 +595,5 @@ F 系列不计入上面的 B 系列背景研究。事实、教学、文学文本
 - [F69 · 性健康与无性恋者尊严](evidence/F69-sexual-health-and-asexuality.md)：WHO工作定义与AASECT专业组织立场，用于[C35](../book/35-intimacy.md#intimacy-value)。尊重与愉悦不是强制性生活，身份不按行为替人判定；不是临床方案、法律标准或新增幸福实验。
 
 - [F70 · 施罗德住宅与居住变化](evidence/F70-home-and-schroder.md)：Rietveld Schröder House官网住宅、共同作者与居住史说明，用于[C36](../book/36-home.md#home-schroder)。空间转换与居住者改变不等于性能或幸福实验；未读完整传记、原档或实地核验，原创三图不是名宅图纸。
+
+- [F71 · 夜店设计、舞池与House的具体来路](evidence/F71-clubs-design-and-house.md)：Night Fever馆方文字、Ben Kelly的Haçienda项目陈述与芝加哥Warehouse历史报告，用于[C37](../book/37-nightlife.md)。区分空间设计、DJ工作、社群来路及现场体验；展期不是当前推荐，报告不替代认定条例，未亲访场地、核完档案或测量幸福效果。
