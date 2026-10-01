@@ -694,9 +694,9 @@ F28/F29旧材料、B07自制品估值不验证修补建议；C20事实承诺、C
 <a id="r67"></a>
 ## R67 · 成人亲密：欲望不必隐藏，关系不按次数交卷
 
-<!-- reading-route: {"id":"R67","targets":["C35","B36","N36","F69","C02","C05","C07","C09","E09"]} -->
+<!-- reading-route: {"id":"R67","targets":["C35","B36","N36","F69","F80","C02","C05","C07","C09","E06","E09"]} -->
 
-正文与来源：[C35](../book/35-intimacy.md) · [B36台账](research.md#b36) · [N36核读](evidence/B36-sexual-frequency.md) · [F69](evidence/F69-sexual-health-and-asexuality.md) · [C02感官](../book/02-senses.md) · [C05共同经历](../book/05-connection.md) · [C07独处](../book/07-solo.md) · [C09分工](../book/09-constrained.md) · [E09关系与自主](../essays/09-friends-not-assets.md)。
+正文与来源：[C35](../book/35-intimacy.md) · [B36台账](research.md#b36) · [N36核读](evidence/B36-sexual-frequency.md) · [F69](evidence/F69-sexual-health-and-asexuality.md) · [F80《会饮篇》](evidence/F80-symposium-and-wholeness.md) · [C02感官](../book/02-senses.md) · [C05共同经历](../book/05-connection.md) · [C07独处](../book/07-solo.md) · [C09分工](../book/09-constrained.md) · [E06依靠与资源限制](../essays/06-real-life-constraints.md) · [E09关系与自主](../essays/09-friends-not-assets.md)。
 
 C35是成年人自愿亲密的价值讨论，不是性技巧、个体医疗、诊断或当地法律教程。区分欲望、具体同意、实际享受与关系满意；不以身体反应或事后愉悦补发许可，不以频率或关系身份替本人选择。承认欲望较多者真实期待，不转成对方身体义务；分工与相处安排不购买接触。对话与表格为原创假想，不冒充亲历或临床干预。
 
@@ -706,7 +706,11 @@ B36核读作者托管13页期刊排版稿，非仅摘要；64对128人可用样�
 
 F69为工作定义和组织立场，不是新增实验。WHO性权利定义脚注不代表正式立场，不转成地方法律；愉悦可能性不等于人人应有性生活。AASECT反对病理化与矫正无性恋取向，未核其全部底层文献，不采用人口比例及类比。分开性吸引、接触意愿、行为、自我认同，不替人命名；不将求助困扰与改变取向混同。未采用访问失败的RAINN/Planned Parenthood候选材料。
 
-C02/C05/C07/C09/E09为相邻论题，不作重复独立证据。回答价值问题先展开论证与反对意见，不自动转成活动清单、性行为任务或关系绩效表；不默认有伴侣或人人想要性接触。
+F80核读Jowett英译网页中的阿里斯托芬完整演说，以及苏格拉底转述狄奥提玛从美/善到长久拥有善的一段问答，未读全书、希腊原文或其他译本。“另一半”是人物神话演说，不是柏拉图已证爱情定律；狄奥提玛不是在宴会现场直接发言。“善”不等同即时愉悦，所读段落不代表全篇最终立场。原文的性别等级与年龄关系不用于现代身份或成年人关系规范。
+
+C35的[回应与融合](../book/35-intimacy.md#intimacy-fusion)、[依靠与完整](../book/35-intimacy.md#intimacy-dependence)、[愿意改变](../book/35-intimacy.md#intimacy-changing)是本书论证；回声与河边散步是原创假想，不是F80的实验案例。需要帮助不等于人格残缺，自主不要求资源无限或永远不变；不把不愿改变判为不够爱，不把明确承诺和现实退出成本抹去。F80不增加B研究，不验证J卡、身体接触或关系干预。
+
+C02/C05/C07/C09/E06/E09为相邻论题，不作重复独立证据。回答价值问题先展开论证与反对意见，不自动转成活动清单、性行为任务或关系绩效表；不默认有伴侣或人人想要性接触。
 
 <a id="r68"></a>
 ## R68 · 居住：临时住处不等于临时人生
