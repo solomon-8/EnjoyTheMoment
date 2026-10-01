@@ -17,6 +17,27 @@ const { chromium } = require("playwright");
     page.on("request", request => {if (/^https?:/.test(request.url())) requests.push(request.url());});
     const url = pathToFileURL(path.resolve(__dirname, "../index.html")).href;
     await page.goto(url);
+    await page.locator("#chapter-query").fill("热量");
+    await page.locator("#c38 > summary").click();
+    assert.match(await page.locator("#c38 .prose").textContent(), /不是完整单循环/);
+    assert.equal(await page.locator("#c38 .prose table").count(), 2);
+    const doublesImage = page.locator("#c38 .prose img");
+    await doublesImage.evaluate(el => el.decode());
+    assert.deepEqual(await doublesImage.evaluate(el => [el.naturalWidth, el.naturalHeight]), [800, 1680]);
+    for (const [id, anchor, phrase] of [
+      ["f73", "sport-doubles", /主站目录当次访问403/],
+      ["f74", "sport-court-time", /没有招募参与者/]
+    ]) {
+      await page.locator(`#c38 a[href='#${id}']`).first().click();
+      await page.waitForFunction(id => document.getElementById(id).open, id);
+      assert.match(await page.locator(`#${id} .prose`).textContent(), phrase);
+      await page.locator("#chapter-query").fill("不存在的打球XYZ");
+      await page.locator(`#${id} .prose a[href='#${anchor}']`).last().click();
+      await page.waitForFunction(() => document.getElementById("c38").open &&
+        !document.getElementById("c38").hidden && document.getElementById("chapter-query").value === "");
+      assert.equal(new URL(page.url()).hash, "#" + anchor);
+    }
+    await page.goto(url);
     const entryLinks = await page.locator("#disagreements .prose h3 a").all();
     assert.equal(entryLinks.length, 4);
     assert(await page.locator("#disagreements").isVisible());
@@ -35,7 +56,7 @@ const { chromium } = require("playwright");
     assert.equal(await page.locator("#filters").isVisible(), true);
     assert.equal(await page.locator(".argument").count(), 11);
     assert.equal(await page.locator(".playbook").count(), 10);
-    assert.equal(await page.locator(".chapter-intro").count(), 37);
+    assert.equal(await page.locator(".chapter-intro").count(), 38);
     await page.goto(url + "#solo-man-of-crowd");
     await page.waitForFunction(() => document.getElementById("c07").open);
     const crowdSpoiler = page.locator("#c07 .prose details");
