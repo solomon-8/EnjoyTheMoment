@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="440" height="990" viewBox="0 0 440 990" role="img" aria-labelledby="title desc">
+<title id="title">同一处缺口，三种视觉目标</title>
+<desc id="desc">本书原创概念图。三幅图共享轮廓、缺口和分界，分别弱化差异、显出补片、重新安排整体。不是实际材料、连接或修补步骤，不表示优劣。</desc>
+<defs>
+<g id="base-shape"><rect x="44" y="0" width="352" height="132" rx="8" fill="#d9e5e2" stroke="#51635e" stroke-width="2"/><path d="M207 0 L228 38 L199 82 L220 132" fill="none" stroke="#51635e" stroke-width="2"/></g>
+<path id="gap" d="M266 0 L324 0 L307 24 L281 32 Z"/>
+</defs>
+<rect width="440" height="990" fill="#fff8ed"/>
+<g font-family="PingFang SC, Microsoft YaHei, sans-serif" fill="#24231f">
+<text x="24" y="44" font-size="26" font-weight="700">同一处缺口，三种视觉目标</text>
+<text x="24" y="81" font-size="20">轮廓、缺口和分界保持相同。</text>
+<text x="24" y="115" font-size="20">只比较视觉关系，不比较牢固。</text>
+<text x="24" y="166" font-size="23" font-weight="700">A · 让补片不先被注意</text>
+<g id="quiet" transform="translate(0 190)">
+<use href="#base-shape"/><use href="#gap" fill="#d2dedb" stroke="#72807c" stroke-width="1.5"/>
+</g>
+<text x="24" y="356" font-size="20">接近底色，不等于隐瞒修补。</text>
+<text x="24" y="410" font-size="23" font-weight="700">B · 让补片清楚地出现</text>
+<g id="visible" transform="translate(0 434)">
+<use href="#base-shape"/><use href="#gap" fill="#ba623f" stroke="#5f3928" stroke-width="2"/>
+<path d="M278 7 L291 23 M292 3 L305 18 M305 3 L312 11" stroke="#fff8ed" stroke-width="2"/>
+</g>
+<text x="24" y="600" font-size="20">颜色与纹线共同标出不同。</text>
+<text x="24" y="654" font-size="23" font-weight="700">C · 把改变放进新的整体</text>
+<g id="redesigned" transform="translate(0 678)">
+<use href="#base-shape"/><path d="M56 26 L156 102 L282 21 M300 24 L377 105" fill="none" stroke="#966a3f" stroke-width="8"/>
+<use href="#gap" fill="#e0ad51" stroke="#5f3928" stroke-width="2"/>
+</g>
+<text x="24" y="844" font-size="20">新增线条，也改变了原来构图。</text>
+<text x="24" y="898" font-size="21" font-weight="700">没有一种自动更好或更真实。</text>
+<text x="24" y="934" font-size="20">抽象设例；不是器物或教程。</text>
+<text x="24" y="968" font-size="20">不据图判断材料与使用条件。</text>
+</g>
+</svg>

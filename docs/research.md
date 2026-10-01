@@ -563,3 +563,5 @@ F 系列不计入上面的 B 系列背景研究。事实、教学、文学文本
 - [F66 · 口袋、构造与隐藏的装饰](evidence/F66-pockets-and-dress.md)：V&A历史说明、Met藏品API和正面图，用于[C16](../book/16-dress.md#dress-pocket-object)。区分独立系带、取物开口、图案与穿着情境；玩偶衣橱是馆方个例，图像不是实物接触，资料不证明普遍女性经验、穿着效果或购买回报。
 
 - [F67 · 蓝晒、接触与图像取舍](evidence/F67-cyanotype-and-selection.md)：V&A工艺教学和历史解释、Met的Anna Atkins藏品API与数字主图，用于[C20](../book/20-photography.md#photo-cyanotype-object)。区分接触成像、构图安排与现场断言；不从蓝色外观鉴定工艺，不推断作者动机，不提供化学制作教程或快乐效果。
+
+- [F68 · 修补、工艺练习与保护目标](evidence/F68-repair-and-conservation.md)：Japan House London的金缮工艺解释与LACMA的Abigail Duckor具名访谈，用于[C17](../book/17-making.md#making-repair-goals)。连接、补缺、表面与观看目标分开，调整练习不冒充传统完整复现或馆藏实录；传说不当发明史，不提供材料教程、使用认证或心理效果承诺。

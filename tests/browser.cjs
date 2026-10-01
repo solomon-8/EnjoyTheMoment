@@ -478,8 +478,9 @@ const { chromium } = require("playwright");
     assert.match(await page.locator("#f08 .prose").textContent(), /没有取得并完整审核 ISO 标准原文/);
     await page.goto(url + "#c17");
     await page.waitForFunction(() => document.getElementById("c17").open);
-    assert.equal(await page.locator("#c17 .artwork img").count(), 2);
-    for (const anchor of ["making-weave", "making-sample", "making-zine", "making-handmade"]) {
+    assert.equal(await page.locator("#c17 .artwork img").count(), 3);
+    for (const anchor of ["making-weave", "making-sample", "making-zine", "making-handmade",
+                         "making-repair-goals", "making-kintsugi", "making-conservation", "making-repair-choice"]) {
       await page.locator("#c17 a[href='#" + anchor + "']").click();
       assert.equal(new URL(page.url()).hash, "#" + anchor);
       assert(await page.locator("#c17 .prose").isVisible());
@@ -490,6 +491,15 @@ const { chromium } = require("playwright");
       await page.locator("#" + evidence + " a[href='#c17']").click();
       assert.equal(new URL(page.url()).hash, "#c17");
     }
+    await page.locator("#c17 a[href='#f68']").click();
+    await page.waitForFunction(() => document.getElementById("f68").open);
+    assert.match(await page.locator("#f68 .prose").textContent(), /黄铜粉替代金粉/);
+    assert.match(await page.locator("#f68 .prose").textContent(), /私人碗，而非馆藏/);
+    await page.locator("#chapter-query").fill("不存在的修补XYZ");
+    await page.locator("#f68 a[href='#making-conservation']").click();
+    await page.waitForFunction(() => document.getElementById("c17").open &&
+      !document.getElementById("c17").hidden && document.getElementById("chapter-query").value === "");
+    assert.equal(new URL(page.url()).hash, "#making-conservation");
     await page.locator("#c17 a[href='#b07']").click();
     await page.waitForFunction(() => document.getElementById("research-content").open);
     await page.locator("#research-content a[href='#n07']").click();

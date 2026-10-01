@@ -136,3 +136,9 @@ Met对象记录及官方API文档标示相应公有领域图像；等比例缩�
 Do、Rupert与Wolford（2008）的[B34/N34](evidence/B34-gifts-and-endings.md)采用出版社期刊PDF，原文版权为Psychonomic Society，不宣称CC BY。Strijbosch等（2019）的[B35/N35](evidence/B35-complex-experience-and-memory.md)为CC BY 4.0文章。均以本书文字概述研究设计与结果，没有转载PDF、原图表或VR影片，未请求参与者数据。
 
 两篇不是相同设计的直接复现，礼物安排总评与看后重建也不等于逐刻享受。原文的最低分含义冲突、表格疑点及强于结果的解释保留在核读记录。[C10](../book/10-aftertaste.md#aftertaste-not-a-score)的演出宵夜、晚饭闲坐、共同等待及“不能用总评替过程免责”为原创设例与价值论证，不是作者背书或验证过的活动建议。
+
+## 修补、工艺介绍与保护者的取向
+
+[F68](evidence/F68-repair-and-conservation.md)采用Japan House London金缮页面，以及Abigail Duckor在LACMA Unframed于2021-08-04发表的修复师问答。读取文字，不转载两机构的图片、视频、标志或全文，也不将文化解释当心理研究。传统材料与调整练习、私人碗与馆藏处理分开；起源故事按来源保留传说性质。
+
+[制作章节](../book/17-making.md#making-repair-goals)的三种补片关系图由本书独立绘制并从SVG渲染PNG，采用MIT许可。它不是馆方图解、历史器物复刻、材料试验或修补教程；小册子补页与手写纸盒为原创假想，不声称亲测、机构背书或使用安全。
