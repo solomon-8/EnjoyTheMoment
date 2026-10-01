@@ -79,3 +79,7 @@
 ## 夜生活时间关系原创图
 
 `nightlife-sequence.svg`为本项目独立绘制的400×670时间示意，`nightlife-sequence.png`由同一SVG以2倍像素渲染为800×1340，采用MIT许可。每格仅表示抽象时间单位；两组A、B各持续四格，甲依次共八格，乙在第3、4格重叠，共六格。颜色只区分材料，没有音频、调性、音量或速度，不是Warehouse、Haçienda或任何真实DJ演出的转录。文字替代见[C37](../../book/37-nightlife.md#nightlife-sequence)，史料边界见[F71](../../docs/evidence/F71-clubs-design-and-house.md)。没有使用场馆照片、机构标志或AI生成图。
+
+## 乒乓球双打两种次序
+
+`table-tennis-order.svg`为本书独立绘制的400×840示意，PNG以2倍像素渲染为800×1680，采用MIT许可。上半部显示一个回合内A1、B1、A2、B2、A1的击球顺序；下半部显示首局前八分、每两分的四组发接配对。蓝／橙与A／B双重标记区分两队，不只依赖颜色。不是球路、跑动、站位、球台尺寸或实际赛事的图解；10平后及其他适用例外在[C38正文](../../book/38-playing-sport.md#sport-doubles)与[F73](../../docs/evidence/F73-table-tennis-laws.md)另说明。没有复制官方图像或用AI补绘。

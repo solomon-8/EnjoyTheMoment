@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="840" viewBox="0 0 400 840" role="img" aria-labelledby="title desc">
+  <title id="title">同一场双打，两种不同的次序</title>
+  <desc id="desc">甲队A1与A2，乙队B1与B2。上图依次显示一球内的五次击球A1、B1、A2、B2、A1；下图显示前八个已计分回合，每两分更换一组发接：A1到B1、B1到A2、A2到B2、B2到A1。不是站位或跑动图。</desc>
+  <defs><marker id="arrow" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 L8 4 L0 8Z" fill="#62594b"/></marker></defs>
+  <rect width="400" height="840" rx="8" fill="#fff8ec"/>
+  <g font-family="PingFang SC, Hiragino Sans GB, sans-serif" fill="#29261f">
+    <text x="24" y="37" font-size="21" font-weight="700">同一场双打，两种次序</text>
+    <text x="24" y="66" font-size="14">甲队 A1 / A2　·　乙队 B1 / B2</text>
+    <rect x="20" y="86" width="360" height="319" rx="6" fill="#f0eadc"/>
+    <text x="36" y="116" font-size="18" font-weight="650">① 球还在来回：下一板是谁？</text>
+    <g font-size="17" text-anchor="middle">
+      <circle cx="106" cy="156" r="19" fill="#badbdf"/><text x="106" y="162">A1</text>
+      <circle cx="106" cy="207" r="19" fill="#f2baa1"/><text x="106" y="213">B1</text>
+      <circle cx="106" cy="258" r="19" fill="#badbdf"/><text x="106" y="264">A2</text>
+      <circle cx="106" cy="309" r="19" fill="#f2baa1"/><text x="106" y="315">B2</text>
+      <circle cx="106" cy="360" r="19" fill="#badbdf"/><text x="106" y="366">A1</text>
+    </g>
+    <g fill="none" stroke="#62594b" stroke-width="1.5" marker-end="url(#arrow)">
+      <path d="M106 178V185"/><path d="M106 229V236"/><path d="M106 280V287"/><path d="M106 331V338"/>
+    </g>
+    <g font-size="15">
+      <text x="149" y="161">发球</text><text x="149" y="212">接发球</text>
+      <text x="149" y="263">发球员的搭档回球</text><text x="149" y="314">接发球员的搭档回球</text>
+      <text x="149" y="365">继续按顺序回球……</text>
+    </g>
+    <rect x="20" y="422" width="360" height="295" rx="6" fill="#f0eadc"/>
+    <text x="36" y="454" font-size="18" font-weight="650">② 已计入两分：下一组谁发？</text>
+    <text x="36" y="482" font-size="13">这里只画首局前八分，非决胜局。</text>
+    <g font-size="16">
+      <text x="40" y="523">第 1—2 分</text><text x="40" y="576">第 3—4 分</text>
+      <text x="40" y="629">第 5—6 分</text><text x="40" y="682">第 7—8 分</text>
+    </g>
+    <g font-size="17" text-anchor="middle">
+      <rect x="175" y="502" width="48" height="30" rx="5" fill="#badbdf"/><text x="199" y="523">A1</text>
+      <rect x="299" y="502" width="48" height="30" rx="5" fill="#f2baa1"/><text x="323" y="523">B1</text>
+      <rect x="175" y="555" width="48" height="30" rx="5" fill="#f2baa1"/><text x="199" y="576">B1</text>
+      <rect x="299" y="555" width="48" height="30" rx="5" fill="#badbdf"/><text x="323" y="576">A2</text>
+      <rect x="175" y="608" width="48" height="30" rx="5" fill="#badbdf"/><text x="199" y="629">A2</text>
+      <rect x="299" y="608" width="48" height="30" rx="5" fill="#f2baa1"/><text x="323" y="629">B2</text>
+      <rect x="175" y="661" width="48" height="30" rx="5" fill="#f2baa1"/><text x="199" y="682">B2</text>
+      <rect x="299" y="661" width="48" height="30" rx="5" fill="#badbdf"/><text x="323" y="682">A1</text>
+    </g>
+    <g fill="none" stroke="#62594b" stroke-width="2" marker-end="url(#arrow)">
+      <path d="M230 518H288"/><path d="M230 571H288"/><path d="M230 624H288"/><path d="M230 677H288"/>
+    </g>
+    <text x="24" y="753" font-size="14">箭头是次序，不是球路、站位或跑动。</text>
+    <text x="24" y="778" font-size="13">设定：A1 首发给 B1，未用轮换发球法。</text>
+    <text x="24" y="801" font-size="13">10 平后及轮椅搭档等例外，另见正文。</text>
+    <text x="24" y="825" font-size="11" fill="#62594b">原创示意 / Enjoy The Moment / MIT</text>
+  </g>
+</svg>

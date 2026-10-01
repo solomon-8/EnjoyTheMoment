@@ -139,6 +139,8 @@ EVIDENCE = [
     ("F70", "docs/evidence/F70-home-and-schroder.md"),
     ("F71", "docs/evidence/F71-clubs-design-and-house.md"),
     ("F72", "docs/evidence/F72-man-of-the-crowd.md"),
+    ("F73", "docs/evidence/F73-table-tennis-laws.md"),
+    ("F74", "docs/evidence/F74-social-table-tennis.md"),
 ]
 EVIDENCE_KINDS = {
     "F01": "official_statistics",
@@ -213,6 +215,8 @@ EVIDENCE_KINDS = {
     "F70": "museum_architectural_and_residential_history",
     "F71": "museum_exhibition_designer_account_and_historical_report",
     "F72": "literary_primary_text",
+    "F73": "official_sport_rules",
+    "F74": "official_social_sport_formats",
 }
 RELATIONS = [
     {"card_ids": ["J033"], "background_ids": ["B01"], "essay_ids": ["E04"]},

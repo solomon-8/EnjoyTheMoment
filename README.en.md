@@ -61,7 +61,7 @@ Neither excitement nor spending is compulsory. Quiet enjoyment counts. Disliking
 
 ## The guide
 
-**37 chapters. 60 original activity cards.** Chapters 11–37 are standalone discussions, not extra activity lists. The full chapters and cards are currently in Chinese; this page is an English introduction, not a complete translation.
+**38 chapters. 60 original activity cards.** Chapters 11–38 are standalone discussions, not extra activity lists. The full chapters and cards are currently in Chinese; this page is an English introduction, not a complete translation.
 
 [Read and filter in your browser](https://solomon-8.github.io/EnjoyTheMoment/), with no installation. Eleven [long-form essays](essays/01-pleasure-is-an-end.md) explain the tradeoffs; the [research ledger](docs/research.md) records 38 background studies: twenty-seven journal full texts (including one journal XML accessed through PMC), one journal-formatted arXiv version, two advance online publications, two publicly hosted research manuscripts, one author-hosted page proof, three author-hosted journal-formatted articles, and one third-party mirror of a journal-formatted article. The latter ten have not been compared line by line with their final publisher versions; some online appendices have not been fully reviewed.
 
@@ -136,6 +136,7 @@ The chapters on senses, novelty, play, relationships, spending, and permission t
 | [35 · Intimacy is worthwhile, not a relationship quota](book/35-intimacy.md) | Desire, consent, enjoyment and relationship satisfaction answer different questions. Respecting limits need not erase wanting. |
 | [36 · A home can be lived in, not only held as an asset](book/36-home.md) | The Schröder House as a changing home: shared space, privacy, unfinished activities and the value of temporary living. |
 | [37 · Nightlife is not daytime gone wrong](book/37-nightlife.md) | More than a playlist: club design, DJ transitions, belonging, shared costs and the freedom to leave. |
+| [38 · I came to play, not submit a calorie report](book/38-playing-sport.md) | Table-tennis rallies, doubles and court rotation: equal scoring rules do not guarantee equal participation. Rules, invented examples and value arguments remain distinct. |
 
 Each card has a concrete action, a hoped-for experience, visible costs, a smaller alternative, a stopping point, and a statement of its evidential status.
 
