@@ -22,6 +22,18 @@ const { chromium } = require("playwright");
     assert.equal(await page.locator(".argument").count(), 11);
     assert.equal(await page.locator(".playbook").count(), 10);
     assert.equal(await page.locator(".chapter-intro").count(), 36);
+    await page.goto(url + "#novelty-repeat");
+    await page.waitForFunction(() => document.getElementById("c03").open);
+    assert.match(await page.locator("#c03 .prose").textContent(), /同样的快乐，为什么一到第二次就像贬值了/);
+    assert.match(await page.locator("#c03 .prose").textContent(), /最强的反对意见/);
+    await page.locator("#c03 a[href='#n37']").first().click();
+    await page.waitForFunction(() => document.getElementById("n37").open);
+    assert.match(await page.locator("#n37 .prose").textContent(), /没有实际扣款，也没有第二轮观看结果/);
+    assert.equal(await page.locator("#n37 .prose table").count(), 2);
+    await page.locator("#chapter-query").fill("不存在的重复研究XYZ");
+    await page.locator("#n37 .prose a[href='#novelty-repeat']").click();
+    await page.waitForFunction(() => document.getElementById("c03").open &&
+      !document.getElementById("c03").hidden && document.getElementById("chapter-query").value === "");
     await page.goto(url + "#home-modes");
     await page.waitForFunction(() => document.getElementById("c36").open);
     assert.equal(await page.locator("#c36 .prose table").count(), 1);

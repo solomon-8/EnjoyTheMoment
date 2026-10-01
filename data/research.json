@@ -721,6 +721,26 @@
       },
       "directly_validates_cards": false,
       "source": "docs/research.md#b36"
+    },
+    {
+      "id": "B37",
+      "title": "重复的享受与新鲜的报价",
+      "doi": "10.1037/pspa0000147",
+      "access_level": "full_text",
+      "verified_at": "2026-10-01",
+      "fields": {
+        "核读日期": "2026-10-01。",
+        "文献": "Ed O’Brien（2019），*Enjoy It Again: Repeat Experiences Are Less Repetitive Than People Think*，Journal of Personality and Social Psychology，116(4)，519–540。",
+        "DOI": "[10.1037/pspa0000147](https://doi.org/10.1037/pspa0000147)。",
+        "实际读取": "`full_text`；取得[第三方镜像22页期刊排版PDF](https://gwern.net/doc/culture/2019-obrien.pdf)，选读研究2/6完整方法结果、摘要及相关总讨论；不是全部七项研究逐字审核。对照[公开OSF](https://osf.io/up2qn/)预注册和采用部分对应问卷，未下载数据重算，未与出版社当前版本比对。[详细核读](evidence/B37-repeat-experiences.md)。",
+        "设计与对象": "研究2完成120人，58人预测第二晚重看、62人实际重看，1—7享受评分；研究6第一阶段803人看/想象重复或新360度视频，评价整个过程；第二阶段另招201人选择与报价。",
+        "有限结论": "电影实际重看评分确实下降，但没有预测得那么陡；短视频实际新旧组未检出差异，不等于等效。第二阶段在以为可能扣报酬的条件下报价，最终没有扣款或第二轮观看。",
+        "不能推出": "重复总比新的好、重看次数越多越快乐、报价者真的花钱买错了、所有新鲜消费都是浪费，或各人的最佳重看间隔。",
+        "我们如何使用": "[C03](../book/03-novelty.md#novelty-repeat)区分“已经经历过”“不如第一次”和“不值得再来”，同时展开限时机会、好奇与共同选择；价值论证不是实验结论。",
+        "关键限制": "预测与实际来自不同组；享受量尺不等于所有价值；电影主效应文字/数字冲突、不同指标、报价分母及动机题限制均保留。没有直接验证任何J卡。"
+      },
+      "directly_validates_cards": false,
+      "source": "docs/research.md#b37"
     }
   ],
   "relations": [
