@@ -296,6 +296,19 @@ const { chromium } = require("playwright");
     await page.waitForFunction(() => document.getElementById("e03").open &&
       !document.getElementById("e03").hidden && document.getElementById("essay-query").value === "");
     assert.equal(new URL(page.url()).hash, "#waiting-marshmallow");
+    await page.goto(url + "#waiting-not-a-patience-score");
+    await page.waitForFunction(() => document.getElementById("e03").open);
+    assert.match(await page.locator("#e03 .prose").textContent(), /及时享乐不等于及时省事/);
+    assert.equal(await page.locator("#e03 .prose table").count(), 2);
+    await page.locator("#e03 a[href='#f75']").first().click();
+    await page.waitForFunction(() => document.getElementById("f75").open);
+    assert.match(await page.locator("#f75 .prose").textContent(), /同时作答与实际重测/);
+    assert.equal(await page.locator("#f75 .prose table").count(), 1);
+    await page.locator("#essay-query").fill("未匹配时间选择XYZ");
+    await page.locator("#f75 .prose a[href='#waiting-reversal']").last().click();
+    await page.waitForFunction(() => document.getElementById("e03").open &&
+      !document.getElementById("e03").hidden && document.getElementById("essay-query").value === "");
+    assert.equal(new URL(page.url()).hash, "#waiting-reversal");
     await page.goto(url + "#c24");
     await page.waitForFunction(() => document.getElementById("c24").open);
     assert.equal(await page.locator("#c24 .prose table").count(), 2);
