@@ -188,6 +188,8 @@ Only use the [activity catalog](data/catalog.json) and picker when activities ar
 
 `index.html` is also a self-contained offline reader: download it and open it directly. No analytics or local storage; external source links still require a network connection.
 
+For an e-book reader, [download the complete Chinese EPUB](downloads/EnjoyTheMoment.epub) and see the [reading-edition notes](docs/reading-editions.md). Essays, chapters, source limitations, images and credits are included; folded sections are expanded. The EPUB does not include the website's filters or random picker. It is not an English translation, and downloaded files do not update themselves.
+
 ## Inspiration, not an endorsement
 
 Inspired by the organization of [HowToLiveBetter](https://github.com/eternity4719/HowToLiveBetter): practical chapters, explicit costs, navigable entries, and open correction.
