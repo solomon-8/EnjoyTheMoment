@@ -131,6 +131,7 @@ EVIDENCE = [
     ("F65", "docs/evidence/F65-clocks-and-flashbacks.md"),
     ("F66", "docs/evidence/F66-pockets-and-dress.md"),
     ("F67", "docs/evidence/F67-cyanotype-and-selection.md"),
+    ("F68", "docs/evidence/F68-repair-and-conservation.md"),
 ]
 EVIDENCE_KINDS = {
     "F01": "official_statistics",
@@ -200,6 +201,7 @@ EVIDENCE_KINDS = {
     "F65": "official_game_srd_and_original_examples",
     "F66": "museum_history_record_and_image",
     "F67": "museum_process_record_and_image",
+    "F68": "cultural_craft_explainer_and_conservator_interview",
 }
 RELATIONS = [
     {"card_ids": ["J033"], "background_ids": ["B01"], "essay_ids": ["E04"]},

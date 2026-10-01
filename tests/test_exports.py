@@ -1133,7 +1133,7 @@ class ExportTests(unittest.TestCase):
         self.assertEqual(chapter["card_ids"], [])
         self.assertIn(text, self.outputs["llms-full.txt"])
         rendered = build.markdown(text, chapter["source"])
-        self.assertEqual(rendered.count('src="data:image/png;base64,'), 2)
+        self.assertEqual(rendered.count('src="data:image/png;base64,'), 3)
         for anchor in ("making-weave", "making-sample", "making-zine", "making-handmade"):
             self.assertIn('id="' + anchor + '"', rendered)
             self.assertIn('href="#' + anchor + '"', rendered)
