@@ -81,7 +81,7 @@ class TimeChoiceTests(unittest.TestCase):
         self.assertEqual(record["text"], text)
         self.assertEqual(record["source_kind"], "economic_review_concepts_models_and_methods")
         research = json.loads((ROOT / "data/research.json").read_text())["records"]
-        self.assertEqual(len(research), 38)
+        self.assertEqual(len(research), 39)
         self.assertNotIn("F75", {r["id"] for r in research})
         cards = json.loads((ROOT / "data/catalog.json").read_text())["cards"]
         self.assertEqual(len(cards), 60)

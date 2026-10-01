@@ -98,7 +98,7 @@ class PlayingSportTests(unittest.TestCase):
             else:
                 self.assertIn(phrase, by_id["F74"]["text"])
         records = json.loads((ROOT / "data/research.json").read_text())["records"]
-        self.assertEqual(len(records), 38)
+        self.assertEqual(len(records), 39)
         cards = json.loads((ROOT / "data/catalog.json").read_text())["cards"]
         self.assertEqual(len(cards), 60)
         self.assertFalse(any("F73" in c["background_ids"] or "F74" in c["background_ids"]
