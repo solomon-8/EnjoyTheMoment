@@ -14,6 +14,8 @@
 
 ## What this project stands for
 
+**Life is not an asset that may only appreciate and never be enjoyed.**
+
 Our cultural framing is **耍起 (shuǎ qǐ)**, used here as an invitation to make enjoyment part of life now. This is the project's own interpretation, not an official definition of Sichuan–Chongqing culture or an endorsement by a performer. See the [dated cultural sources](docs/culture-shuaqi.md) and [our own position](SHUAQI.md).
 
 An open-source guide to immediate gratification, sensory pleasure, novelty, play, and time that produces absolutely nothing.
@@ -31,6 +33,15 @@ This is not a disguised productivity system. The punchline is not “rest so you
 Our boundary is simple: **you choose it, other people consent, the costs are visible, and you can stop.** We are changing the priority of present enjoyment—not reversing safety advice or promoting self-destruction.
 
 > Today is not tomorrow's raw material. Tomorrow is not today's dumping ground.
+
+## Start with a disagreement
+
+The arguments below are in Chinese. You do not have to agree with them before reading.
+
+- **[What if enjoyment really means earning less?](essays/07-rest-is-not-work.md#rest-paid-evening)** An evening we want can be a gain in its own right, without a later productivity payoff. Repeated choices have cumulative costs, and necessary expenses cannot be wished away.
+- **[Why call work equipment an investment, but demand an excuse for pleasure?](essays/04-buying-pleasure.md)** Liking something can be a reason without a financial return. It does not settle someone else's consent or a shared budget.
+- **[Why reduce a whole evening we want to a five-minute substitute?](essays/02-excitement-without-escalation.md#excitement-costs)** A small version is an option, not the required size of a desire. A fuller experience still cannot impose its costs on unwilling people.
+- **[Immediate pleasure—or immediate extraction?](essays/10-pleasure-not-retention.md)** Staying longer does not necessarily mean liking something more. Services need revenue, and self-chosen limits can be useful; neither point excuses hidden exit barriers.
 
 ## Not “long life versus short life”
 

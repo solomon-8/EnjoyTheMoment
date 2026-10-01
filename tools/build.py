@@ -227,6 +227,21 @@ def json_text(data):
     return json.dumps(data, ensure_ascii=False, indent=2) + "\n"
 
 
+def entry_arguments(root):
+    """Read the shared argument-first introduction from its canonical README."""
+    text = (root / "README.md").read_text(encoding="utf-8")
+    start = "<!-- entry-arguments:start -->"
+    end = "<!-- entry-arguments:end -->"
+    if text.count(start) != 1 or text.count(end) != 1:
+        raise ValueError("README 须恰有一组 entry-arguments 标记")
+    if text.index(start) >= text.index(end):
+        raise ValueError("README entry-arguments 标记次序错误")
+    block = text.split(start, 1)[1].split(end, 1)[0].strip()
+    if not block.startswith("## ") or not re.search(r"^### \[.+\]\(.+\)$", block, re.M):
+        raise ValueError("README entry-arguments 须包含标题与论证链接")
+    return block
+
+
 def source_digest(root):
     files = sorted((root / "book").glob("*.md")) + sorted((root / "guides").glob("[0-9]*.md")) + [
         root / path for _, path in ESSAYS
@@ -238,6 +253,8 @@ def source_digest(root):
         digest.update(path.relative_to(root).as_posix().encode())
         digest.update(b"\0")
         digest.update(path.read_bytes())
+    digest.update(b"README.md#entry-arguments\0")
+    digest.update(entry_arguments(root).encode("utf-8"))
     return digest.hexdigest()
 
 
@@ -327,7 +344,7 @@ def inline(text, source_path):
     return escaped
 
 
-def markdown(text, source_path, omit_title=False):
+def markdown(text, source_path, omit_title=False, heading_offset=1):
     """The essay/research sources use headings, paragraphs, lists, and tables."""
     out, paragraph, listing, table = [], [], None, False
 
@@ -387,7 +404,7 @@ def markdown(text, source_path, omit_title=False):
             close_blocks()
             if omit_title and len(heading.group(1)) == 1:
                 continue
-            level = min(5, len(heading.group(1)) + 1)
+            level = min(5, len(heading.group(1)) + heading_offset)
             out.append("<h{0}>{1}</h{0}>".format(level, inline(heading.group(2), source_path)))
         elif line.startswith("|"):
             flush()
@@ -513,6 +530,7 @@ def outputs(root=ROOT):
     research_html = markdown((root / "docs/research.md").read_text(), "docs/research.md")
     template = (root / "web/reader.html").read_text()
     replacements = {
+        "@@ENTRYARGUMENTS@@": markdown(entry_arguments(root), "README.md", heading_offset=0),
         "@@CHAPTERINTROS@@": "\n".join(
             '<details class="essay chapter-intro" id="{0}"><summary>{1}</summary>'
             '<div class="prose">{2}{3}</div></details>'.format(
@@ -556,7 +574,7 @@ def outputs(root=ROOT):
          "Canonical source: book/, essays/, guides/ and docs/. Values and original proposals are not validated interventions.\n"
          "Budgets are illustrative CNY caps. Preserve alternatives, stopping conditions and evidence status.\n"
          "Source digest: " + digest]
-        + [(root / "SHUAQI.md").read_text()]
+        + [entry_arguments(root), (root / "SHUAQI.md").read_text()]
         + [item["text"] for item in longform]
         + [item["text"] for item in chapter_data]
         + ["## " + card.reference + "\n\n### " + card.id + " · " + card.title + "\n\n" + card.body for card in cards]
