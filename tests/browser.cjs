@@ -88,6 +88,20 @@ const { chromium } = require("playwright");
     await page.locator("#n38 .prose a[href='#senses-thermal-touch']").click();
     await page.waitForFunction(() => document.getElementById("c02").open &&
       !document.getElementById("c02").hidden && document.getElementById("chapter-query").value === "");
+    await page.goto(url + "#nightlife-syncopation");
+    await page.waitForFunction(() => document.getElementById("c37").open);
+    assert.equal(await page.locator("#c37 table").count(), 3);
+    assert.match(await page.locator("#c37 .prose").textContent(),
+      /知道下一拍在哪里，不等于已经经历过下一拍/);
+    await page.locator("#c37 a[href='#n41']").first().click();
+    await page.waitForFunction(() => document.getElementById("n41").open);
+    assert.match(await page.locator("#n41 .prose").textContent(), /p = \.178/);
+    assert.match(await page.locator("#n41 .prose").textContent(), /作者声明，不是本书复现结论/);
+    await page.locator("#chapter-query").fill("不存在的切分XYZ");
+    await page.locator("#n41 a[href='#nightlife-repeat-participation']").click();
+    await page.waitForFunction(() => document.getElementById("c37").open &&
+      !document.getElementById("c37").hidden &&
+      document.getElementById("chapter-query").value === "");
     await page.goto(url + "#nightlife-sequence");
     await page.waitForFunction(() => document.getElementById("c37").open);
     assert.match(await page.locator("#c37 .prose").textContent(), /甲合计八格，乙合计六格/);

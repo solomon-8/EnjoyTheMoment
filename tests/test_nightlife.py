@@ -29,7 +29,7 @@ class NightlifeTests(unittest.TestCase):
         ):
             self.assertIn(phrase, text)
         html = build.markdown(text, "book/37-nightlife.md")
-        self.assertEqual(html.count("<table>"), 2)
+        self.assertEqual(html.count("<table>"), 3)
         self.assertEqual(html.count('src="data:image/png;base64,'), 1)
         self.assertIn('href="#f71"', html)
         self.assertIn('href="#f04"', html)
@@ -94,7 +94,7 @@ class NightlifeTests(unittest.TestCase):
             self.assertEqual((ROOT / "llms-full.txt").read_text().count(raw.decode().strip()), 1)
         route = next(r for r in routes if r["id"] == "R70")
         self.assertEqual(set(route["targets"]),
-                         {"C37", "F71", "C11", "C13", "C27", "C16", "C05", "C09", "C10", "F04", "E02", "E04"})
+                         {"C37", "F71", "B41", "N41", "C11", "C13", "C27", "C16", "C05", "C09", "C10", "F04", "E02", "E04"})
         self.assertTrue(set(route["targets"]) <=
                         {r["id"] for r in read.linked_records(route, documents, ROOT)})
         chapter = next(c for c in json.loads((ROOT / "data/chapters.json").read_text())["chapters"]
@@ -104,7 +104,7 @@ class NightlifeTests(unittest.TestCase):
         cards = json.loads((ROOT / "data/catalog.json").read_text())["cards"]
         self.assertEqual(len(cards), 60)
         studies = json.loads((ROOT / "data/research.json").read_text())["records"]
-        self.assertEqual(len(studies), 40)
+        self.assertEqual(len(studies), 41)
         self.assertNotIn("F71", {s["id"] for s in studies})
 
 

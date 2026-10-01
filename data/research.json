@@ -801,6 +801,26 @@
       },
       "directly_validates_cards": false,
       "source": "docs/research.md#b40"
+    },
+    {
+      "id": "B41",
+      "title": "切分、想动与愉悦",
+      "doi": "10.1371/journal.pone.0094446",
+      "access_level": "full_text",
+      "verified_at": "2026-10-01",
+      "fields": {
+        "核读日期": "2026-10-01。",
+        "文献": "Maria A. G. Witek, Eric F. Clarke, Mikkel Wallentin, Morten L. Kringelbach, Peter Vuust (2014). *Syncopation, Body-Movement and Pleasure in Groove Music*. PLOS ONE, 9(4), e94446。",
+        "DOI": "[10.1371/journal.pone.0094446](https://doi.org/10.1371/journal.pone.0094446)。",
+        "实际读取": "`full_text`；核读出版社HTML/XML及12页PDF正文，第3、6—9页另目视；核读2015-09-24勘误，修正版S1表/S2文本和原S1/S3—S6文本只读DOCX段落与表格XML，未完整渲染。未试听实验音频、逐一核鼓谱或复算。[详细记录](evidence/B41-groove-syncopation.md)。",
+        "设计与对象": "66名17—63岁参与者在线听50段16秒合成鼓段，两小节循环四次、120拍/分钟，无微时差，分别自评想动及愉悦；音乐背景分析为排除9人后的57人，不能混用分母。",
+        "有限结论": "全材料分析报告中等切分的两种评分较高；只保留36段非专门构造材料后，想动的二次模型整体检验不显著、愉悦仍显著，材料人工性与不熟悉感可能影响结果。",
+        "不能推出": "普世最佳切分、实际跳得更多或更准、已验证身体参与机制，或私人审美应该服从平均曲线。",
+        "我们如何使用": "[C37](../book/37-nightlife.md#nightlife-known-beat)讨论节拍参照、声音位置与重复参与；八格四起音示意和“知道下一拍不等于经历下一拍”为原创解释，不是实验转录或已证机制。",
+        "关键限制": "线上机会样本、自评、固定鼓声与速度，未测现场与实际动作；保留勘误、S2公式方向疑点、表4漏小数点及S5尾部口径疑点。作者称勘误不影响结论，不等于本书独立复现；不验证任何行动卡。"
+      },
+      "directly_validates_cards": false,
+      "source": "docs/research.md#b41"
     }
   ],
   "relations": [
