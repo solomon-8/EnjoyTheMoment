@@ -148,3 +148,9 @@ Do、Rupert与Wolford（2008）的[B34/N34](evidence/B34-gifts-and-endings.md)�
 [B36/N36](evidence/B36-sexual-frequency.md)采用Loewenstein等人的CMU托管期刊排版稿，保留Elsevier权利，不转载论文、原图或完整翻译。[F69](evidence/F69-sexual-health-and-asexuality.md)为WHO工作定义与AASECT组织立场的署名概述；不复制机构标志、图片或全文，也不把官方网页当本仓库MIT资产。
 
 [C35](../book/35-intimacy.md)的情境、对话、概念表与反对意见为原创说明，不是受访者隐私记录，不声称亲测、疗效或机构背书。WHO性权利定义脚注的非正式立场限制保留；未采用访问失败的RAINN与Planned Parenthood候选页。没有来源提供本章的个体医疗、诊断或当地法律结论。
+
+## 居住、施罗德住宅与原创关系图
+
+[F70](evidence/F70-home-and-schroder.md)采用Rietveld Schröder House官网的住宅介绍、Truus Schröder人物页和住宅居住史文字，署名概述而不复制照片、图纸、信件、视频、标志或整页翻译。没有把机构叙述冒充本书独立核对的档案，也未将网页宣传性形容当性能证据。
+
+[C36](../book/36-home.md)的桌面拼图、临时住所和共同生活情境为原创假想。三种空间关系SVG及其PNG为本项目MIT原创，不是施罗德住宅平面、施工图或无障碍/隔音/安全方案；几何形状仅表达共同活动、并行活动与局部遮挡。没有引用失败取得的Eames、Getty、MoMA或UNESCO候选页来支持正文。

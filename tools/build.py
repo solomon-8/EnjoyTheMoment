@@ -134,6 +134,7 @@ EVIDENCE = [
     ("F67", "docs/evidence/F67-cyanotype-and-selection.md"),
     ("F68", "docs/evidence/F68-repair-and-conservation.md"),
     ("F69", "docs/evidence/F69-sexual-health-and-asexuality.md"),
+    ("F70", "docs/evidence/F70-home-and-schroder.md"),
 ]
 EVIDENCE_KINDS = {
     "F01": "official_statistics",
@@ -205,6 +206,7 @@ EVIDENCE_KINDS = {
     "F67": "museum_process_record_and_image",
     "F68": "cultural_craft_explainer_and_conservator_interview",
     "F69": "public_health_working_definition_and_professional_position",
+    "F70": "museum_architectural_and_residential_history",
 }
 RELATIONS = [
     {"card_ids": ["J033"], "background_ids": ["B01"], "essay_ids": ["E04"]},
