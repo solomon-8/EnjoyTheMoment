@@ -1563,6 +1563,49 @@ class ExportTests(unittest.TestCase):
                                          chapter["source"]), "#f63")
         self.assertEqual(build.markdown(text, chapter["source"]).count("<table>"), 1)
 
+    def test_shared_play_links_preserve_topic_destinations_and_argument_scope(self):
+        text = (ROOT / "book/04-play.md").read_text()
+        anchors = {
+            "book/04-play.md": (
+                "play-shared-adjustment", "play-recommendation", "play-unrepeatable"),
+            "book/12-film.md": ("film-together",),
+            "book/19-games.md": ("games-difficulty", "games-hints"),
+        }
+        for path, ids in anchors.items():
+            canonical = (ROOT / path).read_text()
+            for identifier in ids:
+                self.assertEqual(canonical.count('<a id="' + identifier + '"></a>'), 1)
+                self.assertEqual(self.outputs["index.html"].count(
+                    'id="' + identifier + '"'), 1)
+        # Topic details remain in their full chapters; the participation
+        # argument must link to the exact section rather than a generic index.
+        for href in ("19-games.md#games-difficulty", "19-games.md#games-hints",
+                     "12-film.md#film-together", "13-live-events.md#live-medium"):
+            self.assertIn("(" + href + ")", text)
+            self.assertEqual(build.local_href(href, "book/04-play.md"),
+                             "#" + href.partition("#")[2])
+        # Keep GitHub's existing heading destinations as well as new stable IDs.
+        for heading in ("调低难度，不是在伪造自己的快乐",
+                        "一起看作品，暂停键也需要一个共同习惯",
+                        "一场现场的乐趣，可能就在于它不是完美复制"):
+            self.assertIn("## " + heading, text)
+        routes = json.loads(self.outputs["data/reading-map.json"])["routes"]
+        route = next(item for item in routes if item["id"] == "R56")
+        self.assertTrue({"C04", "C19", "C12", "C13", "E05", "E06", "E10", "F63"}
+                        .issubset(route["targets"]))
+        route_text = (ROOT / "docs/reading-map.md").read_text().split(
+            '## R56 ·', 1)[1].split('<a id="r57">', 1)[0]
+        for boundary in ("不是F63的研究结论", "不等于承诺喜欢",
+                         "原创假想", "不证明失误提升快乐", "不验证J卡"):
+            self.assertIn(boundary, route_text)
+        # New examples are not attributed to the philosophical primary source.
+        shared = text.split('<a id="play-shared-adjustment">', 1)[1].split(
+            "## 爱上一部作品", 1)[0]
+        self.assertIn("原创假想", shared)
+        self.assertIn("按提纲录制", shared)
+        self.assertIn("即兴接龙", shared)
+        self.assertNotIn("[F63]", shared)
+
     def test_play_philosophy_source_keeps_read_scope_and_nonexperimental_status(self):
         notes = {item["id"]: item for item in
                  json.loads(self.outputs["data/evidence.json"])["notes"]}
