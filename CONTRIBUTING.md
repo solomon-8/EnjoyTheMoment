@@ -68,6 +68,10 @@ python3 tools/pick.py --minutes 20 --budget 0 --company solo
 
 检查覆盖卡片结构、编号和锚点、筛选字段、Markdown 本地链接、SVG 语法、机器接口、生成一致性和脚本测试。浏览器回归另用 `node tests/browser.cjs`（需可用的 Playwright 与 Chromium，不是阅读或构建依赖）。**它不会证明活动有效，也不会代替外链内容与现实条件核实。**
 
+`tools/build.py` 同时生成 `downloads/EnjoyTheMoment.epub` 与 `data/epub-edition.json`；`--check` 会检查电子书是否与源文件一致。也可单独运行 `python3 tools/epub.py`。内容和构建输入不变时，时间戳与 ZIP 字节保持一致；清单记录的是本次导出的输入，不是版本日志。不要手改 EPUB。新增长文或证据记录必须先进入对应内容注册表，生成器会拒绝遗漏。
+
+EPUB 包含中文阅读正文、卡片、完整玩法、核读与署名，折叠部分直接展开。工具会检查内部文档、图片和片段链接，并拒绝脚本及远程图片；测试另核对文字顺序、图像字节和源范围。格式验收可用 W3C EPUBCheck：`java -jar epubcheck.jar downloads/EnjoyTheMoment.epub`。它与真实阅读器显示检查互补，都不等于读者理解或所有设备兼容；不要写未经执行的验收结果。
+
 `book/`、`essays/`、`guides/`、`SHUAQI.md` 与相关 `docs/` 是内容源；不要只修改 `index.html`、`llms-full.txt` 或生成 JSON。卡片数量不等于内容厚度：优先补场景、反例和条件，避免把已有 ID 换成另一件事。真实反馈可使用[试做模板](templates/experience-note.md)，不要求公开。
 
 首页 `README.md` 中 `entry-arguments` 标记包围的短导读，同时生成到阅读页和 AI 全文。修改这段即可，不要在 HTML 里另写一份。每个标题都应接上正文能兑现的论证，摘要保留会改变答案的反对意见；吸引人的表述不是已经说服读者的证据。

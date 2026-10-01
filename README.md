@@ -210,6 +210,8 @@ python3 tools/pick.py --id J019 --json
 
 阅读页是同一份 Markdown 生成的单文件 `index.html`，下载整个仓库后可直接双击，离线也能搜索与读长文；外部出处链接需要网络。没有统计脚本、账号或浏览记录上传。生成与校验命令见[贡献指南](CONTRIBUTING.md)。
 
+**想在电子书阅读器里通读？** [下载中文全文 EPUB](downloads/EnjoyTheMoment.epub)，或先看[不同版本的阅读说明](docs/reading-editions.md)。长文、章节、研究限制、配图和署名随书保留；折叠内容直接展开。EPUB 不含网页的筛选和随机按钮，外部出处仍需联网，已下载的文件不会自动更新。
+
 ## 先试一口，再决定信不信
 
 - [七天试吃](docs/seven-days.md)：七个任选场景，不是七天挑战。

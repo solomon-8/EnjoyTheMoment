@@ -339,11 +339,12 @@ def local_href(href, source_path):
         "#" + fragment if fragment else "")
 
 
-def inline(text, source_path):
+def inline(text, source_path, href_resolver=None):
     """Render a small, escaped Markdown subset; source never becomes raw HTML."""
     escaped = html.escape(text)
+    resolve = href_resolver or local_href
     escaped = re.sub(r"\[([^\]]+)\]\(([^)]+)\)", lambda m: '<a href="{0}">{1}</a>'.format(
-        html.escape(local_href(html.unescape(m.group(2)), source_path), quote=True), m.group(1)), escaped)
+        html.escape(resolve(html.unescape(m.group(2)), source_path), quote=True), m.group(1)), escaped)
     escaped = re.sub(r"\*\*(.+?)\*\*", r"<strong>\1</strong>", escaped)
     escaped = re.sub(r"`([^`]+)`", r"<code>\1</code>", escaped)
     escaped = re.sub(r"(?<!\*)\*([^*]+)\*(?!\*)", r"<em>\1</em>", escaped)
@@ -624,6 +625,10 @@ def main():
             print("Generated", path)
     if stale:
         parser.exit(1, "生成文件过期，请运行 python3 tools/build.py：\n" + "\n".join(stale) + "\n")
+    # Import here to avoid the shared Markdown helpers' module cycle.
+    # Every normal build/check includes the downloadable reading edition.
+    import epub
+    epub.main(["--check"] if args.check else [])
     if args.check:
         print("OK: 所有派生文件与 Markdown 源一致")
     return 0
