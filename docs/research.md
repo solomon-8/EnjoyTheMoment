@@ -644,3 +644,5 @@ F 系列不计入上面的 B 系列背景研究。事实、教学、文学文本
 - [F75 · 时间选择：别把日期直接当成人格测量](evidence/F75-time-choice-and-discounting.md)：Frederick、Loewenstein与O’Donoghue的2002年综述所述概念、模型和方法问题，用于[E03](../essays/03-now-or-later.md#waiting-not-a-patience-score)。时间折扣与时间偏好、收到资源与效用发生、同时作答与实际重测分别处理；只核读相关章节，未核对底层研究与全部后续争论，不把模型可能性当普遍规律或新的享乐效果实验。
 
 - [F77 · 《行走的人》：物件、组合与观看角度](evidence/F77-sculpture-and-viewpoint.md)：芝加哥藏品API、罗丹馆法英文说明与Mx. Granger署名CC0照片，用于[C25](../book/25-looking-at-art.md#art-sculpture-recognition)。两件馆藏的尺寸日期、两馆的躯干来源分歧与两照片日期分别保留；不是亲访、连续绕行、步态实验或幸福研究，不从艺术省略推论现实身体的价值。
+
+- [F78 · 伊姆斯住宅：保存什么，允许什么变化](evidence/F78-eames-and-lived-preservation.md)：Getty保护项目与环境管理文字、2018年管理计划相关页及2022年具名报道，用于[C36](../book/36-home.md#home-eames)。分开物件保存、开放感受、使用痕迹、替代展示和持续实践；计划不是全部已实施的效果报告，家族回忆不是行业共识，故居保护目标不是普通家庭义务。没有新增幸福实验、护理方案或参观推荐。
