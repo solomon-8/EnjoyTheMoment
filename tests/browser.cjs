@@ -22,6 +22,16 @@ const { chromium } = require("playwright");
     assert.equal(await page.locator(".argument").count(), 11);
     assert.equal(await page.locator(".playbook").count(), 10);
     assert.equal(await page.locator(".chapter-intro").count(), 37);
+    await page.goto(url + "#senses-thermal-touch");
+    await page.waitForFunction(() => document.getElementById("c02").open);
+    assert.match(await page.locator("#c02 .prose").textContent(), /一样的初始温度，不代表一样的接触/);
+    await page.locator("#c02 a[href='#n38']").first().click();
+    await page.waitForFunction(() => document.getElementById("n38").open);
+    assert.match(await page.locator("#n38 .prose").textContent(), /84次是每人的试次数，不是84名参与者/);
+    await page.locator("#chapter-query").fill("不存在的触感XYZ");
+    await page.locator("#n38 .prose a[href='#senses-thermal-touch']").click();
+    await page.waitForFunction(() => document.getElementById("c02").open &&
+      !document.getElementById("c02").hidden && document.getElementById("chapter-query").value === "");
     await page.goto(url + "#nightlife-sequence");
     await page.waitForFunction(() => document.getElementById("c37").open);
     assert.match(await page.locator("#c37 .prose").textContent(), /甲合计八格，乙合计六格/);

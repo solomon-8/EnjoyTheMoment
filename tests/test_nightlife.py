@@ -104,7 +104,7 @@ class NightlifeTests(unittest.TestCase):
         cards = json.loads((ROOT / "data/catalog.json").read_text())["cards"]
         self.assertEqual(len(cards), 60)
         studies = json.loads((ROOT / "data/research.json").read_text())["records"]
-        self.assertEqual(len(studies), 37)
+        self.assertEqual(len(studies), 38)
         self.assertNotIn("F71", {s["id"] for s in studies})
 
 
