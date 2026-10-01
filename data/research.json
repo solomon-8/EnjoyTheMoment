@@ -781,6 +781,26 @@
       },
       "directly_validates_cards": false,
       "source": "docs/research.md#b39"
+    },
+    {
+      "id": "B40",
+      "title": "重视快乐、担忧不足与负面元情绪",
+      "doi": "10.1037/emo0001381",
+      "access_level": "full_text",
+      "verified_at": "2026-10-01",
+      "fields": {
+        "核读日期": "2026-10-01。",
+        "文献": "Felicia K. Zerwas、Brett Q. Ford、Oliver P. John、Iris B. Mauss（2024），*Unpacking the Pursuit of Happiness: Being Concerned About Happiness but Not Aspiring to Happiness Is Linked With Negative Meta-Emotions and Worse Well-Being*，Emotion，24(8)，1789–1802。",
+        "DOI": "[10.1037/emo0001381](https://doi.org/10.1037/emo0001381)。",
+        "实际读取": "`full_text`；取得作者实验室15页PDF（封面＋先行版印刷1–14页），核读理论、程序、量表、主要结果与局限，目视表1/3/4/5/6与图2；最终卷期页码用Crossref，未与最终刊版逐字核验。补充DOCX只读XML文字，图S1未核；OSF仅网页壳，未读数据、代码、预注册原件，未复算。[详细核读](evidence/B40-happiness-concern.md)。",
+        "设计与对象": "五组北美成年样本共1,815人；横断面、C/D约六个月随访、D八日日记，D全女性；各研究复用样本。只有E按论文所报预注册，不是干预试验。",
+        "有限结论": "担忧自己的幸福程度与较低幸福感有较一致关联；将幸福视作重要目标的关联没有一致方向，并非每个单项都无关联。对自己感受的负面反应提供一种可能解释，不是已证因果机制。",
+        "不能推出": "追求快乐使人不快乐、不追求就更快乐、困扰只是太在意，或“耍起”已被实验验证。",
+        "我们如何使用": "[E01](../essays/01-pleasure-is-an-end.md#pleasure-not-quota)区分价值许可、情绪业绩、反馈与自我归责；虚构演出及规范论证不是研究结果。",
+        "关键限制": "自报、样本与文化边界、量表拟合不完美；纵向分析没有预测幸福感变化。幸福感合成不是快乐时长或临床诊断；没有直接验证任何J卡、情绪练习或疗法。"
+      },
+      "directly_validates_cards": false,
+      "source": "docs/research.md#b40"
     }
   ],
   "relations": [
