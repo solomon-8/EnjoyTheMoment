@@ -1268,14 +1268,15 @@ const { chromium } = require("playwright");
       await aftertaste.goto(url + (javaScriptEnabled ? "#c10" : ""));
       if (!javaScriptEnabled) await aftertaste.locator("#c10 > summary").click();
       assert.match(await aftertaste.locator("#c10 .prose").textContent(), /回忆不是当下的敌人/);
-      for (const anchor of ["aftertaste-three-questions", "aftertaste-preference", "aftertaste-story"]) {
+      for (const anchor of ["aftertaste-three-questions", "aftertaste-preference", "aftertaste-story",
+                           "aftertaste-gifts", "aftertaste-peak-boundary", "aftertaste-not-a-score"]) {
         if (javaScriptEnabled) {
           await aftertaste.locator(`#c10 a[href='#${anchor}']`).first().click();
           assert.equal(new URL(aftertaste.url()).hash, "#" + anchor);
         }
         await aftertaste.locator("#" + anchor).scrollIntoViewIfNeeded();
       }
-      assert.equal(await aftertaste.locator("#c10 .prose table").count(), 2);
+      assert.equal(await aftertaste.locator("#c10 .prose table").count(), 3);
       for (const table of await aftertaste.locator("#c10 .prose table").all()) {
         assert((await table.boundingBox()).width <= 350);
       }
@@ -1294,6 +1295,28 @@ const { chromium } = require("playwright");
         await aftertaste.locator("#n18 a[href='#aftertaste-preference']").last().click();
         assert.equal(new URL(aftertaste.url()).hash, "#aftertaste-preference");
         assert(await aftertaste.locator("#c10 .prose").isVisible());
+      }
+      for (const [id, anchor, phrase] of [
+        ["n34", "aftertaste-gifts", /没有随机操纵事件边界/],
+        ["n35", "aftertaste-peak-boundary", /不是观看时实时连续评分|没有观看时实时连续评分/]
+      ]) {
+        if (javaScriptEnabled) {
+          await aftertaste.locator(`#c10 a[href='#${id}']`).first().click();
+          await aftertaste.waitForFunction(id => document.getElementById(id).open, id);
+        } else {
+          await aftertaste.locator(`#${id} > summary`).click();
+        }
+        assert.match(await aftertaste.locator(`#${id} .prose`).textContent(), phrase);
+        const shape = await aftertaste.locator(`#${id} .prose`).evaluate(
+          el => ({client: el.clientWidth, scroll: el.scrollWidth}));
+        assert(shape.scroll <= shape.client + 1, id);
+        if (javaScriptEnabled) {
+          await aftertaste.locator("#chapter-query").fill("不存在的峰终XYZ");
+          await aftertaste.locator(`#${id} a[href='#${anchor}']`).first().click();
+          await aftertaste.waitForFunction(() => document.getElementById("c10").open &&
+            !document.getElementById("c10").hidden && document.getElementById("chapter-query").value === "");
+          assert.equal(new URL(aftertaste.url()).hash, "#" + anchor);
+        }
       }
       assert.deepEqual(failures, []);
       assert.deepEqual(network, []);
