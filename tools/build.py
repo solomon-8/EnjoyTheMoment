@@ -66,6 +66,7 @@ EVIDENCE = [
     ("N35", "docs/evidence/B35-complex-experience-and-memory.md"),
     ("N36", "docs/evidence/B36-sexual-frequency.md"),
     ("N37", "docs/evidence/B37-repeat-experiences.md"),
+    ("N38", "docs/evidence/B38-thermal-touch.md"),
     ("F01", "docs/evidence/F01-time-use.md"),
     ("F02", "docs/evidence/F02-listening-language.md"),
     ("F03", "docs/evidence/F03-film-language.md"),

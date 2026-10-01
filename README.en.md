@@ -52,7 +52,7 @@ Neither excitement nor spending is compulsory. Quiet enjoyment counts. Disliking
 
 **37 chapters. 60 original activity cards.** Chapters 11–37 are standalone discussions, not extra activity lists. The full chapters and cards are currently in Chinese; this page is an English introduction, not a complete translation.
 
-[Read and filter in your browser](https://solomon-8.github.io/EnjoyTheMoment/), with no installation. Eleven [long-form essays](essays/01-pleasure-is-an-end.md) explain the tradeoffs; the [research ledger](docs/research.md) records 37 background studies: twenty-seven journal full texts (including one journal XML accessed through PMC), one journal-formatted arXiv version, two advance online publications, two publicly hosted research manuscripts, one author-hosted page proof, three author-hosted journal-formatted articles, and one third-party mirror of a journal-formatted article. The latter ten have not been compared line by line with their final publisher versions; some online appendices have not been fully reviewed.
+[Read and filter in your browser](https://solomon-8.github.io/EnjoyTheMoment/), with no installation. Eleven [long-form essays](essays/01-pleasure-is-an-end.md) explain the tradeoffs; the [research ledger](docs/research.md) records 38 background studies: twenty-seven journal full texts (including one journal XML accessed through PMC), one journal-formatted arXiv version, two advance online publications, two publicly hosted research manuscripts, one author-hosted page proof, three author-hosted journal-formatted articles, and one third-party mirror of a journal-formatted article. The latter ten have not been compared line by line with their final publisher versions; some online appendices have not been fully reviewed.
 
 Corrections and related commentaries are not counted again; B25 records a correction and remaining inconsistencies in the hosted PDF. B26 retains unresolved sample and statistical reporting conflicts in the journal HTML. B27 distinguishes imagined lives from actual follow-up, and does not establish a universal leisure-time limit. B28 distinguishes experimentally observed app use, substitution, subjective outcomes and model-dependent counterfactuals; it is not a universal screen-time prescription.
 
@@ -89,7 +89,7 @@ The chapters on senses, novelty, play, relationships, spending, and permission t
 | Chapter | Question |
 | --- | --- |
 | [01 · Today is not a trial version of your future](book/01-start-now.md) | Why must a wish for a whole evening be reduced to five minutes? |
-| [02 · Your senses are not just work equipment](book/02-senses.md) | Can taste, sound, and comfort matter on their own? |
+| [02 · Your senses are not just work equipment](book/02-senses.md) | Can equal temperatures feel different? Contact, material labels, preference, and the difference between compromise and denying a wish. |
 | [03 · Make a little room for surprise](book/03-novelty.md) | New objects, new interpretations, and the pleasures of familiarity |
 | [04 · Play without turning professional](book/04-play.md) | Why care about winning if you play for enjoyment? Taking a goal seriously need not give it authority over your whole life. |
 | [05 · People are not a network](book/05-connection.md) | Can spending time together be the whole point? |
