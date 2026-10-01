@@ -24,3 +24,14 @@
 两件均署 `Gift of Felix M. Warburg and his family, 1941`。对象记录 `isPublicDomain` 为真，API 说明提供相应开放图像；不能只凭元数据集的 CC0 声明推断任意图片也开放。详细取得链与区别见 [F38](../../docs/evidence/F38-print-comparison.md)。
 
 本地文件与上述下载 JPEG 字节完全一致，不重新编码、裁切、调色或补绘；阅读页将其内嵌并按容器缩放。A/B 是本书用于比较的标签，不是历史版态编号。数字图像不等于原作表面、色彩或保存状态。没有加入馆方标识，也不表示馆方为本项目背书。
+
+## 罗丹《行走的人》：两张署名CC0照片
+
+作品：Auguste Rodin，*The Walking Man*，芝加哥艺术博物馆馆藏号1987.217，青铜，高84.1厘米；1877—1900年塑造、1917年以前铸造，Bequest of A. James Speyer。记录与图像关联边界见[F77](../../docs/evidence/F77-sculpture-and-viewpoint.md)。
+
+| 本地文件 | 摄影者与文件页 | 原图 → 本地 | 本地SHA256 |
+| --- | --- | --- | --- |
+| `rodin-walking-front.jpg` | Mx. Granger，[The Walking Man front.jpg](https://commons.wikimedia.org/wiki/File:The_Walking_Man_front.jpg)，CC0；页ID37914688，日期字段2014-01-17 | 1944 × 2592 → 900 × 1200 | `26e137fcd114244a4142d56a1fcdfcf7576d34b61578741b323454bb68f4aae2` |
+| `rodin-walking-rear.jpg` | Mx. Granger，[The Walking Man rear.jpg](https://commons.wikimedia.org/wiki/File:The_Walking_Man_rear.jpg)，CC0；页ID37914703，日期字段2015-01-17 | 1944 × 2592 → 900 × 1200 | `4a9fadc4c60cb8643a728d37b0c13bf3d7799ec2a23b0a5b9d5ac7c8f211cdb9` |
+
+两照片均来自摄影者标注Own work的文件页，2026-10-01取得原JPEG，按比例缩小、JPEG质量85重编码；不裁切、不调色、不AI补绘，不识别背景参观者。不把不同日期写成一次连续拍摄，不将照片在本书中再许可为MIT原创。原作、摄影者和本书观察各有归属；不存在馆方或摄影者背书。原图SHA256分别为`9cc9ec3232d88d018ca3ca39af9b823c2711e071fc46a9dc9ea486e8257023e6`、`179f24fa209229c6e8e4762e3793564d62fca328f54000ed396eeb5366a97f10`。

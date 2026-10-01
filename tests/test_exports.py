@@ -2199,14 +2199,14 @@ class ExportTests(unittest.TestCase):
         source = "book/25-looking-at-art.md"
         text = (ROOT / source).read_text()
         figures = re.findall(r"!\[([^\]]+)\]\(([^)]+)\)", text)
-        self.assertEqual(len(figures), 3)
+        self.assertEqual(len(figures), 5)
         rendered = build.markdown(text, source)
-        self.assertEqual(rendered.count('<figure class="artwork">'), 3)
-        self.assertEqual(rendered.count('loading="lazy"'), 3)
+        self.assertEqual(rendered.count('<figure class="artwork">'), 5)
+        self.assertEqual(rendered.count('loading="lazy"'), 5)
         for alt, href in figures:
             self.assertGreater(len(alt), 30)
             self.assertTrue((ROOT / "book" / href).is_file())
-        self.assertEqual(rendered.count('src="data:image/jpeg;base64,'), 3)
+        self.assertEqual(rendered.count('src="data:image/jpeg;base64,'), 5)
         self.assertNotIn('src="assets/', rendered)
         escaped = build.markdown('![<tag> "quote"](../assets/art/van-gogh-bedroom.jpg)', source)
         self.assertIn('alt="&lt;tag&gt; &quot;quote&quot;"', escaped)
@@ -2256,7 +2256,7 @@ class ExportTests(unittest.TestCase):
             self.assertIn(phrase, chapter["text"])
         rendered = build.markdown(chapter["text"], chapter["source"])
         self.assertEqual(rendered.count("<table>"), 3)
-        self.assertEqual(rendered.count('<figure class="artwork">'), 3)
+        self.assertEqual(rendered.count('<figure class="artwork">'), 5)
         for anchor in ("art-letters-and-versions", "art-material-history",
                        "art-traces-and-meaning", "art-knowledge-and-pleasure"):
             self.assertIn('<span id="' + anchor + '"></span>', rendered)

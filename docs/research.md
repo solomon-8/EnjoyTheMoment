@@ -629,3 +629,5 @@ F 系列不计入上面的 B 系列背景研究。事实、教学、文学文本
 - [F72 · 《人群中的人》：观看、归类与叙述限度](evidence/F72-man-of-the-crowd.md)：Poe Society托管的小说数字文本及版本索引，用于[C07](../book/07-solo.md#solo-man-of-crowd)。咖啡馆观看、身份归类、尾随与结尾判词分开；叙述者不是作者亲历或独立调查，小说不是独处效果实验，不把刻板描写当识人方法。
 
 - [F75 · 时间选择：别把日期直接当成人格测量](evidence/F75-time-choice-and-discounting.md)：Frederick、Loewenstein与O’Donoghue的2002年综述所述概念、模型和方法问题，用于[E03](../essays/03-now-or-later.md#waiting-not-a-patience-score)。时间折扣与时间偏好、收到资源与效用发生、同时作答与实际重测分别处理；只核读相关章节，未核对底层研究与全部后续争论，不把模型可能性当普遍规律或新的享乐效果实验。
+
+- [F77 · 《行走的人》：物件、组合与观看角度](evidence/F77-sculpture-and-viewpoint.md)：芝加哥藏品API、罗丹馆法英文说明与Mx. Granger署名CC0照片，用于[C25](../book/25-looking-at-art.md#art-sculpture-recognition)。两件馆藏的尺寸日期、两馆的躯干来源分歧与两照片日期分别保留；不是亲访、连续绕行、步态实验或幸福研究，不从艺术省略推论现实身体的价值。
