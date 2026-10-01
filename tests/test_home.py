@@ -81,7 +81,7 @@ class HomeTests(unittest.TestCase):
 
     def test_not_an_added_behavioral_experiment_or_card(self):
         studies = json.loads((ROOT / 'data/research.json').read_text())['records']
-        self.assertEqual(len(studies), 39)
+        self.assertEqual(len(studies), 40)
         self.assertNotIn('F70', {s['id'] for s in studies})
         cards = json.loads((ROOT / 'data/catalog.json').read_text())['cards']
         self.assertEqual(len(cards), 60)

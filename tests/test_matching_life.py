@@ -59,7 +59,7 @@ class MatchingLifeTests(unittest.TestCase):
         self.assertEqual(note["source_kind"], "literary_philosophical_primary_text")
         self.assertIn(text, (ROOT / "llms-full.txt").read_text())
         research = json.loads((ROOT / "data/research.json").read_text())["records"]
-        self.assertEqual({r["id"] for r in research}, {f"B{n:02d}" for n in range(1, 40)})
+        self.assertEqual({r["id"] for r in research}, {f"B{n:02d}" for n in range(1, 41)})
         cards = json.loads((ROOT / "data/catalog.json").read_text())["cards"]
         self.assertEqual(len(cards), 60)
         self.assertTrue(all("F76" not in c["background_ids"] for c in cards))
