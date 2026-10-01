@@ -17,6 +17,20 @@ const { chromium } = require("playwright");
     page.on("request", request => {if (/^https?:/.test(request.url())) requests.push(request.url());});
     const url = pathToFileURL(path.resolve(__dirname, "../index.html")).href;
     await page.goto(url);
+    const entryLinks = await page.locator("#disagreements .prose h3 a").all();
+    assert.equal(entryLinks.length, 4);
+    assert(await page.locator("#disagreements").isVisible());
+    for (const link of entryLinks) {
+      const href = await link.getAttribute("href");
+      await link.click();
+      assert.equal(new URL(page.url()).hash, href);
+      const reached = await page.locator(href).evaluate(el => {
+        const container = el.closest("details");
+        return container && container.open && !container.hidden;
+      });
+      assert.equal(reached, true, href);
+    }
+    await page.goto(url);
     assert.equal(await page.locator(".card").count(), 60);
     assert.equal(await page.locator("#filters").isVisible(), true);
     assert.equal(await page.locator(".argument").count(), 11);

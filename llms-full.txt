@@ -2,7 +2,35 @@
 
 Canonical source: book/, essays/, guides/ and docs/. Values and original proposals are not validated interventions.
 Budgets are illustrative CNY caps. Preserve alternatives, stopping conditions and evidence status.
-Source digest: 1cc6e3cf7766eb44e9972dba8b97ff0fdc672d3310744eb52c879c45916fe909
+Source digest: ed388d6d01f093b9a28a777d3d54f5f9697eec357db99d9036483d50ed4a2cb3
+
+## 从一个真正的分歧开始
+
+不必先认同“耍起”。挑一个你想反驳的问题，看看正文能不能回答你。
+
+### [如果享乐确实会少赚一点，仍然值得吗？](essays/07-rest-is-not-work.md#rest-paid-evening)
+
+**会少赚，不等于选错。** 想亲自度过的晚上也是所得，不必许诺以后补赚回来。
+
+但一次与每个周末的累计代价不同，必要支出也不能靠口号解决。
+
+### [为什么买工作设备叫投资，买快乐却要解释？](essays/04-buying-pleasure.md)
+
+**“我喜欢”可以构成理由，不必伪装成未来收益。**
+
+但喜欢不能替他人同意，共同预算不是一个人的欲望清单。
+
+### [想要完整的刺激，为什么总被劝成五分钟？](essays/02-excitement-without-escalation.md#excitement-costs)
+
+**有些快乐值得占用整晚，不只配塞进缝隙。** 小份是一个选项，不是愿望的规定尺寸。
+
+但强度不是唯一方向，完整体验也不能让别人被迫承担代价。
+
+### [及时享乐，会不会只是及时被平台收割？](essays/10-pleasure-not-retention.md)
+
+**玩得久不等于更喜欢。** 能自主继续，也要能自主退出。
+
+但服务需要收入，主动设限也可能有用，不能把一切挽留都说成操控。
 
 [← 首页](README.md) · [语境与来源](docs/culture-shuaqi.md)
 
