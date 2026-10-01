@@ -5,6 +5,36 @@ const path = require("node:path");
 const { pathToFileURL } = require("node:url");
 const { chromium } = require("playwright");
 
+// A queued fragment scroll can move a lazy image away again after Playwright's
+// initial scroll. Keep bringing it into view until it loads; do not force eager
+// loading or let decode() wait forever for an offscreen image.
+async function decodeImage(image) {
+  await image.scrollIntoViewIfNeeded();
+  await image.evaluate(async img => {
+    const deadline = performance.now() + 10000;
+    while (!img.complete || img.naturalWidth === 0) {
+      if (performance.now() >= deadline) {
+        throw new Error(`Image did not load in view: ${img.alt.slice(0, 120)}`);
+      }
+      img.scrollIntoView({behavior: "instant", block: "center"});
+      await new Promise(resolve => setTimeout(resolve, 50));
+    }
+    let timer;
+    try {
+      await Promise.race([
+        img.decode(),
+        new Promise((_, reject) => {
+          timer = setTimeout(() => reject(new Error(
+            `Image decode timed out: ${img.alt.slice(0, 120)}`
+          )), 10000);
+        })
+      ]);
+    } finally {
+      clearTimeout(timer);
+    }
+  });
+}
+
 (async () => {
   const browser = await chromium.launch({
     headless: true,
@@ -27,7 +57,7 @@ const { chromium } = require("playwright");
       const image = document.querySelector("#c38 .prose img");
       return image.complete && image.naturalWidth > 0;
     }, null, {timeout: 10000});
-    await doublesImage.evaluate(el => el.decode());
+    await decodeImage(doublesImage);
     assert.deepEqual(await doublesImage.evaluate(el => [el.naturalWidth, el.naturalHeight]), [800, 1680]);
     for (const [id, anchor, phrase] of [
       ["f73", "sport-doubles", /主站目录当次访问403/],
@@ -88,6 +118,23 @@ const { chromium } = require("playwright");
     await page.locator("#n38 .prose a[href='#senses-thermal-touch']").click();
     await page.waitForFunction(() => document.getElementById("c02").open &&
       !document.getElementById("c02").hidden && document.getElementById("chapter-query").value === "");
+    await page.goto(url + "#celebration-west-lake");
+    await page.waitForFunction(() => document.getElementById("c18").open);
+    assert.match(await page.locator("#c18 .prose").textContent(),
+      /不是永远没有人的西湖/);
+    assert.equal(await page.locator("#c18 .prose details").count(), 1);
+    assert.equal(await page.locator("#c18 .prose details").evaluate(e => e.open), false);
+    await page.locator("#c18 a[href='#f81']").click();
+    await page.waitForFunction(() => document.getElementById("f81").open);
+    assert.match(await page.locator("#f81 .prose").textContent(),
+      /未提供版本信息的页面/);
+    assert.match(await page.locator("#f81 .prose").textContent(),
+      /不是今天的饮酒、夜航或人群安全建议/);
+    await page.locator("#chapter-query").fill("不存在的共同节日XYZ");
+    await page.locator("#f81 a[href='#celebration-west-lake']").click();
+    await page.waitForFunction(() => document.getElementById("c18").open &&
+      !document.getElementById("c18").hidden &&
+      document.getElementById("chapter-query").value === "");
     await page.goto(url + "#nightlife-syncopation");
     await page.waitForFunction(() => document.getElementById("c37").open);
     assert.equal(await page.locator("#c37 table").count(), 3);
@@ -107,7 +154,7 @@ const { chromium } = require("playwright");
     assert.match(await page.locator("#c37 .prose").textContent(), /甲合计八格，乙合计六格/);
     const nightlifeImage = page.locator("#c37 .prose img");
     await nightlifeImage.scrollIntoViewIfNeeded();
-    await nightlifeImage.evaluate(image => image.decode());
+    await decodeImage(nightlifeImage);
     assert.equal(await nightlifeImage.evaluate(image => image.naturalWidth), 800);
     await page.locator("#c37 a[href='#f71']").first().click();
     await page.waitForFunction(() => document.getElementById("f71").open);
@@ -132,7 +179,7 @@ const { chromium } = require("playwright");
     await page.waitForFunction(() => document.getElementById("c36").open);
     assert.equal(await page.locator("#c36 .prose table").count(), 1);
     const homeImage = page.locator("#c36 .prose img");
-    await homeImage.evaluate(el => el.decode());
+    await decodeImage(homeImage);
     assert.deepEqual(await homeImage.evaluate(el => [el.naturalWidth, el.naturalHeight]), [800, 2080]);
     assert.match(await homeImage.getAttribute("alt"), /遮挡没有封闭成房间/);
     await page.locator("#c36 a[href='#f70']").first().click();
@@ -525,7 +572,7 @@ const { chromium } = require("playwright");
     await page.locator("#c12 .prose details > summary").click();
     for (const image of await page.locator("#c12 .artwork img").all()) {
       await image.scrollIntoViewIfNeeded();
-      await image.evaluate(img => img.decode());
+      await decodeImage(image);
       assert.ok(await image.evaluate(img => img.naturalWidth > 0 && img.alt.length > 30));
     }
     await page.locator("#c12 .prose details > summary").click();
@@ -568,7 +615,7 @@ const { chromium } = require("playwright");
     assert.equal(await page.locator("#c11 .artwork img").count(), 2);
     for (const image of await page.locator("#c11 .artwork img").all()) {
       await image.scrollIntoViewIfNeeded();
-      await image.evaluate(img => img.decode());
+      await decodeImage(image);
       assert.ok(await image.evaluate(img => img.naturalWidth > 0 && img.alt.length > 30));
     }
     await page.screenshot({path: "/tmp/enjoythemoment-music-desktop.png", fullPage: false});
@@ -629,7 +676,7 @@ const { chromium } = require("playwright");
       assert.equal(await images.count(), chapter === "c16" ? 2 : 1);
       const image = images.first();
       await image.scrollIntoViewIfNeeded();
-      await image.evaluate(img => img.decode());
+      await decodeImage(image);
       assert.equal(await image.evaluate(img => img.naturalWidth), 880);
       await page.screenshot({path: "/tmp/enjoythemoment-" + chapter + "-detail-desktop.png", fullPage: false});
       await page.locator("#" + chapter + " a[href='#" + evidence + "']").first().click();
@@ -643,7 +690,7 @@ const { chromium } = require("playwright");
     }
     const pocketImage = page.locator("#c16 .artwork img").nth(1);
     await pocketImage.scrollIntoViewIfNeeded();
-    await pocketImage.evaluate(img => img.decode());
+    await decodeImage(pocketImage);
     assert.deepEqual(await pocketImage.evaluate(img => [img.naturalWidth, img.naturalHeight]), [880, 833]);
     assert.match(await pocketImage.getAttribute("alt"), /中央竖向开口/);
     await page.locator("#c16 a[href='#f66']").first().click();
@@ -718,7 +765,7 @@ const { chromium } = require("playwright");
     assert.match(await page.locator("#c19 .prose").textContent(), /输赢与选择质量，可以分开看/);
     const gameImage = page.locator("#c19 .artwork img");
     await gameImage.scrollIntoViewIfNeeded();
-    await gameImage.evaluate(img => img.decode());
+    await decodeImage(gameImage);
     assert.equal(await gameImage.evaluate(img => img.naturalWidth), 880);
     assert.equal(await page.locator("#c19 .prose table").count(), 2);
     for (const anchor of ["games-othello", "games-hanabi", "games-uncertainty",
@@ -748,7 +795,7 @@ const { chromium } = require("playwright");
       assert(await page.locator("#c20 .prose").isVisible());
     }
     for (const image of await page.locator("#c20 .artwork img").all().then(images => images.slice(0, 2))) {
-      await image.evaluate(img => img.decode());
+      await decodeImage(image);
       assert.equal(await image.evaluate(img => img.naturalWidth), 880);
       assert.match(await image.getAttribute("src"), /^data:image\/png;base64,/);
       assert((await image.getAttribute("alt")).length > 40);
@@ -759,7 +806,7 @@ const { chromium } = require("playwright");
     }
     const cyanotypeImage = page.locator("#c20 .artwork img").nth(2);
     await cyanotypeImage.scrollIntoViewIfNeeded();
-    await cyanotypeImage.evaluate(img => img.decode());
+    await decodeImage(cyanotypeImage);
     assert.deepEqual(await cyanotypeImage.evaluate(img => [img.naturalWidth, img.naturalHeight]), [720, 882]);
     assert.match(await cyanotypeImage.getAttribute("src"), /^data:image\/jpeg;base64,/);
     assert.match(await cyanotypeImage.getAttribute("alt"), /不是植物原色照片/);
@@ -843,7 +890,7 @@ const { chromium } = require("playwright");
     assert.equal(await page.locator("#c25 .artwork img").count(), 5);
     for (const image of await page.locator("#c25 .artwork img").all()) {
       await image.scrollIntoViewIfNeeded();
-      await image.evaluate(img => img.decode());
+      await decodeImage(image);
       assert.ok(await image.evaluate(img => img.naturalWidth > 0 && img.alt.length > 30));
     }
     await page.locator("#c25 a[href='#art-sculpture-recognition']").first().click();
@@ -881,7 +928,7 @@ const { chromium } = require("playwright");
     await page.waitForFunction(() => document.getElementById("c13").open);
     const theatreImage = page.locator("#c13 .artwork img");
     await theatreImage.scrollIntoViewIfNeeded();
-    await theatreImage.evaluate(img => img.decode());
+    await decodeImage(theatreImage);
     assert.equal(await theatreImage.evaluate(img => img.naturalWidth), 880);
     assert.equal(await page.locator("#c13 .prose table").count(), 2);
     for (const anchor of ["live-medium", "live-space", "live-convention",
@@ -903,7 +950,7 @@ const { chromium } = require("playwright");
     assert.equal(await page.locator("#c26 .prose table").count(), 3);
     for (const image of await page.locator("#c26 .artwork img").all()) {
       await image.scrollIntoViewIfNeeded();
-      await image.evaluate(img => img.decode());
+      await decodeImage(image);
       assert.equal(await image.evaluate(img => img.naturalWidth), 599);
       assert((await image.getAttribute("alt")).length > 50);
     }
@@ -947,7 +994,7 @@ const { chromium } = require("playwright");
     assert.equal(new URL(page.url()).hash, "#sport-tennis");
     const offside = page.locator("#c28 .artwork img");
     await offside.scrollIntoViewIfNeeded();
-    await offside.evaluate(img => img.decode());
+    await decodeImage(offside);
     assert.ok(await offside.evaluate(img => img.naturalWidth > 0 && img.alt.length > 30));
     assert.ok(await offside.evaluate(img => img.getBoundingClientRect().width <= 440));
     await page.screenshot({path: "/tmp/enjoythemoment-sport-desktop.png", fullPage: false});
@@ -971,7 +1018,7 @@ const { chromium } = require("playwright");
     }
     const moonImage = page.locator("#c29 .prose img");
     await moonImage.scrollIntoViewIfNeeded();
-    await moonImage.evaluate(img => img.decode());
+    await decodeImage(moonImage);
     assert(await moonImage.evaluate(img => img.naturalWidth === 720 && img.alt.includes("1右")));
     await page.locator("#c29 a[href='#f56']").first().click();
     await page.waitForFunction(() => document.getElementById("f56").open);
@@ -1054,7 +1101,7 @@ const { chromium } = require("playwright");
     }
     const roadImage = page.locator("#c32 .artwork img");
     await roadImage.scrollIntoViewIfNeeded();
-    await roadImage.evaluate(img => img.decode());
+    await decodeImage(roadImage);
     assert.equal(await roadImage.evaluate(img => img.naturalWidth), 880);
     for (const [index, phrase] of [[4, "起点和终点"], [5, "B → A → C → B → D → C"],
                                    [6, "00000 → 11000"], [7, "8个可达状态"]]) {
@@ -1174,7 +1221,7 @@ const { chromium } = require("playwright");
     await page.waitForFunction(() => document.getElementById("c20").open);
     for (const [i, image] of (await page.locator("#c20 .artwork img").all()).entries()) {
       await image.scrollIntoViewIfNeeded();
-      await image.evaluate(img => img.decode());
+      await decodeImage(image);
       assert(await image.evaluate(img => img.getBoundingClientRect().right <= innerWidth));
       if (i < 2) assert(await image.evaluate(img => 20 * (img.getBoundingClientRect().width - 2) / 440 >= 15));
       assert(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth));
@@ -1209,7 +1256,7 @@ const { chromium } = require("playwright");
     const makingImages = await page.locator("#c17 .artwork img").all();
     for (const [i, image] of makingImages.entries()) {
       await image.scrollIntoViewIfNeeded();
-      await image.evaluate(img => img.decode());
+      await decodeImage(image);
       assert.equal(await image.evaluate(img => img.naturalWidth), 880);
       assert(await image.evaluate(img => img.getBoundingClientRect().right <= innerWidth));
       assert(await image.evaluate(img => 20 * (img.getBoundingClientRect().width - 2) / 440 >= 15));
@@ -1238,7 +1285,7 @@ const { chromium } = require("playwright");
     await page.waitForFunction(() => document.getElementById("c25").open);
     const artImage = page.locator("#c25 .artwork img").first();
     await artImage.scrollIntoViewIfNeeded();
-    await artImage.evaluate(img => img.decode());
+    await decodeImage(artImage);
     assert(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth));
     assert(await artImage.evaluate(img => img.getBoundingClientRect().right <= innerWidth));
     await page.screenshot({path: "/tmp/enjoythemoment-art-mobile.png", fullPage: false});
@@ -1247,7 +1294,7 @@ const { chromium } = require("playwright");
       await page.waitForFunction(id => document.getElementById(id).open, id);
       const image = page.locator("#" + id + " .artwork img").first();
       await image.scrollIntoViewIfNeeded();
-      await image.evaluate(img => img.decode());
+      await decodeImage(image);
       assert(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth));
       assert(await image.evaluate(img => img.getBoundingClientRect().right <= innerWidth));
       await page.screenshot({path: "/tmp/enjoythemoment-" + id + "-mobile.png", fullPage: false});
@@ -1256,7 +1303,7 @@ const { chromium } = require("playwright");
       await page.goto(url + "#" + id);
       const image = page.locator("#" + id + " .artwork img").first();
       await image.scrollIntoViewIfNeeded();
-      await image.evaluate(img => img.decode());
+      await decodeImage(image);
       assert(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth));
       assert(await image.evaluate(img => img.getBoundingClientRect().right <= innerWidth));
       await page.screenshot({path: "/tmp/enjoythemoment-" + id + "-detail-mobile.png", fullPage: false});
@@ -1264,7 +1311,7 @@ const { chromium } = require("playwright");
     await page.locator("#c12 .prose details > summary").click();
     const ending = page.locator("#c12 .prose details img");
     await ending.scrollIntoViewIfNeeded();
-    await ending.evaluate(img => img.decode());
+    await decodeImage(ending);
     await page.screenshot({path: "/tmp/enjoythemoment-film-spoiler-mobile.png", fullPage: false});
     for (const id of ["c27", "c28", "c29", "c30"]) {
       await page.goto(url + "#" + id);
@@ -1291,7 +1338,7 @@ const { chromium } = require("playwright");
     await page.screenshot({path: "/tmp/enjoythemoment-puzzle-mobile.png", fullPage: false});
     const mobileOffside = page.locator("#c28 .artwork img");
     await mobileOffside.scrollIntoViewIfNeeded();
-    await mobileOffside.evaluate(img => img.decode());
+    await decodeImage(mobileOffside);
     assert(await mobileOffside.evaluate(img => img.getBoundingClientRect().right <= innerWidth));
     // This portrait diagram uses a 440-unit canvas and 22-unit minimum text.
     // Guard against returning to the illegible wide version; visual QA is still required.
@@ -1327,7 +1374,7 @@ const { chromium } = require("playwright");
     await staticPage.locator("#c17 > summary").click();
     assert.equal(await staticPage.locator("#c17 .prose").isVisible(), true);
     for (const image of await staticPage.locator("#c17 .artwork img").all()) {
-      await image.evaluate(img => img.decode());
+      await decodeImage(image);
       assert.equal(await image.evaluate(img => img.naturalWidth), 880);
     }
     await staticPage.locator("#c15 > summary").click();
@@ -1339,7 +1386,7 @@ const { chromium } = require("playwright");
     await staticPage.locator("#c20 > summary").click();
     for (const [i, image] of (await staticPage.locator("#c20 .artwork img").all()).entries()) {
       await image.scrollIntoViewIfNeeded();
-      await image.evaluate(img => img.decode());
+      await decodeImage(image);
       assert.equal(await image.evaluate(img => img.naturalWidth), i < 2 ? 880 : 720);
     }
     await staticPage.locator("#f34 > summary").click();
@@ -1354,7 +1401,7 @@ const { chromium } = require("playwright");
     assert.equal(await staticPage.locator("#c12 .prose details img").isVisible(), false);
     await staticPage.locator("#c12 .prose details > summary").click();
     await staticPage.locator("#c12 .prose details img").scrollIntoViewIfNeeded();
-    await staticPage.locator("#c12 .prose details img").evaluate(img => img.decode());
+    await decodeImage(staticPage.locator("#c12 .prose details img"));
     assert(await staticPage.locator("#c12 .prose details img").isVisible());
     await staticPage.locator("#c27 > summary").click();
     assert.match(await staticPage.locator("#c27 .prose").textContent(), /不加难|四格|四个问题/);
@@ -1362,13 +1409,13 @@ const { chromium } = require("playwright");
     assert.equal(await staticPage.locator("#c28 .prose table").count(), 3);
     assert.match(await staticPage.locator("#c28 .prose table").nth(2).textContent(), /12∶14/);
     await staticPage.locator("#c28 .artwork img").scrollIntoViewIfNeeded();
-    await staticPage.locator("#c28 .artwork img").evaluate(img => img.decode());
+    await decodeImage(staticPage.locator("#c28 .artwork img"));
     assert(await staticPage.locator("#c28 .artwork img").isVisible());
     for (const id of ["c14", "c16"]) {
       await staticPage.locator("#" + id + " > summary").click();
       const image = staticPage.locator("#" + id + " .artwork img").first();
       await image.scrollIntoViewIfNeeded();
-      await image.evaluate(img => img.decode());
+      await decodeImage(image);
       assert(await image.isVisible());
     }
     for (const id of ["c29", "c30"]) {
@@ -1377,7 +1424,7 @@ const { chromium } = require("playwright");
       assert.equal(await staticPage.locator(`#${id} .prose table`).count(), id === "c29" ? 3 : 2);
     }
     await staticPage.locator("#c29 .prose img").scrollIntoViewIfNeeded();
-    await staticPage.locator("#c29 .prose img").evaluate(img => img.decode());
+    await decodeImage(staticPage.locator("#c29 .prose img"));
     assert(await staticPage.locator("#c29 .prose img").isVisible());
     await staticPage.locator("#c31 > summary").click();
     assert.equal(await staticPage.locator("#c31 .prose details p").first().isVisible(), false);
@@ -1390,7 +1437,7 @@ const { chromium } = require("playwright");
     assert(await staticHints.nth(0).locator("p").first().isVisible());
     assert.equal(await staticHints.nth(2).locator("p").first().isVisible(), false);
     await staticPage.locator("#c32 .artwork img").scrollIntoViewIfNeeded();
-    await staticPage.locator("#c32 .artwork img").evaluate(img => img.decode());
+    await decodeImage(staticPage.locator("#c32 .artwork img"));
     assert.equal(await staticHints.nth(6).locator("table").isVisible(), false);
     await staticHints.nth(6).locator("summary").click();
     assert(await staticHints.nth(6).locator("table").isVisible());
@@ -1414,7 +1461,7 @@ const { chromium } = require("playwright");
     assert.equal(await staticPage.locator("#c26 .artwork img").count(), 2);
     for (const image of await staticPage.locator("#c26 .artwork img").all()) {
       await image.scrollIntoViewIfNeeded();
-      await image.evaluate(img => img.decode());
+      await decodeImage(image);
       assert(await image.isVisible());
     }
     await nojs.close();
@@ -1665,7 +1712,7 @@ const { chromium } = require("playwright");
       }
       const image = dance.locator("#c27 .prose img");
       await image.scrollIntoViewIfNeeded();
-      await image.evaluate(el => el.decode());
+      await decodeImage(image);
       assert.equal(await image.count(), 1);
       assert.match(await image.getAttribute("alt"), /第3格甲为R、乙为Q、丙为P/);
       const imageShape = await image.evaluate(el => ({

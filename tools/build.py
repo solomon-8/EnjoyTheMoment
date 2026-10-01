@@ -150,6 +150,7 @@ EVIDENCE = [
     ("F78", "docs/evidence/F78-eames-and-lived-preservation.md"),
     ("F79", "docs/evidence/F79-specialness-interview.md"),
     ("F80", "docs/evidence/F80-symposium-and-wholeness.md"),
+    ("F81", "docs/evidence/F81-west-lake-festival.md"),
 ]
 EVIDENCE_KINDS = {
     "F01": "official_statistics",
@@ -232,6 +233,7 @@ EVIDENCE_KINDS = {
     "F78": "institutional_conservation_plan_and_reporting",
     "F79": "researcher_edited_interview_not_full_paper",
     "F80": "philosophical_literary_dialogue_primary",
+    "F81": "literary_primary_text",
 }
 RELATIONS = [
     {"card_ids": ["J033"], "background_ids": ["B01"], "essay_ids": ["E04"]},
