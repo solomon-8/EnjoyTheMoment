@@ -635,3 +635,16 @@ C16不仅问好不好看，也问取物、坐下、携带怎样进入穿着。�
 F66为博物馆历史说明、元数据与数字图像，不是行为研究。V&A文章2024-04-17更新，讲欧洲语境中约1650至19世纪末等时期；Lady Clapham玩偶1690–1700衣橱含系带口袋、整合口袋与游戏袋，只是馆方个例。未独立读原始庭审、报刊、专著或玩偶实物。Met API157045为Pocket/American/ca.1784/cotton,wool/2009.300.2241；网页429，图像2000×1895目视并缩为880×833，未补绘。API对象级公有领域与官方图像说明是使用依据，不把CSV元数据CC0套到全部图片。
 
 不要据此宣传“某行业统一取消女装口袋”、口袋越多越自由、所有代携都受压迫，或复古一定更实用。F26的三件历史设计、F07织物教学、F08护理页面不验证服装效果；旧图和原有锚点保留。C02身体感受、C09责任分配、E08观众主题与本章相关，不算同一论点的多份独立证据。不自动把价值判断请求改成购物/穿搭清单。
+
+<a id="r64"></a>
+## R64 · 摄影：接触成像、有所舍弃与事实承诺
+
+<!-- reading-route: {"id":"R64","targets":["C20","F67","F34","F10","B10","N10","C25","E08","E11"]} -->
+
+正文与来源：[C20](../book/20-photography.md#photo-contact) · [F67](evidence/F67-cyanotype-and-selection.md) · [F34投影与曝光](evidence/F34-photographic-space-and-time.md) · [F10术语](evidence/F10-photography-language.md) · [B10台账](research.md#b10) · [N10核读](evidence/B10-photography.md) · [C25看画](../book/25-looking-at-art.md) · [E08观众](../essays/08-life-without-an-audience.md) · [E11真实](../essays/11-pleasure-and-reality.md)。
+
+F67是博物馆工艺教学、历史解释、元数据与实际图像，不是新增行为研究。物影照片直接通过对象与感光表面的关系成像；蓝晒是工艺，不等于所有蓝晒都是植物物影。蓝色外观不能鉴定工艺，更不是任意蓝色滤镜都与它相同。V&A Cameraless photography核读导语、Photogram/Talbot/Atkins及相邻图注；Photographic processes只采用Cyanotype条；Rose Teanby2022-11-07文章正文与图注核读，未读其档案/书籍，赠予动机中的perhaps不升级为事实。
+
+Met291575为Anna Atkins的Delesseria hypoglassum，约1853年，2005.100.557 (78)，Cyanotype，Image25.3×20cm。3266×4000主图目视，缩为720×882并JPEG编码，无裁切/AI补绘；不推现行物种分类、原色、原物尺寸或作者唯一意图。Met对象开放标识与官方API图像说明是使用依据，CSV许可不自动套到全部图像，不复制V&A图片。
+
+“忠实于什么”、排列与断言分开、票根钥匙静物、黑白桌面及技术反例均是本书解释/假想，不是亲测。可以舍弃信息以表达，但不能偷偷改变现场承诺；也不把任意失误称为艺术。不给药剂配方、曝光分钟数、安全/废液建议，不自动把价值讨论转成制作、购物或拍照任务。F34和B10不验证蓝晒享受；C25材料与观看、E08观众、E11真实为相关论题，不当重复的独立证据。
