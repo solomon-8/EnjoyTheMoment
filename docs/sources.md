@@ -130,3 +130,9 @@ Met对象记录及官方API文档标示相应公有领域图像；等比例缩�
 [摄影章](../book/20-photography.md#photo-cyanotype-object)采用V&A的工艺教学与Rose Teanby的历史解读，以及Met所藏Anna Atkins的*Delesseria hypoglassum*（约1853，2005.100.557 (78)，API291575）元数据和主图。具体读取范围、未读档案/书籍、不同作品及动机推测的边界见[F67](evidence/F67-cyanotype-and-selection.md)。
 
 馆方公有领域数字图只缩小并JPEG编码，保留署名，不冒称MIT原创或本书复刻。V&A图片、全文与化学制作步骤未转载。接触成像、观看用途与事实承诺分开；票根/钥匙/桌面的设例和价值论证为本书原创，不是机构背书或效果研究。
+
+## 峰终、礼物评价与复杂经历
+
+Do、Rupert与Wolford（2008）的[B34/N34](evidence/B34-gifts-and-endings.md)采用出版社期刊PDF，原文版权为Psychonomic Society，不宣称CC BY。Strijbosch等（2019）的[B35/N35](evidence/B35-complex-experience-and-memory.md)为CC BY 4.0文章。均以本书文字概述研究设计与结果，没有转载PDF、原图表或VR影片，未请求参与者数据。
+
+两篇不是相同设计的直接复现，礼物安排总评与看后重建也不等于逐刻享受。原文的最低分含义冲突、表格疑点及强于结果的解释保留在核读记录。[C10](../book/10-aftertaste.md#aftertaste-not-a-score)的演出宵夜、晚饭闲坐、共同等待及“不能用总评替过程免责”为原创设例与价值论证，不是作者背书或验证过的活动建议。

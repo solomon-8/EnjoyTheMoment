@@ -661,6 +661,46 @@
       },
       "directly_validates_cards": false,
       "source": "docs/research.md#b33"
+    },
+    {
+      "id": "B34",
+      "title": "额外获赠、先后顺序与整体评价",
+      "doi": "10.3758/PBR.15.1.96",
+      "access_level": "full_text",
+      "verified_at": "2026-10-01",
+      "fields": {
+        "核读日期": "2026-10-01。",
+        "文献": "Amy M. Do、Alexander V. Rupert、George Wolford（2008），*Evaluations of pleasurable experiences: The peak–end rule*，Psychonomic Bulletin & Review，15(1)，96–98。",
+        "DOI": "[10.3758/PBR.15.1.96](https://doi.org/10.3758/PBR.15.1.96)。",
+        "实际读取": "`full_text`；[出版社3页期刊PDF](https://link.springer.com/content/pdf/10.3758/PBR.15.1.96)的主文、表1/2与尾注，三页目视；未取得数据或独立复现，未系统检查后续文献及勘误。[详细核读](evidence/B34-gifts-and-endings.md)。",
+        "设计与对象": "大学生捐赠者104人中排除4人，100人分析；免费DVD选择完成后评整体赠送，之后才送达。另有28名儿童的即时收糖评价。不是观看电影或吃糖后的享受测量。",
+        "有限结论": "特定安排中，先高等级礼物再加低等级礼物的整体评分可低于只给前者；DVD实验顺序比较p = .045，不当普遍强定律。儿童实验没有反向顺序组。",
+        "不能推出": "更多物品一定增加实际快乐却被记错，平淡尾段必然毁掉回忆，改名分场就能改变评价，或所有赠品都应删掉。",
+        "我们如何使用": "[C10](../book/10-aftertaste.md#aftertaste-gifts)区分获赠安排的总评、实际使用体验和生活取舍；事件边界及闲坐例子是原创分析。",
+        "关键限制": "小而特定样本、预设材料等级与排除规则、儿童组天花板；最低分least pleased/neutral表述冲突保留；未测总体过程效用，未操纵事件边界，不验证J卡。"
+      },
+      "directly_validates_cards": false,
+      "source": "docs/research.md#b34"
+    },
+    {
+      "id": "B35",
+      "title": "复杂经历的回忆，不是万能峰终公式",
+      "doi": "10.3389/fpsyg.2019.01705",
+      "access_level": "full_text",
+      "verified_at": "2026-10-01",
+      "fields": {
+        "核读日期": "2026-10-01。",
+        "文献": "Wim Strijbosch等六位作者（2019），*From Experience to Memory: On the Robustness of the Peak-and-End-Rule for Complex, Heterogeneous Experiences*，Frontiers in Psychology，10:1705；2019-07-24发表。",
+        "DOI": "[10.3389/fpsyg.2019.01705](https://doi.org/10.3389/fpsyg.2019.01705)。",
+        "实际读取": "`full_text`；[出版社12页PDF](https://www.frontiersin.org/journals/psychology/articles/10.3389/fpsyg.2019.01705/pdf)主文、方法、结果、讨论及声明，目视第6/8/9页图表；未看影片、请求或重算数据、独立核验全部引用与复现。[详细核读](evidence/B35-complex-experience-and-memory.md)。",
+        "设计与对象": "40名大学生随机看两个VR版本，操纵未检出预期差异后合并。看后复述分段，先整体评分，再逐段评分并重看定时；平均8.70天后再评。不是实时情绪连续采样。",
+        "有限结论": "正负评价与唤醒、较快与稍后回忆的关联不同；即时正负总评peak的样本内R²最高，稍后average最高，peak-end稍后仍显著。唤醒稍后average .443和peak-end .442几乎相同。",
+        "不能推出": "平均比峰终普遍更好，峰终完全失效，异质性已证实为原因，或改结尾必然改善生活；R²不是因果效果或样本外准确率。",
+        "我们如何使用": "[C10](../book/10-aftertaste.md#aftertaste-peak-boundary)保留指标、时点与测量边界；“不替回忆交高分答卷”是本书价值主张。",
+        "关键限制": "单片小样本、回忆重建与重看加工、跨段平均权重未核实、单变量模型及Bonferroni门槛；表6标题/列名和end行统计疑点保留，不验证J卡。"
+      },
+      "directly_validates_cards": false,
+      "source": "docs/research.md#b35"
     }
   ],
   "relations": [
