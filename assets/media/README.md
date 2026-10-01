@@ -71,3 +71,7 @@
 `atkins-met-291575.jpg`来自The Metropolitan Museum of Art对象API291575指定的公有领域主图。Anna Atkins，*Delesseria hypoglassum*，ca.1853，2005.100.557 (78)。署名：**Gilman Collection, Purchase, The Horace W. Goldsmith Foundation Gift, through Joyce and Robert Menschel, 2005。** 对象开放状态、来源链接和读取边界见[F67](../../docs/evidence/F67-cyanotype-and-selection.md)；CSV元数据许可不自动覆盖全部图像，本图不是本项目MIT原创。
 
 原图3266 × 4000，等比例缩为720 × 882并JPEG编码；未裁切、补绘或主动调色，不是本书制作的蓝晒。原图SHA-256为 `91b251b68f0f4ad27cde83f6bce0134f597f6f0de8dd78cad106c796ab66e8e9`，本地版本为 `fdc021e8e7e2675a5e7e03522c163cdf8bba4fc7dd41cfe92f4a49fcd91ffd14`。画面保留册页边缘，不可从屏幕显示直接测原物；没有转载V&A图像。
+
+## 居住关系原创示意
+
+`home-relations.svg`为本项目独立绘制的400×1040示意，`home-relations.png`由同一SVG以2倍像素渲染为800×2080；采用MIT许可。三组共享同一外框和窗标记，B与C共享人和桌的几何，C仅多出一段局部遮挡。不是施罗德住宅图纸，不按比例，不提供隔音、通行、结构或施工结论；蓝色、橙色圆点只区分两人，不代表身份。没有复制馆方图片或使用AI补绘。正文与完整替代文字见[C36](../../book/36-home.md#home-modes)，材料来源范围见[F70](../../docs/evidence/F70-home-and-schroder.md)。

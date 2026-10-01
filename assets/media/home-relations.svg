@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="1040" viewBox="0 0 400 1040" role="img" aria-labelledby="title desc">
+<title id="title">同一外框，不同的生活关系</title>
+<desc id="desc">原创示意，不是住宅图纸。三图有相同外框和顶部窗标记。A两人围绕同一桌；B各用一桌，仍共享空间；C在两桌之间加入局部遮挡，不形成封闭房间，不证明隔音或独立通行。</desc>
+<defs>
+ <g id="shell"><rect x="0" y="0" width="340" height="166" rx="8" fill="#fffdf7" stroke="#665e51" stroke-width="3"/><path d="M125 0H215" stroke="#337591" stroke-width="9"/></g>
+ <g id="separate-tables"><rect x="50" y="51" width="72" height="46" rx="4" fill="#dcc392" stroke="#665e51" stroke-width="2"/><rect x="218" y="51" width="72" height="46" rx="4" fill="#dcc392" stroke="#665e51" stroke-width="2"/><circle cx="86" cy="122" r="14" fill="#bc502f"/><circle cx="254" cy="122" r="14" fill="#337591"/></g>
+</defs>
+<rect width="400" height="1040" fill="#f8f1e4"/>
+<g font-family="PingFang SC, Noto Sans CJK SC, sans-serif" fill="#302d27">
+ <text x="26" y="41" font-size="26" font-weight="700">同一外框，不同关系</text>
+ <text x="26" y="73" font-size="22">圆点是人，方块是桌</text>
+ <text x="26" y="116" font-size="24" font-weight="700">A · 一起做同一件事</text>
+ <g id="together" transform="translate(30 133)"><use href="#shell"/><rect x="136" y="43" width="68" height="80" rx="4" fill="#dcc392" stroke="#665e51" stroke-width="2"/><circle cx="108" cy="83" r="14" fill="#bc502f"/><circle cx="232" cy="83" r="14" fill="#337591"/></g>
+ <text x="26" y="331" font-size="22">桌面组织共同注意</text>
+ <text x="26" y="379" font-size="24" font-weight="700">B · 一起待着，各做各的</text>
+ <g id="parallel" transform="translate(30 396)"><use href="#shell"/><use href="#separate-tables"/></g>
+ <text x="26" y="594" font-size="22">不参与，也可以留下</text>
+ <text x="26" y="642" font-size="24" font-weight="700">C · 改变一部分视线</text>
+ <g id="screened" transform="translate(30 659)"><use href="#shell"/><use href="#separate-tables"/><path id="screen" d="M170 31V135" stroke="#665e51" stroke-width="8"/></g>
+ <text x="26" y="857" font-size="22">局部遮挡，不是独立房间</text>
+ <path d="M26 883H374" stroke="#b4a895"/>
+ <text x="26" y="916" font-size="22">原创关系图 · 不按比例</text>
+ <text x="26" y="949" font-size="22">不是施罗德住宅平面图</text>
+ <text x="26" y="982" font-size="22">不表示隔音、通行或安全</text>
+ <text x="26" y="1015" font-size="22">不排名，也不增加面积</text>
+</g>
+</svg>

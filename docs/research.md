@@ -580,3 +580,5 @@ F 系列不计入上面的 B 系列背景研究。事实、教学、文学文本
 - [F68 · 修补、工艺练习与保护目标](evidence/F68-repair-and-conservation.md)：Japan House London的金缮工艺解释与LACMA的Abigail Duckor具名访谈，用于[C17](../book/17-making.md#making-repair-goals)。连接、补缺、表面与观看目标分开，调整练习不冒充传统完整复现或馆藏实录；传说不当发明史，不提供材料教程、使用认证或心理效果承诺。
 
 - [F69 · 性健康与无性恋者尊严](evidence/F69-sexual-health-and-asexuality.md)：WHO工作定义与AASECT专业组织立场，用于[C35](../book/35-intimacy.md#intimacy-value)。尊重与愉悦不是强制性生活，身份不按行为替人判定；不是临床方案、法律标准或新增幸福实验。
+
+- [F70 · 施罗德住宅与居住变化](evidence/F70-home-and-schroder.md)：Rietveld Schröder House官网住宅、共同作者与居住史说明，用于[C36](../book/36-home.md#home-schroder)。空间转换与居住者改变不等于性能或幸福实验；未读完整传记、原档或实地核验，原创三图不是名宅图纸。
