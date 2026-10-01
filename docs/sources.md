@@ -118,3 +118,9 @@ The Public Life Data Protocol was jointly developed by Gehl Institute, Gehl, the
 Cao等（2024，PLOS ONE）及Szaszkó、Loebus（2026，i-Perception）分别见[B32/N32](evidence/B32-film-context.md)、[B33/N33](evidence/B33-context-and-categorization.md)。两篇均为CC BY 4.0开放文章，本书做署名概述，不复制人物刺激图、视频或全文；取得版本与未审范围在各条说明。正负评价、强度、类别与喜欢不混为一项指标，非连续设计不冒充完整电影复刻。
 
 [电影章](../book/12-film.md#film-designed-emotion)的门前、生日会、告别与微笑镜头为独立构造，主动投入与事实证据的区分为原创论证，不是两篇论文的干预建议或已测效果。
+
+## 穿着、口袋与藏品观察
+
+[穿衣章](../book/16-dress.md#dress-pocket-object)采用V&A的系带口袋历史说明，以及The Metropolitan Museum of Art的Pocket藏品2009.300.2241（API157045）元数据与正面数字图。[F66](evidence/F66-pockets-and-dress.md)区分机构的历史解释、可见细节与本书原创论证，没有独立核读原始庭审、报刊或历史专著，也没有穿着实验。
+
+Met对象记录及官方API文档标示相应公有领域图像；等比例缩放和JPEG编码另见[素材署名](../assets/media/README.md#系带口袋藏品图像)。不把元数据CC0误套到所有馆藏图片，不复制V&A图片，不将“看不见的漂亮”写成历史使用者已知的心理动机。

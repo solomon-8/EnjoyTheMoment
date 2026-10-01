@@ -444,8 +444,9 @@ const { chromium } = require("playwright");
       await page.locator("#" + chapter + " a[href='#" + anchor + "']").click();
       assert.equal(new URL(page.url()).hash, "#" + anchor);
       assert(await page.locator("#" + chapter + " .prose").isVisible());
-      const image = page.locator("#" + chapter + " .artwork img");
-      assert.equal(await image.count(), 1);
+      const images = page.locator("#" + chapter + " .artwork img");
+      assert.equal(await images.count(), chapter === "c16" ? 2 : 1);
+      const image = images.first();
       await image.scrollIntoViewIfNeeded();
       await image.evaluate(img => img.decode());
       assert.equal(await image.evaluate(img => img.naturalWidth), 880);
@@ -455,6 +456,23 @@ const { chromium } = require("playwright");
     }
     assert.match(await page.locator("#f26 .prose").textContent(), /未独立核对销售账册/);
     await page.goto(url + "#c16");
+    for (const anchor of ["dress-pocket-object", "dress-private-beauty"]) {
+      await page.locator(`#c16 a[href='#${anchor}']`).first().click();
+      assert.equal(new URL(page.url()).hash, "#" + anchor);
+    }
+    const pocketImage = page.locator("#c16 .artwork img").nth(1);
+    await pocketImage.scrollIntoViewIfNeeded();
+    await pocketImage.evaluate(img => img.decode());
+    assert.deepEqual(await pocketImage.evaluate(img => [img.naturalWidth, img.naturalHeight]), [880, 833]);
+    assert.match(await pocketImage.getAttribute("alt"), /中央竖向开口/);
+    await page.locator("#c16 a[href='#f66']").first().click();
+    await page.waitForFunction(() => document.getElementById("f66").open);
+    assert.match(await page.locator("#f66 .prose").textContent(), /不是仅凭数据集许可/);
+    await page.locator("#chapter-query").fill("不存在的衣服XYZ");
+    await page.locator("#f66 a[href='#dress-carrying-tradeoffs']").click();
+    await page.waitForFunction(() => document.getElementById("c16").open &&
+      !document.getElementById("c16").hidden && document.getElementById("chapter-query").value === "");
+    assert.equal(new URL(page.url()).hash, "#dress-carrying-tradeoffs");
     await page.locator("#c16 a[href='#f08']").click();
     await page.waitForFunction(() => document.getElementById("f08").open);
     assert.match(await page.locator("#f08 .prose").textContent(), /没有取得并完整审核 ISO 标准原文/);
@@ -1018,7 +1036,7 @@ const { chromium } = require("playwright");
     }
     for (const id of ["c14", "c16"]) {
       await page.goto(url + "#" + id);
-      const image = page.locator("#" + id + " .artwork img");
+      const image = page.locator("#" + id + " .artwork img").first();
       await image.scrollIntoViewIfNeeded();
       await image.evaluate(img => img.decode());
       assert(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth));
@@ -1130,7 +1148,7 @@ const { chromium } = require("playwright");
     assert(await staticPage.locator("#c28 .artwork img").isVisible());
     for (const id of ["c14", "c16"]) {
       await staticPage.locator("#" + id + " > summary").click();
-      const image = staticPage.locator("#" + id + " .artwork img");
+      const image = staticPage.locator("#" + id + " .artwork img").first();
       await image.scrollIntoViewIfNeeded();
       await image.evaluate(img => img.decode());
       assert(await image.isVisible());
