@@ -147,6 +147,7 @@ EVIDENCE = [
     ("F76", "docs/evidence/F76-diderot-and-matching.md"),
     ("F77", "docs/evidence/F77-sculpture-and-viewpoint.md"),
     ("F78", "docs/evidence/F78-eames-and-lived-preservation.md"),
+    ("F79", "docs/evidence/F79-specialness-interview.md"),
 ]
 EVIDENCE_KINDS = {
     "F01": "official_statistics",
@@ -227,6 +228,7 @@ EVIDENCE_KINDS = {
     "F76": "literary_philosophical_primary_text",
     "F77": "museum_records_and_open_photographs",
     "F78": "institutional_conservation_plan_and_reporting",
+    "F79": "researcher_edited_interview_not_full_paper",
 }
 RELATIONS = [
     {"card_ids": ["J033"], "background_ids": ["B01"], "essay_ids": ["E04"]},

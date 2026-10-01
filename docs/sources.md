@@ -178,3 +178,9 @@ E03的A／B假想答卷依据论文的比较结构改写，署明关联，不冒
 [F77](evidence/F77-sculpture-and-viewpoint.md)采用芝加哥艺术博物馆藏品API和罗丹博物馆法英文作品说明，区分物件元数据、机构解释、图中观察与本书推导。芝加哥API的description按其CC BY 4.0提示署名概述，不全文转载；罗丹馆版权照片与文字全文未收录。
 
 [C25](../book/25-looking-at-art.md#art-sculpture-recognition)采用Mx. Granger的《行走的人》正、背两张摄影作品，依据各Commons文件页的CC0标记，而不是因为雕塑在公有领域就推断任意照片可用。馆藏署名为Bequest of A. James Speyer；照片各缩小重编码、不裁切或调色，署名、文件页、尺寸和哈希见[图像资产表](../assets/art/README.md)。不是本书亲访、同次连续绕行或机构背书，照片不重新声称为MIT原创；没有识别画面参观者。
+
+## 作者访谈、使用门槛与本书解释
+
+[F79](evidence/F79-specialness-interview.md)署名概述2021年11月16日Knowledge at Wharton对Jonah Berger的编辑访谈，另以作者网站与Crossref核对论文身份。仅核读编辑文字，未听录音、未读原论文及补充材料；不将主持人关于六项实验的概括升级为本书已经审查实验。访谈中的个人回忆、解释与营销建议分别保留，不转载录音、图片或全文。
+
+[C01](../book/01-start-now.md#today-first-page)的阿晴与本子为原创假想；普通日子的使用资格、接受不完美开头及反对库存周转是本书论证，不冒充已验证机制或消费处方。保留与期待的价值也不由使用率裁决。
