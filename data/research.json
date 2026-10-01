@@ -701,6 +701,26 @@
       },
       "directly_validates_cards": false,
       "source": "docs/research.md#b35"
+    },
+    {
+      "id": "B36",
+      "title": "频率指令、欲望与亲密的享受",
+      "doi": "10.1016/j.jebo.2015.04.021",
+      "access_level": "full_text",
+      "verified_at": "2026-10-01",
+      "fields": {
+        "核读日期": "2026-10-01。",
+        "文献": "George Loewenstein、Tamar Krishnamurti、Jessica Kopsic、Daniel McDonald（2015），*Does Increased Sexual Frequency Enhance Happiness?*，Journal of Economic Behavior & Organization，116，206–218。",
+        "DOI": "[10.1016/j.jebo.2015.04.021](https://doi.org/10.1016/j.jebo.2015.04.021)。",
+        "实际读取": "`full_text`；[CMU作者托管13页期刊排版PDF](https://www.cmu.edu/dietrich/sds/docs/loewenstein/IncreasedSexualFrequency.pdf)主文、方法、结果、讨论与表格文字，目视第9/11/12页；未取得补充问卷、数据或代码，未与出版社现行版本逐字比对。[详细核读](evidence/B36-sexual-frequency.md)。",
+        "设计与对象": "64对夫妻、128人可用样本，35—65岁、已婚一男一女，排除部分健康问题、不适及相关关系紧张；90天随机频率指令，干预组被要求翻倍，实际平均未翻倍。问卷奖励不按行为次数支付。",
+        "有限结论": "指令提高组间频率，未产生预期心情改善，享受较低；心情负向结果随调整变化，控制婚龄后未达到p < .1。欲望、享受与心情不是同意测量。",
+        "不能推出": "性生活越多越不快乐、所有安排都会损害激情、动机机制已被单独证实，或每个人的最佳频率；未检验减少照护负担、旅行等替代方案。",
+        "我们如何使用": "[C35](../book/35-intimacy.md#intimacy-frequency)拒绝把次数当多种体验的共同代理；对话、关系判断与价值排序为原创论证。",
+        "关键限制": "选择性样本、基线不平衡、自报与事后分析；表1/2人数、表5模型描述、表7年龄项及表8协调结果疑点保留。没有直接验证任何J卡。"
+      },
+      "directly_validates_cards": false,
+      "source": "docs/research.md#b36"
     }
   ],
   "relations": [

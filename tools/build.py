@@ -64,6 +64,7 @@ EVIDENCE = [
     ("N33", "docs/evidence/B33-context-and-categorization.md"),
     ("N34", "docs/evidence/B34-gifts-and-endings.md"),
     ("N35", "docs/evidence/B35-complex-experience-and-memory.md"),
+    ("N36", "docs/evidence/B36-sexual-frequency.md"),
     ("F01", "docs/evidence/F01-time-use.md"),
     ("F02", "docs/evidence/F02-listening-language.md"),
     ("F03", "docs/evidence/F03-film-language.md"),
@@ -132,6 +133,7 @@ EVIDENCE = [
     ("F66", "docs/evidence/F66-pockets-and-dress.md"),
     ("F67", "docs/evidence/F67-cyanotype-and-selection.md"),
     ("F68", "docs/evidence/F68-repair-and-conservation.md"),
+    ("F69", "docs/evidence/F69-sexual-health-and-asexuality.md"),
 ]
 EVIDENCE_KINDS = {
     "F01": "official_statistics",
@@ -202,6 +204,7 @@ EVIDENCE_KINDS = {
     "F66": "museum_history_record_and_image",
     "F67": "museum_process_record_and_image",
     "F68": "cultural_craft_explainer_and_conservator_interview",
+    "F69": "public_health_working_definition_and_professional_position",
 }
 RELATIONS = [
     {"card_ids": ["J033"], "background_ids": ["B01"], "essay_ids": ["E04"]},
