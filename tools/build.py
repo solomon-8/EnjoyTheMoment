@@ -143,6 +143,7 @@ EVIDENCE = [
     ("F73", "docs/evidence/F73-table-tennis-laws.md"),
     ("F74", "docs/evidence/F74-social-table-tennis.md"),
     ("F75", "docs/evidence/F75-time-choice-and-discounting.md"),
+    ("F76", "docs/evidence/F76-diderot-and-matching.md"),
 ]
 EVIDENCE_KINDS = {
     "F01": "official_statistics",
@@ -220,6 +221,7 @@ EVIDENCE_KINDS = {
     "F73": "official_sport_rules",
     "F74": "official_social_sport_formats",
     "F75": "economic_review_concepts_models_and_methods",
+    "F76": "literary_philosophical_primary_text",
 }
 RELATIONS = [
     {"card_ids": ["J033"], "background_ids": ["B01"], "essay_ids": ["E04"]},

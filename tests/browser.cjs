@@ -460,6 +460,14 @@ const { chromium } = require("playwright");
     await page.goto(url + "#c06");
     await page.waitForFunction(() => document.getElementById("c06").open);
     assert.equal(await page.locator("#c06 .prose table").count(), 4);
+    await page.locator("#c06 a[href='#spending-matching-life']").first().click();
+    assert.equal(new URL(page.url()).hash, "#spending-matching-life");
+    assert.match(await page.locator("#c06 .prose").textContent(), /不必让生活通过物品的验收/);
+    await page.locator("#c06 a[href='#f76']").first().click();
+    await page.waitForFunction(() => document.getElementById("f76").open);
+    assert.match(await page.locator("#f76 .prose").textContent(), /未完成全篇逐字图文对校/);
+    await page.locator("#f76 a[href='#spending-matching-life']").first().click();
+    await page.waitForFunction(() => document.getElementById("c06").open);
     await page.goto(url + "#c08");
     await page.waitForFunction(() => document.getElementById("c08").open);
     assert.equal(await page.locator("#c08 .prose table").count(), 2);
@@ -1542,7 +1550,7 @@ const { chromium } = require("playwright");
       await spending.goto(url + (javaScriptEnabled ? "#c06" : ""));
       if (!javaScriptEnabled) await spending.locator("#c06 > summary").click();
       assert.match(await spending.locator("#c06 .prose").textContent(), /钱买来的应该是你想过的生活/);
-      for (const anchor of ["spending-pass-arithmetic", "spending-learning", "spending-theatre-study", "spending-future-cost"]) {
+      for (const anchor of ["spending-matching-life", "spending-pass-arithmetic", "spending-learning", "spending-theatre-study", "spending-future-cost"]) {
         if (javaScriptEnabled) {
           await spending.locator(`#c06 a[href='#${anchor}']`).first().click();
           assert.equal(new URL(spending.url()).hash, "#" + anchor);
