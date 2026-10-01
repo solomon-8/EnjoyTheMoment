@@ -202,6 +202,17 @@ const { chromium } = require("playwright");
     await page.waitForFunction(() => document.getElementById("c21").open &&
       !document.getElementById("c21").hidden && document.getElementById("chapter-query").value === "");
     assert.equal(new URL(page.url()).hash, "#time-study");
+    // An edited section keeps its old fragment and routes to the same chapter.
+    await page.goto(url + "#" + encodeURIComponent("不给空白写用途是否就是浪费"));
+    await page.waitForFunction(() => document.getElementById("c21").open);
+    await page.locator("#c21 a[href='#time-reservation']").first().click();
+    assert.equal(new URL(page.url()).hash, "#time-reservation");
+    assert.match(await page.locator("#c21 .prose").textContent(), /原创假想/);
+    await page.locator("#essay-query").fill("不存在的休息XYZ");
+    await page.locator("#c21 a[href='#rest-no-verdict']").first().click();
+    await page.waitForFunction(() => document.getElementById("e07").open &&
+      !document.getElementById("e07").hidden && document.getElementById("essay-query").value === "");
+    assert.equal(new URL(page.url()).hash, "#rest-no-verdict");
     await page.goto(url + "#friends-not-a-service");
     await page.waitForFunction(() => document.getElementById("e09").open);
     await page.locator("#e09 a[href='#friends-reciprocity']").first().click();
