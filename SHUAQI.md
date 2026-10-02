@@ -86,6 +86,7 @@
 
 主张需要经得起争论，乐趣也需要有具体内容：
 
+- **是不是另一种性价比**：[把快乐也算成收益，还剩什么分歧](essays/01-pleasure-is-an-end.md#pleasure-value-metric)、[为什么想经历的过程不一定该被省掉](essays/01-pleasure-is-an-end.md#pleasure-process)。
 - **时间归谁**：[休息不欠工作解释](essays/07-rest-is-not-work.md)、[省下来的时间怎么又没了](book/21-free-time.md)。
 - **想要怎样的刺激**：[强度不是唯一方向](essays/02-excitement-without-escalation.md)、[恐怖中的悬念](book/31-recreational-fear.md)、[解谜为何不急着揭底](book/32-puzzles.md)。
 - **喜欢里究竟有什么**：[音乐中的重复与变化](book/11-music.md)、[看画时材料与解释的差别](book/25-looking-at-art.md)、[熟悉月亮里的新问题](book/29-night-sky.md#moon-rotation)。
