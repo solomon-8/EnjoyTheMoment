@@ -198,8 +198,30 @@ async function decodeImage(image) {
       !document.getElementById("c02").hidden && document.getElementById("chapter-query").value === "");
     await page.goto(url + "#senses-bite-sound");
     await page.waitForFunction(() => document.getElementById("c02").open);
-    assert.equal(await page.locator("#senses-bite-sound + h3").textContent(),
+    assert.equal(await page.locator("#senses-bite-sound + h4").textContent(),
       "这一口的脆，为什么还要问耳朵？");
+    assert.deepEqual(await page.locator("#c02 .prose h3").allTextContents(), [
+      "一、只看东西，为什么还不够解释感受？",
+      "二、受影响的喜欢，就不算真的喜欢了吗？",
+      "三、认真喜欢，不等于必须更贵、更强、更多",
+      "四、同一个晚上，谁在尽兴，谁在迁就？"
+    ]);
+    for (const anchor of ["senses-contact", "senses-expectations",
+                          "senses-preferences", "senses-shared"]) {
+      await page.locator(`#c02 a[href="#${anchor}"]`).first().click();
+      assert.equal(await page.evaluate(() => location.hash), "#" + anchor);
+      assert(await page.locator(`#${anchor} + h3`).isVisible());
+    }
+    await page.locator("#c02 a[href='#senses-blind-test']").first().click();
+    assert.equal(await page.evaluate(() => location.hash), "#senses-blind-test");
+    assert.match(await page.locator("#c02 .prose").textContent(),
+      /如果她另外核实了店家用来解释价格的说法不实/);
+    assert.match(await page.locator("#c02 .prose").textContent(),
+      /“不看包装时更喜欢另一杯”，本身不能证明店家撒谎/);
+    assert(await page.locator("#c02 .prose h5").evaluateAll(headings =>
+      headings.length === 2 && headings.every(h =>
+        parseFloat(getComputedStyle(h).fontSize) >=
+        parseFloat(getComputedStyle(h.closest(".prose")).fontSize))));
     await page.locator("#c02 a[href='#n46']").click();
     await page.waitForFunction(() => document.getElementById("n46").open);
     assert.match(await page.locator("#n46 .prose").textContent(),
