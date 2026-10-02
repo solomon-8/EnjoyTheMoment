@@ -21,14 +21,14 @@ class SpoilerChoiceTests(unittest.TestCase):
     def test_new_study_is_distinct_and_does_not_validate_cards(self):
         records = build.research_records(ROOT)
         self.assertEqual({r["id"] for r in records},
-                         {f"B{i:02d}" for i in range(1, 47)})
+                         {f"B{i:02d}" for i in range(1, 48)})
         record = next(r for r in records if r["id"] == "B45")
         self.assertEqual(record["doi"], "10.61645/ssol.190")
         self.assertEqual(record["access_level"], "full_text")
         self.assertEqual(record["verified_at"], "2026-10-02")
         self.assertFalse(record["directly_validates_cards"])
         self.assertEqual(sum(r["access_level"] == "full_text"
-                             for r in records), 45)
+                             for r in records), 46)
         self.assertEqual([r["id"] for r in records
                           if r["access_level"] == "abstract_only"], ["B44"])
         cards = json.loads((ROOT / "data/catalog.json").read_text())["cards"]

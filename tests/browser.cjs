@@ -91,6 +91,15 @@ async function decodeImage(image) {
       headings.length === 3 && headings.every(h =>
         parseFloat(getComputedStyle(h).fontSize) >=
         parseFloat(getComputedStyle(h.closest(".prose")).fontSize))));
+    await page.goto(url + "#digital-pleasure-permission");
+    await page.waitForFunction(() => document.getElementById("e10").open);
+    assert.match(await page.locator("#e10 .prose").textContent(), /事后补签的同意书/);
+    await page.locator("#e10 a[href='#n47']").first().click();
+    await page.waitForFunction(() => document.getElementById("n47").open);
+    assert.match(await page.locator("#n47 .prose").textContent(), /对数均值不是美元/);
+    assert.match(await page.locator("#n47 .prose").textContent(), /2020-06-12/);
+    await page.locator("#n47 a[href='#digital-interruption-delegation']").first().click();
+    await page.waitForFunction(() => document.getElementById("e10").open);
     await page.goto(url + "#digital-desire");
     await page.waitForFunction(() => document.getElementById("e10").open);
     assert.match(await page.locator("#e10 .prose").textContent(), /想要不是命令，享乐不是服从/);
@@ -1388,7 +1397,7 @@ async function decodeImage(image) {
     assert.equal(await page.locator(".argument:visible").count(), 1);
     await page.goto(url + "#e10");
     await page.waitForFunction(() => document.getElementById("e10").open);
-    assert.equal(await page.locator("#e10 .prose table").count(), 3);
+    assert.equal(await page.locator("#e10 .prose table").count(), 4);
     assert.match(await page.locator("#e10 .prose").textContent(), /开始、继续、再次回来/);
     await page.locator("#e10 .prose table").first().scrollIntoViewIfNeeded();
     await page.screenshot({path: "/tmp/enjoythemoment-attention-desktop.png", fullPage: false});
