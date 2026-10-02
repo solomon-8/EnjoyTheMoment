@@ -77,6 +77,20 @@ async function decodeImage(image) {
     assert.match(await page.locator("#f84 .prose").textContent(), /未参加活动/);
     await page.locator("#f84 a[href='#constrained-access-scene']").first().click();
     await page.waitForFunction(() => document.getElementById("c09").open);
+    await page.goto(url + "#digital-value");
+    await page.waitForFunction(() => document.getElementById("e10").open);
+    assert.equal(await page.locator("#e10 .prose h3").count(), 4);
+    for (const anchor of ["digital-value", "digital-conditions", "digital-delegation", "digital-commercial-costs"]) {
+      await page.locator(`#e10 a[href='#${anchor}']`).first().click();
+      assert.equal(new URL(page.url()).hash, "#" + anchor);
+      assert(await page.locator("#e10 .prose").isVisible());
+    }
+    assert.match(await page.locator("#e10 .prose").textContent(), /刻意假定损失存在/);
+    assert.match(await page.locator("#e10 .prose").textContent(), /并不会独自解决分配问题/);
+    assert(await page.locator("#e10 .prose h5").evaluateAll(headings =>
+      headings.length === 3 && headings.every(h =>
+        parseFloat(getComputedStyle(h).fontSize) >=
+        parseFloat(getComputedStyle(h.closest(".prose")).fontSize))));
     await page.goto(url + "#digital-desire");
     await page.waitForFunction(() => document.getElementById("e10").open);
     assert.match(await page.locator("#e10 .prose").textContent(), /想要不是命令，享乐不是服从/);
