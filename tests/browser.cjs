@@ -253,6 +253,18 @@ async function decodeImage(image) {
     await page.locator("#n37 .prose a[href='#novelty-repeat']").click();
     await page.waitForFunction(() => document.getElementById("c03").open &&
       !document.getElementById("c03").hidden && document.getElementById("chapter-query").value === "");
+    assert.match(await page.locator("#c03 > summary").textContent(), /已经玩过，就不值得再来吗/);
+    await page.goto(url + "#03--给日常制造一点意外");
+    await page.waitForFunction(() => document.getElementById("c03").open);
+    for (const id of ["novelty-surprise", "novelty-depth"]) {
+      await page.goto(url + "#" + id);
+      await page.waitForFunction(() => document.getElementById("c03").open);
+      assert.equal(await page.locator("#" + id + " + h4").count(), 1);
+    }
+    await page.locator("#c03 a[href='#excitement-costs']").click();
+    await page.waitForFunction(() => document.getElementById("e02").open);
+    await page.locator("#e02 a[href='#novelty-repeat']").click();
+    await page.waitForFunction(() => document.getElementById("c03").open);
     await page.goto(url + "#home-modes");
     await page.waitForFunction(() => document.getElementById("c36").open);
     assert.equal(await page.locator("#c36 .prose table").count(), 1);
