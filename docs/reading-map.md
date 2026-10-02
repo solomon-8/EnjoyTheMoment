@@ -53,6 +53,8 @@ F79仅核2021年11月16日Knowledge at Wharton的编辑访谈及书目，未听�
 
 正文与来源：[E03](../essays/03-now-or-later.md) · [B23](research.md#b23) · [N23](evidence/B23-reliable-waiting.md)
 
+E03先从[承诺要交出理由](../essays/03-now-or-later.md#waiting-credible-promise)进入，再讨论[长期投入与等待价值](../essays/03-now-or-later.md#waiting-long-term-defense)、[选择与反悔](../essays/03-now-or-later.md#waiting-not-a-patience-score)、[真实窗口与倒计时](../essays/03-now-or-later.md#waiting-real-window)，最后讨论[未来自我的分量](../essays/03-now-or-later.md#waiting-future-self)。期待、现实限制和资格加码可能同时存在，不是互斥分类或人格诊断；攒钱同时享受期待、钱够后再加门槛的例子是原创假想。可信的等待不需要百分之百保证，临时变化也不自动等于失信。
+
 时间取舍见 E03/B23/N23：28名幼儿、两组各14名，15分钟右截尾；没有成人长期结果，不推出自控无关。正文rank-sum与图注signed-rank不一致，附录未取得，见[核读](evidence/B23-reliable-waiting.md)。先回应承诺、等待代价与长期投入的论点，不把价值判断改写成实验结论。
 
 <a id="r05"></a>
@@ -837,7 +839,7 @@ F74为官方社交玩法，不是心理效果研究。六人六场两种排法�
 
 正文与来源：[E03](../essays/03-now-or-later.md#waiting-not-a-patience-score) · [F75](evidence/F75-time-choice-and-discounting.md) · [E01选择价值](../essays/01-pleasure-is-an-end.md) · [E10主动限额](../essays/10-pleasure-not-retention.md#digital-limit-authority) · [C01愿望兑现](../book/01-start-now.md) · [B23承诺可靠性](research.md#b23) · [N23核读范围](evidence/B23-reliable-waiting.md)。
 
-先回答价值与时间选择，不默认提供活动清单、自控训练或财务方案。E03区分选择早晚与选择原因、资源到账与效用发生、条件或目标的真实改变与目标仍在却反复偏离；承认当下意愿与先前认可的安排可能冲突，不把任一时点自动当作唯一真实自我。
+先回答价值与时间选择，不默认提供活动清单、自控训练或财务方案。E03的选择部分依次讨论[偏好逆转](../essays/03-now-or-later.md#waiting-reversal)、[修改计划](../essays/03-now-or-later.md#waiting-plan-revision)、[没玩成的拖延](../essays/03-now-or-later.md#waiting-pleasure-procrastination)与[锁住自己的代价](../essays/03-now-or-later.md#waiting-commitment-objection)。区分选择早晚与选择原因、资源到账与效用发生、条件或目标的真实改变与目标仍在却反复偏离；承认当下意愿与先前认可的安排可能冲突，不把任一时点自动当作唯一真实自我。
 
 F75是2002年经济学综述的概念、模型与方法论局部核读，不是新增B系列实验。51页扫描版只采用引言、3.6、4.1、5.1与6.1.1—6.1.7的指定页段；未通读、未独立核验底层实验或完整后续研究。OCR只用于定位，采用段落及脚注另目视核对。AEA全文入口当次为登录HTML，CMU文件完成续传后才采用。
 
