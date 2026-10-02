@@ -296,6 +296,8 @@ F81按维基文库独立篇目修订2327158核读全文，另与卷七修订2703
 
 用户讨论平台留存、订阅与“及时享乐是否等于放任消费”：读 E10/B14/F20。网站是采样单位，不是实验人数；2019 年网站研究不测用户幸福或当今全部平台。F20 是 2022 年监管报告，历史指控不能写成当前界面或个案法律结论。
 
+E10按[行为与价值](../essays/10-pleasure-not-retention.md#digital-value)、[选择条件](../essays/10-pleasure-not-retention.md#digital-conditions)、[主动授权](../essays/10-pleasure-not-retention.md#digital-delegation)和[商业代价](../essays/10-pleasure-not-retention.md#digital-commercial-costs)展开。[工作室失去收入的假想](../essays/10-pleasure-not-retention.md#digital-honest-cost)刻意承认清楚退出可能减少收入、收费可能排除部分读者、作品可能停更；不是B14/F20研究结果或行业统计，不承诺透明设计必然更盈利。作者可以提出价格或停止服务，读者可以拒绝；不由喜欢、沉默或未能取消推定无限支持。条件透明不自动解决分配问题，本书也不能用误导标题、歪曲参考或点击量替代认同。
+
 <a id="r30"></a>
 ## R30 · 夜空与观鸟的来源范围
 
