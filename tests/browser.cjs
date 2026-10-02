@@ -1397,7 +1397,7 @@ async function decodeImage(image) {
     assert.equal(await page.locator(".argument:visible").count(), 1);
     await page.goto(url + "#e10");
     await page.waitForFunction(() => document.getElementById("e10").open);
-    assert.equal(await page.locator("#e10 .prose table").count(), 3);
+    assert.equal(await page.locator("#e10 .prose table").count(), 4);
     assert.match(await page.locator("#e10 .prose").textContent(), /开始、继续、再次回来/);
     await page.locator("#e10 .prose table").first().scrollIntoViewIfNeeded();
     await page.screenshot({path: "/tmp/enjoythemoment-attention-desktop.png", fullPage: false});
