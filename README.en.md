@@ -49,7 +49,7 @@ The choice is not between being sensible and being reckless.
 
 We question a more ordinary default: why does every present wish have to lose to an increasingly distant future?
 
-Planning is welcome. So is immediate pleasure. But pleasure does not always have to wait until every task, milestone, and self-improvement project is complete. [Choosing sooner is not a personality test](essays/03-now-or-later.md#waiting-not-a-patience-score): timing, reliability and changing wishes are different questions. Avoiding a small inconvenience now can also keep a wanted experience from happening at all.
+Planning is welcome. So is immediate pleasure. But pleasure does not always have to wait until every task, milestone, and self-improvement project is complete. [A promise asking us to wait should also face scrutiny](essays/03-now-or-later.md#waiting-credible-promise). E03 moves from credible promises and the value of waiting to changing choices, real deadlines and the claims of our future selves. Anticipation, resource limits and ever-rising eligibility conditions can coexist; they are not three types of people. [Choosing sooner is not a personality test](essays/03-now-or-later.md#waiting-not-a-patience-score), and avoiding a small inconvenience now can also keep a wanted experience from happening at all.
 
 Neither excitement nor spending is compulsory. Quiet enjoyment counts. Disliking an activity counts. Having a bad day is not a failure to live properly.
 

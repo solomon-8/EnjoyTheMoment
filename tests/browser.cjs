@@ -404,6 +404,15 @@ async function decodeImage(image) {
     await page.goto(url + "#waiting-credible-promise");
     await page.waitForFunction(() => document.getElementById("e03").open);
     assert(await page.locator("#e03 .prose").isVisible());
+    assert.equal(await page.locator("#e03 .prose h3").count(), 5);
+    assert.match(await page.locator("#e03 .prose").textContent(), /不是三类人，也不是互斥选项/);
+    for (const anchor of ["waiting-credible-promise", "waiting-long-term-defense",
+                         "waiting-not-a-patience-score", "waiting-real-window",
+                         "waiting-future-self", "waiting-anticipation"]) {
+      await page.locator(`#e03 a[href='#${anchor}']`).first().click();
+      assert.equal(new URL(page.url()).hash, "#" + anchor);
+      assert(await page.locator("#e03 .prose").isVisible());
+    }
     await page.locator("#e03 a[href='#waiting-long-term-defense']").first().click();
     assert.equal(new URL(page.url()).hash, "#waiting-long-term-defense");
     await page.locator("#e03 a[href='#n23']").first().click();
