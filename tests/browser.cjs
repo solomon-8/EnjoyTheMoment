@@ -46,6 +46,17 @@ async function decodeImage(image) {
     page.on("pageerror", error => errors.push(error.message));
     page.on("request", request => {if (/^https?:/.test(request.url())) requests.push(request.url());});
     const url = pathToFileURL(path.resolve(__dirname, "../index.html")).href;
+    await page.goto(url + "#digital-desire");
+    await page.waitForFunction(() => document.getElementById("e10").open);
+    assert.match(await page.locator("#e10 .prose").textContent(), /想要不是命令，享乐不是服从/);
+    assert.match(await page.locator("#e10 .prose").textContent(), /不是三种互斥的人/);
+    assert.match(await page.locator("#e10 .prose").textContent(), /旁观者不能仅凭点击宣布你不喜欢/);
+    await page.locator("#e10 a[href='#n42']").first().click();
+    await page.waitForFunction(() => document.getElementById("n42").open);
+    assert.match(await page.locator("#n42 .prose").textContent(), /p = \.051/);
+    assert.match(await page.locator("#n42 .prose").textContent(), /未取得或核读补充材料/);
+    await page.locator("#n42 a[href='#digital-desire-study']").first().click();
+    await page.waitForFunction(() => document.getElementById("e10").open);
     await page.goto(url);
     await page.locator("#chapter-query").fill("C13");
     await page.goto(url + "#live-participation");
@@ -1183,7 +1194,7 @@ async function decodeImage(image) {
     assert.equal(await page.locator(".argument:visible").count(), 1);
     await page.goto(url + "#e10");
     await page.waitForFunction(() => document.getElementById("e10").open);
-    assert.equal(await page.locator("#e10 .prose table").count(), 2);
+    assert.equal(await page.locator("#e10 .prose table").count(), 3);
     assert.match(await page.locator("#e10 .prose").textContent(), /开始、继续、再次回来/);
     await page.locator("#e10 .prose table").first().scrollIntoViewIfNeeded();
     await page.screenshot({path: "/tmp/enjoythemoment-attention-desktop.png", fullPage: false});

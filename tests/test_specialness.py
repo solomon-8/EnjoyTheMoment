@@ -57,7 +57,7 @@ class SpecialnessTests(unittest.TestCase):
         self.assertEqual(note["text"], text)
         self.assertEqual(note["source_kind"], "researcher_edited_interview_not_full_paper")
         records = json.loads((ROOT / "data/research.json").read_text())["records"]
-        self.assertEqual({r["id"] for r in records}, {f"B{n:02d}" for n in range(1, 42)})
+        self.assertEqual({r["id"] for r in records}, {f"B{n:02d}" for n in range(1, 43)})
         cards = json.loads((ROOT / "data/catalog.json").read_text())["cards"]
         self.assertEqual(len(cards), 60)
         self.assertTrue(all("F79" not in c["background_ids"] for c in cards))
@@ -80,7 +80,7 @@ class SpecialnessTests(unittest.TestCase):
                          {"C01", "B17", "N17", "F79", "E01", "E03", "E10", "C18"})
         self.assertIn("先回应完整论证和保留理由", route["text"])
         self.assertIn("不自动生成清库存或采购清单", route["text"])
-        self.assertEqual(len(routes), 79)
+        self.assertEqual(len(routes), 80)
 
     def test_epub_preserves_new_argument_and_existing_voucher_table(self):
         with ZipFile(ROOT / "downloads/EnjoyTheMoment.epub") as archive:
