@@ -66,7 +66,7 @@ class HomePreservationTests(unittest.TestCase):
         self.assertEqual(note["source_kind"], "institutional_conservation_plan_and_reporting")
         research = json.loads((ROOT / "data/research.json").read_text())["records"]
         self.assertEqual({r["id"] for r in research},
-                         {f"B{n:02d}" for n in range(1, 42)})
+                         {f"B{n:02d}" for n in range(1, 43)})
         cards = json.loads((ROOT / "data/catalog.json").read_text())["cards"]
         self.assertEqual(len(cards), 60)
         self.assertTrue(all("F78" not in c["background_ids"] for c in cards))

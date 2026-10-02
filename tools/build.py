@@ -70,6 +70,7 @@ EVIDENCE = [
     ("N39", "docs/evidence/B39-relationship-rules.md"),
     ("N40", "docs/evidence/B40-happiness-concern.md"),
     ("N41", "docs/evidence/B41-groove-syncopation.md"),
+    ("N42", "docs/evidence/B42-cue-wanting-and-liking.md"),
     ("F01", "docs/evidence/F01-time-use.md"),
     ("F02", "docs/evidence/F02-listening-language.md"),
     ("F03", "docs/evidence/F03-film-language.md"),

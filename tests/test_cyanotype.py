@@ -68,13 +68,13 @@ class CyanotypeTests(unittest.TestCase):
         notes = json.loads((ROOT / "data/evidence.json").read_text())["notes"]
         note = next(n for n in notes if n["id"] == "F67")
         self.assertEqual(note["source_kind"], "museum_process_record_and_image")
-        self.assertEqual(len(notes), 123)
+        self.assertEqual(len(notes), 124)
         rendered = build.markdown(note["text"], note["source"])
         for anchor in ("photo-contact", "photo-selective-truth",
                        "photo-arranged-presence", "photo-process-objection"):
             self.assertIn('href="#' + anchor + '"', rendered)
         records = json.loads((ROOT / "data/research.json").read_text())["records"]
-        self.assertEqual(len(records), 41)
+        self.assertEqual(len(records), 42)
         self.assertNotIn("F67", {r["id"] for r in records})
         cards = json.loads((ROOT / "data/catalog.json").read_text())["cards"]
         self.assertEqual(len(cards), 60)
