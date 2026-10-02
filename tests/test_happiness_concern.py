@@ -64,7 +64,7 @@ class HappinessConcernTests(unittest.TestCase):
             self.assertIn(phrase, text)
         research = json.loads((ROOT / "data/research.json").read_text())["records"]
         self.assertEqual({r["id"] for r in research},
-                         {f"B{n:02d}" for n in range(1, 46)})
+                         {f"B{n:02d}" for n in range(1, 47)})
         record = next(r for r in research if r["id"] == "B40")
         self.assertEqual(record["doi"], "10.1037/emo0001381")
         self.assertFalse(record["directly_validates_cards"])

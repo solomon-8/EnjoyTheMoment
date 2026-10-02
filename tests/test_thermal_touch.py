@@ -70,7 +70,8 @@ class ThermalTouchTests(unittest.TestCase):
             self.assertEqual(by_id[identifier]["source_sha256"], hashlib.sha256(raw).hexdigest())
         route = next(r for r in routes if r["id"] == "R71")
         self.assertEqual(set(route["targets"]),
-                         {"C02", "B38", "N38", "B19", "N19", "F05", "C14", "C16", "E04"})
+                         {"C02", "B38", "N38", "B19", "N19", "B46", "N46",
+                          "F05", "C14", "C16", "E04"})
         text = (ROOT / "docs/reading-map.md").read_text().split('<a id="r71"></a>')[1]
         for identifier in route["targets"]:
             self.assertIn("[" + identifier, text)

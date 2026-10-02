@@ -901,6 +901,26 @@
       },
       "directly_validates_cards": false,
       "source": "docs/research.md#b45"
+    },
+    {
+      "id": "B46",
+      "title": "一口的脆：声音怎样参与质地判断",
+      "doi": "10.1111/j.1745-459x.2004.080403.x",
+      "access_level": "full_text",
+      "verified_at": "2026-10-03",
+      "fields": {
+        "核读日期": "2026-10-03。",
+        "文献": "Massimiliano Zampini、Charles Spence（2004）. *The role of auditory cues in modulating the perceived crispness and staleness of potato chips*. Journal of Sensory Studies，19，347–363。",
+        "DOI": "[10.1111/j.1745-459x.2004.080403.x](https://doi.org/10.1111/j.1745-459x.2004.080403.x)。",
+        "实际读取": "`full_text`；取得17页第三方镜像期刊排版PDF，核读摘要、本研究目的、方法、结果与讨论；目视核对350页方法、354页图2与355页冲突文字。Crossref书目身份相符，出版社页面403，未与出版社下载逐字比对。[详细核读](evidence/B46-bite-sound.md)。",
+        "设计与对象": "20名成人，每次前牙咬一下同一包装中的薯片，不咀嚼、不吞咽；处理同步回放的咬声，改变高频部分及整体衰减，每次评酥脆或新鲜感。18条件各5次，共90次正式试次，另18次练习；试次不等于人数。",
+        "有限结论": "作者报告两种声音操纵均影响两种评分，存在交互；最强整体衰减下未检出频率条件两两差异。主效应不等于每种条件都同向，未显著不等于等效。",
+        "不能推出": "声音让食物客观更新鲜或更安全、一定更喜欢、背景音乐或包装噪声有相同效果，或可推荐个人音量设置。",
+        "我们如何使用": "[C02](../book/02-senses.md#senses-bite-sound)说明多个感官可以共同参与对同一性质的判断，分开质地评分、新鲜状态和喜欢；[C14](../book/14-flavor.md)只作相邻阅读入口，不新增独立证据。",
+        "关键限制": "小样本、单一食物、特殊咬法和耳机反馈；没有喜欢或安全测量。图2与文字在两个细分条件方向冲突，量尺编码及分析名称另有需保留的表述问题；未取得数据、代码或勘误，未穷尽复现/更正检索，不验证卡片。"
+      },
+      "directly_validates_cards": false,
+      "source": "docs/research.md#b46"
     }
   ],
   "relations": [
