@@ -71,6 +71,8 @@ B29 separates coffee concentration, extraction and sensory intensity from liking
 
 B37 uses selected studies and public materials to distinguish predicted repetition, actual enjoyment and willingness-to-pay bids from payments that never occurred. Statistical, educational, health, technical, practice, literary, visitor-guidance and regulatory-report sources are recorded separately. None directly validates our activities.
 
+[E01 · Pleasure does not need a reimbursement claim](essays/01-pleasure-is-an-end.md) asks whether counting pleasure as a benefit makes this just another value-for-money guide. It does not reject comparison: it asks what counts as worthwhile, when a process is itself wanted, and whether every choice must prove optimal. A fictional cooking example distinguishes obtaining a meal from wanting to spend an evening making one, without romanticizing unpaid work or ignoring limited resources.
+
 [E04 · Why is work equipment an investment, but pleasure a waste?](essays/04-buying-pleasure.md) asks whether a cheaper functional substitute also replaces what you actually want. Liking something is a legitimate reason, not a veto over shared obligations; the essay examines premiums, joint budgets, preserved options and disappointing outcomes without ranking objects above experiences or prescribing a spending ratio.
 
 [E05 · You can keep an ordinary hobby](essays/05-play-is-not-performance.md) takes seriously wanting to improve without reaching the goal. It separates private enjoyment, shared commitments and criticism of a work. Practice research is not a personal success formula, and not improving does not by itself invalidate the time spent.

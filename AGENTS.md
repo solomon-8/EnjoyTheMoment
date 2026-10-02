@@ -1,5 +1,8 @@
 # Repository editing notes
 
+- The primary acceptance standard is a stronger work than the agreed reference: substantive depth, argument quality and readability, together with a distinctive position worth remembering and discussing. "Ready to play" is a supporting usability requirement, not the project's purpose or a substitute for that comparison.
+- Prioritize the manifesto, central arguments and substantive chapters over additional cards, export formats or tools. First identify a concrete weakness through paired reading of the reference and our text; decide whether to deepen, restructure or cut before deciding to add. More words, citations, files or passing tests do not establish improvement.
+- Evaluate attention at two separate levels: editorial reasons a passage may attract interest, and observed reader interest. Never present the former as proof of the latter. Keep comparative reviews and acceptance decisions outside reader-facing repository content.
 - Canonical content lives in `book/`, `essays/`, `guides/`, `SHUAQI.md` and `docs/`.
 - The `entry-arguments` excerpt in `README.md` is the canonical short argument index for the homepage, offline reader and AI full text. Edit it once and regenerate; don't maintain a second version in HTML. Links introduce arguments, not activity recommendations or evidence of persuasion.
 - Keep the shared AI entrypoints short; topic-specific reading limits belong in canonical `docs/reading-map.md`, with visible links for every target ID. `data/reading-map.json` is generated. Verify full-text retrieval and route coverage with `tests/test_reading.py`; do not replace content accuracy checks with entrypoint length targets.
