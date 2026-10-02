@@ -1383,6 +1383,16 @@ async function decodeImage(image) {
     assert(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth));
     await page.goto(url + "#e04");
     await page.waitForFunction(() => document.getElementById("e04").open);
+    assert.equal(await page.locator("#e04 .prose h3").count(), 4);
+    for (const anchor of ["purchase-purpose", "purchase-choice",
+                         "purchase-agency", "purchase-judgement",
+                         "purchase-moving-rules"]) {
+      const heading = page.locator("#" + anchor + " + :is(h3,h5)");
+      assert.equal(await heading.count(), 1);
+      assert(await heading.evaluate(el =>
+        parseFloat(getComputedStyle(el).fontSize) >=
+        parseFloat(getComputedStyle(el.closest(".prose")).fontSize)));
+    }
     await page.locator("#e04").evaluate(el => el.scrollIntoView({behavior: "instant", block: "start"}));
     assert(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth));
     await page.screenshot({path: "/tmp/enjoythemoment-essay-mobile.png", fullPage: false});
