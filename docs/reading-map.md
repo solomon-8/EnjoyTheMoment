@@ -388,11 +388,13 @@ B12 是度假观察资料，旅后未显著不等于旅途无价值；没有直�
 <a id="r41"></a>
 ## R41 · 休息的价值与实际代价
 
-<!-- reading-route: {"id":"R41","targets":["E07","C08","B05","N05"]} -->
+<!-- reading-route: {"id":"R41","targets":["E07","F82","C08","C09","C21","E01","B05","N05"]} -->
 
-正文与来源：[E07](../essays/07-rest-is-not-work.md) · [C08](../book/08-permission.md) · [B05](research.md#b05) · [N05](evidence/B05-leisure-value.md)
+正文与来源：[E07](../essays/07-rest-is-not-work.md) · [F82《懒惰权》](evidence/F82-right-to-be-lazy.md) · [C08](../book/08-permission.md) · [C09实际分工](../book/09-constrained.md#constrained-cognitive) · [C21时间决定权](../book/21-free-time.md) · [E01快乐不设业绩](../essays/01-pleasure-is-an-end.md#pleasure-not-quota) · [B05](research.md#b05) · [N05](evidence/B05-leisure-value.md)
 
 E07/C08/B05/N05：休息可能帮助工作，不代表必须用生产力证明资格。平均时薪不等于真实放弃的额外收入；一次选择与累计生活路线分开。虚构情境不是收入调查，B05不证明本书价值排序。快乐没有被证明能补回代价，也不以此为前提。
+
+F82核读1883法文数字转录与1907英译的指定段落，不是扫描校勘、全集通读或当代工时研究；1880刊行是序言自述，英译IV对应法文III后段。保留生产力辩护、强制消费与讽刺张力，不把作者当项目代言人，不采用族群贬损或责怪劳动者的全称归因。十人八小时降至六小时是固定质量、收入、需求等条件的原创推演；不承诺缩时增产、三小时工作制可行或给个人劳动安排法律意见。先回应劳动价值与闲暇的争论，不自动给时间表。C09/C21/E01的相关原则不在此重复计为新理论。
 
 <a id="r42"></a>
 ## R42 · 爱好、记录与表现

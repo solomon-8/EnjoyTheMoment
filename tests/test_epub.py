@@ -65,6 +65,15 @@ def visible_words(element):
 
 
 class EpubTests(unittest.TestCase):
+    def test_paginated_tables_are_not_inside_a_scroll_container(self):
+        # Static guard only. Actual pagination is checked by epub_browser.cjs.
+        css = (ROOT / "web/epub.css").read_text()
+        self.assertRegex(css, r"\.table-scroll\s*\{[^}]*overflow:\s*visible")
+        self.assertRegex(css, r"table\s*\{[^}]*table-layout:\s*fixed")
+        self.assertRegex(css, r"table\s*\{[^}]*overflow-wrap:\s*anywhere")
+        self.assertRegex(css, r"tr\s*\{[^}]*break-inside:\s*auto")
+        self.assertEqual(self.entries["EPUB/style.css"], css.encode())
+
     @classmethod
     def setUpClass(cls):
         cls.metadata = json.loads((ROOT / epub.STATE).read_text())

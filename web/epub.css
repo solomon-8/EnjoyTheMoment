@@ -18,11 +18,13 @@ pre { white-space: pre; overflow-x: auto; font-size: 0.85em; line-height: 1.4; }
 code { font-family: monospace; }
 ul, ol { padding-left: 1.6em; }
 li { margin: 0.4em 0; }
-.table-scroll { max-width: 100%; overflow-x: auto; }
-table { border-collapse: collapse; width: 100%; font-size: 0.9em; line-height: 1.6; }
+/* A scroll container can hide the bottom of a tall table in a paginated reader.
+   Keep rows in the page flow; wrap long filenames and allow rows to fragment. */
+.table-scroll { max-width: 100%; overflow: visible; }
+table { border-collapse: collapse; width: 100%; table-layout: fixed; overflow-wrap: anywhere; font-size: 0.9em; line-height: 1.6; }
 th, td { border: 1px solid; padding: 0.4em; text-align: left; vertical-align: top; }
 th { font-weight: bold; }
-tr { break-inside: avoid; }
+tr { break-inside: auto; }
 .expanded { margin: 1em 0; }
 .expanded-title { font-weight: bold; }
 .source-link, .back-to-toc { font-size: 0.85em; }
