@@ -105,9 +105,11 @@ E11依次展开[价值命题](../essays/11-pleasure-and-reality.md#reality-value
 <a id="r08"></a>
 ## R08 · 新鲜感与不同读法
 
-<!-- reading-route: {"id":"R08","targets":["C03","F49","B03","N03"]} -->
+<!-- reading-route: {"id":"R08","targets":["C03","F49","B03","N03","E02"]} -->
 
-正文与来源：[C03](../book/03-novelty.md) · [F49](evidence/F49-novelty-and-perception.md) · [B03](research.md#b03)；[N03](evidence/B03-richness.md)
+正文与来源：[C03](../book/03-novelty.md) · [F49](evidence/F49-novelty-and-perception.md) · [B03](research.md#b03)；[N03](evidence/B03-richness.md) · [E02](../essays/02-excitement-without-escalation.md)
+
+C03先分清新对象与新读法；[未知与理解](../book/03-novelty.md#novelty-uncertainty)之后读[惊喜需要说明哪些条件](../book/03-novelty.md#novelty-surprise)，[逐渐辨出差异](../book/03-novelty.md#novelty-learning)之后读[继续与换新的理由](../book/03-novelty.md#novelty-depth)。重看的设计与限制转[R69](#r69)；若问题是为什么愿意为完整刺激付代价，读[E02的完整晚上](../essays/02-excitement-without-escalation.md#excitement-costs)。这些问题有关联，但不能把理解变化、评分变化与价值取舍当作同一个结论。
 
 新鲜感见 C03/F49/B03：F49是 `researcher_authored_explainer`，研究者的感知与哲学说明，不是本书图示实验。自绘线框有两种前后读法，也可只看平面线条；未看图不能宣称发生了视觉切换，看不出不作能力判断。A/B是本书说明标签，静态上图不变，下图加粗只是提示。B03仍为作者托管页校样；2026-09-30核对的目录仍指向该稿，出版商正式版403不能升级读取状态。图底实验不是内克尔图实验，其原始报告在校样中标Under Review且未独立核读。丰富性≠积极情绪；日常类比、未知分类与重看来趣是本书论证，非神经机制或效果结论。“不必升级”不等于禁止强烈体验；先回应具体愿望，不自动压成小份活动。
 
