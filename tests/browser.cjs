@@ -394,6 +394,17 @@ async function decodeImage(image) {
     assert.equal(new URL(page.url()).hash, "#friends-ending");
     await page.goto(url + "#audience-not-a-purity-test");
     await page.waitForFunction(() => document.getElementById("e08").open);
+    assert.equal(await page.locator("#e08 .prose h3").count(), 4);
+    assert.equal(await page.locator("#e08 .prose h4").count(), 19);
+    for (const anchor of ["audience-purpose", "audience-costs",
+                         "audience-judgments", "audience-misread-success",
+                         "audience-companion"]) {
+      await page.locator(`#e08 a[href='#${anchor}']`).first().click();
+      assert.equal(new URL(page.url()).hash, "#" + anchor);
+      assert(await page.locator("#e08 .prose").isVisible());
+    }
+    assert.match(await page.locator("#e08 .prose").textContent(),
+      /理解也不欠作者赞同/);
     for (const anchor of ["audience-three-requests", "audience-admiration",
                          "audience-sharing-intention", "audience-chosen-tradeoff",
                          "audience-staging", "audience-verdict"]) {

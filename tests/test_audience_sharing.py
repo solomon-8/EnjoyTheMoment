@@ -57,7 +57,7 @@ class AudienceSharingTests(unittest.TestCase):
     def test_value_argument_keeps_losses_and_the_strong_objection(self):
         part = (ROOT / ESSAY).read_text().split(
             '<a id="audience-chosen-tradeoff"></a>', 1)[1].split(
-            '## 不要用“不发朋友圈”建立另一条鄙视链', 1)[0]
+            '<a id="audience-staging"></a>', 1)[0]
         for phrase in (
             "不能倒过来说这些损失从未存在", "选择里可以有不划算的局部",
             "只要说“这是我想要的”", "都需要重新判断",
