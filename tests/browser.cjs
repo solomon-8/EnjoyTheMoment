@@ -47,6 +47,28 @@ async function decodeImage(image) {
     page.on("request", request => {if (/^https?:/.test(request.url())) requests.push(request.url());});
     const url = pathToFileURL(path.resolve(__dirname, "../index.html")).href;
     await page.goto(url);
+    await page.locator("#chapter-query").fill("C13");
+    await page.goto(url + "#live-participation");
+    await page.waitForFunction(() => document.getElementById("c13").open);
+    assert.equal(await page.locator("#c13 .prose table").count(), 3);
+    assert.match(await page.locator("#c13 .prose").textContent(), /红信三票、蓝信两票/);
+    for (const anchor of ["live-choice", "live-control-objection"]) {
+      await page.locator(`#c13 a[href='#${anchor}']`).first().click();
+      assert.equal(new URL(page.url()).hash, "#" + anchor);
+      assert(await page.locator("#c13 .prose").isVisible());
+    }
+    await page.locator("#c13 a[href='#pleasure-promises']").first().click();
+    await page.waitForFunction(() => document.getElementById("e11").open);
+    assert.match(await page.locator("#e11 .prose").textContent(), /感动可以是真的/);
+    await page.locator("#chapter-query").fill("不存在的共同观看XYZ");
+    await page.goto(url + "#live-choice");
+    await page.waitForFunction(() => document.getElementById("c13").open &&
+      !document.getElementById("c13").hidden && document.getElementById("chapter-query").value === "");
+    await page.locator("#c13 a[href='#celebration-same-night']").first().click();
+    await page.waitForFunction(() => document.getElementById("c18").open);
+    await page.locator("#c18 a[href='#connection-shared-attention']").first().click();
+    await page.waitForFunction(() => document.getElementById("c05").open);
+    await page.goto(url);
     await page.locator("#chapter-query").fill("热量");
     await page.locator("#c38 > summary").click();
     assert.match(await page.locator("#c38 .prose").textContent(), /不是完整单循环/);
@@ -930,7 +952,10 @@ async function decodeImage(image) {
     await theatreImage.scrollIntoViewIfNeeded();
     await decodeImage(theatreImage);
     assert.equal(await theatreImage.evaluate(img => img.naturalWidth), 880);
-    assert.equal(await page.locator("#c13 .prose table").count(), 2);
+    assert.equal(await page.locator("#c13 .prose table").count(), 3);
+    assert.match(await page.locator("#c13 .prose table").nth(0).textContent(), /选场次或位置时优先确认什么/);
+    assert.match(await page.locator("#c13 .prose table").nth(1).textContent(), /一项有边界的共同决定/);
+    assert.match(await page.locator("#c13 .prose table").nth(2).textContent(), /镜框式：通过框架面向舞台/);
     for (const anchor of ["live-medium", "live-space", "live-convention",
                           "live-anticipation", "live-understanding"]) {
       await page.locator(`#c13 a[href='#${anchor}']`).click();
