@@ -78,7 +78,7 @@ class GrooveTests(unittest.TestCase):
             self.assertIn(phrase, text)
         records = json.loads((ROOT / "data/research.json").read_text())["records"]
         self.assertEqual({r["id"] for r in records},
-                         {f"B{i:02d}" for i in range(1, 44)})
+                         {f"B{i:02d}" for i in range(1, 45)})
         record = next(r for r in records if r["id"] == "B41")
         self.assertEqual(record["doi"], "10.1371/journal.pone.0094446")
         self.assertEqual(record["verified_at"], "2026-10-01")
@@ -110,7 +110,7 @@ class GrooveTests(unittest.TestCase):
             r["id"] for r in read.linked_records(route, documents, ROOT)
         })
         notes = json.loads((ROOT / "data/evidence.json").read_text())["notes"]
-        self.assertEqual(len(notes), 126)
+        self.assertEqual(len(notes), 127)
         note = next(n for n in notes if n["id"] == "N41")
         self.assertEqual(note["source_kind"], "study_reading_note")
         self.assertEqual(note["text"], by_id["N41"]["text"])

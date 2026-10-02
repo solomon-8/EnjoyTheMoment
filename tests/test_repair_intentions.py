@@ -76,11 +76,11 @@ class RepairIntentionsTests(unittest.TestCase):
 
     def test_not_an_added_behavioral_study_or_card_validation(self):
         notes = json.loads((ROOT / "data/evidence.json").read_text())["notes"]
-        self.assertEqual(len(notes), 126)
+        self.assertEqual(len(notes), 127)
         note = next(n for n in notes if n["id"] == "F68")
         self.assertEqual(note["source_kind"], "cultural_craft_explainer_and_conservator_interview")
         records = json.loads((ROOT / "data/research.json").read_text())["records"]
-        self.assertEqual(len(records), 43)
+        self.assertEqual(len(records), 44)
         self.assertNotIn("F68", {r["id"] for r in records})
         cards = json.loads((ROOT / "data/catalog.json").read_text())["cards"]
         self.assertEqual(len(cards), 60)

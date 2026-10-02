@@ -57,7 +57,7 @@ class SpecialnessTests(unittest.TestCase):
         self.assertEqual(note["text"], text)
         self.assertEqual(note["source_kind"], "researcher_edited_interview_not_full_paper")
         records = json.loads((ROOT / "data/research.json").read_text())["records"]
-        self.assertEqual({r["id"] for r in records}, {f"B{n:02d}" for n in range(1, 44)})
+        self.assertEqual({r["id"] for r in records}, {f"B{n:02d}" for n in range(1, 45)})
         cards = json.loads((ROOT / "data/catalog.json").read_text())["cards"]
         self.assertEqual(len(cards), 60)
         self.assertTrue(all("F79" not in c["background_ids"] for c in cards))

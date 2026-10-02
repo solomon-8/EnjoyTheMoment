@@ -36,7 +36,7 @@ class MusicPreferenceTests(unittest.TestCase):
         self.assertEqual(sum((107, 26, 42, 28, 32)), 235)
         self.assertEqual(65 + 34, 99)
         records = json.loads((ROOT / "data/research.json").read_text())["records"]
-        self.assertEqual(len(records), 43)
+        self.assertEqual(len(records), 44)
         record = next(r for r in records if r["id"] == "B31")
         self.assertEqual(record["verified_at"], "2026-10-01")
         self.assertEqual(record["access_level"], "full_text")
