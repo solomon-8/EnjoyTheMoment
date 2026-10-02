@@ -30,6 +30,10 @@ E01按五层论证阅读：[价值与用途](../essays/01-pleasure-is-an-end.md#
 
 正文与来源：[C01](../book/01-start-now.md) · [B17](research.md#b17) · [N17](evidence/B17-enjoyable-procrastination.md) · [F79作者访谈与使用门槛](evidence/F79-specialness-interview.md) · [E01保留选项](../essays/01-pleasure-is-an-end.md#pleasure-options) · [E03等待](../essays/03-now-or-later.md) · [E10消费与自主](../essays/10-pleasure-not-retention.md) · [C18庆祝](../book/18-celebration.md)
 
+C01按四条主线阅读：[今天的生活资格](../book/01-start-now.md#today-value)、[物件与使用](../book/01-start-now.md#today-objects)、[机会与兑现](../book/01-start-now.md#today-opportunity)、[时间与真实责任](../book/01-start-now.md#today-time)。四条主线不是四步行动法，章末J001—J006为配套选择，不替代正文论证。
+
+[今天没做好，难道还配去玩](../book/01-start-now.md#today-after-failure)区分有条件的奖励、本人未完成的计划、影响他人的失约与后续补救。阿晴的初稿和电影为原创假想：不保证休息提高效率，也不保证惩罚改善履约；快乐不取消责任，不要求受影响的人参与、原谅或认可。即使还有待补的事，也不据此把所有空闲没收；不能用“放过自己”代替真正的交接。B17的券研究和F79的访谈均不验证这一价值主张。
+
 开篇见 C01/B17/N17：享乐的解释负担、拥有与使用、未来安排与兑换率是不同问题。甜点券预测组80人与发券64人不同，短期限10/32、长期限2/32；电影券合并59/120与42/120不代表各条件均显著，金额描述方向略反。兑换不是福祉，未兑换不是自动失败；85人情境没有跟踪未来闲暇。B17预试量表上限与均值不一致尚未解决，不能修补猜测。不给卡片增添效果背书，不用倒计时替读者决定需求，也不把完整体验默认缩成五分钟。
 
 [C01本子情境](../book/01-start-now.md#today-first-page)与第一行的代价为原创假想，不是实验或作者经历。分清明确用途的等待、不断抬高的使用条件，以及保留空白和期待本身的价值；不能凭放了多久或没有开封诊断。开始不产生写满、用尽或复购义务，第一次不满意也不能强迫继续；“普通今天有资格”不是强制庆祝和要求同住者配合。
