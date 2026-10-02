@@ -728,6 +728,34 @@ class ExportTests(unittest.TestCase):
                                          chapter["source"]), "#f60")
         self.assertEqual(len(self.export["cards"]), 60)
 
+    def test_permission_chapter_has_a_question_sequence_not_flat_manifestos(self):
+        text = (ROOT / "book/08-permission.md").read_text()
+        prose, cards = text.split('<a id="j043"></a>', 1)
+        self.assertEqual(re.findall(r"^## (.+)$", prose, re.M), [
+            "一、空下来了，为什么仍觉得自己不配玩？",
+            "二、不再证明有用，为什么又要证明有闲？",
+            "三、谁为体面多费了力，谁为退出付代价？",
+            "四、不再交成绩单，仍然要一起生活", "配套尝试"])
+        for anchor in ("permission-deserving", "permission-ranking", "permission-costs",
+                       "permission-without-exam", "permission-contest"):
+            self.assertEqual(self.outputs["index.html"].count('id="' + anchor + '"'), 1)
+        self.assertLess(prose.index("### 没有先吃过苦"), prose.index("### 论文里发现了什么"))
+        self.assertEqual(re.findall(r'^### (J\d+)', cards, re.M),
+                         ["J043", "J044", "J045", "J046", "J047", "J048"])
+
+    def test_permission_contest_limits_status_claim_without_denying_winning(self):
+        text = (ROOT / "book/08-permission.md").read_text()
+        for phrase in ("喜欢胜负，不等于想把输的人变成低一等的人", "事先愿意参加的盲品竞猜",
+                       "不愿猜的人仍能喝茶聊天", "你以后不配发表喜欢", "不承诺一场公平比赛就不会伤心",
+                       "不是识别他人内心的诊断题", "还要替别人隐藏事情是怎么完成的"):
+            self.assertIn(phrase, text)
+        self.assertIn("../essays/05-play-is-not-performance.md#amateur-two-scores", text)
+        self.assertIn("01-start-now.md#today-time", text)
+        route = (ROOT / "docs/reading-map.md").read_text().split('<a id="r53"></a>', 1)[1].split('<a id="r54"></a>', 1)[0]
+        self.assertIn("permission-contest", route)
+        self.assertIn("不是F60的实验结论", route)
+        self.assertIn("p = .053和p = .84", route)
+
     def test_veblen_source_is_historical_theory_not_a_motive_diagnosis(self):
         notes = {item["id"]: item for item in json.loads(self.outputs["data/evidence.json"])["notes"]}
         note = notes["F60"]

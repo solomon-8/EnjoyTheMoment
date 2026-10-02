@@ -828,6 +828,18 @@ async function decodeImage(image) {
     await page.goto(url + "#c08");
     await page.waitForFunction(() => document.getElementById("c08").open);
     assert.equal(await page.locator("#c08 .prose table").count(), 2);
+    for (const anchor of ["permission-deserving", "permission-ranking", "permission-costs", "permission-without-exam"]) {
+      await page.locator("#c08 a[href='#" + anchor + "']").click();
+      assert.equal(new URL(page.url()).hash, "#" + anchor);
+      assert.equal(await page.locator("#" + anchor + " + h3").count(), 1);
+    }
+    assert.match(await page.locator("#c08 .prose").textContent(), /喜欢胜负，不等于想把输的人变成低一等的人/);
+    await page.locator("#c08 a[href='#amateur-two-scores']").click();
+    await page.waitForFunction(() => document.getElementById("e05").open);
+    assert.match(await page.locator("#e05 .prose").textContent(), /你若本来只想赢，当晚输了就是没实现那个愿望/);
+    await page.goBack();
+    await page.waitForFunction(() => document.getElementById("c08").open);
+
     await page.locator("#c08 a[href='#permission-status']").click();
     assert.equal(new URL(page.url()).hash, "#permission-status");
     await page.locator("#c08 a[href='#f60']").first().click();
