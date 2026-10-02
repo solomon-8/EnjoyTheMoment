@@ -833,6 +833,10 @@ B41为66人、50个16秒合成鼓段、两项1—5自评，17—63岁，不能�
 
 正文与来源：[C02](../book/02-senses.md#senses-thermal-touch) · [B38台账](research.md#b38) · [N38核读](evidence/B38-thermal-touch.md) · [B19台账](research.md#b19) · [N19价格核读](evidence/B19-price-and-pleasantness.md) · [B46咬声台账](research.md#b46) · [N46核读](evidence/B46-bite-sound.md) · [F05风味](evidence/F05-flavor.md) · [C14吃喝](../book/14-flavor.md) · [C16穿着](../book/16-dress.md) · [E04消费](../essays/04-buying-pleasure.md)。
 
+C02按[身体体验](../book/02-senses.md#senses-contact)、[期待与评价](../book/02-senses.md#senses-expectations)、[自己的偏好](../book/02-senses.md#senses-preferences)、[共同条件](../book/02-senses.md#senses-shared)展开；可以直接读咬声、温度或盲测子问题，不要求先做J卡。四段是阅读组织，不是四项实证结果。
+
+[盲比较的分支](../book/02-senses.md#senses-blind-test)区分更喜欢另一杯、继续购买座位与服务，以及另外核实宣传不实后改变选择。口味比较本身不能证明店家撒谎；第三种需要独立事实证据。阿青是原创假想，不是参与者或消费反馈。
+
 先区分物件初始状态、实际接触、偏好评价与原因解释，不自动推荐材料、商品或感官训练。能纠正原因解释，不等于否定感受；个人感受也不替广告作事实担保。“妥协应承认舍弃什么，而不是否认愿望”是价值论证，不是论文结论。
 
 B38取得11页全文，采用实验1、模型介绍及相关结论，实验2未完整核读。十名参与者，每人84次，两食指选择感觉较冷一侧；不是84人，不是识别材料名称，不是喜欢评分。铜—ABS98%、铜—青铜70%、青铜—不锈钢68%为表3报告值，不倒推精确人数。72%是作者选用门槛，未过门槛不是等效证明。
