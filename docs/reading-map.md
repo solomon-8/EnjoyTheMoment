@@ -63,11 +63,13 @@ F79仅核2021年11月16日Knowledge at Wharton的编辑访谈及书目，未听�
 <a id="r06"></a>
 ## R06 · 快乐与真实生活
 
-<!-- reading-route: {"id":"R06","targets":["E11","F27"]} -->
+<!-- reading-route: {"id":"R06","targets":["E11","F27","F83","C11","C31"]} -->
 
-正文与来源：[E11](../essays/11-pleasure-and-reality.md) · [F27](evidence/F27-pleasure-philosophy.md)
+正文与来源：[E11](../essays/11-pleasure-and-reality.md) · [F27](evidence/F27-pleasure-philosophy.md) · [F83](evidence/F83-standard-of-taste.md) · [C11 聆听知识](../book/11-music.md) · [C31 作品技巧与不适](../book/31-recreational-fear.md)。
 
 讨论 E11/F27 时，分开“快乐具有价值”“只有快乐具有价值”、动机描述与最大化要求。`philosophical_primary_and_secondary` 不是实验来源：伊壁鸠鲁和密尔来自指定数字文本，诺齐克来自二手百科引文，未直接核读原书。不得把假想当产品能力、把拒绝机器当享乐主义已被证伪，或把数字参与一概称为虚假。涉及价值争论时保留最强反对意见，不强行改答成活动推荐。
+
+讨论[喜欢与判断](../essays/11-pleasure-and-reality.md#pleasure-taste-claims)时，区分感受、可查的作品判断与私人选择；“我喜欢”不使描述免于纠正，批评准确也不自动决定今晚怎样过。F83 是休谟原作指定段落，不是心理实验；保留 ST 7 与 ST 8 的转折、ST 23 的判断者条件、ST 24–25 的辨认困难及 ST 28–30 的有限分歧。钥匙是他转述的文学故事，副歌是本书假想；没有独立核读《堂吉诃德》，不从年龄例子、族群贬低或历史共识断言给读者排等级，不把全部趣味说成等价，也不据此命令读者改掉爱好。
 
 <a id="r07"></a>
 ## R07 · 感官、价格与评价
