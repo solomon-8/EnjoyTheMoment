@@ -137,11 +137,15 @@ F79仅核2021年11月16日Knowledge at Wharton的编辑访谈及书目，未听�
 <a id="r14"></a>
 ## R14 · 现场、剧场与京剧
 
-<!-- reading-route: {"id":"R14","targets":["C13","F40","F41"]} -->
+<!-- reading-route: {"id":"R14","targets":["C13","F40","F41","C05","E08","E11","C18","C34"]} -->
 
-正文与来源：[C13](../book/13-live-events.md) · [F40](evidence/F40-theatre-space.md) · [F41](evidence/F41-jingju-conventions.md)
+正文与来源：[C13](../book/13-live-events.md) · [F40](evidence/F40-theatre-space.md) · [F41](evidence/F41-jingju-conventions.md) · [C05共同注意](../book/05-connection.md#connection-shared-attention) · [E08希望被回应](../essays/08-life-without-an-audience.md#audience-three-requests) · [E11感受与承诺](../essays/11-pleasure-and-reality.md#pleasure-promises) · [C18公共时间](../book/18-celebration.md#celebration-same-night) · [C34共同叙事](../book/34-shared-stories.md#story-choice)。
 
 现场见 C13/F40/F41。F40 为 `theatre_educational_reference`，舞台示意为原创几何图，不能据此选座、判断声场或规划动线；黑匣子不是固定排列，特定场域与行进式可重叠但不等同。F41 为 `heritage_description_and_nomination`，中文项目简介、UNESCO 名录说明与 2010 年中国申报材料不是三项独立实验；核读描述不等于看过演出。空地上的门、递杯和镜头示例都是原创假想，不是指定京剧场次或标准程式。分开作品、一次呈现、观看关系，不归纳成现场必胜录音；用功也可为享乐，但理解不能变成喜欢的义务或文化身份门槛。
+
+C13的[在场与互动](../book/13-live-events.md#live-participation)、[两封信的选择](../book/13-live-events.md#live-choice)、[希望自己改变这一场](../book/13-live-events.md#live-control-objection)是本书原创论证，不是F40/F41的研究结果。两名表演者、五位投票者、红三蓝二与相反票数均为假想设定，不是观察记录。四种安排区分观看、回应、集体决定和代读，不排参与等级；顺序不同不自动证明某种心理效果。少数票未胜不等于没被计入，有限选择也不能冒充任意改写；明确承诺与实际执行须分开。愿意观看不推定同意被点名，喜欢互动也不应被劝成安静观看同样满足；这是价值与约定分析，不是票务法律意见、演出质量认证或实际投诉判断。
+
+C05处理共同注意，E08处理想被看见，E11处理所得与承诺，C18处理不可随意挪动的公共时间，C34处理特定游戏中的共同叙事。不要把这些领域应用重复算成多项实验，也不把游戏主持规则强加给剧场。
 
 <a id="r15"></a>
 ## R15 · 街道、观察与公共空间
@@ -164,9 +168,9 @@ F79仅核2021年11月16日Knowledge at Wharton的编辑访谈及书目，未听�
 <a id="r17"></a>
 ## R17 · 庆祝与赠予
 
-<!-- reading-route: {"id":"R17","targets":["C18","F44","F45","F81","B08","N08","C08","E08","C21"]} -->
+<!-- reading-route: {"id":"R17","targets":["C18","F44","F45","F81","B08","N08","C05","C08","E08","C21"]} -->
 
-正文与来源：[C18](../book/18-celebration.md) · [F44](evidence/F44-festival-and-time.md) · [F45](evidence/F45-magi-and-giving.md) · [F81《西湖七月半》](evidence/F81-west-lake-festival.md) · [B08](research.md#b08) · [N08](evidence/B08-rituals.md) · [C08品位与身份](../book/08-permission.md) · [E08观看与展示](../essays/08-life-without-an-audience.md) · [C21时间交集](../book/21-free-time.md#time-overlap)。
+正文与来源：[C18](../book/18-celebration.md) · [F44](evidence/F44-festival-and-time.md) · [F45](evidence/F45-magi-and-giving.md) · [F81《西湖七月半》](evidence/F81-west-lake-festival.md) · [B08](research.md#b08) · [N08](evidence/B08-rituals.md) · [C05共同注意](../book/05-connection.md#connection-shared-attention) · [C08品位与身份](../book/08-permission.md) · [E08观看与展示](../essays/08-life-without-an-audience.md) · [C21时间交集](../book/21-free-time.md#time-overlap)。
 
 庆祝见 C18/F44/F45。F44 为 `official_heritage_description`，春节项目介绍不是人人参与或快乐增量的调查；共同时间与非功绩庆祝是本书解读。F45 为 `literary_primary_text`，英文小说全文核读，目录与正文的数字版更新日相差一天，不能作原作首刊日期。情节与价值判断分开：礼物在当下失去用途，不等于心意虚假，也不说明可以要求别人牺牲。正文结局折叠，机器导出含全文；用户未要结局时不要主动剧透。没有庆祝效果或受众反应数据，不能把F44/F45与B08短时消费实验串成因果证明。讨论资格、消费或心意时先回应论点，不自动给聚会清单。
 

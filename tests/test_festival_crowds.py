@@ -101,7 +101,7 @@ class FestivalCrowdsTests(unittest.TestCase):
                 raw.decode().strip()), 1)
         route = next(r for r in routes if r["id"] == "R17")
         self.assertEqual(set(route["targets"]), {
-            "C18", "F44", "F45", "F81", "B08", "N08", "C08", "E08", "C21",
+            "C18", "F44", "F45", "F81", "B08", "N08", "C05", "C08", "E08", "C21",
         })
         self.assertTrue(set(route["targets"]) <= {
             r["id"] for r in read.linked_records(route, documents, ROOT)
