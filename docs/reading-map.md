@@ -458,11 +458,13 @@ E04按[购买目的](../essays/04-buying-pleasure.md#purchase-purpose)、[决定
 <a id="r47"></a>
 ## R47 · 普通爱好、进步愿望与评价
 
-<!-- reading-route: {"id":"R47","targets":["E05","C04","E08","B02","N02","B25","N25"]} -->
+<!-- reading-route: {"id":"R47","targets":["E05","C04","E08","B02","N02","B25","N25","B43","N43"]} -->
 
-正文与来源：[E05](../essays/05-play-is-not-performance.md) · [C04](../book/04-play.md) · [E08](../essays/08-life-without-an-audience.md) · [B02](research.md#b02) · [N02](evidence/B02-quantification.md) · [B25](research.md#b25) · [N25](evidence/B25-practice-and-performance.md)
+正文与来源：[E05](../essays/05-play-is-not-performance.md) · [C04](../book/04-play.md) · [E08](../essays/08-life-without-an-audience.md) · [B02](research.md#b02) · [N02](evidence/B02-quantification.md) · [B25](research.md#b25) · [N25](evidence/B25-practice-and-performance.md) · [B43](research.md#b43) · [N43](evidence/B43-testing-and-retention.md)
 
 E05/B25/N25：允许普通不等于命令降低目标；想进步却做不到可以仍有真实遗憾。私人爱好、共同承诺和作品评价分开，不把公开发布当批评禁令，也不把批评作品当收回参与资格。B25采用2018年勘误 .38／14%，不是旧摘要 .35／12%；88项研究、111样本、157效应量、11,135人是相关汇总，不是个人训练效果或成功概率。未解释差异不全是天赋。托管图3/摘要仍有旧数字，见N25；2016体育分析的评论仅读作者摘要，回复为全文，不能宣称全部争论已核清。B02的计数结果不等于所有评估或教学都有害。案例与“两张成绩单”属原创论证，J卡未获研究验证，不擅自提供训练或诊断。
+
+[即时表现与延迟保持](../essays/05-play-is-not-performance.md#amateur-learning-study)使用B43两项短文实验，不能与B25相关汇总混写。实验1相比较的重读/回忆阶段同为7分钟，实验2初始阶段总时长不同；不同延迟组不是同一批人追踪。保留实验2的有趣程度自评，不说训练必然降低享受；61%对56%不改写成显著优势。[方法与目标](../essays/05-play-is-not-performance.md#amateur-effective-for-what)的小遥唱歌情境为原创，研究没有验证演唱教学，也不替私人休闲决定目标。
 
 <a id="r48"></a>
 ## R48 · 资源限制、消费许可与互助条件

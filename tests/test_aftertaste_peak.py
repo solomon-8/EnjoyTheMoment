@@ -73,8 +73,8 @@ class AftertastePeakTests(unittest.TestCase):
     def test_route_and_registry_do_not_validate_cards(self):
         notes = json.loads((ROOT / "data/evidence.json").read_text())["notes"]
         records = json.loads((ROOT / "data/research.json").read_text())["records"]
-        self.assertEqual(len(notes), 125)
-        self.assertEqual(len(records), 42)
+        self.assertEqual(len(notes), 126)
+        self.assertEqual(len(records), 43)
         studies = {r["id"]: r for r in records}
         for identifier, doi in (
             ("B34", "10.3758/PBR.15.1.96"),

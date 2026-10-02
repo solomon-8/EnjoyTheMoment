@@ -390,6 +390,15 @@ async function decodeImage(image) {
     await page.waitForFunction(() => document.getElementById("e05").open &&
       !document.getElementById("e05").hidden && document.getElementById("essay-query").value === "");
     assert.equal(new URL(page.url()).hash, "#amateur-practice-study");
+    await page.locator("#e05 a[href='#amateur-effective-for-what']").first().click();
+    assert.equal(new URL(page.url()).hash, "#amateur-effective-for-what");
+    await page.locator("#e05 a[href='#n43']").first().click();
+    await page.waitForFunction(() => document.getElementById("n43").open);
+    assert.match(await page.locator("#n43 .prose").textContent(), /实验2不是等总时长比较/);
+    assert.match(await page.locator("#n43 .prose").textContent(), /t\(58\) = 1.21/);
+    await page.locator("#n43 a[href='#amateur-effective-for-what']").first().click();
+    await page.waitForFunction(() => document.getElementById("e05").open);
+    assert.equal(new URL(page.url()).hash, "#amateur-effective-for-what");
     await page.goto(url + "#constraints-necessity");
     await page.waitForFunction(() => document.getElementById("e06").open);
     for (const anchor of ["constraints-standing", "constraints-help", "constraints-permission-study"]) {
