@@ -70,7 +70,11 @@ E03先从[承诺要交出理由](../essays/03-now-or-later.md#waiting-credible-p
 
 正文与来源：[E09](../essays/09-friends-not-assets.md) · [F57](evidence/F57-friendship-and-reciprocity.md)
 
-朋友关系见 E09/F57：[正文](../essays/09-friends-not-assets.md#friends-not-a-service)与[来源范围](evidence/F57-friendship-and-reciprocity.md)。只核读 Ross 英译指定六节，非全书、希腊文或实证研究。原作的德性层级与本书立场分开；不把情绪价值当服务承诺，不按古代分类诊断朋友或自动建议绝交。
+朋友关系见 E09/F57：[正文](../essays/09-friends-not-assets.md#friends-not-a-service)与[来源范围](evidence/F57-friendship-and-reciprocity.md)。只核读 Ross 英译指定七节，非全书、希腊文或实证研究。原作的德性层级与本书立场分开；不把情绪价值当服务承诺，不按古代分类诊断朋友或自动建议绝交。
+
+E09按[共同享乐](../essays/09-friends-not-assets.md#friends-value)、[互惠与条件](../essays/09-friends-not-assets.md#friends-terms)、[关心与改变](../essays/09-friends-not-assets.md#friends-change)、[散场](../essays/09-friends-not-assets.md#friends-position)推进。[偏爱一个具体朋友](../essays/09-friends-not-assets.md#friends-partiality)区分尚未约定的私人邀请、共同安排中的参与、公开欢迎与实际准入，以及没有失约仍可能失落；不把基本尊重等同于亲近必须均分。
+
+[F57第九卷第2节](evidence/F57-friendship-and-reciprocity.md#friendship-source-partiality)为2026-10-02实际读完的Ross英译网页一节，其余六节保留2026-09-30范围，不冒充重读或通读两卷。原文不支持所有事情都优先同一人，也不是“偏爱自由”的现代理论；家庭、年龄及性别化身份安排不采用，`nobility necessity`缺损不补。旧专辑、四人相聚与新来者是本书假想，不给聚会法律分类或效果保证。
 
 <a id="r06"></a>
 ## R06 · 快乐与真实生活
@@ -892,6 +896,8 @@ B39为1979年一篇论文两项实验，不是两次独立团队复现。N39取�
 E09的四格表仅选实验2已收到帮助的条件，每格10人，173／149／156／191为0—240喜欢评分而非比例。无帮助、关怀式期待下179与177未显著；不得说全部预测成功。预计讨论感受不是实际交流快乐，也不可用它替换喜欢评分的非显著结果。
 
 交换式与关怀式不是现金／非现金、真假朋友或人格诊断。作者婚前约定推论未由实验验证，不据它反对分工与预算。F57哲学英译选读不是独立实证支持。聚会、费用及安慰例子为原创虚构，“不追认暗账”“关心不要求认同全部判断”为本书价值立场；不提供操纵朋友策略，不验证任何J卡或沟通疗效。
+
+谈到[偏爱与共同安排](../essays/09-friends-not-assets.md#friends-partiality)，不要把被少邀直接诊断成低价值，也不因没有违约否认失落。个人亲疏不自动改掉共同约定；公开说欢迎与私人两人见面条件不同，澄清也不保证同等亲近。F57新采用第九卷第2节的问题结构，不用B39学生实验验证偏爱、排斥或具体沟通方案。
 
 <a id="r76"></a>
 ## R76 · 一件新东西，为什么开始要求一整套新生活

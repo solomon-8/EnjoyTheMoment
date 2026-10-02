@@ -372,6 +372,19 @@ async function decodeImage(image) {
     assert.equal(new URL(page.url()).hash, "#rest-no-verdict");
     await page.goto(url + "#friends-not-a-service");
     await page.waitForFunction(() => document.getElementById("e09").open);
+    assert.equal(await page.locator("#e09 .prose h3").count(), 4);
+    assert.equal(await page.locator("#e09 .prose h4").count(), 14);
+    assert.equal(await page.locator("#e09 .prose h5").count(), 5);
+    for (const anchor of ["friends-value", "friends-terms", "friends-change", "friends-position", "friends-partiality"]) {
+      await page.locator(`#e09 a[href='#${anchor}']`).first().click();
+      assert.equal(new URL(page.url()).hash, "#" + anchor);
+      assert(await page.locator("#e09 .prose").isVisible());
+    }
+    await page.locator("#e09 a[href='#friendship-source-partiality']").first().click();
+    await page.waitForFunction(() => document.getElementById("f57").open);
+    assert.match(await page.locator("#f57 .prose").textContent(), /nobility necessity/);
+    await page.locator("#f57 a[href='#friends-partiality']").first().click();
+    await page.waitForFunction(() => document.getElementById("e09").open);
     await page.locator("#e09 a[href='#friends-reciprocity']").first().click();
     assert.equal(new URL(page.url()).hash, "#friends-reciprocity");
     await page.goto(url + "#friends-exchange-study");
