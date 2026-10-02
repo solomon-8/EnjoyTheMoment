@@ -82,7 +82,7 @@ class DesirePleasureTests(unittest.TestCase):
             self.assertIn(raw.decode().strip(), (ROOT / "llms-full.txt").read_text())
         route = routes["R80"]
         self.assertEqual(set(route["targets"]),
-                         {"E10", "B42", "N42", "E04", "E02", "B28", "N28", "E11"})
+                         {"E10", "B42", "N42", "E04", "E02", "B28", "N28", "E11", "B47", "N47"})
         for phrase in ("不自动改答成戒手机", "组别随机分派", "不证明等效",
                        "不授予旁观者", "不是独立复现", "不验证J卡"):
             self.assertIn(phrase, route["text"])

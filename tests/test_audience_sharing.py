@@ -23,7 +23,7 @@ class AudienceSharingTests(unittest.TestCase):
         self.assertEqual(record["doi"], "10.1093/jcr/ucx112")
         self.assertEqual(record["verified_at"], "2026-10-02")
         self.assertFalse(record["directly_validates_cards"])
-        self.assertEqual(sum(r["access_level"] == "full_text" for r in records), 45)
+        self.assertEqual(sum(r["access_level"] == "full_text" for r in records), 46)
         self.assertEqual([r["id"] for r in records
                           if r["access_level"] == "abstract_only"], ["B44"])
         note = (ROOT / NOTE).read_text()

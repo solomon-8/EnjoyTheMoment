@@ -75,6 +75,7 @@ EVIDENCE = [
     ("N44", "docs/evidence/B44-sharing-intention.md"),
     ("N45", "docs/evidence/B45-spoilers-and-experience.md"),
     ("N46", "docs/evidence/B46-bite-sound.md"),
+    ("N47", "docs/evidence/B47-interruption-and-permission.md"),
     ("F01", "docs/evidence/F01-time-use.md"),
     ("F02", "docs/evidence/F02-listening-language.md"),
     ("F03", "docs/evidence/F03-film-language.md"),
@@ -161,6 +162,7 @@ EVIDENCE = [
     ("F84", "docs/evidence/F84-access-and-theatre-making.md"),
 ]
 EVIDENCE_KINDS = {
+    "N47": "study_and_replication_reading_note",
     "F01": "official_statistics",
     "F02": "educational_reference",
     "F03": "educational_reference",

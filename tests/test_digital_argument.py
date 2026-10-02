@@ -25,7 +25,7 @@ class DigitalArgumentTests(unittest.TestCase):
         text = (ROOT / SOURCE).read_text()
         self.assertEqual(re.findall(r"^## (.+)$", text, re.M),
                          [title for _, title in PARTS])
-        self.assertEqual(len(re.findall(r"^### .+$", text, re.M)), 16)
+        self.assertEqual(len(re.findall(r"^### .+$", text, re.M)), 17)
         self.assertEqual(len(re.findall(r"^#### .+$", text, re.M)), 3)
         opening = text.split("\n## ", 1)[0]
         for anchor, _ in PARTS:
@@ -76,7 +76,7 @@ class DigitalArgumentTests(unittest.TestCase):
             "不是给所有人开同一张戒断处方", "同一个晚上另一种快乐",
         ):
             self.assertIn(phrase, text)
-        self.assertEqual(len(re.findall(r"^\| ---", text, re.M)), 3)
+        self.assertEqual(len(re.findall(r"^\| ---", text, re.M)), 4)
 
     def test_retrieval_routes_and_epub_preserve_the_argument(self):
         raw = (ROOT / SOURCE).read_bytes()

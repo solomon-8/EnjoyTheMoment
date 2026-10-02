@@ -921,6 +921,26 @@
       },
       "directly_validates_cards": false,
       "source": "docs/research.md#b46"
+    },
+    {
+      "id": "B47",
+      "title": "广告打断会提高喜欢吗：原实验与相反复现",
+      "doi": "10.1086/597030",
+      "access_level": "full_text",
+      "verified_at": "2026-10-03",
+      "fields": {
+        "核读日期": "2026-10-03。",
+        "文献": "Leif D. Nelson、Tom Meyvis、Jeff Galak（2009），*Enhancing the Television-Viewing Experience through Commercial Interruptions*，Journal of Consumer Research，36(2)，160–172。",
+        "DOI": "[10.1086/597030](https://doi.org/10.1086/597030)。",
+        "实际读取": "`full_text`；取得第三方镜像期刊PDF，限定采用摘要、实验二（163–164页）与170页限制讨论，目视核对后三页。另核读Leahy等人公共OSF项目中2020年复现报告的相关计划、偏差、样本和结果文本；未核数据、代码、不可变预注册或DOCX版面。[成对阅读记录](evidence/B47-interruption-and-permission.md)。",
+        "设计与对象": "原实验二102名大学生，约四分钟动画中插30秒广告或连续看，比较目标片相对先前短片的1–7偏好。复现初轮分析380人，扩大后合并1,125人，后者包含前者；不是全部六实验的复现。",
+        "有限结论": "原报告广告组偏好更高（5.38/4.47，p = .016）；复现初轮未显著，合并后无广告组更高（广告4.27/无广告4.57，p = .015）。不是对包含广告整场体验的绝对满意测量。",
+        "不能推出": "广告普遍使人更快乐、一切打断都有害、任意节目最佳暂停节奏，或群体评分授予平台替个人选择的权力。假设报价不是实际付款，复现的对数报价均值不是美元。",
+        "我们如何使用": "[E10](../essays/10-pleasure-not-retention.md#digital-pleasure-permission)区分目标片评价、整场代价、个体愿望与授权；即使假定效果成立，也保留可拒绝的选项及主动委托，不新增或验证J卡。",
+        "关键限制": "原预试未显著不证明同等好看；复现实际预试相反且程序文字内部不一致。疫情中转线上、停止规则改变、学分替代现金均保留；未重算或穷尽后续研究。复现报告在N47单独说明版本与证据身份，不算第二篇已核期刊论文。"
+      },
+      "directly_validates_cards": false,
+      "source": "docs/research.md#b47"
     }
   ],
   "relations": [

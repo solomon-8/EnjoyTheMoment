@@ -79,7 +79,7 @@ class SoloPublicTests(unittest.TestCase):
 
     def test_not_an_added_experiment_or_new_card(self):
         records = json.loads((ROOT / "data/research.json").read_text())["records"]
-        self.assertEqual(len(records), 46)
+        self.assertEqual(len(records), 47)
         self.assertNotIn("F72", {r["id"] for r in records})
         cards = json.loads((ROOT / "data/catalog.json").read_text())["cards"]
         self.assertEqual(len(cards), 60)
