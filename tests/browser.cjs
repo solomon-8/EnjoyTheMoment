@@ -613,6 +613,19 @@ async function decodeImage(image) {
     await page.waitForFunction(() => document.getElementById("e02").open &&
       !document.getElementById("e02").hidden && document.getElementById("essay-query").value === "");
     assert.equal(new URL(page.url()).hash, "#excitement-study");
+    await page.goto(url + "#waiting-changed-taste");
+    await page.waitForFunction(() => document.getElementById("e03").open);
+    for (const anchor of ["waiting-changed-taste", "waiting-later-knowledge", "waiting-open-future"]) {
+      await page.locator(`#e03 a[href='#${anchor}']`).first().click();
+      assert.equal(new URL(page.url()).hash, "#" + anchor);
+      assert(await page.locator("#e03 .prose").isVisible());
+    }
+    assert.match(await page.locator("#e03 .prose").textContent(), /不是带日期的判决书/);
+    assert.match(await page.locator("#e03 .prose").textContent(), /短承诺也不是普遍优解/);
+    await page.locator("#e03 a[href='#amateur-changing-group']").click();
+    await page.waitForFunction(() => document.getElementById("e05").open);
+    await page.goBack();
+    await page.waitForFunction(() => document.getElementById("e03").open);
     await page.goto(url + "#waiting-credible-promise");
     await page.waitForFunction(() => document.getElementById("e03").open);
     assert(await page.locator("#e03 .prose").isVisible());

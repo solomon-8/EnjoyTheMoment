@@ -59,11 +59,13 @@ F79仅核2021年11月16日Knowledge at Wharton的编辑访谈及书目，未听�
 <a id="r04"></a>
 ## R04 · 等待、承诺与未来自我
 
-<!-- reading-route: {"id":"R04","targets":["E03","B23","N23"]} -->
+<!-- reading-route: {"id":"R04","targets":["E03","E04","E05","B23","N23"]} -->
 
-正文与来源：[E03](../essays/03-now-or-later.md) · [B23](research.md#b23) · [N23](evidence/B23-reliable-waiting.md)
+正文与来源：[E03](../essays/03-now-or-later.md) · [E04选择与结果](../essays/04-buying-pleasure.md#事前愿意承担事后不喜欢哪个判断错了) · [E05共同目标的变化](../essays/05-play-is-not-performance.md#amateur-changing-group) · [B23](research.md#b23) · [N23](evidence/B23-reliable-waiting.md)
 
 E03先从[承诺要交出理由](../essays/03-now-or-later.md#waiting-credible-promise)进入，再讨论[长期投入与等待价值](../essays/03-now-or-later.md#waiting-long-term-defense)、[选择与反悔](../essays/03-now-or-later.md#waiting-not-a-patience-score)、[真实窗口与倒计时](../essays/03-now-or-later.md#waiting-real-window)，最后讨论[未来自我的分量](../essays/03-now-or-later.md#waiting-future-self)。期待、现实限制和资格加码可能同时存在，不是互斥分类或人格诊断；攒钱同时享受期待、钱够后再加门槛的例子是原创假想。可信的等待不需要百分之百保证，临时变化也不自动等于失信。
+
+[口味改变是否取消过去](../essays/03-now-or-later.md#waiting-changed-taste)、[后来知道更多是否拥有终审权](../essays/03-now-or-later.md#waiting-later-knowledge)与[长期承诺如何面对变化](../essays/03-now-or-later.md#waiting-open-future)是本书原创规范论证，不是年龄变化实验。小岑二十四岁看演出、十年后不再喜欢的情境是写定假想，没有真人回访，不预测哪个年龄更明智。区分后来获得事实、评价对象不同和偏好改变；当时快乐不替不妥选择免责，较晚偏好也不因日期自动获胜。承认两时点可能都认真而仍冲突，不提供万能排序；一次参加与让同伴依赖的长期承诺不能混同，也不把短承诺当普遍最优。E04负责事前信息与事后结果，E05负责共同目标变化与无法两全的损失；不把三文的相通原则重复当成独立证据。
 
 时间取舍见 E03/B23/N23：28名幼儿、两组各14名，15分钟右截尾；没有成人长期结果，不推出自控无关。正文rank-sum与图注signed-rank不一致，附录未取得，见[核读](evidence/B23-reliable-waiting.md)。先回应承诺、等待代价与长期投入的论点，不把价值判断改写成实验结论。
 

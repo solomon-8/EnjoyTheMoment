@@ -79,7 +79,7 @@ class WaitingArcTests(unittest.TestCase):
         essays = json.loads((ROOT / "data/essays.json").read_text())["essays"]
         self.assertEqual(next(e for e in essays if e["id"] == "E03")["text"], self.text)
         route = next(r for r in routes if r["id"] == "R04")
-        self.assertEqual(set(route["targets"]), {"E03", "B23", "N23"})
+        self.assertEqual(set(route["targets"]), {"E03", "E04", "E05", "B23", "N23"})
         self.assertIn("不是互斥分类或人格诊断", route["text"])
         html = build.markdown(self.text, self.source)
         for anchor in self.main_anchors + (
