@@ -152,6 +152,7 @@ EVIDENCE = [
     ("F80", "docs/evidence/F80-symposium-and-wholeness.md"),
     ("F81", "docs/evidence/F81-west-lake-festival.md"),
     ("F82", "docs/evidence/F82-right-to-be-lazy.md"),
+    ("F83", "docs/evidence/F83-standard-of-taste.md"),
 ]
 EVIDENCE_KINDS = {
     "F01": "official_statistics",
@@ -236,6 +237,7 @@ EVIDENCE_KINDS = {
     "F80": "philosophical_literary_dialogue_primary",
     "F81": "literary_primary_text",
     "F82": "historical_social_polemic_primary_and_translation",
+    "F83": "philosophical_primary_text",
 }
 RELATIONS = [
     {"card_ids": ["J033"], "background_ids": ["B01"], "essay_ids": ["E04"]},

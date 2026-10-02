@@ -536,6 +536,21 @@ async function decodeImage(image) {
     await page.waitForFunction(() => document.getElementById("e11").open &&
       !document.getElementById("e11").hidden && document.getElementById("essay-query").value === "");
     assert.equal(new URL(page.url()).hash, "#pleasure-promises");
+    for (const anchor of ["pleasure-taste-claims", "pleasure-taste-key",
+                          "pleasure-taste-choice", "pleasure-taste-criticism"]) {
+      await page.locator(`#e11 a[href='#${anchor}']`).click();
+      assert.equal(new URL(page.url()).hash, "#" + anchor);
+      assert(await page.locator("#e11 .prose").isVisible());
+    }
+    await page.locator("#e11 a[href='#f83']").first().click();
+    await page.waitForFunction(() => document.getElementById("f83").open);
+    assert.match(await page.locator("#f83 .prose").textContent(), /没有独立核读塞万提斯原作/);
+    assert.match(await page.locator("#f83 .prose").textContent(), /没有把 ST 29 的年龄例子当作现代年龄规律/);
+    await page.locator("#essay-query").fill("不存在的趣味论XYZ");
+    await page.locator("#f83 a[href='#pleasure-taste-choice']").click();
+    await page.waitForFunction(() => document.getElementById("e11").open &&
+      !document.getElementById("e11").hidden && document.getElementById("essay-query").value === "");
+    assert.equal(new URL(page.url()).hash, "#pleasure-taste-choice");
     await page.goto(url + "#e01");
     await page.waitForFunction(() => document.getElementById("e01").open);
     await page.locator("#e01 a[href='#e11']").click();
