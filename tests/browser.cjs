@@ -325,6 +325,24 @@ async function decodeImage(image) {
       await page.waitForFunction(() => document.getElementById("c05").open && !document.getElementById("c05").hidden);
       assert.equal(new URL(page.url()).hash, "#" + target);
     }
+    await page.goto(url + "#excitement-spoilers");
+    await page.waitForFunction(() => document.getElementById("e02").open);
+    assert.match(await page.locator("#e02 .prose").textContent(),
+      /不能把一次已经说出的结局当作从未告知/);
+    assert(await page.locator("#e02 .prose h5").evaluateAll(headings =>
+      headings.length === 2 && headings.every(h =>
+        parseFloat(getComputedStyle(h).fontSize) >=
+        parseFloat(getComputedStyle(h.closest(".prose")).fontSize))));
+    await page.locator("#e02 a[href='#n45']").first().click();
+    await page.waitForFunction(() => document.getElementById("n45").open);
+    assert.match(await page.locator("#n45 .prose").textContent(), /剩877次/);
+    assert.match(await page.locator("#n45 .prose").textContent(), /p = .003/);
+    await page.locator("#essay-query").fill("不存在的剧透XYZ");
+    await page.locator("#n45 a[href='#excitement-spoiler-study']").first().click();
+    await page.waitForFunction(() => document.getElementById("e02").open &&
+      !document.getElementById("e02").hidden &&
+      document.getElementById("essay-query").value === "");
+    assert.equal(new URL(page.url()).hash, "#excitement-spoiler-study");
     await page.goto(url + "#time-overlap");
     await page.waitForFunction(() => document.getElementById("c21").open);
     assert.equal(await page.locator("#c21 .prose table").count(), 2);

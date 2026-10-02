@@ -39,13 +39,17 @@ F79仅核2021年11月16日Knowledge at Wharton的编辑访谈及书目，未听�
 <a id="r03"></a>
 ## R03 · 刺激与复杂感受
 
-<!-- reading-route: {"id":"R03","targets":["E02","B24","N24"]} -->
+<!-- reading-route: {"id":"R03","targets":["E02","B24","N24","B45","N45"]} -->
 
-正文与来源：[E02](../essays/02-excitement-without-escalation.md) · [B24](research.md#b24) · [N24](evidence/B24-hedonic-reversals.md)
+正文与来源：[E02](../essays/02-excitement-without-escalation.md) · [B24](research.md#b24) · [N24](evidence/B24-hedonic-reversals.md) · [B45](research.md#b45) · [N45](evidence/B45-spoilers-and-experience.md)
 
 先读[完整晚上的取舍](../essays/02-excitement-without-escalation.md#excitement-costs)，再区分[刺激与参与](../essays/02-excitement-without-escalation.md#excitement-information)、[复杂感受](../essays/02-excitement-without-escalation.md#excitement-mixed-feelings)、[同意承担的代价](../essays/02-excitement-without-escalation.md#excitement-boundaries)与[享乐战绩](../essays/02-excitement-without-escalation.md#excitement-scoreboard)。观看也可以投入，“亲自影响过程”特指另一种愿望，不是把观看者排除在参与之外。可接受冷场与失败，不等于同意隐瞒收费、被迫同行或未经同意公开影像；小梁、小何、阿澄均为假想，不是体验反馈。
 
 刺激与复杂感受见 E02/B24/N24：243名学生+147名MTurk是自述问卷，不是现场递增强度；66人的追加题先逐题排除不喜欢者，各题48—58人，82%不是全体比例。不熟悉记0，表文疑点见[核读](evidence/B24-hedonic-reversals.md)。不输出个人极限或把“良性”当安全认证；先回应愿望与取舍，不把完整体验自动缩成微行动。
+
+关于[知道结局后的体验](../essays/02-excitement-without-escalation.md#excitement-spoilers)，先读[实验比较](../essays/02-excitement-without-escalation.md#excitement-spoiler-study)，再读[选择信息时机的论证](../essays/02-excitement-without-escalation.md#excitement-spoiler-choice)。B45的326人各读三篇；877是剔除后的人—故事观察数，不是人数。p = .29不证明等效或个人不受影响，已读故事被剔除，不能当重读研究；存在个别交互与报告表述张力，不凭摘要说所有交互均不存在。未读预注册、数据/代码或补充材料。
+
+电话、小满和阿岑均为原创假想。后来仍喜欢不能补写事先同意；暂停也不能当作没有获知结局。含剧透讨论可以事先约定范围，不要求无限期沉默；提前了解与保留未知都可出于本人愿望。这些是本书立场，不是B45的实验结论，不验证卡片，不把短篇结果外推全部媒介。
 
 
 <a id="r04"></a>

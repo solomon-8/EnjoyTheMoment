@@ -58,7 +58,7 @@ class AccessAndArtTests(unittest.TestCase):
         self.assertEqual(record["source_kind"],
                          "theatre_practitioner_account_and_production_description")
         records = json.loads((ROOT / "data/research.json").read_text())["records"]
-        self.assertEqual(len(records), 44)
+        self.assertEqual(len(records), 45)
         self.assertNotIn("F84", {r["id"] for r in records})
         cards = json.loads((ROOT / "data/catalog.json").read_text())["cards"]
         self.assertEqual(len(cards), 60)
