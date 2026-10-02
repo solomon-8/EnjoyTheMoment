@@ -401,7 +401,10 @@ async function decodeImage(image) {
     assert.equal(new URL(page.url()).hash, "#amateur-effective-for-what");
     await page.goto(url + "#constraints-necessity");
     await page.waitForFunction(() => document.getElementById("e06").open);
-    for (const anchor of ["constraints-standing", "constraints-help", "constraints-permission-study"]) {
+    for (const anchor of ["constraints-wishes", "constraints-shared-evening",
+                         "constraints-conflicting-evenings", "constraints-conditions",
+                         "constraints-options", "constraints-standing",
+                         "constraints-help", "constraints-permission-study"]) {
       await page.locator(`#e06 a[href='#${anchor}']`).first().click();
       assert.equal(new URL(page.url()).hash, "#" + anchor);
       assert(await page.locator("#e06 .prose").isVisible());
