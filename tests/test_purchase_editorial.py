@@ -93,7 +93,7 @@ class PurchaseEditorialTests(unittest.TestCase):
                                               "essays/04-buying-pleasure.md"))
         essay = (ROOT / "essays/04-buying-pleasure.md").read_text()
         work = essay.split('<a id="purchase-work-label"></a>', 1)[1].split(
-            "## “反消费主义”", 1)[0]
+            "\n### “反消费主义”", 1)[0]
         self.assertIn("虚构情境", work)
         self.assertIn("最有力的反对", work)
         self.assertIn("不替现实困难排预算", work)
