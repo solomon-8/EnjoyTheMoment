@@ -2,7 +2,7 @@
 
 Canonical source: book/, essays/, guides/ and docs/. Values and original proposals are not validated interventions.
 Budgets are illustrative CNY caps. Preserve alternatives, stopping conditions and evidence status.
-Source digest: 654f1c28926a148badd893baa676ceb5275c4990eb4a2c858d7c1eb85785647a
+Source digest: ac4f9e036c6a055c4ae52bbf04f56b096fad4e09aea586a9d9ea945aabd4ecec
 
 ## 从一个真正的分歧开始
 
@@ -3865,7 +3865,7 @@ Ho与Jones在2006年的实验里，把铜、青铜、不锈钢、玻璃纤维增
 <a id="senses-expectations"></a>
 ## 二、受影响的喜欢，就不算真的喜欢了吗？
 
-前面追问接触本身；现在看东西被怎样介绍。价格线索与咬声不是同一种操纵，喜欢与酥脆也不是同一种评分。知道它们怎样影响评价，还不等于知道自己下一次应该怎样选。
+前面追问接触本身；现在看[东西被怎样介绍](#senses-price-expectation)。价格线索与咬声不是同一种操纵，喜欢与酥脆也不是同一种评分。知道它们怎样影响评价，还不等于知道自己下一次应该怎样选。
 
 <a id="senses-price-expectation"></a>
 ### 同一口东西，换个价签，就可能不是同一种评价

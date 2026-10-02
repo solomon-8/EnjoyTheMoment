@@ -44,6 +44,7 @@ class SensesSequenceTests(unittest.TestCase):
         for anchor in ("senses-price-expectation", "senses-blind-test"):
             self.assertLess(positions[1], self.text.index(f'id="{anchor}"'))
             self.assertLess(self.text.index(f'id="{anchor}"'), positions[2])
+            self.assertIn(f"](#{anchor})", self.text)
         self.assertLess(positions[2], self.text.index('id="senses-intensity"'))
         self.assertLess(self.text.index('id="senses-intensity"'), positions[3])
         self.assertIn("初始温度相同的不同材料", self.text)
