@@ -1701,7 +1701,13 @@ async function decodeImage(image) {
       await opening.goto(url + (javaScriptEnabled ? "#c01" : ""));
       if (!javaScriptEnabled) await opening.locator("#c01 > summary").click();
       assert.match(await opening.locator("#c01 .prose").textContent(), /兑换比例/);
-      for (const anchor of ["today-voucher", "today-future", "today-not-redemption"]) {
+      assert.equal(await opening.locator("#c01 .prose h3").count(), 5);
+      assert.equal(await opening.locator("#c01 .prose h4").count(), 13);
+      assert.equal(await opening.locator("#c01 .prose h5").count(), 3);
+      assert.match(await opening.locator("#c01 .prose").textContent(), /快乐不必全部归庆功宴管/);
+      assert.match(await opening.locator("#c01 .prose").textContent(), /看电影不等于事情已经解决，不看电影也不自动完成了补救/);
+      for (const anchor of ["today-value", "today-objects", "today-opportunity", "today-time",
+                           "today-after-failure", "today-voucher", "today-future", "today-not-redemption"]) {
         if (javaScriptEnabled) {
           await opening.locator(`#c01 a[href='#${anchor}']`).first().click();
           assert.equal(new URL(opening.url()).hash, "#" + anchor);
