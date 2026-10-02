@@ -46,6 +46,16 @@ async function decodeImage(image) {
     page.on("pageerror", error => errors.push(error.message));
     page.on("request", request => {if (/^https?:/.test(request.url())) requests.push(request.url());});
     const url = pathToFileURL(path.resolve(__dirname, "../index.html")).href;
+    await page.goto(url + "#constrained-access-authorship");
+    await page.waitForFunction(() => document.getElementById("c09").open);
+    assert.match(await page.locator("#c09 .prose").textContent(), /被允许参加，与有机会决定大家怎样参加/);
+    assert.match(await page.locator("#c09 .prose").textContent(), /被考虑，不等于欠一份感动/);
+    await page.locator("#c09 a[href='#f84']").first().click();
+    await page.waitForFunction(() => document.getElementById("f84").open);
+    assert.match(await page.locator("#f84 .prose").textContent(), /2026-08-04/);
+    assert.match(await page.locator("#f84 .prose").textContent(), /未参加活动/);
+    await page.locator("#f84 a[href='#constrained-access-scene']").first().click();
+    await page.waitForFunction(() => document.getElementById("c09").open);
     await page.goto(url + "#digital-desire");
     await page.waitForFunction(() => document.getElementById("e10").open);
     assert.match(await page.locator("#e10 .prose").textContent(), /想要不是命令，享乐不是服从/);
@@ -1744,7 +1754,7 @@ async function decodeImage(image) {
         }
         await constrained.locator("#" + anchor).scrollIntoViewIfNeeded();
       }
-      assert.equal(await constrained.locator("#c09 .prose table").count(), 2);
+      assert.equal(await constrained.locator("#c09 .prose table").count(), 3);
       for (const table of await constrained.locator("#c09 .prose table").all()) {
         assert((await table.boundingBox()).width <= 350);
       }

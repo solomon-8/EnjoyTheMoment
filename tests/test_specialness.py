@@ -80,7 +80,7 @@ class SpecialnessTests(unittest.TestCase):
                          {"C01", "B17", "N17", "F79", "E01", "E03", "E10", "C18"})
         self.assertIn("先回应完整论证和保留理由", route["text"])
         self.assertIn("不自动生成清库存或采购清单", route["text"])
-        self.assertEqual(len(routes), 80)
+        self.assertEqual(len(routes), 81)
 
     def test_epub_preserves_new_argument_and_existing_voucher_table(self):
         with ZipFile(ROOT / "downloads/EnjoyTheMoment.epub") as archive:

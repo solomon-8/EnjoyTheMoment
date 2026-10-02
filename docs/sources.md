@@ -186,3 +186,9 @@ E03的A／B假想答卷依据论文的比较结构改写，署明关联，不冒
 [F80](evidence/F80-symposium-and-wholeness.md)署名概述Internet Classics Archive所载Benjamin Jowett英译《会饮篇》的两处论述：阿里斯托芬演说，以及苏格拉底转述狄奥提玛从美/善到长久拥有善的问答。未通读全书、核希腊原文或其他译本；保留人物声音、神话、古代等级及现代解读的区别。C35的回应/回声与河边路线为原创假想，不是研究个案。未转载整篇译文、图像或站点呈现，不把数字网页纳入MIT资产。
 
 [C01](../book/01-start-now.md#today-first-page)的阿晴与本子为原创假想；普通日子的使用资格、接受不完美开头及反对库存周转是本书论证，不冒充已验证机制或消费处方。保留与期待的价值也不由使用率裁决。
+
+## 剧场实践、可及性与原创场景
+
+[F84](evidence/F84-access-and-theatre-making.md)署名概述Graeae的Aesthetics of Access说明、Hana Pascal Keegan的具名工作坊回顾及《Self-Raising》历史演出页。保留机构陈述、作者观察与本书论证的区别；未转载全文、照片、视频或播客，不把第三方内容纳入MIT原创资产。没有亲临、独立参与者评价或场馆可及性认证，历史页面不是当前演出推荐。
+
+[C09](../book/09-constrained.md#constrained-access-scene)的林、两只杯子、敲门与否认台词是本书原创，不来自上述剧目。它讨论信息出现、角色说法与解释的区别，不是经过测试的描述脚本、手语翻译或完整演出设计。

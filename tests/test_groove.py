@@ -110,7 +110,7 @@ class GrooveTests(unittest.TestCase):
             r["id"] for r in read.linked_records(route, documents, ROOT)
         })
         notes = json.loads((ROOT / "data/evidence.json").read_text())["notes"]
-        self.assertEqual(len(notes), 124)
+        self.assertEqual(len(notes), 125)
         note = next(n for n in notes if n["id"] == "N41")
         self.assertEqual(note["source_kind"], "study_reading_note")
         self.assertEqual(note["text"], by_id["N41"]["text"])
