@@ -63,7 +63,7 @@ class SculptureTests(unittest.TestCase):
         self.assertEqual(note["text"], text)
         records = json.loads((ROOT / "data/research.json").read_text())["records"]
         self.assertEqual({r["id"] for r in records},
-                         {f"B{number:02d}" for number in range(1, 44)})
+                         {f"B{number:02d}" for number in range(1, 45)})
         cards = json.loads((ROOT / "data/catalog.json").read_text())["cards"]
         self.assertEqual(len(cards), 60)
         self.assertTrue(all("F77" not in card["background_ids"] for card in cards))

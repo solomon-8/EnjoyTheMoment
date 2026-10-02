@@ -861,6 +861,26 @@
       },
       "directly_validates_cards": false,
       "source": "docs/research.md#b43"
+    },
+    {
+      "id": "B44",
+      "title": "拍照时准备分享：摘要提供的反方",
+      "doi": "10.1093/jcr/ucx112",
+      "access_level": "abstract_only",
+      "verified_at": "2026-10-02",
+      "fields": {
+        "核读日期": "2026-10-02。",
+        "文献": "Alixandra Barasch、Gal Zauberman、Kristin Diehl（2018）. *How the Intention to Share Can Undermine Enjoyment: Photo-Taking Goals and Evaluation of Experiences*. Journal of Consumer Research，44(6)，1220–1237；在线发表为2017年11月14日。",
+        "DOI": "[10.1093/jcr/ucx112](https://doi.org/10.1093/jcr/ucx112)。",
+        "实际读取": "`abstract_only`；读取[作者研究目录](https://alixbarasch.com/research/)的对应条目与展开摘要，Crossref核对书目；出版社主文与PDF、SSRN入口未取得，未读方法、结果、附录、数据、代码或预注册。[详细范围](evidence/B44-sharing-intention.md)。",
+        "设计与对象": "摘要概述两项现场与三项实验室研究；未取得可核查的各项样本、分派、剔除与量尺，不能补写为全部随机试验或五次独立复现。",
+        "有限结论": "作者摘要报告，为分享而拍摄相对于为自己拍摄时的享受较低，并提出自我呈现顾虑、投入程度与观众亲近程度等解释或条件；本书不能独立核查这些分析。",
+        "不能推出": "所有分享有害、实际发帖后总收益更低、人人应少拍照、相机必然使人脱离当下，或职业创作与亲密交流的效果。",
+        "我们如何使用": "[E08](../essays/08-life-without-an-audience.md#audience-sharing-intention)保留直接针对分享意图的反方，再讨论局部损失是否能替人决定目标；夜市情境为原创，不是该论文实验。",
+        "关键限制": "只读作者摘要，不提供样本数字、效应量、显著性或机制因果判断；未全面检索勘误与复现。与B10是不同研究问题，不拼接成通用发帖处方，不验证J卡。"
+      },
+      "directly_validates_cards": false,
+      "source": "docs/research.md#b44"
     }
   ],
   "relations": [

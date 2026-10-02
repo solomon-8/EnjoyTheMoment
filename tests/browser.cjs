@@ -362,7 +362,9 @@ async function decodeImage(image) {
     assert.equal(new URL(page.url()).hash, "#friends-ending");
     await page.goto(url + "#audience-not-a-purity-test");
     await page.waitForFunction(() => document.getElementById("e08").open);
-    for (const anchor of ["audience-three-requests", "audience-admiration", "audience-staging", "audience-verdict"]) {
+    for (const anchor of ["audience-three-requests", "audience-admiration",
+                         "audience-sharing-intention", "audience-chosen-tradeoff",
+                         "audience-staging", "audience-verdict"]) {
       await page.locator(`#e08 a[href='#${anchor}']`).first().click();
       assert.equal(new URL(page.url()).hash, "#" + anchor);
       assert(await page.locator("#e08 .prose").isVisible());
@@ -375,6 +377,13 @@ async function decodeImage(image) {
     await page.waitForFunction(() => document.getElementById("e08").open &&
       !document.getElementById("e08").hidden && document.getElementById("essay-query").value === "");
     assert.equal(new URL(page.url()).hash, "#audience-photo-study");
+    await page.locator("#e08 a[href='#n44']").first().click();
+    await page.waitForFunction(() => document.getElementById("n44").open);
+    assert.match(await page.locator("#n44 .prose").textContent(), /abstract_only/);
+    assert.match(await page.locator("#n44 .prose").textContent(), /未取得主文/);
+    await page.locator("#n44 a[href='#audience-chosen-tradeoff']").first().click();
+    await page.waitForFunction(() => document.getElementById("e08").open);
+    assert.equal(new URL(page.url()).hash, "#audience-chosen-tradeoff");
     await page.goto(url + "#amateur-want-better");
     await page.waitForFunction(() => document.getElementById("e05").open);
     for (const anchor of ["amateur-practice-study", "amateur-shared-standards", "amateur-criticism"]) {
