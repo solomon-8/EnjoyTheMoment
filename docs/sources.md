@@ -192,3 +192,9 @@ E03的A／B假想答卷依据论文的比较结构改写，署明关联，不冒
 [F84](evidence/F84-access-and-theatre-making.md)署名概述Graeae的Aesthetics of Access说明、Hana Pascal Keegan的具名工作坊回顾及《Self-Raising》历史演出页。保留机构陈述、作者观察与本书论证的区别；未转载全文、照片、视频或播客，不把第三方内容纳入MIT原创资产。没有亲临、独立参与者评价或场馆可及性认证，历史页面不是当前演出推荐。
 
 [C09](../book/09-constrained.md#constrained-access-scene)的林、两只杯子、敲门与否认台词是本书原创，不来自上述剧目。它讨论信息出现、角色说法与解释的区别，不是经过测试的描述脚本、手语翻译或完整演出设计。
+
+## 咬声、感知质地与期刊镜像
+
+[B46/N46](evidence/B46-bite-sound.md)署名概述Zampini与Spence（2004）的咬声实验。实际读取第三方镜像的期刊排版PDF并用Crossref核对书目，未与访问失败的出版社下载逐字比对；保留图2与结果文字的两处方向冲突。论文、图表与镜像内容不纳入本仓库MIT许可，不转载原图、全文或完整翻译。
+
+[C02](../book/02-senses.md#senses-bite-sound)的分层解释为本书分析，不冒称研究测过喜欢、食品安全或餐厅音乐；C14只作回链。未新增行动卡或读者音量实验。

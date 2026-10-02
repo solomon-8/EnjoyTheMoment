@@ -67,9 +67,9 @@ class DressPocketTests(unittest.TestCase):
         notes = json.loads((ROOT / "data/evidence.json").read_text())["notes"]
         note = next(n for n in notes if n["id"] == "F66")
         self.assertEqual(note["source_kind"], "museum_history_record_and_image")
-        self.assertEqual(len(notes), 128)
+        self.assertEqual(len(notes), 129)
         records = json.loads((ROOT / "data/research.json").read_text())["records"]
-        self.assertEqual(len(records), 45)
+        self.assertEqual(len(records), 46)
         self.assertNotIn("F66", {r["id"] for r in records})
         cards = json.loads((ROOT / "data/catalog.json").read_text())["cards"]
         self.assertEqual(len(cards), 60)

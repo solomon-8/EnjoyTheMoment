@@ -196,6 +196,24 @@ async function decodeImage(image) {
     await page.locator("#n38 .prose a[href='#senses-thermal-touch']").click();
     await page.waitForFunction(() => document.getElementById("c02").open &&
       !document.getElementById("c02").hidden && document.getElementById("chapter-query").value === "");
+    await page.goto(url + "#senses-bite-sound");
+    await page.waitForFunction(() => document.getElementById("c02").open);
+    assert.equal(await page.locator("#senses-bite-sound + h3").textContent(),
+      "这一口的脆，为什么还要问耳朵？");
+    await page.locator("#c02 a[href='#n46']").click();
+    await page.waitForFunction(() => document.getElementById("n46").open);
+    assert.match(await page.locator("#n46 .prose").textContent(),
+      /把75归给高频减弱、54归给增强/);
+    assert.match(await page.locator("#n46 .prose").textContent(),
+      /把81归给减弱、60归给增强/);
+    await page.locator("#chapter-query").fill("不存在的咬声XYZ");
+    await page.locator("#n46 .prose a[href='#senses-bite-sound']").click();
+    await page.waitForFunction(() => document.getElementById("c02").open &&
+      !document.getElementById("c02").hidden && document.getElementById("chapter-query").value === "");
+    await page.locator("#c02 a[href='#flavor-ice-cream']").click();
+    await page.waitForFunction(() => document.getElementById("c14").open);
+    await page.locator("#c14 a[href='#senses-bite-sound']").click();
+    await page.waitForFunction(() => document.getElementById("c02").open);
     await page.goto(url + "#celebration-west-lake");
     await page.waitForFunction(() => document.getElementById("c18").open);
     assert.match(await page.locator("#c18 .prose").textContent(),

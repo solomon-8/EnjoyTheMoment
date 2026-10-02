@@ -94,8 +94,8 @@ class SharedPresenceTests(unittest.TestCase):
         self.assertIn("21-free-time.md#time-common", text)
         notes = json.loads((ROOT / "data/evidence.json").read_text())["notes"]
         research = json.loads((ROOT / "data/research.json").read_text())["records"]
-        self.assertEqual(len(notes), 128)
-        self.assertEqual(len(research), 45)
+        self.assertEqual(len(notes), 129)
+        self.assertEqual(len(research), 46)
         by_id = {n["id"]: n for n in notes}
         self.assertEqual(by_id["F81"]["source_kind"], "literary_primary_text")
         self.assertEqual(by_id["F40"]["source_kind"], "theatre_educational_reference")
