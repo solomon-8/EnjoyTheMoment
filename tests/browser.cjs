@@ -77,6 +77,15 @@ async function decodeImage(image) {
     assert.match(await page.locator("#f84 .prose").textContent(), /未参加活动/);
     await page.locator("#f84 a[href='#constrained-access-scene']").first().click();
     await page.waitForFunction(() => document.getElementById("c09").open);
+    await page.goto(url + "#play-offer");
+    await page.waitForFunction(() => document.getElementById("c04").open);
+    assert.match(await page.locator("#c04 .prose").textContent(), /咱们帽子店/);
+    assert.match(await page.locator("#c04 .prose").textContent(), /共同创作可能因分歧而结束/);
+    await page.locator("#c04 a[href='#f85']").first().click();
+    await page.waitForFunction(() => document.getElementById("f85").open);
+    assert.match(await page.locator("#f85 .prose").textContent(), /不是现场即兴记录/);
+    await page.locator("#f85 a[href='#play-improv-objection']").click();
+    await page.waitForFunction(() => document.getElementById("c04").open);
     await page.goto(url + "#digital-value");
     await page.waitForFunction(() => document.getElementById("e10").open);
     assert.equal(await page.locator("#e10 .prose h3").count(), 4);
