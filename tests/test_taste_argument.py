@@ -55,9 +55,9 @@ class TasteArgumentTests(unittest.TestCase):
         note = next(n for n in notes if n["id"] == "F83")
         self.assertEqual(note["text"], text)
         self.assertEqual(note["source_kind"], "philosophical_primary_text")
-        self.assertEqual(len(notes), 127)
+        self.assertEqual(len(notes), 128)
         research = json.loads((ROOT / "data/research.json").read_text())["records"]
-        self.assertEqual(len(research), 44)
+        self.assertEqual(len(research), 45)
         self.assertNotIn("F83", {r["id"] for r in research})
         cards = json.loads((ROOT / "data/catalog.json").read_text())["cards"]
         self.assertEqual(len(cards), 60)
