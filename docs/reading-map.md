@@ -472,6 +472,8 @@ E05/B25/N25：允许普通不等于命令降低目标；想进步却做不到可
 
 [即时表现与延迟保持](../essays/05-play-is-not-performance.md#amateur-learning-study)使用B43两项短文实验，不能与B25相关汇总混写。实验1相比较的重读/回忆阶段同为7分钟，实验2初始阶段总时长不同；不同延迟组不是同一批人追踪。保留实验2的有趣程度自评，不说训练必然降低享受；61%对56%不改写成显著优势。[方法与目标](../essays/05-play-is-not-performance.md#amateur-effective-for-what)的小遥唱歌情境为原创，研究没有验证演唱教学，也不替私人休闲决定目标。
 
+E05主线为[私人目的](../essays/05-play-is-not-performance.md#amateur-purpose)、[方法与目标](../essays/05-play-is-not-performance.md#amateur-methods)、[共同标准](../essays/05-play-is-not-performance.md#amateur-together)，[可选配套](../essays/05-play-is-not-performance.md#amateur-companions)在后。[小遥的聚会改变](../essays/05-play-is-not-performance.md#amateur-changing-group)是原创假想：五人中三人想演出，两人想随意唱，只有同一空档，无人事先答应演出，也未约定多数可替全体报名。人数不自动构成新增承诺，旧玩法也不是永久否决改变的权利；既有规则和责任仍需处理。分组不保证无损替代，允许退出不等于没有失落，原组织者不欠无限维持。这个规范讨论不是B02/B25/B43的结果，不替实际组织制定规则或判谁应退出。
+
 <a id="r48"></a>
 ## R48 · 资源限制、消费许可与互助条件
 

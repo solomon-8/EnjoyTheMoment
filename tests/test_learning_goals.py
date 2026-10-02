@@ -48,8 +48,10 @@ class LearningGoalsTests(unittest.TestCase):
 
     def test_effective_methods_do_not_choose_the_goal(self):
         essay = (ROOT / ESSAY).read_text()
+        end = "\n### 关于记录的一点研究背景"
+        self.assertEqual(essay.count(end), 1)
         part = essay.split('<a id="amateur-effective-for-what"></a>', 1)[1].split(
-            "\n## 为什么这里没有连续签到？", 1)[0]
+            end, 1)[0]
         for phrase in (
             "先接受这个反对意见最有力的版本", "更好的练习可能减少",
             "原创假想", "没有把阅读实验直接当成唱歌教学",
