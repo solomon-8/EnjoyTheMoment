@@ -34,7 +34,7 @@ class EditorialArgumentsTests(unittest.TestCase):
         self.assertIn("../docs/research.md#b02", argument)
         # The counterargument has moved, not disappeared or been duplicated.
         heading = "什么时候成就感就是你想要的？"
-        self.assertEqual(len(re.findall(r"^#{2,3} " + re.escape(heading) + "$",
+        self.assertEqual(len(re.findall(r"^#### " + re.escape(heading) + "$",
                                         text, re.M)), 1)
         self.assertIn("什么时候成就感就是你想要的", check.anchors_for(text))
 

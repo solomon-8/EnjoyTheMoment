@@ -398,6 +398,20 @@ async function decodeImage(image) {
     await page.locator("#n44 a[href='#audience-chosen-tradeoff']").first().click();
     await page.waitForFunction(() => document.getElementById("e08").open);
     assert.equal(new URL(page.url()).hash, "#audience-chosen-tradeoff");
+    await page.goto(url + "#amateur-purpose");
+    await page.waitForFunction(() => document.getElementById("e05").open);
+    assert.equal(await page.locator("#e05 .prose h3").count(), 4);
+    for (const anchor of ["amateur-purpose", "amateur-methods", "amateur-together", "amateur-companions"]) {
+      await page.locator(`#e05 a[href='#${anchor}']`).first().click();
+      assert.equal(new URL(page.url()).hash, "#" + anchor);
+      assert(await page.locator("#e05 .prose").isVisible());
+    }
+    assert.match(await page.locator("#e05 .prose").textContent(), /不是原来快乐的无损替代/);
+    assert.match(await page.locator("#e05 .prose").textContent(), /不能用改组取消已有责任/);
+    assert(await page.locator("#e05 .prose h5").evaluateAll(headings =>
+      headings.length === 3 && headings.every(h =>
+        parseFloat(getComputedStyle(h).fontSize) >=
+        parseFloat(getComputedStyle(h.closest(".prose")).fontSize))));
     await page.goto(url + "#amateur-want-better");
     await page.waitForFunction(() => document.getElementById("e05").open);
     for (const anchor of ["amateur-practice-study", "amateur-shared-standards", "amateur-criticism"]) {
