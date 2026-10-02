@@ -41,6 +41,8 @@ F79仅核2021年11月16日Knowledge at Wharton的编辑访谈及书目，未听�
 
 正文与来源：[E02](../essays/02-excitement-without-escalation.md) · [B24](research.md#b24) · [N24](evidence/B24-hedonic-reversals.md)
 
+先读[完整晚上的取舍](../essays/02-excitement-without-escalation.md#excitement-costs)，再区分[刺激与参与](../essays/02-excitement-without-escalation.md#excitement-information)、[复杂感受](../essays/02-excitement-without-escalation.md#excitement-mixed-feelings)、[同意承担的代价](../essays/02-excitement-without-escalation.md#excitement-boundaries)与[享乐战绩](../essays/02-excitement-without-escalation.md#excitement-scoreboard)。观看也可以投入，“亲自影响过程”特指另一种愿望，不是把观看者排除在参与之外。可接受冷场与失败，不等于同意隐瞒收费、被迫同行或未经同意公开影像；小梁、小何、阿澄均为假想，不是体验反馈。
+
 刺激与复杂感受见 E02/B24/N24：243名学生+147名MTurk是自述问卷，不是现场递增强度；66人的追加题先逐题排除不喜欢者，各题48—58人，82%不是全体比例。不熟悉记0，表文疑点见[核读](evidence/B24-hedonic-reversals.md)。不输出个人极限或把“良性”当安全认证；先回应愿望与取舍，不把完整体验自动缩成微行动。
 
 

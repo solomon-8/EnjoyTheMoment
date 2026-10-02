@@ -40,7 +40,7 @@ The arguments below are in Chinese. You do not have to agree with them before re
 
 - **[What if enjoyment really means earning less?](essays/07-rest-is-not-work.md#rest-paid-evening)** An evening we want can be a gain in its own right, without a later productivity payoff. Repeated choices have cumulative costs, and necessary expenses cannot be wished away.
 - **[Why call work equipment an investment, but demand an excuse for pleasure?](essays/04-buying-pleasure.md)** Liking something can be a reason without a financial return. It does not settle someone else's consent or a shared budget.
-- **[Why reduce a whole evening we want to a five-minute substitute?](essays/02-excitement-without-escalation.md#excitement-costs)** A small version is an option, not the required size of a desire. A fuller experience still cannot impose its costs on unwilling people.
+- **[Why reduce a whole evening we want to a five-minute substitute?](essays/02-excitement-without-escalation.md#excitement-costs)** A small version is an option, not the required size of a desire. The essay moves from a whole evening's tradeoffs to involvement, mixed feelings, consent and stopping. Watching can be engaging without controlling the outcome; accepting an uncertain performance does not mean accepting hidden charges or imposing costs on unwilling people.
 - **[Immediate pleasure—or immediate extraction?](essays/10-pleasure-not-retention.md)** Staying longer does not necessarily mean liking something more. Services need revenue, and self-chosen limits can be useful; neither point excuses hidden exit barriers.
 
 ## Not “long life versus short life”
