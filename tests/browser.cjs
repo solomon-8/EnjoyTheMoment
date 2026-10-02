@@ -647,6 +647,17 @@ async function decodeImage(image) {
     assert.equal(new URL(page.url()).hash, "#play-score-boundary");
     await page.goto(url + "#e11");
     await page.waitForFunction(() => document.getElementById("e11").open);
+    assert.equal(await page.locator("#e11 .prose h3").count(), 4);
+    assert.equal(await page.locator("#e11 .prose h4").count(), 19);
+    for (const anchor of ["reality-values", "reality-events",
+                          "reality-judgments", "reality-position",
+                          "pleasure-rebuilt-world"]) {
+      await page.locator(`#e11 a[href='#${anchor}']`).click();
+      assert.equal(new URL(page.url()).hash, "#" + anchor);
+      assert(await page.locator("#e11 .prose").isVisible());
+    }
+    assert.match(await page.locator("#e11 .prose").textContent(),
+      /不等于他此刻重新答应参加/);
     assert.equal(await page.locator("#e11 .prose table").count(), 2);
     assert.equal(await page.locator("#e11 .prose table").first().locator("tbody tr").count(), 4);
     assert.equal(await page.locator("#e11 .prose table").nth(1).locator("tbody tr").count(), 3);
