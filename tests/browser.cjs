@@ -366,11 +366,15 @@ async function decodeImage(image) {
     await page.goto(url + "#rest-returns");
     await page.waitForFunction(() => document.getElementById("e07").open);
     for (const anchor of ["rest-lafargue", "rest-productivity-defense",
-                         "rest-leisure-command", "rest-real-income", "rest-paid-evening"]) {
+                         "rest-leisure-command", "rest-real-income", "rest-paid-evening",
+                         "rest-service-work", "rest-service-ending",
+                         "rest-paid-service", "rest-less-convenience"]) {
       await page.locator(`#e07 a[href='#${anchor}']`).first().click();
       assert.equal(new URL(page.url()).hash, "#" + anchor);
       assert(await page.locator("#e07 .prose").isVisible());
     }
+    assert.match(await page.locator("#e07 .prose").textContent(), /耍起，不该只对买单的人说/);
+    assert.match(await page.locator("#e07 .prose").textContent(), /经济需要让一切同意作废/);
     await page.locator("#e07 a[href='#f82']").first().click();
     await page.waitForFunction(() => document.getElementById("f82").open);
     assert.match(await page.locator("#f82 .prose").textContent(), /英译第四节开头/);
