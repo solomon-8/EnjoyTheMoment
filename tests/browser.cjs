@@ -365,11 +365,21 @@ async function decodeImage(image) {
     assert.equal(new URL(page.url()).hash, "#constraints-permission-study");
     await page.goto(url + "#rest-returns");
     await page.waitForFunction(() => document.getElementById("e07").open);
-    for (const anchor of ["rest-real-income", "rest-paid-evening"]) {
+    for (const anchor of ["rest-lafargue", "rest-productivity-defense",
+                         "rest-leisure-command", "rest-real-income", "rest-paid-evening"]) {
       await page.locator(`#e07 a[href='#${anchor}']`).first().click();
       assert.equal(new URL(page.url()).hash, "#" + anchor);
       assert(await page.locator("#e07 .prose").isVisible());
     }
+    await page.locator("#e07 a[href='#f82']").first().click();
+    await page.waitForFunction(() => document.getElementById("f82").open);
+    assert.match(await page.locator("#f82 .prose").textContent(), /英译第四节开头/);
+    assert.match(await page.locator("#f82 .prose").textContent(), /十人、八小时与六小时/);
+    await page.locator("#essay-query").fill("不存在的劳动崇拜XYZ");
+    await page.locator("#f82 a[href='#rest-productivity-defense']").click();
+    await page.waitForFunction(() => document.getElementById("e07").open &&
+      !document.getElementById("e07").hidden && document.getElementById("essay-query").value === "");
+    assert.match(await page.locator("#e07 .prose").textContent(), /质量、收入、需求和人员都不变/);
     await page.locator("#essay-query").fill("未匹配论证XYZ");
     await page.evaluate(() => { window.location.hash = "#rest-no-verdict"; });
     await page.waitForFunction(() => document.getElementById("e07").open &&
