@@ -46,6 +46,27 @@ async function decodeImage(image) {
     page.on("pageerror", error => errors.push(error.message));
     page.on("request", request => {if (/^https?:/.test(request.url())) requests.push(request.url());});
     const url = pathToFileURL(path.resolve(__dirname, "../index.html")).href;
+    await page.goto(url + "#pleasure-ground");
+    await page.waitForFunction(() => document.getElementById("e01").open);
+    assert.deepEqual(await page.locator("#e01 .prose h3").allTextContents(), [
+      "一、先争论快乐有没有价值，而不是先算它的用途",
+      "二、愿意付出什么，才是价值排序的分歧",
+      "三、喜欢是理由，不是所有做法的通行证",
+      "四、承认可能选错，也保留不尽兴的自由",
+      "五、这套主张也必须接受自己的检验"
+    ]);
+    for (const anchor of ["pleasure-tradeoffs", "pleasure-conditions",
+                          "pleasure-feedback", "pleasure-self-test"]) {
+      await page.locator(`#e01 a[href="#${anchor}"]`).first().click();
+      assert.equal(await page.evaluate(() => location.hash), "#" + anchor);
+      assert(await page.locator("#e01 .prose").isVisible());
+    }
+    assert.match(await page.locator("#e01 .prose").textContent(), /没有证明它与“耍起”不相容/);
+    assert.match(await page.locator("#e01 .prose").textContent(), /没有预测幸福感的变化/);
+    assert(await page.locator("#e01 .prose h5").evaluateAll(headings =>
+      headings.length === 2 && headings.every(h =>
+        parseFloat(getComputedStyle(h).fontSize) >=
+        parseFloat(getComputedStyle(h.closest(".prose")).fontSize))));
     await page.goto(url + "#constrained-access-authorship");
     await page.waitForFunction(() => document.getElementById("c09").open);
     assert.match(await page.locator("#c09 .prose").textContent(), /被允许参加，与有机会决定大家怎样参加/);
