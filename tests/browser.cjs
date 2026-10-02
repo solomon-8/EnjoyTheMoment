@@ -67,6 +67,18 @@ async function decodeImage(image) {
       headings.length === 2 && headings.every(h =>
         parseFloat(getComputedStyle(h).fontSize) >=
         parseFloat(getComputedStyle(h.closest(".prose")).fontSize))));
+    for (const anchor of ["pleasure-consent-scope", "pleasure-disapproval", "pleasure-concern"]) {
+      await page.goto(url + "#" + anchor);
+      await page.waitForFunction(() => document.getElementById("e01").open);
+      assert.equal(await page.locator("#" + anchor + " + h4").count(), 1);
+    }
+    assert.match(await page.locator("#e01 .prose").textContent(), /共同责任不只等于白纸黑字/);
+    await page.locator("#e01 a[href='#f86']").click();
+    await page.waitForFunction(() => document.getElementById("f86").open);
+    assert.match(await page.locator("#f86 .prose").textContent(), /不是完整核读第四章/);
+    await page.locator("#f86 a[href='#pleasure-consent-scope']").first().click();
+    await page.waitForFunction(() => document.getElementById("e01").open);
+    assert.match(await page.locator("#e01 .prose").textContent(), /别人答应陪你，不等于答应交出自己的感受/);
     await page.goto(url + "#constrained-access-authorship");
     await page.waitForFunction(() => document.getElementById("c09").open);
     assert.match(await page.locator("#c09 .prose").textContent(), /被允许参加，与有机会决定大家怎样参加/);

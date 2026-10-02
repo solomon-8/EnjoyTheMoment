@@ -30,7 +30,7 @@ That means accepting real tradeoffs: less output, some forgone convenience, or u
 
 This is not a disguised productivity system. The punchline is not “rest so you can work harder.” **The point of enjoyment is enjoyment.**
 
-Our boundary is simple: **you choose it, other people consent, the costs are visible, and you can stop.** We are changing the priority of present enjoyment—not reversing safety advice or promoting self-destruction.
+Our boundary is simple: **you choose it, other people consent, the costs are visible, and you can stop.** [Consent is not approval of your taste](essays/01-pleasure-is-an-end.md#pleasure-consent-scope): involving someone else or changing shared arrangements calls for agreement; private enjoyment does not require everyone to applaud it. We are changing the priority of present enjoyment—not reversing safety advice or promoting self-destruction.
 
 > Today is not tomorrow's raw material. Tomorrow is not today's dumping ground.
 

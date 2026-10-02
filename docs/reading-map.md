@@ -13,15 +13,17 @@
 <a id="r01"></a>
 ## R01 · 主张、选择与最优
 
-<!-- reading-route: {"id":"R01","targets":["SHUAQI","E01"]} -->
+<!-- reading-route: {"id":"R01","targets":["SHUAQI","E01","F86"]} -->
 
-正文与来源：[SHUAQI](../SHUAQI.md) · [E01](../essays/01-pleasure-is-an-end.md)
+正文与来源：[SHUAQI](../SHUAQI.md) · [E01](../essays/01-pleasure-is-an-end.md) · [F86](evidence/F86-liberty-and-disapproval.md)
 
 E01按五层论证阅读：[价值与用途](../essays/01-pleasure-is-an-end.md#pleasure-ground)、[资源取舍](../essays/01-pleasure-is-an-end.md#pleasure-tradeoffs)、[改变决定的条件](../essays/01-pleasure-is-an-end.md#pleasure-conditions)、[失望与反馈](../essays/01-pleasure-is-an-end.md#pleasure-feedback)、[主张的自我检验](../essays/01-pleasure-is-an-end.md#pleasure-self-test)。这是阅读结构，不是五步行动处方；不要只摘“喜欢是理由”而丢掉其他人的同意、现实代价、可能选错及不保证尽兴。
 
 价值争论先读SHUAQI及E01的`pleasure-options`、`pleasure-enough`：本项目偏爱兑现明确且可承担的愿望，不是只允许微小舒适，也不主张每个选择都要最大化快乐。保留选项与行使选项、值得与全球最优、现实可行替代与把所有机会成本相加，分别讨论。这些是原创规范论证和假设情境，不是实证决策算法；没有要活动时，不用玩法代替回答。
 
 [把快乐也算成收益](../essays/01-pleasure-is-an-end.md#pleasure-value-metric)与[做饭过程的假想](../essays/01-pleasure-is-an-end.md#pleasure-process)回答性价比异议：看清代价不等于只认可未来回报，过程有时是目的而不是应当省掉的成本。正文承认充分考虑快乐的比较可能与本项目相容，不把参考作者说成反对享受或要求人生总分最大化。阿岚、小周不是受访者；慢不必更好，省事不必更差，想亲自做也不能默认别人收拾。不据此给出快乐单价、幸福效率或统一时间分配。
+
+[同意的对象](../essays/01-pleasure-is-an-end.md#pleasure-consent-scope)、[失望与具体义务](../essays/01-pleasure-is-an-end.md#pleasure-disapproval)、[关心与接管](../essays/01-pleasure-is-an-end.md#pleasure-concern)区分参与/资源/共同安排的同意、品味赞许、提供理由与强制权限。阿宁听歌和客厅均为原创假想，不是调查；关系需要不只来自书面约定，不以“我没动你的东西”抹除责任，也不以失望自动授予全部私人选择的否决权。拒绝参加与故意惩罚不能只靠一句话判定，保留资源关系、表达伤害和退圈损失；不承诺每个人都被理解。F86仅核读《论自由》第四章前12段及第16段，不是全章、全书或法律规则；本书不接受原文所谓低下趣味的人格排序，不采用未核历史材料。没有新效果研究，也不将同意当成排除全部外部影响的充分条件。
 
 <a id="r02"></a>
 ## R02 · 今天、机会与兑现
