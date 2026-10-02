@@ -485,6 +485,15 @@ async function decodeImage(image) {
     assert.equal(new URL(page.url()).hash, "#constraints-permission-study");
     await page.goto(url + "#rest-returns");
     await page.waitForFunction(() => document.getElementById("e07").open);
+    assert.equal(await page.locator("#e07 .prose h3").count(), 4);
+    assert.equal(await page.locator("#e07 .prose h4").count(), 16);
+    assert.equal(await page.locator("#e07 .prose h5").count(), 4);
+    for (const anchor of ["rest-value", "rest-cost", "rest-shared", "rest-position", "rest-race"]) {
+      await page.locator(`#e07 a[href='#${anchor}']`).first().click();
+      assert.equal(new URL(page.url()).hash, "#" + anchor);
+      assert(await page.locator("#e07 .prose").isVisible());
+    }
+    assert.match(await page.locator("#e07 .prose").textContent(), /休息有价值，不等于休息没有竞争代价/);
     for (const anchor of ["rest-lafargue", "rest-productivity-defense",
                          "rest-leisure-command", "rest-real-income", "rest-paid-evening",
                          "rest-service-work", "rest-service-ending",

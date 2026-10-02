@@ -26,10 +26,14 @@ class ServiceLeisureArgumentTests(unittest.TestCase):
             "rest-paid-service", "rest-less-convenience",
         )
         cls.section = cls.text.split('<a id="rest-service-work">', 1)[1].split(
-            "## 不辞职、不豪掷", 1)[0]
+            '<a id="rest-position">', 1)[0]
 
     def test_entrypoints_reach_the_argument_not_an_activity_card(self):
-        self.assertIn("](#rest-service-work)", self.text[:self.text.index("## “有用”")])
+        opening = self.text[:self.text.index("## 一、")]
+        self.assertIn("](#rest-shared)", opening)
+        shared_intro = self.text.split('<a id="rest-shared">', 1)[1].split(
+            "### 第二个反对意见", 1)[0]
+        self.assertIn("](#rest-service-work)", shared_intro)
         for anchor in self.anchors[1:]:
             self.assertIn(f"](#{anchor})", self.section)
         for name in ("SHUAQI.md", "docs/reading-map.md"):
@@ -85,7 +89,7 @@ class ServiceLeisureArgumentTests(unittest.TestCase):
         self.assertEqual(len(ids), len(set(ids)))
         self.assertTrue(check.anchors_for(self.text).issubset(set(ids)))
         rendered = "".join(xml.itertext())
-        for heading in re.findall(r"^#{2,3} (.+)$", self.section, re.M):
+        for heading in re.findall(r"^#{2,4} (.+)$", self.section, re.M):
             self.assertIn(heading, rendered)
 
 
