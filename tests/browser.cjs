@@ -1286,7 +1286,7 @@ async function decodeImage(image) {
     }
     await page.goto(url + "#c26");
     await page.waitForFunction(() => document.getElementById("c26").open);
-    assert.match(await page.locator("#c26 > summary").textContent(), /永远差最后一件/);
+    assert.match(await page.locator("#c26 > summary").textContent(), /别让下一张订单垄断快乐/);
     assert.equal(await page.locator("#c26 .artwork img").count(), 2);
     assert.equal(await page.locator("#c26 .prose table").count(), 3);
     for (const image of await page.locator("#c26 .artwork img").all()) {
@@ -1295,7 +1295,9 @@ async function decodeImage(image) {
       assert.equal(await image.evaluate(img => img.naturalWidth), 599);
       assert((await image.getAttribute("alt")).length > 50);
     }
-    for (const anchor of ["collecting-crosses", "collecting-layers", "collecting-digital",
+    for (const anchor of ["collecting-relations", "collecting-differences",
+                          "collecting-completeness", "collecting-continuing",
+                          "collecting-crosses", "collecting-layers", "collecting-digital",
                           "collecting-return", "collecting-abundance", "collecting-candy",
                           "collecting-not-refill"]) {
       await page.locator(`#c26 a[href='#${anchor}']`).click();

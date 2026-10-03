@@ -248,6 +248,8 @@ F81按维基文库独立篇目修订2327158核读全文，另与卷七修订2703
 
 正文与来源：[C26](../book/26-collecting.md) · [F14](evidence/F14-editions.md) · [F38](evidence/F38-print-comparison.md) · [F39](evidence/F39-digital-collections.md) · [F87糖果作品规则](evidence/F87-candy-and-continuity.md) · [C01首次使用](../book/01-start-now.md#today-first-use) · [C36持续实践](../book/36-home.md#home-continuity)
 
+C26顺读依次讨论[集合关系](../book/26-collecting.md#collecting-relations)、[作品与物件的差异](../book/26-collecting.md#collecting-differences)、[谁定义完整](../book/26-collecting.md#collecting-completeness)、[保存与延续](../book/26-collecting.md#collecting-continuing)。不把“下一张订单之外”误解为否认寻找或购买的乐趣，也不把案例章节误作鉴定流程。
+
 收藏见 C26/F14/F38/F39。F38 为 `artwork_record_and_image`：两件伦勃朗版画的 A/B 是本书标签，不是版态编号；约1660保留约数，印版尺寸与承载物尺寸不可混比，复制图的线条/明暗解释不变成鉴定、作者心理或眼动实验。仅读到替代文本不能声称看过图。F38重用F14的V&A教学页，不形成独立重复证据；数据CC0声明不独自证明图像许可，保留对象公有领域字段与官方图像链。F39 为 `personal_digital_archiving_guidance`，是保存指导而非效果研究；来源建议保留质量最高版本，本书另区分批注等版本意义。不按文件名、像素或大小替用户删除数据，也不把同介质两文件夹等同分开存放。旧页面年限不是设备寿命保证，未执行用户恢复测试。收藏可以很多、成套或继续购买，不把它一律劝成精简或禁止消费。
 
 [糖果少了，作品就少了吗](../book/26-collecting.md#collecting-candy)依据F87作品记录、馆方解释和2026-09-01在发展规则草案。允许取糖不等于要求取，是否补充不等于每日补满；理想175磅不是已核Ross健康体重，授权呈现与任意糖堆不同，取糖不授予全部布置权。保留失去与补充并存的解释，不把作品变成快乐消费说明书；未核实时展示、观众反应、人员或补给日程。C26的[普通收藏三种目的](../book/26-collecting.md#collecting-not-refill)是原创假想，材料可变不保证纪念实物可替代；C01/C36承接使用资格与持续实践，不当新增独立研究。仅读文字可讨论这些区别，不声称观看过作品图像或亲身取糖。
