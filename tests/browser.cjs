@@ -695,6 +695,14 @@ async function decodeImage(image) {
     assert(await page.locator("#e03 .prose").isVisible());
     assert.equal(await page.locator("#e03 .prose h3").count(), 5);
     assert.match(await page.locator("#e03 .prose").textContent(), /不是三类人，也不是互斥选项/);
+    await page.locator("#e03 a[href='#waiting-reliable-more']").first().click();
+    assert.equal(new URL(page.url()).hash, "#waiting-reliable-more");
+    assert.match(await page.locator("#e03 .prose").textContent(), /少得到两个玩乐的晚上，也多用两个晚上完成同一任务/);
+    assert.match(await page.locator("#e03 .prose").textContent(), /不能替他创造一个他并不认同的优先项/);
+    await page.locator("#e03 a[href='#pleasure-position']").click();
+    await page.waitForFunction(() => document.getElementById("e11").open);
+    await page.goBack();
+    await page.waitForFunction(() => document.getElementById("e03").open);
     for (const anchor of ["waiting-credible-promise", "waiting-long-term-defense",
                          "waiting-not-a-patience-score", "waiting-real-window",
                          "waiting-future-self", "waiting-anticipation"]) {

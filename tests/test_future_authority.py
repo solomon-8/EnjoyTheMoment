@@ -54,7 +54,7 @@ class FutureAuthorityTests(unittest.TestCase):
         self.assertEqual(doc["source_sha256"], hashlib.sha256(self.raw).hexdigest())
         self.assertIn(self.text, (ROOT / "llms-full.txt").read_text())
         route = next(r for r in routes if r["id"] == "R04")
-        self.assertEqual(set(route["targets"]), {"E03", "E04", "E05", "B23", "N23"})
+        self.assertEqual(set(route["targets"]), {"E03", "E04", "E05", "E11", "B23", "N23"})
         for phrase in ("不是年龄变化实验", "没有真人回访", "不预测哪个年龄更明智",
                        "不把短承诺当普遍最优", "不把三文的相通原则重复当成独立证据"):
             self.assertIn(phrase, route["text"])

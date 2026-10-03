@@ -63,11 +63,13 @@ E02的空椅子与剪辑为原创假想，用于区分保留想经历的关系�
 <a id="r04"></a>
 ## R04 · 等待、承诺与未来自我
 
-<!-- reading-route: {"id":"R04","targets":["E03","E04","E05","B23","N23"]} -->
+<!-- reading-route: {"id":"R04","targets":["E03","E04","E05","E11","B23","N23"]} -->
 
-正文与来源：[E03](../essays/03-now-or-later.md) · [E04选择与结果](../essays/04-buying-pleasure.md#事前愿意承担事后不喜欢哪个判断错了) · [E05共同目标的变化](../essays/05-play-is-not-performance.md#amateur-changing-group) · [B23](research.md#b23) · [N23](evidence/B23-reliable-waiting.md)
+正文与来源：[E03](../essays/03-now-or-later.md) · [E04选择与结果](../essays/04-buying-pleasure.md#事前愿意承担事后不喜欢哪个判断错了) · [E05共同目标的变化](../essays/05-play-is-not-performance.md#amateur-changing-group) · [E11不以快乐总量裁决](../essays/11-pleasure-and-reality.md#pleasure-position) · [B23](research.md#b23) · [N23](evidence/B23-reliable-waiting.md)
 
 E03先从[承诺要交出理由](../essays/03-now-or-later.md#waiting-credible-promise)进入，再讨论[长期投入与等待价值](../essays/03-now-or-later.md#waiting-long-term-defense)、[选择与反悔](../essays/03-now-or-later.md#waiting-not-a-patience-score)、[真实窗口与倒计时](../essays/03-now-or-later.md#waiting-real-window)，最后讨论[未来自我的分量](../essays/03-now-or-later.md#waiting-future-self)。期待、现实限制和资格加码可能同时存在，不是互斥分类或人格诊断；攒钱同时享受期待、钱够后再加门槛的例子是原创假想。可信的等待不需要百分之百保证，临时变化也不自动等于失信。
+
+[即使以后可靠而且更多](../essays/03-now-or-later.md#waiting-reliable-more)仍可能选择今天，是原创规范论证，不是风险预测或时间折扣实验。林安的六个当前晚上与八个随后晚上是写定思想实验：甲先玩六晚再做八晚任务，乙先做六晚任务再玩八晚，十四个时段之外条件相同。提前可省两晚、兑现、持续喜欢及责任条件均为假定，不是现实工作效率或安排承诺。必须保留甲少玩两晚且多做两晚任务的代价、生活时间分布的独立价值，以及只在乎总体愉快时可合理选乙的让步。不偷偷借失信、兴趣变化、隐藏回报替甲获胜，也不推出今天一份总胜过明天两份。甲包含后来完成任务，不能把每次继续推迟冒充同一安排。E11给出本书不以总量为唯一尺度的立场；B04/B23/F75均不验证此假想。甲不可行时不能靠态度制造资源。
 
 [口味改变是否取消过去](../essays/03-now-or-later.md#waiting-changed-taste)、[后来知道更多是否拥有终审权](../essays/03-now-or-later.md#waiting-later-knowledge)与[长期承诺如何面对变化](../essays/03-now-or-later.md#waiting-open-future)是本书原创规范论证，不是年龄变化实验。小岑二十四岁看演出、十年后不再喜欢的情境是写定假想，没有真人回访，不预测哪个年龄更明智。区分后来获得事实、评价对象不同和偏好改变；当时快乐不替不妥选择免责，较晚偏好也不因日期自动获胜。承认两时点可能都认真而仍冲突，不提供万能排序；一次参加与让同伴依赖的长期承诺不能混同，也不把短承诺当普遍最优。E04负责事前信息与事后结果，E05负责共同目标变化与无法两全的损失；不把三文的相通原则重复当成独立证据。
 
