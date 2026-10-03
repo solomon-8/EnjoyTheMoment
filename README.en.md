@@ -109,7 +109,7 @@ The chapters on senses, novelty, play, relationships, spending, and permission t
 | [06 · Buy pleasure, not an identity](book/06-spending.md) | Which specific experience is worth its cost to you? |
 | [07 · Being alone is not a reason to skip the occasion](book/07-solo.md) | What makes solitude enjoyable—and who controls its time and space? |
 | [08 · Take a break from being useful](book/08-permission.md) | When does refinement become a status barrier—and whose work makes another person look effortless? |
-| [09 · Limited resources, real enjoyment](book/09-constrained.md) | Who is still organizing while everyone else gets to relax? |
+| [09 · Limited resources, real enjoyment](book/09-constrained.md) | Who is still organizing while everyone else gets to relax? [Credit, influence and getting to participate](book/09-constrained.md#constrained-credit) need not belong to the same person. |
 | [10 · Leaving is part of enjoying](book/10-aftertaste.md) | Can “I loved that moment” and “I would choose differently next time” both be true? |
 | [11 · Your ears are not a taste certificate](book/11-music.md) | Can listening concepts open possibilities without becoming a test? |
 | [12 · I know the film is trying to move me. I can still like it.](book/12-film.md) | Being moved, judging the filmmaking, and believing a factual claim are different questions. |

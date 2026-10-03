@@ -2065,13 +2065,13 @@ class ExportTests(unittest.TestCase):
         for path in ("docs/reading-map.md",):
             self.assertIn("C03/F49/B03", (ROOT / path).read_text())
 
-    def test_cognitive_labor_keeps_author_summary_and_original_analogy_distinct(self):
+    def test_cognitive_labor_keeps_source_versions_and_original_analogy_distinct(self):
         notes = {n["id"]: n for n in json.loads(self.outputs["data/evidence.json"])["notes"]}
         note = notes["F50"]
-        self.assertEqual(note["source_kind"], "researcher_authored_project_summary")
+        self.assertEqual(note["source_kind"], "researcher_summary_and_dissertation_excerpt")
         self.assertEqual(note["text"], (ROOT / note["source"]).read_text())
         self.assertIn(note["text"], self.outputs["llms-full.txt"])
-        for phrase in ("不是本项目已核读的原始论文全文", "170余次访谈",
+        for phrase in ("不是2019年期刊论文全文核读", "170余次访谈",
                        "不能直接充当2019年论文的样本量", "不是PDF",
                        "不是已验证的家庭公平评分", "全部是本书原创假想"):
             self.assertIn(phrase, note["text"])

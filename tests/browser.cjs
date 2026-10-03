@@ -2176,7 +2176,9 @@ async function decodeImage(image) {
       await constrained.goto(url + (javaScriptEnabled ? "#c09" : ""));
       if (!javaScriptEnabled) await constrained.locator("#c09 > summary").click();
       assert.match(await constrained.locator("#c09 .prose").textContent(), /三种安排没有实验排名/);
-      for (const anchor of ["constrained-cognitive", "constrained-three-arrangements", "constrained-authority"]) {
+      assert.equal(await constrained.locator("#c09 .prose h3").count(), 5);
+      assert.match(await constrained.locator("#c09 .prose").textContent(), /被看见、能拍板、能参加/);
+      for (const anchor of ["constrained-time", "constrained-labor", "constrained-shared", "constrained-participation", "constrained-credit", "constrained-cognitive", "constrained-three-arrangements", "constrained-authority"]) {
         if (javaScriptEnabled) {
           await constrained.locator(`#c09 a[href='#${anchor}']`).first().click();
           assert.equal(new URL(constrained.url()).hash, "#" + anchor);

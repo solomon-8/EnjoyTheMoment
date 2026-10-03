@@ -169,7 +169,7 @@ C07按独享经验、公共参与、支配条件三条线组织。[谈话距离]
 
 正文与来源：[C09](../book/09-constrained.md) · [E06](../essays/06-real-life-constraints.md) · [F50](evidence/F50-cognitive-labor.md)
 
-涉及分工与闲暇时，读 C09/F50：[正文](../book/09-constrained.md#constrained-cognitive)讨论执行、组织与决定权；[来源](evidence/F50-cognitive-labor.md)是作者项目介绍，不是论文全文。170余次访谈不当2019论文样本，野餐为原创类比。回应责任与自由的冲突，不自动缩成小份活动。
+涉及分工与闲暇时，读 C09/F50：[正文](../book/09-constrained.md#constrained-cognitive)区分执行、组织与决定权，[功劳与在场](../book/09-constrained.md#constrained-credit)进一步问谁被看见、谁能影响安排、谁真正参加。[来源](evidence/F50-cognitive-labor.md)含作者项目说明与博士论文方法章、指定段落，不是整本或2019期刊全文；版本年份、访谈人数内部冲突和非因果限制须保留。170余次访谈不当2019论文样本，Holly/Kendra是论文个案转述，野餐与惊喜是原创类比。不要由可见性给贡献排名，也不把感谢当作获得闲暇。回应责任与自由的冲突，不自动缩成小份活动。
 
 <a id="r13"></a>
 ## R13 · 散场、回忆与再选

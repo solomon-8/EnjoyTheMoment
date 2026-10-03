@@ -219,7 +219,7 @@ EVIDENCE_KINDS = {
     "F47": "literary_primary_text",
     "F48": "literary_primary_text",
     "F49": "researcher_authored_explainer",
-    "F50": "researcher_authored_project_summary",
+    "F50": "researcher_summary_and_dissertation_excerpt",
     "F51": "creator_work_and_participation_record",
     "F52": "artist_trust_work_and_method_record",
     "F53": "literary_primary_text",
