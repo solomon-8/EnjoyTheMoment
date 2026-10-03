@@ -427,11 +427,13 @@ B12 是度假观察资料，旅后未显著不等于旅途无价值；没有直�
 <a id="r40"></a>
 ## R40 · 阅读细节与结局意图
 
-<!-- reading-route: {"id":"R40","targets":["C21","C22","F53","B11","F11","N11"]} -->
+<!-- reading-route: {"id":"R40","targets":["C21","C22","F53","B11","F11","N11","E05"]} -->
 
-正文与来源：[C21](../book/21-free-time.md) · [C22](../book/22-reading.md) · [F53](evidence/F53-open-window.md) · [B11](research.md#b11) · [F11](evidence/F11-reading-texts.md)；[N11](evidence/B11-scheduling.md)
+正文与来源：[C21](../book/21-free-time.md) · [C22](../book/22-reading.md) · [F53](evidence/F53-open-window.md) · [B11](research.md#b11) · [F11](evidence/F11-reading-texts.md) · [E05作品与评价](../essays/05-play-is-not-performance.md#amateur-criticism)；[N11](evidence/B11-scheduling.md)
 
 例如，讨论空闲与排期可读 C21/B11，保留到场率与到场者享受的区别，不归纳成“计划有害”。讨论阅读可读 C22/F11/F53，区分原作文本、人物说法、本书细读与未证明的效果；不把解释冒充作者声明，不把F53人物所述事故或恐犬经历当作已核实事实，也不把自写示例说成名家引文。C22/F53机器导出含剧透；先尊重读者是否愿意知道结局，不因检索命中就直接揭底。
+
+C22沿阅读经过、分析与考核、入口与相处三条线展开。[玛丽一时答不出](../book/22-reading.md#reading-mary)来自《傲慢与偏见》第二章：父亲列举阅读与摘录，叙述说她想说点有见地的话却不知怎样说，父亲随后换话题。不能把父亲的列举当全书阅读能力评估，也不能替她补一个未写出的聪明答案。读者提前知道拜访事实；关于话题控制和即席答辩的分析是本书解释，不是奥斯汀自述或读者实验。保留“讽刺阅读姿态”的反方，拒绝即席考核不免除具体解释的证据责任。E05补充作品批评与生活价值的分辨，不与这一场景重复算作新研究。
 
 <a id="r41"></a>
 ## R41 · 休息的价值与实际代价
