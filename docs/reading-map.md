@@ -534,11 +534,13 @@ E06/B26/N26区分实际预算与享乐资格、共同责任与旁观者评判、
 <a id="r49"></a>
 ## R49 · 空闲、共同时间与幸福限额
 
-<!-- reading-route: {"id":"R49","targets":["C21","C09","E07","B11","N11","B27","N27"]} -->
+<!-- reading-route: {"id":"R49","targets":["C21","C09","E07","E09","B11","N11","B27","N27"]} -->
 
-正文与来源：[C21](../book/21-free-time.md) · [C09](../book/09-constrained.md) · [E07](../essays/07-rest-is-not-work.md) · [B11](research.md#b11) · [N11](evidence/B11-scheduling.md) · [B27](research.md#b27) · [N27](evidence/B27-discretionary-time.md)。
+正文与来源：[C21](../book/21-free-time.md) · [C09](../book/09-constrained.md) · [E07](../essays/07-rest-is-not-work.md) · [E09偏爱与约定](../essays/09-friends-not-assets.md#friends-partiality) · [B11](research.md#b11) · [N11](evidence/B11-scheduling.md) · [B27](research.md#b27) · [N27](evidence/B27-discretionary-time.md)。
 
 C21区分个人空闲总量、相遇的交集、为协调付出的代价，以及一次不尽兴和时间决定权。排班表是简化的虚构例子，不能当作真实排班干预或让别人让步的义务。C09补足照料和待命，E07讨论休息不必交生产力回报。B11保留到场率与到场者享受的差别。
+
+C21沿时间归属、促成相聚、共同代价、体验与支配权四段展开。[还未确认的邀约](../book/21-free-time.md#time-tentative)区分想见面与确认前答应怎样留时间。小闻、阿澄及周三至周六的安排是原创假想，不是调查或普遍预约规则；等待可能放弃其他机会，但不能据此推断无法提前确认的人在敷衍。保留日程不稳定者的反方、自愿等待与双方接受松散安排的可能，不把朋友按可靠程度排榜。E09已有的偏爱论证是相关分工，不另算一项新证据。
 
 谈到[保留时段](../book/21-free-time.md#time-reservation)，区分个人未承诺的空闲与排他的共享名额。排练室及18:00—20:00是原创假想，不是场馆调查或规则；已确认无法到场与未来可能有变不同，不因不确定或一次取消剥夺参与资格。约定明许付费保留备选时段时，不改判成违约；利用率不等于公平。释放不保证别人仍来得及使用，退费和转让需核实际约定，不自动提供法律结论；不以开心或产出审查预约资格。不要把问题缩成“把空闲用满”，也不要把个人留白解释为占住别人的许可。
 
