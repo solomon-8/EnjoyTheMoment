@@ -32,6 +32,16 @@ def distributions():
     return uniform_order, uniform_first
 
 
+def response_sequences(first):
+    """Two stipulated rules, not a classifier for real dancers or intentions."""
+    if first not in ("P", "R"):
+        raise ValueError("This two-step model only permits P or R first")
+    return {
+        "fixed": (first, "Q"),
+        "conditional": (first, {"P": "Q", "R": "S"}[first]),
+    }
+
+
 def svg():
     parts = [
         '<svg xmlns="http://www.w3.org/2000/svg" width="720" height="1080" '

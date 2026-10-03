@@ -292,4 +292,4 @@
 
 **来源与边界**：[F30 · 声音与音乐关系](../docs/evidence/F30-voice-and-musical-relations.md)记录声学模型、移调与轮唱教学的核读范围；[F31 · 话筒与嗓音照护](../docs/evidence/F31-microphones-and-voice-care.md)区分型号说明与官方健康指导；[F62 · 歌者、听者与实践情境](../docs/evidence/F62-paghjella-and-listeners.md)记录科西嘉歌唱传统的官方项目描述与 2009 年决定。三行移调音名、两段同音域旋律的对比、四段时间表、进入时刻与半音距离的对照、三人关系草图和“今晚的风”均为本书原创示例；没有实际演唱、录音试听或用户测试，不承诺嗓音改善或快乐效果。
 
-**继续读**：[耳朵不是用来证明品位的](11-music.md) · [去现场，不是去完成一次到场证明](13-live-events.md) · [有些爱好，玩得越久越像第二份工作](../essays/05-play-is-not-performance.md)。
+**继续读**：[耳朵不是用来证明品位的](11-music.md) · [在家听得更清楚，为什么还要去现场？](13-live-events.md) · [有些爱好，玩得很菜也值得一直玩](../essays/05-play-is-not-performance.md)。
