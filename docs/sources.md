@@ -198,3 +198,9 @@ E03的A／B假想答卷依据论文的比较结构改写，署明关联，不冒
 [B46/N46](evidence/B46-bite-sound.md)署名概述Zampini与Spence（2004）的咬声实验。实际读取第三方镜像的期刊排版PDF并用Crossref核对书目，未与访问失败的出版社下载逐字比对；保留图2与结果文字的两处方向冲突。论文、图表与镜像内容不纳入本仓库MIT许可，不转载原图、全文或完整翻译。
 
 [C02](../book/02-senses.md#senses-bite-sound)的分层解释为本书分析，不冒称研究测过喜欢、食品安全或餐厅音乐；C14只作回链。未新增行动卡或读者音量实验。
+
+## 糖果作品、变化与延续
+
+[F87](evidence/F87-candy-and-continuity.md)署名概述Felix Gonzalez-Torres Foundation作品记录及仍在发展的糖果作品规则（实际取得2026-09-01草案），并采用芝加哥艺术博物馆作品API记录。馆方description依其CC BY 4.0标记署名概述，其他字段依CC0说明使用；未转载description全文、作品照片、PDF、证书或讲座引文。公开取得不等于这些材料重新成为本项目MIT资产。
+
+[C26](../book/26-collecting.md#collecting-candy)的封存反事实与[三种普通收藏目的](../book/26-collecting.md#collecting-not-refill)是本书分析及原创假想。作品、材料、参与选择与配置决定权分别说明，不把持续补充写成消除失去；没有真实观众调查或展览执行、补给人员与费用记录，不声称亲访或提供收藏/护理方案。

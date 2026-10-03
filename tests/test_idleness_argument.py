@@ -57,7 +57,7 @@ class IdlenessArgumentTests(unittest.TestCase):
         self.assertEqual(note["text"], text)
         self.assertEqual(note["source_kind"],
                          "historical_social_polemic_primary_and_translation")
-        self.assertEqual(len(notes), 132)
+        self.assertEqual(len(notes), 133)
         research = json.loads((ROOT / "data/research.json").read_text())["records"]
         self.assertEqual(len(research), 47)
         self.assertNotIn("F82", {r["id"] for r in research})

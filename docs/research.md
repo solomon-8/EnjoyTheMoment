@@ -752,3 +752,5 @@ F 系列不计入上面的 B 系列背景研究。事实、教学、文学文本
 - [F84 · 无障碍与剧场创作：谁决定作品怎样发生](evidence/F84-access-and-theatre-making.md)：Graeae的工作坊说明、Hana Pascal Keegan的2026年具名实践回顾及《Self-Raising》历史制作页面，用于[C09](../book/09-constrained.md#constrained-access-making)。区分进入既定活动、参与决定内容、辅助呈现与创作形式；没有亲访或观众效果数据，不以机构自述认证无障碍。“林与杯子”是原创微型场景，不是上述作品或可执行专业方案；保留信息时序、形式冲突、共同在场和仍可批评作品的边界，不新增B类研究。
 
 - [F86 · 《论自由》：不赞同、关心与控制](evidence/F86-liberty-and-disapproval.md)：密尔第四章前12个正文段落及第16段，用于[E01](../essays/01-pleasure-is-an-end.md#pleasure-consent-scope)。不是通读全章或全书，不采用未核历史材料；保留劝告、交往选择与具体义务，也明确不接受原文对所谓低下趣味的人格排序。阿宁听歌和客厅是原创假想；同意不等于赞许，失望不自动授予否决权，关心不自动变成生活管理权限。不是效果研究或现行法律说明。
+
+- [F87 · 糖果、允许的变化与作品的延续](evidence/F87-candy-and-continuity.md)：Gonzalez-Torres Foundation作品记录、2026-09-01在发展规则草案相关正文/脚注与芝加哥艺术博物馆作品API，用于[C26](../book/26-collecting.md#collecting-candy)。分开理想重量、实际糖量、取糖选择、补充决定与授权呈现；馆方关于Ross及失去的解释不是观众效果或身体测量。包装、朋友物件、可触摸样品为原创假想，不复制图像、PDF或证书，不提供收藏鉴定、食用或参观建议。
