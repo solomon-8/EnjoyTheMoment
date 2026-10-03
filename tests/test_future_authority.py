@@ -59,8 +59,8 @@ class FutureAuthorityTests(unittest.TestCase):
         for phrase in ("不是年龄变化实验", "没有真人回访", "不预测哪个年龄更明智",
                        "不把短承诺当普遍最优", "不把三文的相通原则重复当成独立证据"):
             self.assertIn(phrase, route["text"])
-        self.assertEqual(len(json.loads((ROOT / "data/research.json").read_text())["records"]), 47)
-        self.assertEqual(len(json.loads((ROOT / "data/evidence.json").read_text())["notes"]), 136)
+        self.assertEqual(len(json.loads((ROOT / "data/research.json").read_text())["records"]), 48)
+        self.assertEqual(len(json.loads((ROOT / "data/evidence.json").read_text())["notes"]), 137)
         self.assertEqual(len(json.loads((ROOT / "data/catalog.json").read_text())["cards"]), 60)
 
     def test_all_anchors_and_related_arguments_reach_epub(self):

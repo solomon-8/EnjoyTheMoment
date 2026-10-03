@@ -21,14 +21,14 @@ class SpoilerChoiceTests(unittest.TestCase):
     def test_new_study_is_distinct_and_does_not_validate_cards(self):
         records = build.research_records(ROOT)
         self.assertEqual({r["id"] for r in records},
-                         {f"B{i:02d}" for i in range(1, 48)})
+                         {f"B{i:02d}" for i in range(1, 49)})
         record = next(r for r in records if r["id"] == "B45")
         self.assertEqual(record["doi"], "10.61645/ssol.190")
         self.assertEqual(record["access_level"], "full_text")
         self.assertEqual(record["verified_at"], "2026-10-02")
         self.assertFalse(record["directly_validates_cards"])
         self.assertEqual(sum(r["access_level"] == "full_text"
-                             for r in records), 46)
+                             for r in records), 47)
         self.assertEqual([r["id"] for r in records
                           if r["access_level"] == "abstract_only"], ["B44"])
         cards = json.loads((ROOT / "data/catalog.json").read_text())["cards"]
@@ -92,7 +92,7 @@ class SpoilerChoiceTests(unittest.TestCase):
             self.assertIn(raw.decode(), (ROOT / "llms-full.txt").read_text())
         route = next(r for r in routes if r["id"] == "R03")
         self.assertEqual(set(route["targets"]),
-                         {"E02", "E03", "C06", "C21", "B24", "N24", "B45", "N45"})
+                         {"E02", "E03", "C05", "C06", "C21", "C27", "B24", "N24", "B45", "N45", "B48", "N48"})
         for phrase in ("不是人数", "不证明等效", "不能当重读研究",
                        "报告表述张力", "不是B45的实验结论"):
             self.assertIn(phrase, route["text"])

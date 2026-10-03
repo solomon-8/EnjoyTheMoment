@@ -64,7 +64,7 @@ class MusicAttentionTests(unittest.TestCase):
         self.assertEqual(full.count(text.strip()), 1)
         self.assertEqual(full.count(note.strip()), 1)
         self.assertEqual(len(json.loads((ROOT / 'data/catalog.json').read_text())['cards']), 60)
-        self.assertEqual(len(json.loads((ROOT / 'data/research.json').read_text())['records']), 47)
+        self.assertEqual(len(json.loads((ROOT / 'data/research.json').read_text())['records']), 48)
 
     def test_epub_preserves_the_new_case_and_return_links(self):
         with ZipFile(ROOT / 'downloads/EnjoyTheMoment.epub') as z:

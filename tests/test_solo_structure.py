@@ -89,7 +89,7 @@ class SoloStructureTests(unittest.TestCase):
         self.assertIn('href="#constrained-three-arrangements"', html)
         self.assertIn("book--09-constrained.xhtml#constrained-three-arrangements", epub)
         self.assertEqual(len(json.loads((ROOT / "data/catalog.json").read_text())["cards"]), 60)
-        self.assertEqual(len(json.loads((ROOT / "data/research.json").read_text())["records"]), 47)
+        self.assertEqual(len(json.loads((ROOT / "data/research.json").read_text())["records"]), 48)
 
 
 if __name__ == "__main__":

@@ -445,7 +445,7 @@ async function decodeImage(image) {
     assert.match(await page.locator("#e02 .prose").textContent(),
       /不能把一次已经说出的结局当作从未告知/);
     assert(await page.locator("#e02 .prose h5").evaluateAll(headings =>
-      headings.length === 2 && headings.every(h =>
+      headings.length === 4 && headings.every(h =>
         parseFloat(getComputedStyle(h).fontSize) >=
         parseFloat(getComputedStyle(h.closest(".prose")).fontSize))));
     await page.locator("#e02 a[href='#n45']").first().click();

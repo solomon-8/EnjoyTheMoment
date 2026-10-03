@@ -941,6 +941,26 @@
       },
       "directly_validates_cards": false,
       "source": "docs/research.md#b47"
+    },
+    {
+      "id": "B48",
+      "title": "双人耳机舞蹈：同拍、互动评价与个人享受",
+      "doi": "10.1177/20592043231155416",
+      "access_level": "full_text",
+      "verified_at": "2026-10-04",
+      "fields": {
+        "核读日期": "2026-10-04。",
+        "文献": "Joshua S. Bamford、Birgitta Burger、Petri Toiviainen（2023），*Turning Heads on the Dance Floor: Synchrony and Social Interaction Using a Silent Disco Paradigm*，Music & Science，6，1–13。",
+        "DOI": "[10.1177/20592043231155416](https://doi.org/10.1177/20592043231155416)。",
+        "实际读取": "`full_text`；大学知识库PDF封面标已发表版，含封面共14页。读取设定、方法、程序、结果、讨论与限制，目视核对印刷4–8页及10页；未与出版方文件逐字比较，未取得数据、代码或独立预注册。[核读记录](evidence/B48-dancing-in-time.md)。",
+        "设计与对象": "48人、24对自选伙伴，实验室自由舞动；每对经历同曲同步、速度不同、四分之一拍相位错开三条件，每条件12段30秒。动作分析19对，相位锁定分析17对；不是陌生人破冰或大型舞会。",
+        "有限结论": "互动质量总体条件差异显著，校正后的两两比较只在同步高于相位错开时显著；任务享受、音乐享受等其余四项自报未显著。头部朝向有条件差异，平均人际距离未显著。",
+        "不能推出": "同拍一定更快乐、更亲密、缓解焦虑或使人更听话；未显著不证明等效，头部朝向不是眼动或友谊测量，也不给个人最佳节奏。",
+        "我们如何使用": "[E02](../essays/02-excitement-without-escalation.md#excitement-together)区分共同时间关系、互动评价与个人享受；共同节奏的协调代价是本书另拟的价值论证，不是实验中的人物故事，不验证行动卡。",
+        "关键限制": "小样本、自选伙伴、多有音乐训练；双人设定与48人自报分析单位、19对重复测量的自由度及一处BPM/5%描述有疑点。机制未排除视听冲突与对伙伴判断等解释；没有长期关系、群体现场或真实生活方式结果。"
+      },
+      "directly_validates_cards": false,
+      "source": "docs/research.md#b48"
     }
   ],
   "relations": [
