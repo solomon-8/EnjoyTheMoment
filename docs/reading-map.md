@@ -164,6 +164,8 @@ C05按[共同经历](../book/05-connection.md#connection-experience)、[不同�
 
 正文与来源：[C10](../book/10-aftertaste.md) · [B18](research.md#b18) · [N18](evidence/B18-experience-and-memory.md)
 
+C10按[短暂快乐的价值](../book/10-aftertaste.md#aftertaste-value)、[总体评价的边界](../book/10-aftertaste.md#aftertaste-evaluation)、[散场后的选择](../book/10-aftertaste.md#aftertaste-next-choice)三层阅读；回忆辩护紧接为结尾付出的取舍，不把享受当下解释为只能追求轻松、不能珍惜回忆。
+
 散场见 C10/B18/N18。B18为2018提前在线稿（2019卷期），测强制二选一的偏好，不是实际体验、记忆准确度或峰终干预。组间差异不等于个人言行矛盾；中国/日本样本未检出同样时间范围效应，不作国民性或宗教因果归因。过程、回忆、再选分开，回忆也可成为今天的乐趣；保留自愿追求强烈且费劲体验的空间。原文数值疑点见N18，不擅自修正，不给J055–J060新增研究背书。
 
 <a id="r14"></a>
@@ -747,9 +749,9 @@ Met291575为Anna Atkins的Delesseria hypoglassum，约1853年，2005.100.557 (78
 <a id="r65"></a>
 ## R65 · 散场：峰终、总体评价与没有被计分的生活
 
-<!-- reading-route: {"id":"R65","targets":["C10","B34","N34","B35","N35","B18","N18","C09","C13","E03"]} -->
+<!-- reading-route: {"id":"R65","targets":["C10","B34","N34","B35","N35","B18","N18","C09","C13","E03","E04","E08"]} -->
 
-正文与来源：[C10](../book/10-aftertaste.md#aftertaste-gifts) · [B34台账](research.md#b34) · [N34核读](evidence/B34-gifts-and-endings.md) · [B35台账](research.md#b35) · [N35核读](evidence/B35-complex-experience-and-memory.md) · [B18台账](research.md#b18) · [N18核读](evidence/B18-experience-and-memory.md) · [C09分工](../book/09-constrained.md) · [C13现场](../book/13-live-events.md) · [E03当下与未来](../essays/03-now-or-later.md)。
+正文与来源：[C10](../book/10-aftertaste.md#aftertaste-gifts) · [B34台账](research.md#b34) · [N34核读](evidence/B34-gifts-and-endings.md) · [B35台账](research.md#b35) · [N35核读](evidence/B35-complex-experience-and-memory.md) · [B18台账](research.md#b18) · [N18核读](evidence/B18-experience-and-memory.md) · [C09分工](../book/09-constrained.md) · [C13现场](../book/13-live-events.md) · [E03当下与未来](../essays/03-now-or-later.md) · [E04事前与事后判断](../essays/04-buying-pleasure.md#purchase-uncertainty) · [E08作品与经历](../essays/08-life-without-an-audience.md#audience-verdict)。
 
 B34是DVD获赠安排和收糖评价，不是看片/吃糖后的总享受。104大学生排除4人后分析100，材料等级为研究者预设；反向顺序比较p = .045，儿童实验28人且没有B+A组。least pleased/neutral的原文含义冲突、儿童天花板与排除规则保留；没有随机操纵事件边界，不把接受免费物品等同每人新增正效用。
 
@@ -757,7 +759,7 @@ B35为40大学生、一部VR片。两个长度版本未检出预期差异后合�
 
 单变量样本内R²不是因果或样本外准确率，正负/唤醒的Bonferroni门槛为.006/.007。即时正负peak最高、稍后average最高；peak-end稍后仍显著，.099→.291不支持“随时间完全失效”。唤醒稍后average .443与peak-end .442只差0.1个百分点，未有模型差异检验证明优越。表6标题/列名及end行R²/F/p疑点保留。没看影片、重算数据或系统核查复现，两篇不是同设计互相推翻。
 
-B18测强制二选一偏好，不测峰终操纵。C10的晚饭闲坐、演出宵夜、共同等待与最强反对意见是原创论证；可自愿为高潮投入，不把所有费劲劝退，也不让回忆总评替别人或未结束的工作结账。C09分工、C13现场、E03未来为相关论题，不作重复独立证据，不自动将价值争论转成散场任务清单。没有一项研究验证J卡。
+B18测强制二选一偏好，不测峰终操纵。C10的晚饭闲坐、演出宵夜、共同等待与最强反对意见是原创论证；可自愿为高潮投入，不把所有费劲劝退，也不让回忆总评替别人或未结束的工作结账。C09分工、C13现场、E03未来为相关论题，不作重复独立证据，不自动将价值争论转成散场任务清单。没有一项研究验证J卡。 C10将事前信息与事后结果的完整论证交给E04，只保留散场安排的具体对照；E08展开作品、传播与经历的区别，C10的混合回答服务于散场后的讲述。不把共享原则或换一个情境重复计为独立证据。
 
 <a id="r66"></a>
 ## R66 · 制作：修补要恢复什么，又允许什么改变？

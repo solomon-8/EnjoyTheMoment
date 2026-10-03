@@ -1881,7 +1881,8 @@ async function decodeImage(image) {
       await aftertaste.goto(url + (javaScriptEnabled ? "#c10" : ""));
       if (!javaScriptEnabled) await aftertaste.locator("#c10 > summary").click();
       assert.match(await aftertaste.locator("#c10 .prose").textContent(), /回忆不是当下的敌人/);
-      for (const anchor of ["aftertaste-three-questions", "aftertaste-preference", "aftertaste-story",
+      for (const anchor of ["aftertaste-value", "aftertaste-evaluation", "aftertaste-next-choice",
+                           "aftertaste-three-questions", "aftertaste-preference", "aftertaste-story",
                            "aftertaste-gifts", "aftertaste-peak-boundary", "aftertaste-not-a-score"]) {
         if (javaScriptEnabled) {
           await aftertaste.locator(`#c10 a[href='#${anchor}']`).first().click();
