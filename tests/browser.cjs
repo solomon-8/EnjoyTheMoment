@@ -2144,6 +2144,26 @@ async function decodeImage(image) {
       for (const table of await spending.locator("#c06 .prose table").all()) {
         assert((await table.boundingBox()).width <= 350);
       }
+      for (const anchor of ["spending-renewal", "spending-default-choice", "spending-stop-and-like"]) {
+        await spending.goto(url + "#" + anchor);
+        if (!await spending.locator("#c06").evaluate(el => el.open)) {
+          await spending.locator("#c06 > summary").click();
+        }
+        assert.equal(await spending.locator("#" + anchor).count(), 1);
+      }
+      assert.match(await spending.locator("#c06 .prose").textContent(), /默认结束不是没有代价/);
+      await spending.locator("#c06 a[href='#f91-contracts']").first().click();
+      if (javaScriptEnabled) await spending.waitForFunction(() => document.getElementById("f91").open);
+      if (!await spending.locator("#f91").evaluate(el => el.open)) {
+        await spending.locator("#f91 > summary").click();
+      }
+      assert.match(await spending.locator("#f91 .prose").textContent(), /不是随机让一部分人月付/);
+      assert.match(await spending.locator("#f91 .prose").textContent(), /不是7,752人的全样本均值/);
+      const membershipShape = await spending.locator("#f91 .prose").evaluate(el => ({client: el.clientWidth, scroll: el.scrollWidth}));
+      assert(membershipShape.scroll <= membershipShape.client + 1);
+      await spending.locator("#f91 a[href='#spending-default-choice']").click();
+      if (javaScriptEnabled) await spending.waitForFunction(() => document.getElementById("c06").open);
+      assert(await spending.locator("#c06 .prose").isVisible());
       if (javaScriptEnabled) {
         await spending.locator("#c06 a[href='#n20']").first().click();
         await spending.waitForFunction(() => document.getElementById("n20").open);

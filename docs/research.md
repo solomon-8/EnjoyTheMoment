@@ -769,3 +769,5 @@ F 系列不计入上面的 B 系列背景研究。事实、教学、文学文本
 - [F87 · 糖果、允许的变化与作品的延续](evidence/F87-candy-and-continuity.md)：Gonzalez-Torres Foundation作品记录、2026-09-01在发展规则草案相关正文/脚注与芝加哥艺术博物馆作品API，用于[C26](../book/26-collecting.md#collecting-candy)。分开理想重量、实际糖量、取糖选择、补充决定与授权呈现；馆方关于Ross及失去的解释不是观众效果或身体测量。包装、朋友物件、可触摸样品为原创假想，不复制图像、PDF或证书，不提供收藏鉴定、食用或参观建议。
 
 - [F89 · 《4′33″》：比例记谱与听的范围](evidence/F89-cage-and-listening.md)：John Cage Trust作品数据库与2012年刊载的Kremen 1994年演讲，用于[C11](../book/11-music.md#music-cage-frame)。作品记录/受赠者解释不是演出听评、观众效果或声学实验；第一乐章33秒/30秒记载分开，不拼唯一流程。未核完整谱稿或指定录音，不复制图像；椅子声与付费反问是原创假想，不将作品转成注意力训练或J卡功效。
+
+- [F91 · 会籍、续订与取消滞后](evidence/F91-membership-and-renewal.md)：DellaVigna与Malmendier（2006）原始研究的指定段落，用于[C06](../book/06-spending.md#spending-renewal)。月付自动续订、年付到期结束是研究中的历史合同，不是现行产品通则；2.31个完整月是特定月费终止子样本最后出勤至终止的间隔，不是全样本或决定不要后的延迟。非随机合同比较，不测快乐；演出会员为原创假想，不据此推荐统一付款周期或给行动卡背书。

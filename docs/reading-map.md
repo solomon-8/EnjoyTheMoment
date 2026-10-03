@@ -141,15 +141,17 @@ C05按[共同经历](../book/05-connection.md#connection-experience)、[不同�
 <a id="r10"></a>
 ## R10 · 消费、沉没成本与继续使用
 
-<!-- reading-route: {"id":"R10","targets":["C06","E04","B20","N20"]} -->
+<!-- reading-route: {"id":"R10","targets":["C06","E04","B20","N20","F91"]} -->
 
-正文与来源：[C06](../book/06-spending.md) · [E04](../essays/04-buying-pleasure.md) · [B20](research.md#b20) · [N20](evidence/B20-sunk-cost.md)
+正文与来源：[C06](../book/06-spending.md) · [E04](../essays/04-buying-pleasure.md) · [B20](research.md#b20) · [N20](evidence/B20-sunk-cost.md) · [F91](evidence/F91-membership-and-renewal.md)
 
 消费见 C06/B20/N20：旧付款、未来增量、使用量与快乐分开。季票54人分析，支付15/13/8美元；前半计划单尾比较不等于全季价格或衰减交互成立，用票不等于本人出席或享受。算例是原创假设，平均成本下降不等于现金回流；退款/转让/已有技能与未来机会不能当作全部沉没。版本载体和局限见[核读](evidence/B20-sunk-cost.md)。先回应选择与价值问题，不自动给卡，不给J031–J036效果背书。
 
 [C06两种“多去”](../book/06-spending.md#spending-future-price)区分未来价格改变与仅历史付款不同：12元/52元只用于原创假想，固定其他安排并明确剩余次数的机会；不能单凭使用量诊断“回本”，也不能从这次值得倒推当初买得对。B20不同价格组获得同样季票内容，不是持卡对比按次。三条主线分别是[买前买后的账](../book/06-spending.md#spending-two-ledgers)、[后续购买](../book/06-spending.md#spending-next-purchase)、[使用与退出](../book/06-spending.md#spending-own-evening)；不要把继续、闲置或少花钱当作统一胜出标准。
 
 [C06购买顺序](../book/06-spending.md#spending-learning)另比较先买卡、一直按次、先试后买：假定第一次后完全知道后续愿望、价格与预约不变且剩余卡次无用途；少付200元与可能多付40元对应不同情形，不是无风险节省。没有概率，不能称普遍最优；真实体验可能需要连续投入，不把“先试”当总答案。该推演不是B20的实证结果。
+
+[C06按月可取消](../book/06-spending.md#spending-renewal)与[F91合同核读](evidence/F91-membership-and-renewal.md#f91-contracts)区分付款周期、默认结果和本人要完成的动作。研究合同自选，月付自动续、年付到期结束，不能因果归结为默认设置的效果。[2.31个完整月](evidence/F91-membership-and-renewal.md#f91-lag)只对应有限制的月费终止子样本，是最后出勤至终止，不是全7,752人或决定不要后的延迟；提出取消与终止生效不同，研究不测快乐。演出会员两方案是原创假想，固定价格、内容和重入条件；默认结束也可能使想继续者漏续。不把低使用一律判成浪费，不用“保留可能性”替遗忘扣款自动补写动机。[停止付费](../book/06-spending.md#spending-stop-and-like)不要求否定过去的喜欢；该文不支持统一选按次、月付或年付。
 
 <a id="r11"></a>
 ## R11 · 独处、写作与物质条件
