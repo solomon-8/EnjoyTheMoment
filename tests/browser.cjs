@@ -751,6 +751,15 @@ async function decodeImage(image) {
     assert.equal(new URL(page.url()).hash, "#singing-role-choice");
     await page.goto(url + "#play-wanting-to-win");
     await page.waitForFunction(() => document.getElementById("c04").open);
+    assert.equal(await page.locator("#c04 .prose h3").count(), 5);
+    assert.equal(await page.locator("#c04 .prose h4").count(), 15);
+    assert.equal(await page.locator("#c04 .prose h5").count(), 3);
+    for (const anchor of ["play-chosen-stakes", "play-common-terms", "play-shared-authorship", "play-leave-the-score", "play-companions"]) {
+      await page.locator(`#c04 a[href='#${anchor}']`).first().click();
+      assert.equal(new URL(page.url()).hash, "#" + anchor);
+    }
+    assert.match(await page.locator("#c04 .prose").textContent(), /不必让它独自决定今晚值不值/);
+
     assert.equal(await page.locator("#c04 .prose table").count(), 1);
     assert.equal(await page.locator("#c04 .prose table tbody tr").count(), 2);
     assert.match(await page.locator("#c04 .prose").textContent(), /总和正好为 9/);
