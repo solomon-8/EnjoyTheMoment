@@ -1467,7 +1467,9 @@ async function decodeImage(image) {
     assert.equal(await page.locator(".chapter-intro:visible").count(), 1);
     await page.goto(url + "#c27");
     await page.waitForFunction(() => document.getElementById("c27").open);
-    assert.equal(await page.locator("#c27 .prose table").count(), 2);
+    assert.equal(await page.locator("#c27 .prose table").count(), 3);
+    assert.match(await page.locator("#c27 .prose table").nth(2).textContent(), /R→Q/);
+    assert.match(await page.locator("#c27 .prose table").nth(2).textContent(), /R→S/);
     assert.match(await page.locator("#c27 .prose").textContent(), /一段动作，不只由姿势组成/);
     await page.locator("#c27 a[href='#f17']").first().click();
     await page.waitForFunction(() => document.getElementById("f17").open);
@@ -2214,6 +2216,15 @@ async function decodeImage(image) {
       dance.on("request", request => {if (/^https?:/.test(request.url())) network.push(request.url());});
       await dance.goto(url + (javaScriptEnabled ? "#c27" : ""));
       if (!javaScriptEnabled) await dance.locator("#c27 > summary").click();
+      assert.equal(await dance.locator("#c27 .prose h3").count(), 4);
+      assert.equal(await dance.locator("#c27 .prose h4").count(), 15);
+      for (const anchor of ["dance-standards", "dance-response", "dance-composition", "dance-viewing"]) {
+        await dance.locator(`#c27 a[href='#${anchor}']`).first().click();
+        assert.equal(new URL(dance.url()).hash, "#" + anchor);
+      }
+      await dance.locator("#dance-choice-response").scrollIntoViewIfNeeded();
+      assert.match(await dance.locator("#c27 .prose").textContent(), /R→Q/);
+      assert.match(await dance.locator("#c27 .prose").textContent(), /R→S/);
       for (const anchor of ["dance-time-grid", "dance-rosas", "dance-chance"]) {
         if (javaScriptEnabled) {
           await dance.locator(`#c27 a[href='#${anchor}']`).first().click();
@@ -2232,7 +2243,7 @@ async function decodeImage(image) {
       assert.deepEqual(imageShape.natural, [720, 1080]);
       assert(imageShape.width <= 350);
       assert.match(await dance.locator("#c27 .prose").textContent(), /三分之二/);
-      assert.equal(await dance.locator("#c27 .prose table").count(), 2);
+      assert.equal(await dance.locator("#c27 .prose table").count(), 3);
       for (const [id, anchor, phrase] of [
         ["f51", "dance-rosas", /未观看并核验完整演出/],
         ["f52", "dance-chance", /不是Cunningham使用过的算法/]

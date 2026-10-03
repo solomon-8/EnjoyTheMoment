@@ -127,7 +127,7 @@ The chapters on senses, novelty, play, relationships, spending, and permission t
 | [24 · Being funny is a craft, not an obligation for others to play along](book/24-humor.md) | How do setups and turns work, and why is laughter not blanket permission? |
 | [25 · An exhibition is not a taste exam](book/25-looking-at-art.md) | What do three actual paintings let us notice about color, space and brushwork? |
 | [26 · Collecting: pleasure beyond the next purchase](book/26-collecting.md) | Beyond the next order: what comparison reveals, who defines completeness, and what preservation keeps alive. |
-| [27 · Dancing need not put your body before a jury](book/27-dance.md) | How do timing, movement and response create interest without adding difficulty? |
+| [27 · Dancing need not put your body before a jury](book/27-dance.md) | The next move looks the same. Was it fixed in advance, or did it depend on your choice? |
 | [28 · The score can stay still while the game changes](book/28-watching-sport.md) | What do off-ball movement, two clocks and a missed shot let us notice beyond results? |
 | [29 · The sky owes you no photograph](book/29-night-sky.md) | Lunar phases, shadows and earthshine: what is worth seeing when the image or planned spectacle disappoints? |
 | [30 · Must a bird be rare to deserve attention?](book/30-birdwatching.md) | Identification, behavior and honest records without making a checklist the only purpose of looking. |

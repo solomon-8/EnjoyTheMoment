@@ -281,6 +281,8 @@ C26顺读依次讨论[集合关系](../book/26-collecting.md#collecting-relation
 
 舞蹈结构见 C27/F51/F52：[时间图与论证](../book/27-dance.md#dance-time-grid)、[Rosas记录](evidence/F51-rosas-repetition.md)、[Cunningham记录](evidence/F52-cunningham-chance.md)。未完整观演或核看教程；PQR及抽选分布是原创模型，不是作品复原。随机程序不等于即兴，简化版不等于原作；先回应表达与乐趣，不默认给身体训练。
 
+[结果相同、回应规则不同](../book/27-dance.md#dance-choice-response)是C27的原创有限模型：P→Q同时符合固定后续与条件回应，甲改选R才区分为R→Q与R→S。不得从一次相同顺序推断真人动机或互动质量，也不得把条件规则说成没有预先编排；它没有测量快乐，不把即兴评为更高级。
+
 <a id="r23"></a>
 ## R23 · 解谜结构与答案意图
 
