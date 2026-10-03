@@ -1194,6 +1194,8 @@ class ExportTests(unittest.TestCase):
         for anchor in ("street-counts", "street-midtown", "street-seats",
                        "street-unscheduled", "street-conflicts"):
             self.assertIn('id="' + anchor + '"', rendered)
+        for anchor in ("street-staying", "street-conditions", "street-welcome"):
+            self.assertIn('id="' + anchor + '"', rendered)
             self.assertIn('href="#' + anchor + '"', rendered)
         for identifier, kind in (("F35", "public_life_observation_protocol"),
                                  ("F36", "municipal_before_after_evaluation")):

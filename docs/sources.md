@@ -27,7 +27,7 @@
 | R03 | [放松章节](https://github.com/eternity4719/HowToLiveBetter/blob/ee59a86d56bde0cdc159227144de35a39704b6b5/book/22-怎么放松.md) | 参考仓库本身讨论娱乐和放松，不应简化成“拒绝享受” | `observed`：纠正对参考对象的过度简化 |
 | R04 | [编辑核实记录](https://github.com/eternity4719/HowToLiveBetter/blob/ee59a86d56bde0cdc159227144de35a39704b6b5/docs/核实记录/排查-只给禁止不给出路.md) | 编辑会检查“只给禁止、不提供出路”的表达问题 | `observed`：编辑实践样本；不推断其所有条目质量 |
 | R05 | [LICENSE](https://github.com/eternity4719/HowToLiveBetter/blob/ee59a86d56bde0cdc159227144de35a39704b6b5/LICENSE) | 参考仓库使用 Unlicense | `observed`：该快照文件内容 |
-| S01 | 本项目 README、宣言与卡片 | 把当下的主观享受设为独立目标，以试做与退出条件表达 | `synthesis`：本项目原创价值主张与设计，不是外部研究结论 |
+| S01 | 本项目 README、宣言、长文与生活章节 | 把当下的主观享受设为独立目标，展开它与效率、消费、他人及未来的冲突；行动卡为配套 | `synthesis`：本项目原创价值主张与论证，不是外部研究结论 |
 
 ## 借鉴什么，不借鉴什么
 
@@ -35,7 +35,7 @@
 
 - 一个清楚、可讨论的价值主张。
 - 先按读者问题导航，再进入具体章节。
-- 每条尽量给到动作与代价，不只说口号。
+- 把主张落到具体问题、依据与代价，不只说口号，也不把所有讨论都压缩成动作。
 - 建立纠错与反对意见入口。
 
 **本项目的组织方式：**
@@ -96,6 +96,8 @@
 The Public Life Data Protocol was jointly developed by Gehl Institute, Gehl, the City of Copenhagen, The City of San Francisco, and Seattle Department of Transportation.
 
 [F36](evidence/F36-midtown-public-space.md)另采用 NACTO 托管的 NYC DOT 历史报告。托管方、报告作者、观察记录与本书解释分开，不把两份材料说成同一项目的数据链。各机构未审核或为本项目背书。
+
+[F88](evidence/F88-paley-park.md)采用PPS的Paley Park案例描述与园方介绍、问答，有限转述水墙、桌椅、外食与厕所条件，不转载图片。它们不是声学实验或访客调查，不能与F35/F36合并成同一组效果证据；已记录的来源拼写差异不被默默消除。关于非消费停留的价值判断由本书负责。
 
 ## 数学知识与原创题面
 
