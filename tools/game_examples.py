@@ -84,6 +84,33 @@ def matching_positions(hand, kind, value):
     return positions
 
 
+def route_wins(route, card):
+    """C19's original one-round example, not a commercial game or real payoff."""
+    if route not in ("A", "B") or type(card) is not int or card not in range(1, 7):
+        raise ValueError("Choose route A/B and an integer card 1..6")
+    return card <= 4 if route == "A" else card >= 5
+
+
+def route_report():
+    outcomes = [
+        {"card": card, "A_wins": route_wins("A", card),
+         "B_wins": route_wins("B", card)}
+        for card in range(1, 7)
+    ]
+    return {
+        "scope": "original_six_equiprobable_cards_one_round_no_stakes",
+        "outcomes": outcomes,
+        "before_reveal_winning_cases": {
+            route: sum(route_wins(route, card) for card in range(1, 7))
+            for route in ("A", "B")
+        },
+        "after_reveal_winning_route": [
+            "A" if route_wins("A", card) else "B" for card in range(1, 7)
+        ],
+        "not_a_claim_about_player_happiness_or_unknown_probabilities": True,
+    }
+
+
 def example_report():
     board = replay()
     branches = []
@@ -100,6 +127,7 @@ def example_report():
         })
     return {
         "scope": "finite_original_examples_not_optimal_strategy",
+        "routes": route_report(),
         "othello": {
             "sequence": SEQUENCE,
             "rows": list(EXPECTED_ROWS),

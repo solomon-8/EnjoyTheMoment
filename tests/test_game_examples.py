@@ -9,6 +9,21 @@ import game_examples as game
 
 
 class GameExamplesTests(unittest.TestCase):
+    def test_route_choice_before_and_after_reveal_are_different_questions(self):
+        report = game.route_report()
+        self.assertEqual(report["before_reveal_winning_cases"], {"A": 4, "B": 2})
+        self.assertEqual(report["after_reveal_winning_route"],
+                         ["A", "A", "A", "A", "B", "B"])
+        self.assertEqual(report["outcomes"][4],
+                         {"card": 5, "A_wins": False, "B_wins": True})
+        for card in range(1, 7):
+            self.assertNotEqual(game.route_wins("A", card), game.route_wins("B", card))
+            self.assertTrue(game.route_wins(
+                report["after_reveal_winning_route"][card - 1], card))
+        for route, card in (("C", 1), ("A", 0), ("B", 7), ("A", True), ("A", 1.5)):
+            with self.assertRaises(ValueError):
+                game.route_wins(route, card)
+
     def test_opening_and_known_legal_sequence(self):
         self.assertEqual([game.coordinate(i) for i in game.legal_moves(game.OPENING, "B")],
                          ["D3", "C4", "F5", "E6"])
