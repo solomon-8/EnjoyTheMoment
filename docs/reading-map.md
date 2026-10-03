@@ -213,11 +213,15 @@ F81按维基文库独立篇目修订2327158核读全文，另与卷七修订2703
 <a id="r18"></a>
 ## R18 · 游戏规则与原创局面
 
-<!-- reading-route: {"id":"R18","targets":["C19","C04","F42","F43","B09","N09"]} -->
+<!-- reading-route: {"id":"R18","targets":["C19","C04","C06","E10","F09","F42","F43","B09","N09"]} -->
 
 正文与来源：[C19](../book/19-games.md) · [C04](../book/04-play.md) · [F42](evidence/F42-othello-choice.md) · [F43](evidence/F43-hanabi-information.md) · [B09](research.md#b09)；[N09](evidence/B09-games.md)
 
 游戏见 C19/F42/F43。F42 为 `official_game_rules_and_original_position`：原创合法18手局面，B1翻3枚而使白方可走A1，E1翻1枚且白方不能走A1；分支从同一盘开始，不是最优解或必胜证明。`tools/game_examples.py`只检查有限条件。F43 为 `publisher_game_rules`，使用署2013的R&R英文基本规则；三人五张假想牌、空序列、无先前提示的条件不能丢。提示为一种颜色或一个数字的全部对应牌，非自由报牌；严格通信与自定变体都在来源里。PDF五色基本局与“6 fireworks”评分句有不一致，不能拼成六色算例。没有实际游玩或合作效果研究，不把规则资料混入B09时长研究，也不将“选择喜欢的阻力”写成必须吃苦。
+
+[付费跳过与钟楼算例](../book/19-games.md#games-paid-skip)区分省掉的成本与保留的体验。五次3分钟运送、20分钟解谜、5分钟结尾；两项跳过分别6元。四种剩余时间40/25/20/5分钟、费用0/6/6/12元，只是原创模型；30分钟/6元限定下两种单买都可行，阿遥只选甲保留解谜，不代表所有玩家应如此。停下或只玩一部分仍是选项，未测快乐、没有真实报价或赌博收益。
+
+[菜单评价](../book/19-games.md#games-skip-menu)与个人选择分开，付款不证明支持所有门槛。三种流程/收费安排为原创假想，不指认真实企业动机或违规；维持服务的代价读[E10](../essays/10-pleasure-not-retention.md#digital-honest-cost)，旧付款与未来条件读[C06](../book/06-spending.md#spending-future-cost)。[障碍与辅助的边界](../book/19-games.md#games-skip-objection)采用[F09](evidence/F09-game-difficulty.md)的机制分别调整、保存和控制方式指导，不是指南的收费政策，也不是B09的实验结论。本例为单人，不授权改变多人排名、赛事或队友同意的条件。
 
 <a id="r19"></a>
 ## R19 · 摄影、视点与时间
