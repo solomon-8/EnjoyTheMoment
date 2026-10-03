@@ -200,6 +200,24 @@ async function decodeImage(image) {
     assert.equal(await page.locator(".argument").count(), 11);
     assert.equal(await page.locator(".playbook").count(), 10);
     assert.equal(await page.locator(".chapter-intro").count(), 38);
+    await page.goto(url + "#solo-experience");
+    await page.waitForFunction(() => document.getElementById("c07").open);
+    assert.deepEqual(await page.locator("#c07 .prose h3").allTextContents(), [
+      "一、独享不是共同生活的减配版",
+      "二、坐在公共生活里，不必先成为谁的同伴",
+      "三、有一间安静的房间，还缺什么？",
+      "配套：不是独处能力测试"
+    ]);
+    assert.equal(await page.locator("#solo-conversation-space + h4").textContent(),
+      "椅子越推越远，谈话为什么反而更近？");
+    assert.match(await page.locator("#c07 .prose").textContent(),
+      /不必解释每一种口味，与不必回应任何约定，是两回事/);
+    await page.locator("#c07 a[href='#f47']").first().click();
+    await page.waitForFunction(() => document.getElementById("f47").open);
+    assert.match(await page.locator("#f47 .prose").textContent(),
+      /主章只选航行与水波展开/);
+    await page.locator("#f47 .prose a[href='#solo-walden']").last().click();
+    await page.waitForFunction(() => document.getElementById("c07").open);
     await page.goto(url + "#solo-man-of-crowd");
     await page.waitForFunction(() => document.getElementById("c07").open);
     const crowdSpoiler = page.locator("#c07 .prose details");
