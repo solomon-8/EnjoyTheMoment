@@ -188,11 +188,13 @@ C05处理共同注意，E08处理想被看见，E11处理所得与承诺，C18�
 <a id="r15"></a>
 ## R15 · 街道、观察与公共空间
 
-<!-- reading-route: {"id":"R15","targets":["C15","F35","F36"]} -->
+<!-- reading-route: {"id":"R15","targets":["C15","F35","F36","F88"]} -->
 
-正文与来源：[C15](../book/15-neighborhood.md) · [F35](evidence/F35-public-life-observation.md) · [F36](evidence/F36-midtown-public-space.md)
+正文与来源：[C15](../book/15-neighborhood.md) · [F35](evidence/F35-public-life-observation.md) · [F36](evidence/F36-midtown-public-space.md) · [F88](evidence/F88-paley-park.md)
 
 街道见 C15/F35/F36：PLDP 历史工具区分过线计数与区域停留快照，三次各6人的假想不能恢复独立访客或个人停留时长。姿势与可重叠活动也不是可相加的人数。F35 为 `public_life_observation_protocol`，保留版本、区域覆盖与小区域例外及 CC BY 署名；F36 为 `municipal_before_after_evaluation`，NYC DOT 2010 年报告的94/114、57/74、17/90是平均平日在场数，不是幸福、日客流或同人追踪。84%高峰说法不可覆盖所有图中均值，不把组合改造归因于椅子，也不把PLDP说成该历史项目使用的规范。本书反对将人流或消费当唯一目标，不据观察猜测个人身份或替代社区意见。
+
+F88 为 `practice_case_and_operator_description`：PPS与园方把Paley Park水声写作遮住城市声的条件，没有声级、频谱或访客样本；不能输出为降噪幅度或幸福效果。可移动桌椅是来源描述，三种坐法与通行、支撑的反问是本书分析。园方允许外食与园内无厕所必须同时保留，不推为所有活动免费或配套齐全。未核实开放时段、当前现场规则、无障碍路径及附近厕所。非消费停留的价值论证，不等于旅游推荐或已做使用者调查。
 
 <a id="r16"></a>
 ## R16 · 制作、材料与版本

@@ -1023,11 +1023,22 @@ async function decodeImage(image) {
     await page.goto(url + "#c15");
     await page.waitForFunction(() => document.getElementById("c15").open);
     assert.equal(await page.locator("#c15 .prose table").count(), 3);
-    for (const anchor of ["street-counts", "street-midtown", "street-seats", "street-unscheduled", "street-conflicts"]) {
+    assert.equal(await page.locator("#c15 .prose h3").count(), 3);
+    for (const anchor of ["street-staying", "street-conditions", "street-welcome"]) {
       await page.locator(`#c15 a[href='#${anchor}']`).click();
       assert.equal(new URL(page.url()).hash, `#${anchor}`);
       assert(await page.locator("#c15 .prose").isVisible());
     }
+    for (const anchor of ["street-counts", "street-midtown", "street-seats", "street-unscheduled", "street-conflicts", "street-paley"]) {
+      await page.goto(url + "#" + anchor);
+      await page.waitForFunction(() => document.getElementById("c15").open);
+      assert.equal(await page.locator("#" + anchor).count(), 1);
+    }
+    await page.locator("#c15 a[href='#f88-sound']").first().click();
+    await page.waitForFunction(() => document.getElementById("f88").open);
+    assert.match(await page.locator("#f88 .prose").textContent(), /园内没有厕所/);
+    await page.locator("#f88 a[href='#street-paley']").last().click();
+    await page.waitForFunction(() => document.getElementById("c15").open);
     for (const id of ["f35", "f36"]) {
       await page.locator(`#c15 a[href='#${id}']`).first().click();
       await page.waitForFunction(id => document.getElementById(id).open, id);
