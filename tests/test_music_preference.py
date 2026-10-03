@@ -86,7 +86,7 @@ class MusicPreferenceTests(unittest.TestCase):
                                          "book/11-music.md"), "#n31")
         routes = json.loads((ROOT / "data/reading-map.json").read_text())["routes"]
         self.assertEqual(set(next(r for r in routes if r["id"] == "R60")["targets"]),
-                         {"C11", "C14", "C33", "B31", "N31", "F02", "F15"})
+                         {"C11", "C14", "C33", "B31", "N31", "F02", "F15", "F89", "E11", "C15"})
         for marker in ("喜欢有来历，不等于喜欢是假的", "不是先进与落后",
                        "也不意味着最后必须统一口味"):
             self.assertIn(marker, chapter["text"])
