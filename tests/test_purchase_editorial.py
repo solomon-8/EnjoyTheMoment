@@ -5,6 +5,7 @@ from pathlib import Path
 import re
 import sys
 import unittest
+from zipfile import ZipFile
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "tools"))
@@ -13,10 +14,71 @@ import read
 
 
 class PurchaseEditorialTests(unittest.TestCase):
+    def test_spending_argument_distinguishes_price_from_payment_history(self):
+        text = (ROOT / "book/06-spending.md").read_text()
+        self.assertEqual(re.findall(r"^## (.+)$", text, re.M), [
+            "同一笔钱，买前和买后不是同一道题",
+            "一件新东西，不该接管整套生活",
+            "付费以后，谁来决定这个晚上",
+        ])
+        self.assertLess(text.index('id="spending-pass-arithmetic"'),
+                        text.index('id="spending-matching-life"'))
+        for anchor in ("spending-pass-arithmetic", "spending-learning",
+                       "spending-theatre-study", "spending-future-cost",
+                       "spending-matching-life"):
+            # Preserve usable local entrances, not just destination IDs.
+            self.assertIn("](#" + anchor + ")", text)
+        section = text.split('<a id="spending-future-price"></a>', 1)[1].split(
+            '<a id="spending-learning"></a>', 1)[0]
+        # Keep both comparisons and their assumptions in the retrieved section.
+        # Passing this guard is not evidence about readers' actual behavior.
+        for phrase in (
+            "下一次只新增12元交通费", "下一次要付40＋12＝52元",
+            "固定内容、时间、预约、同行和其他安排",
+            "不会挤走以后更想去的一次",
+            "240元已经付过", "若剩余次数以后有用，或者可以退转",
+            "未来条件相同，只有历史付款不同", "可支配的钱和时间也相同",
+            "较高的旧付款不能单独证明", "不是观察记录",
+            "不是持卡者与按次者", "不能拿第一种推演替它解释结果",
+            "评判购买，要回到买前可知的条件与可选方案",
+            "也不必用闲置证明自己已经清醒",
+        ):
+            self.assertIn(phrase, section)
+        # Recompute all existing known-count entries, not only new literals.
+        arithmetic = text.split('<a id="spending-pass-arithmetic"></a>', 1)[1].split(
+            '<a id="spending-future-price"></a>', 1)[0]
+        rows = re.findall(r"^\| (\d+)次 \| (\d+)元 \| (\d+)元 \|$", arithmetic, re.M)
+        self.assertEqual(len(rows), 3)
+        for n, card, single in rows:
+            n = int(n)
+            self.assertEqual(int(card), 240 + 12 * n)
+            self.assertEqual(int(single), (40 + 12) * n)
+
+    def test_spending_routes_and_epub_keep_the_comparison_in_context(self):
+        anchors = ("spending-two-ledgers", "spending-next-purchase",
+                   "spending-own-evening", "spending-future-price")
+        text = (ROOT / "book/06-spending.md").read_text()
+        prose = text.partition('<a id="j')[0].strip()
+        self.assertIn(prose, (ROOT / "llms-full.txt").read_text())
+        with ZipFile(ROOT / "downloads/EnjoyTheMoment.epub") as archive:
+            chapter = archive.read("EPUB/text/book--06-spending.xhtml").decode()
+            self.assertIn("不会挤走以后更想去的一次", chapter)
+            self.assertIn("不能拿第一种推演替它解释结果", chapter)
+            self.assertIn("较高的旧付款不能单独证明", chapter)
+            for anchor in anchors:
+                self.assertEqual(chapter.count('id="' + anchor + '"'), 1)
+        documents, routes = read.load_documents(ROOT)
+        route = next(r for r in routes if r["id"] == "R10")
+        for anchor in anchors:
+            self.assertIn("#" + anchor, route["text"])
+        self.assertEqual(route["targets"], ["C06", "E04", "B20", "N20"])
+        self.assertIn("不是持卡对比按次", route["text"])
+        self.assertIn("不能从这次值得倒推当初买得对", route["text"])
+
     def test_purchase_order_table_keeps_equal_outcome_counts(self):
         text = (ROOT / "book/06-spending.md").read_text()
         section = text.split('<a id="spending-learning"></a>', 1)[1].split(
-            '### “花钱督促自己”', 1)[0]
+            '#### “花钱督促自己”', 1)[0]
         rows = [line for line in section.splitlines()
                 if line.startswith("| ") and "＝" in line]
         self.assertEqual(len(rows), 3)
@@ -51,7 +113,9 @@ class PurchaseEditorialTests(unittest.TestCase):
               "purchase-authorship", "purchase-uncertainty", "purchase-objections",
               "当购买本身成了唯一好玩的部分")),
             ("book/06-spending.md", ("spending-learning", "spending-pass-arithmetic",
-                                     "spending-theatre-study", "spending-future-cost")),
+                                     "spending-theatre-study", "spending-future-cost",
+                                     "spending-two-ledgers", "spending-next-purchase",
+                                     "spending-own-evening", "spending-future-price")),
         ):
             rendered = build.markdown((ROOT / source).read_text(), source)
             for anchor in anchors:
