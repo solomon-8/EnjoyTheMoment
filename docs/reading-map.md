@@ -863,6 +863,8 @@ F70来自馆方三页住宅/人物/居住史文字，不是原始档案独立考
 
 正文与来源：[C03](../book/03-novelty.md#novelty-repeat) · [B37台账](research.md#b37) · [N37核读](evidence/B37-repeat-experiences.md) · [C12电影](../book/12-film.md) · [C13现场](../book/13-live-events.md) · [C22阅读](../book/22-reading.md) · [E04消费](../essays/04-buying-pleasure.md)。
 
+C03的四条主线：[变化](../book/03-novelty.md#novelty-change)、[未知与理解](../book/03-novelty.md#novelty-understanding)、[重复与日常默认](../book/03-novelty.md#novelty-return)、[愿望取舍](../book/03-novelty.md#novelty-wishes)。[固定菜单](../book/03-novelty.md#novelty-default)与[是否每次重选](../book/03-novelty.md#novelty-reselection)为原创小满情境：挑选可为乐趣，省掉挑选也可符合愿望；自主可含持续有效、能够调整的安排，不等于每天重新证明真心，也不把旧偏好当无限期许可。没有测定决策疲劳、习惯成因或最佳探索频率。
+
 先回答新鲜、熟悉与具体愿望的价值冲突，不自动输出重看计划或省钱清单。“不如第一次，不等于不值得再来”“不强制更新，也不强制知足”为本书原创论证；C12/C13/C22/E04是相邻论题，不算独立实验。
 
 B37取得全文但只采用研究2/6及相关讨论，不是七项研究逐字审核；镜像未与出版社当前版比对。研究2的58名预测者、62名实际重看者不是同一批人的个人误差，实际也有下降。预测组第二晚另看新片的结果不冒充重看结果。四舍五入均值差与论文个体变化均值不可互换；主效应文字与p值冲突保留。

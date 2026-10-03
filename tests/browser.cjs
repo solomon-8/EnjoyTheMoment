@@ -343,6 +343,16 @@ async function decodeImage(image) {
       !document.getElementById("c37").hidden && document.getElementById("chapter-query").value === "");
     await page.goto(url + "#novelty-repeat");
     await page.waitForFunction(() => document.getElementById("c03").open);
+    assert.equal(await page.locator("#c03 .prose h3").count(), 5);
+    assert.equal(await page.locator("#c03 .prose h4").count(), 13);
+    assert.equal(await page.locator("#c03 .prose h5").count(), 6);
+    for (const id of ["novelty-change", "novelty-understanding", "novelty-return", "novelty-wishes"]) {
+      await page.locator(`#c03 a[href='#${id}']`).first().click();
+      assert.equal(new URL(page.url()).hash, "#" + id);
+    }
+    await page.locator("#c03 a[href='#novelty-default']").first().click();
+    assert.match(await page.locator("#c03 .prose").textContent(), /自主可以包括让一个愿意保留的决定继续有效/);
+    assert.match(await page.locator("#c03 .prose").textContent(), /不把“曾经选过”当无限期许可/);
     assert.match(await page.locator("#c03 .prose").textContent(), /同样的快乐，为什么一到第二次就像贬值了/);
     assert.match(await page.locator("#c03 .prose").textContent(), /最强的反对意见/);
     await page.locator("#c03 a[href='#n37']").first().click();
@@ -359,7 +369,7 @@ async function decodeImage(image) {
     for (const id of ["novelty-surprise", "novelty-depth"]) {
       await page.goto(url + "#" + id);
       await page.waitForFunction(() => document.getElementById("c03").open);
-      assert.equal(await page.locator("#" + id + " + h4").count(), 1);
+      assert.equal(await page.locator("#" + id + " + h5").count(), 1);
     }
     await page.locator("#c03 a[href='#excitement-costs']").click();
     await page.waitForFunction(() => document.getElementById("e02").open);

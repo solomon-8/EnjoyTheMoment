@@ -28,7 +28,7 @@ class NoveltyOwnershipTests(unittest.TestCase):
             self.assertLess(text.index(f'id="{parent}"'), text.index(f'id="{child}"'))
             self.assertLess(text.index(f'id="{child}"'), text.index(f'id="{next_section}"'))
             child_text = text.split(f'<a id="{child}"></a>', 1)[1].lstrip()
-            self.assertTrue(child_text.startswith("### "))
+            self.assertTrue(child_text.startswith("#### "))
         html = build.markdown(text, source)
         for anchor in ("03--给日常制造一点意外", "novelty-surprise", "novelty-depth"):
             self.assertEqual(html.count(f'id="{anchor}"'), 1)
@@ -36,7 +36,7 @@ class NoveltyOwnershipTests(unittest.TestCase):
     def test_cross_chapter_links_point_to_the_argument_not_the_activity_cards(self):
         chapter = (ROOT / "book/03-novelty.md").read_text()
         essay = (ROOT / "essays/02-excitement-without-escalation.md").read_text()
-        intensity = chapter.split('<a id="novelty-intensity"></a>', 1)[1].split("\n## ", 2)[1]
+        intensity = chapter.split('<a id="novelty-intensity"></a>', 1)[1].split("\n### ", 2)[1]
         for anchor in ("excitement-costs", "excitement-information"):
             self.assertIn(f"02-excitement-without-escalation.md#{anchor}", intensity)
             self.assertIn(f'href="#{anchor}"',
@@ -49,6 +49,42 @@ class NoveltyOwnershipTests(unittest.TestCase):
         self.assertIn("已经不喜欢，也不必强迫重复", scoreboard)
         self.assertIn("把从未经历过当成价值门槛", chapter)
         self.assertNotIn("如果新鲜必须等于从没经历过", chapter)
+
+    def test_four_arguments_and_practice_are_not_one_flat_list(self):
+        text = (ROOT / "book/03-novelty.md").read_text()
+        self.assertEqual(re.findall(r"^## (.+)$", text, re.M), [
+            "一、新鲜究竟换了什么？",
+            "二、未知怎样成为乐趣，而不是只剩困惑？",
+            "三、重来一次，还要重新证明值得吗？",
+            "四、愿望不必按新旧排队",
+            "配套：试一种变化，不是完成体验指标",
+        ])
+        default = text.split('<a id="novelty-default"></a>', 1)[1].split(
+            '<a id="novelty-wishes"></a>', 1)[0]
+        for phrase in ("原创假想，不是饮食建议", "小满", "最后甚至还是点了原来那道",
+                       "自主可以包括让一个愿意保留的决定继续有效",
+                       "不把“曾经选过”当无限期许可",
+                       "不等于所有人都必须把发现最好吃的东西当作每顿饭的任务",
+                       "本书不给“每周换几次”的配额"):
+            self.assertIn(phrase, default)
+        self.assertNotIn("<!-- pick:", default)
+        for anchor in ("novelty-default", "novelty-reselection",
+                       "novelty-default-objection", "novelty-practice"):
+            self.assertEqual(build.markdown(text, "book/03-novelty.md").count(
+                'id="' + anchor + '"'), 1)
+
+    def test_default_argument_is_not_attributed_to_repeat_experiment(self):
+        _, routes = read.load_documents(ROOT)
+        route = next(item for item in routes if item["id"] == "R69")
+        for phrase in ("原创小满情境", "没有测定决策疲劳", "最佳探索频率"):
+            self.assertIn(phrase, route["text"])
+        for anchor in ("novelty-change", "novelty-understanding", "novelty-return",
+                       "novelty-wishes", "novelty-default", "novelty-reselection"):
+            self.assertIn("#" + anchor, route["text"])
+        for filename, key in (("data/evidence.json", "notes"),
+                              ("data/research.json", "records")):
+            for item in json.loads((ROOT / filename).read_text())[key]:
+                self.assertNotIn("每天吃一样，是省掉麻烦", item.get("text", ""))
 
     def test_complete_retrieval_and_route_separate_the_two_arguments(self):
         docs, routes = read.load_documents(ROOT)
