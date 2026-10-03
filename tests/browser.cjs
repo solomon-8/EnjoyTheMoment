@@ -392,7 +392,10 @@ async function decodeImage(image) {
     await page.goto(url + "#connection-shared-attention");
     await page.waitForFunction(() => document.getElementById("c05").open);
     assert.equal(await page.locator("#c05 .prose table").count(), 1);
-    for (const anchor of ["connection-shared-attention", "connection-amplification", "connection-not-a-tool"]) {
+    assert.match(await page.locator("#c05 .prose").textContent(), /小然更兴奋，也不能代替阿树对自己那部分作决定/);
+    assert.match(await page.locator("#c05 .prose").textContent(), /一次自愿，不是永久分工/);
+    for (const anchor of ["connection-shared-attention", "connection-amplification", "connection-not-a-tool",
+      "connection-experience", "connection-wishes", "connection-arrangements", "connection-ending", "connection-compromise"]) {
       await page.locator(`#c05 a[href='#${anchor}']`).first().click();
       assert.equal(new URL(page.url()).hash, "#" + anchor);
       assert(await page.locator("#c05 .prose").isVisible());
