@@ -69,7 +69,7 @@ class IdlenessArgumentTests(unittest.TestCase):
         documents, routes = read.load_documents(ROOT)
         by_id = {d["id"]: d for d in documents}
         route = next(r for r in routes if r["id"] == "R41")
-        targets = {"E07", "F82", "C08", "C09", "C21", "E01", "B05", "N05"}
+        targets = {"E07", "F27", "F82", "C08", "C09", "C21", "E01", "B05", "N05"}
         self.assertEqual(set(route["targets"]), targets)
         self.assertTrue(targets <= {d["id"] for d in read.linked_records(route, documents, ROOT)})
         self.assertIn("不自动给时间表", route["text"])
