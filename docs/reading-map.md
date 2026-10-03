@@ -144,11 +144,13 @@ C05按[共同经历](../book/05-connection.md#connection-experience)、[不同�
 <a id="r11"></a>
 ## R11 · 独处、写作与物质条件
 
-<!-- reading-route: {"id":"R11","targets":["C07","F47","F48","B06","N06"]} -->
+<!-- reading-route: {"id":"R11","targets":["C07","F47","F48","B06","N06","C05","C09","C21"]} -->
 
-正文与来源：[C07](../book/07-solo.md) · [F47](evidence/F47-walden-solitude.md) · [F48](evidence/F48-room-and-freedom.md) · [B06](research.md#b06)；[N06](evidence/B06-solitude.md)
+正文与来源：[C07](../book/07-solo.md) · [F47](evidence/F47-walden-solitude.md) · [F48](evidence/F48-room-and-freedom.md) · [B06](research.md#b06)；[N06](evidence/B06-solitude.md)。相关分工：[C05共同关注](../book/05-connection.md#connection-shared-attention) · [C09交接与责任](../book/09-constrained.md#constrained-three-arrangements) · [C21时间使用条件](../book/21-free-time.md)。
 
 独处见 C07/F47/F48/B06。两份文学记录是 `literary_primary_text`，不是两项行为研究：F47只核读指定章节与开头段落，三把椅子不是社交配方，叙述者自述不是独立核实的生平；保留原文关于自然与悲伤的强断言，但不转成健康建议。F48只读指定段落，保留女性与写作论题、虚构叙述者和地点；五百英镑是文本中的年收入，不是当代自由预算。待命、轮换与不协调步调的乐趣是本书延伸。B06仍是观察性日记研究，不能用自愿消除孤独的因果叙事覆盖结果。先回答独处的价值、边界或物质条件，不自动输出六张卡；不把“享受独处”改成不需要人的人格要求。
+
+C07按独享经验、公共参与、支配条件三条线组织。[谈话距离](../book/07-solo.md#solo-conversation-space)细读F47中的航行、水波与移椅，不是证明坐远更容易交流；“给念头空间”也不能替共同约定无限拖延答复。三条主线并不对应三个效果指标。C05/C09/C21承接已展开的共同关注、交接及时间原则，不把重复出现计算为新发现。
 
 <a id="r12"></a>
 ## R12 · 分工、责任与闲暇

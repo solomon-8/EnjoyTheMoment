@@ -2106,6 +2106,8 @@ class ExportTests(unittest.TestCase):
         for anchor in ("solo-own-pace", "solo-walden", "solo-room",
                        "solo-availability", "solo-not-audition"):
             self.assertIn('id="' + anchor + '"', html)
+        for anchor in ("solo-experience", "solo-public", "solo-conditions"):
+            self.assertIn('id="' + anchor + '"', html)
             self.assertIn('href="#' + anchor + '"', html)
         for identifier, anchor in (("F47", "solo-walden"), ("F48", "solo-room")):
             note = notes[identifier]
