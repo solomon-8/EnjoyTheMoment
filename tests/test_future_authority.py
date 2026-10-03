@@ -45,7 +45,8 @@ class FutureAuthorityTests(unittest.TestCase):
             "不要求一种喜欢先保证终身有效",
         ):
             self.assertIn(phrase, self.text)
-        self.assertEqual(build.markdown(self.text, self.path).count("<table>"), 2)
+        # The waiting-reasons prose replaces its old table; the timeline stays tabular.
+        self.assertEqual(build.markdown(self.text, self.path).count("<table>"), 1)
 
     def test_complete_text_routes_and_inventory(self):
         documents, routes = read.load_documents(ROOT)

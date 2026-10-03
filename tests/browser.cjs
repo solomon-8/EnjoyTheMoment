@@ -630,7 +630,9 @@ async function decodeImage(image) {
     await page.goto(url + "#rest-returns");
     await page.waitForFunction(() => document.getElementById("e07").open);
     assert.equal(await page.locator("#e07 .prose h3").count(), 4);
-    assert.equal(await page.locator("#e07 .prose h4").count(), 16);
+    assert.equal(await page.locator("#e07 .prose h4").count(), 17);
+    assert((await page.locator("#e07 .prose h4").allTextContents()).includes(
+      "不替工作充电，还得替“更高尚的生活”热身吗？"));
     assert.equal(await page.locator("#e07 .prose h5").count(), 4);
     for (const anchor of ["rest-value", "rest-cost", "rest-shared", "rest-position", "rest-race"]) {
       await page.locator(`#e07 a[href='#${anchor}']`).first().click();
@@ -735,7 +737,7 @@ async function decodeImage(image) {
     await page.goto(url + "#waiting-not-a-patience-score");
     await page.waitForFunction(() => document.getElementById("e03").open);
     assert.match(await page.locator("#e03 .prose").textContent(), /及时享乐不等于及时省事/);
-    assert.equal(await page.locator("#e03 .prose table").count(), 2);
+    assert.equal(await page.locator("#e03 .prose table").count(), 1);
     await page.locator("#e03 a[href='#f75']").first().click();
     await page.waitForFunction(() => document.getElementById("f75").open);
     assert.match(await page.locator("#f75 .prose").textContent(), /同时作答与实际重测/);

@@ -54,7 +54,7 @@ class ReliableFutureTests(unittest.TestCase):
         ):
             self.assertIn(phrase, text)
         self.assertEqual(len(re.findall(r"^## ", text, re.M)), 5)
-        self.assertEqual(build.markdown(text, SOURCE).count("<table>"), 2)
+        self.assertEqual(build.markdown(text, SOURCE).count("<table>"), 1)
         for phrase in ("28名幼儿", "900秒是观察上限",
                        "它们不是四场安排人真实等待的实验"):
             self.assertIn(phrase, text)
