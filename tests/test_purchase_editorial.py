@@ -71,7 +71,7 @@ class PurchaseEditorialTests(unittest.TestCase):
         route = next(r for r in routes if r["id"] == "R10")
         for anchor in anchors:
             self.assertIn("#" + anchor, route["text"])
-        self.assertEqual(route["targets"], ["C06", "E04", "B20", "N20"])
+        self.assertEqual(route["targets"], ["C06", "E04", "B20", "N20", "F91"])
         self.assertIn("不是持卡对比按次", route["text"])
         self.assertIn("不能从这次值得倒推当初买得对", route["text"])
 
