@@ -120,11 +120,13 @@ C03先分清新对象与新读法；[未知与理解](../book/03-novelty.md#nove
 <a id="r09"></a>
 ## R09 · 共同经历与注意
 
-<!-- reading-route: {"id":"R09","targets":["C05","B21","B22","N21","N22"]} -->
+<!-- reading-route: {"id":"R09","targets":["C05","B21","B22","N21","N22","E01","E05"]} -->
 
-正文与来源：[C05](../book/05-connection.md) · [B21](research.md#b21) · [B22](research.md#b22) · [N21](evidence/B21-shared-amplification.md) · [N22](evidence/B22-shared-distance.md)
+正文与来源：[C05](../book/05-connection.md) · [B21](research.md#b21) · [B22](research.md#b22) · [N21](evidence/B21-shared-amplification.md) · [N22](evidence/B22-shared-distance.md) · [E01同意与赞许](../essays/01-pleasure-is-an-end.md#pleasure-consent-scope) · [E05群体改变的真实损失](../essays/05-play-is-not-performance.md#amateur-changing-group)
 
 共同经历见 C05/B21/B22/N21/N22：共同注意、相同评价、被观看与共同创作分开；2014年没有独处组，苦材料共同条件更不受喜欢，注意力中介未成立。2016年的交互不等于熟人全面更好，分室不是线上相聚；两篇同团队，非独立复现。先讨论共同时间的价值，不把背景研究变成J025–J030效果保证。
+
+C05按[共同经历](../book/05-connection.md#connection-experience)、[不同愿望](../book/05-connection.md#connection-wishes)、[实际分工](../book/05-connection.md#connection-arrangements)、[散场与承诺](../book/05-connection.md#connection-ending)展开；[自愿让步](../book/05-connection.md#connection-compromise)与[不好拒绝的反方](../book/05-connection.md#connection-compromise-objection)是原创假想和价值论证，不是B21/B22实验结论。区分喜欢作品、喜欢相处与愿意照顾对方的愿望；不把所有付出改名为承担者暗中获利，也不把一人更兴奋当作可替另一人答应。设例明确可以拒绝，现实中的一句同意不足以确认自愿；一次自愿不设永久分工，长期不对称不按次数自动诊断。轮流不保证公平或共同快乐，各自参加也可能失去原本想要的共同部分。E01讨论同意范围，E05讨论群体目标改变的真实损失；不能用C05替实际关系分配责任或判断谁必然受委屈。
 
 <a id="r10"></a>
 ## R10 · 消费、沉没成本与继续使用

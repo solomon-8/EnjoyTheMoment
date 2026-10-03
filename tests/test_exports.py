@@ -225,7 +225,7 @@ class ExportTests(unittest.TestCase):
             self.assertIn('id="' + anchor + '"', chapter["text"])
             self.assertEqual(self.outputs["index.html"].count('id="' + anchor + '"'), 1)
         for phrase in ("两种情况下助手都在场", "注意力是不是中间机制，论文没有证明",
-                       "没有视频、语音或聊天", "共同注意和相互考核", "这一晚也可以已经兑现",
+                       "没有视频、语音或聊天", "共同注意和相互考核", "这段生活，我想和你一起过",
                        "不是四档亲密排行榜"):
             self.assertIn(phrase, text)
             self.assertIn(phrase, chapter["text"])
