@@ -835,6 +835,8 @@ F80核读Jowett英译网页中的阿里斯托芬完整演说，以及苏格拉�
 
 C35的[回应与融合](../book/35-intimacy.md#intimacy-fusion)、[依靠与完整](../book/35-intimacy.md#intimacy-dependence)、[愿意改变](../book/35-intimacy.md#intimacy-changing)是本书论证；回声与河边散步是原创假想，不是F80的实验案例。需要帮助不等于人格残缺，自主不要求资源无限或永远不变；不把不愿改变判为不够爱，不把明确承诺和现实退出成本抹去。F80不增加B研究，不验证J卡、身体接触或关系干预。
 
+C35以[靠近](../book/35-intimacy.md#intimacy-closeness)、[主动邀请](../book/35-intimacy.md#intimacy-invitation)、[愿望差异](../book/35-intimacy.md#intimacy-difference)、[激情与判断](../book/35-intimacy.md#intimacy-judgment)组织正文。林与遥是原创假想，不是F80/B36临床或实验案例：知道对方愿望不等于被迫执行，想见面、安排分工、未被提醒的想起分别讨论；现在的好体验不能改写过去提醒，过去提醒也不自动否定现在的自主。保留“不用我说”的惊喜真实价值，不把沟通后满意当义务；主动邀请不预授接触同意，曾想被邀请不要求次次答应。不预测效果、诊断谁不够爱或提供关系话术。
+
 C02/C05/C07/C09/E06/E09为相邻论题，不作重复独立证据。回答价值问题先展开论证与反对意见，不自动转成活动清单、性行为任务或关系绩效表；不默认有伴侣或人人想要性接触。
 
 <a id="r68"></a>

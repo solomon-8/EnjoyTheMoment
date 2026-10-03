@@ -2,6 +2,7 @@
 import hashlib
 import json
 from pathlib import Path
+import re
 import sys
 import unittest
 from zipfile import ZipFile
@@ -13,6 +14,57 @@ import read
 
 
 class IntimacyTests(unittest.TestCase):
+    def test_four_reading_lines_keep_invitation_distinctions(self):
+        text = (ROOT / "book/35-intimacy.md").read_text()
+        self.assertEqual(re.findall(r"^## (.+)$", text, re.M), [
+            "一、向一个人靠近，不只是找回自己",
+            "二、被主动想起，为什么不能只按次数算",
+            "三、愿望不同，怎样仍有相处的余地",
+            "四、激情不必被管理，选择仍可被纠正",
+        ])
+        invitation = text.split('<a id="intimacy-invitation"></a>', 1)[1].split(
+            '<a id="intimacy-difference"></a>', 1)[0]
+        for phrase in ("原创情境与价值讨论", "林和遥", "自己选择，不等于从未受对方影响",
+                       "发起和安排是不是总由同一个人承担",
+                       "在我没有提醒的时候，你有没有想起过我",
+                       "不可能把“林曾提醒过”这段历史变成没发生",
+                       "不能单独说明遥此前从未想起过他",
+                       "没发生的行动、尚不知道的念头、已经失落的感受",
+                       "缺失不必被夸大为对其他一切的判决",
+                       "不把“都沟通了就应该满意”当答案",
+                       "愿望可以长期存在，某一次仍然不合适",
+                       "不把接受活动邀请当作任何身体接触的同意"):
+            self.assertIn(phrase, invitation)
+        self.assertNotIn("<!-- pick:", invitation)
+
+    def test_invitation_is_not_a_claimed_experiment_or_model(self):
+        _, routes = read.load_documents(ROOT)
+        route = next(r for r in routes if r["id"] == "R67")
+        for phrase in ("林与遥是原创假想", "不预测效果", "过去提醒也不自动否定现在的自主",
+                       "主动邀请不预授接触同意", "不把沟通后满意当义务"):
+            self.assertIn(phrase, route["text"])
+        notes = json.loads((ROOT / "data/evidence.json").read_text())["notes"]
+        records = json.loads((ROOT / "data/research.json").read_text())["records"]
+        self.assertEqual(len(notes), 138)
+        self.assertEqual(len(records), 48)
+        self.assertFalse(any("林和遥" in r.get("text", "") for r in notes + records))
+
+    def test_invitation_entrances_survive_in_all_reading_surfaces(self):
+        source = "book/35-intimacy.md"
+        text = (ROOT / source).read_text()
+        rendered = build.markdown(text, source)
+        reader = (ROOT / "index.html").read_text()
+        with ZipFile(ROOT / "downloads/EnjoyTheMoment.epub") as archive:
+            epub = archive.read("EPUB/text/book--35-intimacy.xhtml").decode()
+            for anchor in ("intimacy-closeness", "intimacy-invitation",
+                           "intimacy-authored-invitation", "intimacy-signal-and-choice",
+                           "intimacy-initiative-objection", "intimacy-invitation-range",
+                           "intimacy-difference", "intimacy-judgment"):
+                for output in (rendered, reader, epub):
+                    self.assertEqual(output.count('id="' + anchor + '"'), 1)
+            self.assertEqual(epub.count("<table>"), 2)
+            self.assertIn("自己选择，不等于从未受对方影响", epub)
+
     def test_chapter_is_argument_not_frequency_prescription(self):
         text = (ROOT / "book/35-intimacy.md").read_text()
         for phrase in ("亲密不必拿次数证明，欲望也不必被假装没有", "原创假想",
