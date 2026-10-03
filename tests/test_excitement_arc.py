@@ -28,7 +28,7 @@ class ExcitementArcTests(unittest.TestCase):
         )
 
     def test_main_questions_have_ordered_direct_links_without_folding(self):
-        opening = self.text.split('<a id="', 1)[0]
+        opening = self.text.split('<a id="excitement-costs"', 1)[0]
         positions = [self.text.index(f'<a id="{a}"') for a in self.main_anchors]
         self.assertEqual(positions, sorted(positions))
         for anchor in self.main_anchors:
@@ -69,7 +69,7 @@ class ExcitementArcTests(unittest.TestCase):
             "作者托管页校样", "没有相应的积极情绪差异",
             "丰富人生不是多数人的首选", "也没有检验即时满足比延迟更好",
             "喜欢作品带来的难过，不等于同意别人真的让你难过",
-            "可能三个都无效", "耍起不该给日历配一个排行榜",
+            "探索可能无效", "耍起不该给日历配一个排行榜",
         ):
             self.assertIn(phrase, self.text)
         for note in ("../docs/evidence/B03-richness.md",
@@ -87,7 +87,7 @@ class ExcitementArcTests(unittest.TestCase):
         self.assertEqual(next(d for d in exported if d["id"] == "E02")["text"],
                          self.text)
         route = next(r for r in routes if r["id"] == "R03")
-        self.assertEqual(set(route["targets"]), {"E02", "B24", "N24", "B45", "N45"})
+        self.assertEqual(set(route["targets"]), {"E02", "E03", "C06", "C21", "B24", "N24", "B45", "N45"})
         self.assertIn("观看也可以投入", route["text"])
         self.assertIn("小梁、小何、阿澄均为假想", route["text"])
         with ZipFile(ROOT / "downloads/EnjoyTheMoment.epub") as archive:
