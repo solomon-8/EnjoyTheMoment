@@ -1616,7 +1616,7 @@ class ExportTests(unittest.TestCase):
         for heading in ("调低难度，不是在伪造自己的快乐",
                         "一起看作品，暂停键也需要一个共同习惯",
                         "一场现场的乐趣，可能就在于它不是完美复制"):
-            self.assertIn("## " + heading, text)
+            self.assertRegex(text, r"(?m)^### " + re.escape(heading) + r"$")
         routes = json.loads(self.outputs["data/reading-map.json"])["routes"]
         route = next(item for item in routes if item["id"] == "R56")
         self.assertTrue({"C04", "C19", "C12", "C13", "E05", "E06", "E10", "F63"}
@@ -1628,7 +1628,7 @@ class ExportTests(unittest.TestCase):
             self.assertIn(boundary, route_text)
         # New examples are not attributed to the philosophical primary source.
         shared = text.split('<a id="play-shared-adjustment">', 1)[1].split(
-            "## 爱上一部作品", 1)[0]
+            '<a id="play-leave-the-score">', 1)[0]
         self.assertIn("原创假想", shared)
         self.assertIn("按提纲录制", shared)
         self.assertIn("即兴接龙", shared)

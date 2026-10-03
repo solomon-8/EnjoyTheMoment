@@ -104,7 +104,7 @@ The chapters on senses, novelty, play, relationships, spending, and permission t
 | [01 · Today is not a trial version of your future](book/01-start-now.md) | Why keep postponing the use of things you already like? Does redeeming more mean enjoying more? |
 | [02 · Your senses are not just work equipment](book/02-senses.md) | Can equal temperatures feel different? Contact, material labels, preference, and the difference between compromise and denying a wish. |
 | [03 · Make a little room for surprise](book/03-novelty.md) | New objects, new interpretations, and the pleasures of familiarity |
-| [04 · Play without turning professional](book/04-play.md) | Why care about winning if you play for enjoyment? An original hat-shop scene explores how another person’s response changes what you are creating together. |
+| [04 · I want to win this game, not live by its score](book/04-play.md) | Why can winning matter without governing your life? Chosen goals, shared rules and an original hat-shop scene explore commitment, response and when to stop. |
 | [05 · Being together does not mean wanting the same thing](book/05-connection.md) | Why choose to join something that is not your first choice? Shared experience, willing compromise, and the work behind an evening. |
 | [06 · Buy pleasure, not an identity](book/06-spending.md) | Which specific experience is worth its cost to you? |
 | [07 · Being alone is not a reason to skip the occasion](book/07-solo.md) | What makes solitude enjoyable—and who controls its time and space? |

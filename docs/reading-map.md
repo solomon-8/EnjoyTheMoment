@@ -606,7 +606,7 @@ F62核读官方项目英文说明及完整2009年决定4.COM 14.05，不是完�
 <a id="r56"></a>
 ## R56 · 好玩为什么还要想赢：局内目标与局外理由
 
-<!-- reading-route: {"id":"R56","targets":["C04","C19","C12","C13","E05","E06","E10","F63","F85"]} -->
+<!-- reading-route: {"id":"R56","targets":["C04","C19","C12","C13","E01","E05","E06","E10","F63","F85"]} -->
 
 正文与来源：[C04](../book/04-play.md#play-wanting-to-win) · [C19](../book/19-games.md#games-difficulty) · [C12](../book/12-film.md#film-together) · [C13](../book/13-live-events.md#live-medium) · [E05](../essays/05-play-is-not-performance.md) · [E06](../essays/06-real-life-constraints.md) · [E10](../essays/10-pleasure-not-retention.md) · [F63](evidence/F63-play-and-chosen-goals.md)。
 
@@ -615,6 +615,8 @@ C04/F63区分以获胜为目的、为了经历争胜，以及局内的真实投�
 F63只完整核读期刊页427–429的“Striving Play and Achievement Play”、433–438的“The Artistic Medium of Games”及续至439的脚注14，不是整篇核读。Suits经Nguyen转引，未独立读其原书。没有心理实验、玩家访谈或效果估计。目标、规则与实际行动环境的论证，不意味着所有玩家都能随意控制动机。
 
 筹码末步例为原创假想：已有2、4，再从3、5、8选一枚立即结算，无后续回合、隐藏奖励或对手行动。总和最大选8；最接近9选3。不是完整游戏或推荐哪种更快乐。摄影目标和成绩单边界是本书延伸；E06保留资源、权力及义务限制，E10不把退出权简化成一句“别在乎”。不增加B研究，不验证J卡。
+
+C04沿[局内目标](../book/04-play.md#play-chosen-stakes)、[共同条件](../book/04-play.md#play-common-terms)、[共同创作](../book/04-play.md#play-shared-authorship)、[散场后仍有效的事](../book/04-play.md#play-leave-the-score)组织论证。结束一局不取消结果，搁置私人作品不等于取消共同约定；这是本书的规范区分，不是F63/F85验证的普遍退出权。推荐与共同观看中的认同边界，另读 [E01](../essays/01-pleasure-is-an-end.md#pleasure-consent-scope)；不能从参与推定必须喜欢。
 
 C04的[共同调整](../book/04-play.md#play-shared-adjustment)、[推荐与回应](../book/04-play.md#play-recommendation)、[即兴接龙](../book/04-play.md#play-unrepeatable)是本书的参与论证，不是F63的研究结论。收到推荐不等于答应观看；答应一起看涉及时间安排，不等于承诺喜欢。接故事为原创假想，区分按提纲录制与约好即兴，不证明失误提升快乐。难度机制与提示层次读C19，暂停和片后交流读C12，录制与现场的媒介差异读C13；不把三个主题当作同一实验的应用。
 
