@@ -25,12 +25,12 @@ class AudienceMeaningTests(unittest.TestCase):
         text = (ROOT / SOURCE).read_text()
         self.assertEqual(re.findall(r"^## (.+)$", text, re.M),
                          [title for _, title in PARTS])
-        self.assertEqual(len(re.findall(r"^### .+$", text, re.M)), 19)
+        self.assertEqual(len(re.findall(r"^### .+$", text, re.M)), 17)
         opening = text.split('\n## ', 1)[0]
         for anchor, _ in PARTS:
             self.assertIn(f"](#{anchor})", opening)
         for first, second in (
-            ("### 不要用“不发朋友圈”建立另一条鄙视链", 'id="audience-costs"'),
+            ('id="不要用不发朋友圈建立另一条鄙视链"', 'id="audience-not-a-purity-test"'),
             ('id="audience-chosen-tradeoff"', 'id="audience-staging"'),
             ("### 如果你的工作本来就需要展示生活", 'id="audience-judgments"'),
             ('id="audience-verdict"', 'id="audience-misread-success"'),
