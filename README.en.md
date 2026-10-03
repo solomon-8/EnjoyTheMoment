@@ -112,7 +112,7 @@ The chapters on senses, novelty, play, relationships, spending, and permission t
 | [09 · Limited resources, real enjoyment](book/09-constrained.md) | Who is still organizing while everyone else gets to relax? |
 | [10 · Leaving is part of enjoying](book/10-aftertaste.md) | Can “I loved that moment” and “I would choose differently next time” both be true? |
 | [11 · Your ears are not a taste certificate](book/11-music.md) | Can listening concepts open possibilities without becoming a test? |
-| [12 · A film list is not a graduation requirement](book/12-film.md) | How do images, editing, and sound shape what you experience? |
+| [12 · I know the film is trying to move me. I can still like it.](book/12-film.md) | Being moved, judging the filmmaking, and believing a factual claim are different questions. |
 | [13 · If listening at home is clearer, why go live?](book/13-live-events.md) | Stage space, Jingju conventions and anticipation beyond knowing the plot |
 | [14 · Flavor does not need another justification](book/14-flavor.md) | Ice cream structure, sweetness and air: can knowledge inform taste without overruling it? |
 | [15 · Streets are not loading screens between attractions](book/15-neighborhood.md) | Footfall is not public life: staying without shopping, scheduled events or compulsory interaction. |
