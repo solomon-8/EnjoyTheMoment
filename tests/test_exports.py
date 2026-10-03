@@ -1666,6 +1666,8 @@ class ExportTests(unittest.TestCase):
         for anchor in ("singing-transpose", "singing-timbre",
                        "singing-together", "singing-microphone"):
             self.assertIn('id="' + anchor + '"', rendered)
+        for anchor in ("singing-own-voice", "singing-shared-music",
+                       "singing-shared-purpose", "singing-microphone"):
             self.assertIn('href="#' + anchor + '"', rendered)
         for identifier, kind in (
                 ("F30", "acoustics_and_music_education"),
@@ -1757,6 +1759,38 @@ class ExportTests(unittest.TestCase):
         self.assertEqual(temporal["第一组"][:4], temporal["第二组"][2:])
         self.assertIn("这里假设材料本来适合轮唱", text)
         self.assertIn("没有证明两个段落同时响起来一定和谐", text)
+
+    def test_singing_entry_time_changes_relations_not_individual_melodies(self):
+        text = (ROOT / "book/33-singing.md").read_text()
+        note = (ROOT / "docs/evidence/F30-voice-and-musical-relations.md").read_text()
+        names = re.search(r"另造一条有音高的短旋律：\*\*([CEG4—]+)，", text).group(1).split("—")
+        values = {"C4": 0, "E4": 4, "G4": 7}
+        sequence = [values[name] for name in names]
+        self.assertEqual(sequence, [0, 4, 7, 4])
+        for label, offset in (("一", 1), ("两", 2)):
+            pairs, distances = re.search(
+                r"\*\*乙晚" + label + r"拍进入\*\*：([^；]+)；两声的距离依次是 \*\*([^*]+) 个半音", text).groups()
+            actual = [[values[p] for p in pair.split("/")] for pair in pairs.split("、")]
+            expected = [[sequence[(i + offset) % 4], sequence[i]] for i in range(4)]
+            self.assertEqual(actual, expected)
+            self.assertEqual([int(n) for n in distances.split("、")],
+                             [abs(a - b) for a, b in expected])
+        self.assertIn("每个音一拍，没有休止", text)
+        self.assertIn("这里只证明两种安排不同", text)
+        self.assertIn("没有经过实际演唱或试听", text)
+        self.assertIn("两组比较各取开始重叠后的四拍", note)
+        self.assertIn("此例为本书原创", note)
+        rendered = build.markdown(text, "book/33-singing.md")
+        for anchor in ("singing-own-voice", "singing-shared-music", "singing-shared-purpose"):
+            self.assertIn('id="' + anchor + '"', rendered)
+        self.assertEqual(len(re.findall(r"^## ", text, re.M)), 5)
+        for dest in ("amateur-shared-standards", "audience-staging"):
+            self.assertIn('href="#' + dest + '"', rendered)
+        self.assertNotIn("假设两个人明确说", text)
+        self.assertIn("刚才第二句我们约好一起结束，你多拖了一拍", text)
+        routes = json.loads(self.outputs["data/reading-map.json"])["routes"]
+        route = next(r for r in routes if r["id"] == "R55")
+        self.assertIn("E05", route["targets"])
 
     def test_making_original_diagrams_show_alternating_crossings_and_eight_pages(self):
         ns = "{http://www.w3.org/2000/svg}"
