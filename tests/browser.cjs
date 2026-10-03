@@ -1099,7 +1099,7 @@ async function decodeImage(image) {
     await gameImage.scrollIntoViewIfNeeded();
     await decodeImage(gameImage);
     assert.equal(await gameImage.evaluate(img => img.naturalWidth), 880);
-    assert.equal(await page.locator("#c19 .prose table").count(), 2);
+    assert.equal(await page.locator("#c19 .prose table").count(), 3);
     for (const anchor of ["games-othello", "games-hanabi", "games-uncertainty",
                           "games-chosen-rules", "games-delegation"]) {
       await page.locator(`#c19 a[href='#${anchor}']`).click();
@@ -1112,7 +1112,13 @@ async function decodeImage(image) {
       await page.locator(`#${id} a[href='#c19']`).click();
       await page.waitForFunction(() => document.getElementById("c19").open);
     }
-    await page.locator("#c19 a[href='#f09']").click();
+    for (const anchor of ["games-paid-skip", "games-skip-example", "games-skip-menu", "games-skip-objection"]) {
+      await page.locator(`#c19 a[href='#${anchor}']`).first().click();
+      assert.equal(new URL(page.url()).hash, "#" + anchor);
+    }
+    assert.match(await page.locator("#c19 .prose").textContent(), /愿意购买一个出口，不等于希望入口越来越难走/);
+    assert.match(await page.locator("#c19 .prose").textContent(), /15 \+ 20 \+ 5 = 40分钟/);
+    await page.locator("#c19 a[href='#f09']").first().click();
     await page.waitForFunction(() => document.getElementById("f09").open);
     await page.goto(url + "#c19");
     await page.locator("#c19 a[href='#n09']").click();
