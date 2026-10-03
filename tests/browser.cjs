@@ -384,6 +384,14 @@ async function decodeImage(image) {
     await page.waitForFunction(() => document.getElementById("c35").open);
     assert.equal(await page.locator("#c35 .prose table").count(), 2);
     assert.match(await page.locator("#c35 .prose").textContent(), /亲密不必拿次数证明/);
+    assert.equal(await page.locator("#c35 .prose h3").count(), 4);
+    assert.equal(await page.locator("#c35 .prose h4").count(), 16);
+    for (const anchor of ["intimacy-closeness", "intimacy-invitation", "intimacy-difference", "intimacy-judgment"]) {
+      await page.locator(`#c35 a[href='#${anchor}']`).first().click();
+      assert.equal(new URL(page.url()).hash, "#" + anchor);
+    }
+    assert.match(await page.locator("#c35 .prose").textContent(), /自己选择，不等于从未受对方影响/);
+    assert.match(await page.locator("#c35 .prose").textContent(), /愿望可以长期存在，某一次仍然不合适/);
     for (const [id, anchor, phrase] of [
       ["n36", "intimacy-frequency", /没有回答自发发生/],
       ["f69", "intimacy-spectrum", /不代表WHO正式立场/]
