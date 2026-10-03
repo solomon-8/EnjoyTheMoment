@@ -26,8 +26,8 @@ class FilmContextTests(unittest.TestCase):
         self.assertEqual(text.count("<details>"), 1)
         self.assertEqual(text.count("![") , 3)
         # Original chapter anchors and the protected spoiler wrapper remain.
-        for marker in ("## 六个够用的概念，不必一次全记",
-                       "## 黑边不一定是故障，铺满也不一定是完整",
+        for marker in ("### 六个够用的概念，不必一次全记",
+                       "### 黑边不一定是故障，铺满也不一定是完整",
                        "<summary>展开后段与结尾分析"):
             self.assertIn(marker, text)
 

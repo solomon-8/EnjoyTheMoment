@@ -973,6 +973,14 @@ async function decodeImage(image) {
     await page.goto(url + "#c12");
     await page.waitForFunction(() => document.getElementById("c12").open);
     assert.match(await page.locator("#c12 .prose").textContent(), /长镜头说的是镜头持续/);
+    assert.match(await page.locator("#c12 > summary").textContent(), /我知道电影在煽情，我仍然可以喜欢/);
+    assert.equal(await page.locator("#c12 .prose h3").count(), 4);
+    assert.equal(await page.locator("#c12 .prose h4").count(), 18);
+    for (const anchor of ["film-judgments", "film-expression",
+                          "film-measured-effects", "film-viewing-choices"]) {
+      await page.locator(`#c12 a[href='#${anchor}']`).first().click();
+      assert.equal(new URL(page.url()).hash, "#" + anchor);
+    }
     assert.equal(await page.locator("#c12 .prose table").count(), 4);
     assert.equal(await page.locator("#c12 .artwork img").count(), 3);
     assert.equal(await page.locator("#c12 .prose details").getAttribute("open"), null);
