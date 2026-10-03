@@ -692,9 +692,11 @@ F18/F19仍为限定体系的足球/篮球规则；战术和投篮概率例不是
 <a id="r60"></a>
 ## R60 · 听音乐：声学关系、文化经验与偏好自主
 
-<!-- reading-route: {"id":"R60","targets":["C11","C14","C33","B31","N31","F02","F15"]} -->
+<!-- reading-route: {"id":"R60","targets":["C11","C14","C33","B31","N31","F02","F15","F89","E11","C15"]} -->
 
-正文与来源：[C11](../book/11-music.md#music-natural) · [C14](../book/14-flavor.md) · [C33](../book/33-singing.md) · [B31台账](research.md#b31) · [N31详细核读](evidence/B31-consonance-and-culture.md) · [F02](evidence/F02-listening-language.md) · [F15](evidence/F15-musical-scores.md)。
+正文与来源：[C11主线](../book/11-music.md#music-relations) · [声学与喜欢](../book/11-music.md#music-natural) · [C14](../book/14-flavor.md) · [C33](../book/33-singing.md) · [B31台账](research.md#b31) · [N31详细核读](evidence/B31-consonance-and-culture.md) · [F02](evidence/F02-listening-language.md) · [F15](evidence/F15-musical-scores.md) · [F89](evidence/F89-cage-and-listening.md) · [E11作品评价与私人选择](../essays/11-pleasure-and-reality.md#pleasure-taste-criticism) · [C15声音环境](../book/15-neighborhood.md#street-paley)。
+
+C11依声音怎样发生、知识与判断、私人选择及共同空间三条线展开。贝多芬/Bach谱面分析仍限F15局部；《4′33″》不主动发声不等于声学无声、全零采样或什么也没发生。F89的Trust记录与Kremen演讲不是两次独立验证，第一乐章33秒/30秒记载未裁决，不拼演出流程；1994演讲、2012刊载与读取日分开。未试听、未核完整谱稿，无观众效果结论。椅子声、买票是否值得、概念不免责、噪声不强迫参与是原创分析，不提供注意力练习或强迫欣赏。E11已有“作品评价不等于私人选择”不当新增证据。
 
 C11区分辨认、分类、喜欢与有依据的批评。原创220/330Hz理想周期比3∶2，在1/110秒内2/3周期；220/440比2∶1，在1/220秒内1/2周期。十二平均律七半音比2^(7/12)约1.4983，不等于精确1.5。无音频、未试听，不是B31刺激或悦耳预测。分享对话、喜欢有来历仍可真实、经验不是许可证为原创论证。
 

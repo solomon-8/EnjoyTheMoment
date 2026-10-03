@@ -164,6 +164,7 @@ EVIDENCE = [
     ("F86", "docs/evidence/F86-liberty-and-disapproval.md"),
     ("F87", "docs/evidence/F87-candy-and-continuity.md"),
     ("F88", "docs/evidence/F88-paley-park.md"),
+    ("F89", "docs/evidence/F89-cage-and-listening.md"),
 ]
 EVIDENCE_KINDS = {
     "N47": "study_and_replication_reading_note",
@@ -255,6 +256,7 @@ EVIDENCE_KINDS = {
     "F86": "philosophical_primary_argument",
     "F87": "artwork_record_and_in_process_manifestation_tenets",
     "F88": "practice_case_and_operator_description",
+    "F89": "work_record_and_recipient_account",
 }
 RELATIONS = [
     {"card_ids": ["J033"], "background_ids": ["B01"], "essay_ids": ["E04"]},
