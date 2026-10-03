@@ -651,17 +651,23 @@ C04的[共同调整](../book/04-play.md#play-shared-adjustment)、[推荐与回�
 保持角色拒绝、破坏共同设定、现实参与者停止的区别：字面说好不保证留有回应位置，现实说停无需先在戏内编出合理解释。目光接触不是同意证据或参与门槛，主动合作不授予先开口者无限指挥权；但拒绝一个方向也不等于有权指定全场方向。允许另开、删去或结束，不保证协调必定成功，不把“耍起”变成人际训练或所有场合必须接受的纪律。
 
 <a id="r57"></a>
-## R57 · 咖啡与理想标准：描述不等于喜欢
+## R57 · 风味、标准与一整顿饭
 
-<!-- reading-route: {"id":"R57","targets":["C14","C02","C06","B29","N29","F05","F25"]} -->
+<a id="r57--咖啡与理想标准描述不等于喜欢"></a>
 
-正文与来源：[C14](../book/14-flavor.md#flavor-coffee) · [C02](../book/02-senses.md) · [C06](../book/06-spending.md) · [B29台账](research.md#b29) · [N29详细核读](evidence/B29-coffee-sensory.md) · [F05](evidence/F05-flavor.md) · [F25](evidence/F25-ice-cream-structure.md)。
+<!-- reading-route: {"id":"R57","targets":["C14","C02","C06","B29","N29","F05","F25","F90","E11","C05"]} -->
+
+正文与来源：[C14](../book/14-flavor.md#flavor-coffee) · [C02](../book/02-senses.md) · [C06](../book/06-spending.md) · [B29台账](research.md#b29) · [N29详细核读](evidence/B29-coffee-sensory.md) · [F05](evidence/F05-flavor.md) · [F25](evidence/F25-ice-cream-structure.md) · [F90食论与扫描](evidence/F90-suiyuan-and-table.md) · [E11评价与选择](../essays/11-pleasure-and-reality.md#pleasure-taste-choice) · [C05共同让步](../book/05-connection.md#connection-compromise)。
 
 C14/N29区分TDS的饮液质量分母、PE的投粉质量分母、属性强度与喜欢程度。20克粉得到300克饮液、1.2%TDS，对应3.6克溶解物与18%PE；分离后加60克水，仅在无损失的质量账下变为1.0%TDS、PE不变。不是论文配方、咖啡因测量或稀释后风味预测。
 
 B29为一种咖啡的滴滤实验：27条件、270次冲煮、12名受训品评员、31属性，不是270人或消费者偏好试验。温度主效应p = .11不证明等效；为控制目标TDS/PE调整其他参数，不是只降低水温的比较。服务温度与存放受控，不作为饮用健康建议，不推广至浓缩、冷萃或所有咖啡。
 
 N29读取期刊主文、公式1/表2/图6及补充表S2/S5，非全补充材料与引文审核。保留2021年配水量勘误、Nutty差值、含Judge的交互及计数差异，不自行修订数据。不把2020年行业描述冒充现行认证。C14关于专业帮助、制作承诺与偏好自主的论证为原创；F05与F25分别是感官科普和食品结构技术材料，不作为新实验，也不验证J卡。
+
+C14按[具体结构](../book/14-flavor.md#flavor-structure)、[描述和标准](../book/14-flavor.md#flavor-judgment)、[整顿饭](../book/14-flavor.md#flavor-whole-meal)展开。[袁枚的火锅异议](../book/14-flavor.md#flavor-suiyuan)依据F90指定转录与第12—17图局部对照，不是全书校勘或现代烹饪证据；耳餐指务名、目食指贪多，不否认真实听觉/视觉贡献。第15图不是现代印刷页码，文件页出版项未独立核馆藏目录；古代辱称和厨者赏罚观不作为本书立场。
+
+[餐桌时间](../book/14-flavor.md#flavor-table-time)与[做菜者的反方](../book/14-flavor.md#flavor-cook-objection)为原创假想：单项口感变化不自动决定整顿饭，但共同约定和备餐劳动也不因聊天而消失。不立即吃完不证明菜坏；感谢不等于必须喜欢，精心准备不自动产生要求吃完或称赞的权利。三种安排有真实损失，不是聚餐效果模型，不输出古书保存、熟度或劝酒方法；E11/C05为相邻论证，不重复计成新实验。
 
 <a id="r58"></a>
 ## R58 · 看鸟群：数量、组织与不可保证的相遇
