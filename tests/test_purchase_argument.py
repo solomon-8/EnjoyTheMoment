@@ -54,7 +54,13 @@ class PurchaseArgumentTests(unittest.TestCase):
         ):
             self.assertIn(phrase, section)
         chapter = (ROOT / "book/06-spending.md").read_text()
-        self.assertIn("套餐、配套和旧账单", chapter)
+        # The chapter now introduces these issues by argument line rather than
+        # a single list of purchase problems; keep its boundary with E04.
+        for anchor in ("spending-two-ledgers", "spending-next-purchase",
+                       "spending-own-evening"):
+            self.assertIn('id="' + anchor + '"', chapter)
+            self.assertIn("](#" + anchor + ")", chapter)
+        self.assertIn("谁来决定剩下的生活", chapter)
         self.assertIn("账单已经付过一次", chapter)
 
     def test_distinct_material_and_source_limits_remain(self):
