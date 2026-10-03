@@ -1296,7 +1296,8 @@ async function decodeImage(image) {
       assert((await image.getAttribute("alt")).length > 50);
     }
     for (const anchor of ["collecting-crosses", "collecting-layers", "collecting-digital",
-                          "collecting-return", "collecting-abundance"]) {
+                          "collecting-return", "collecting-abundance", "collecting-candy",
+                          "collecting-not-refill"]) {
       await page.locator(`#c26 a[href='#${anchor}']`).click();
       assert.equal(new URL(page.url()).hash, `#${anchor}`);
       assert(await page.locator("#c26 .prose").isVisible());
@@ -1310,6 +1311,12 @@ async function decodeImage(image) {
     await page.locator("#c26 a[href='#f14']").first().click();
     await page.waitForFunction(() => document.getElementById("f14").open);
     assert.match(await page.locator("#f14 .prose").textContent(), /不是藏品鉴定/);
+    assert.match(await page.locator("#c26 .prose").textContent(), /取糖不等于取得全部布置权/);
+    await page.locator("#c26 a[href='#f87']").first().click();
+    await page.waitForFunction(() => document.getElementById("f87").open);
+    assert.match(await page.locator("#f87 .prose").textContent(), /Draft – 1 September 2026/);
+    await page.locator("#f87 a[href='#collecting-not-refill']").first().click();
+    await page.waitForFunction(() => document.getElementById("c26").open);
     await page.locator("#chapter-query").fill("C27");
     assert.equal(await page.locator(".chapter-intro:visible").count(), 1);
     await page.goto(url + "#c27");

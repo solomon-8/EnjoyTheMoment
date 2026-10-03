@@ -162,6 +162,7 @@ EVIDENCE = [
     ("F84", "docs/evidence/F84-access-and-theatre-making.md"),
     ("F85", "docs/evidence/F85-improv-and-response.md"),
     ("F86", "docs/evidence/F86-liberty-and-disapproval.md"),
+    ("F87", "docs/evidence/F87-candy-and-continuity.md"),
 ]
 EVIDENCE_KINDS = {
     "N47": "study_and_replication_reading_note",
@@ -251,6 +252,7 @@ EVIDENCE_KINDS = {
     "F84": "theatre_practitioner_account_and_production_description",
     "F85": "improv_teaching_and_practitioner_account",
     "F86": "philosophical_primary_argument",
+    "F87": "artwork_record_and_in_process_manifestation_tenets",
 }
 RELATIONS = [
     {"card_ids": ["J033"], "background_ids": ["B01"], "essay_ids": ["E04"]},
