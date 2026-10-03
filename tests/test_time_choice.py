@@ -31,7 +31,8 @@ class TimeChoiceTests(unittest.TestCase):
             self.assertIn(phrase, text)
         self.assertNotIn("<!-- pick:", text)
         rendered = build.markdown(text, source)
-        self.assertEqual(rendered.count("<table>"), 2)
+        # Waiting reasons are prose; only the dated preference-reversal comparison is tabular.
+        self.assertEqual(rendered.count("<table>"), 1)
         self.assertIn('href="#f75"', rendered)
         self.assertIn('href="#digital-limit-authority"', rendered)
 
