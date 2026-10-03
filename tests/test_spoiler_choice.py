@@ -63,7 +63,7 @@ class SpoilerChoiceTests(unittest.TestCase):
             "不必被教育成不懂作品",
         ):
             self.assertIn(phrase, text)
-        opening = text.split('<a id="', 1)[0]
+        opening = text.split('<a id="excitement-costs"', 1)[0]
         self.assertIn("](#excitement-spoilers)", opening)
 
     def test_choice_argument_keeps_counterarguments_and_irreversibility(self):
@@ -92,7 +92,7 @@ class SpoilerChoiceTests(unittest.TestCase):
             self.assertIn(raw.decode(), (ROOT / "llms-full.txt").read_text())
         route = next(r for r in routes if r["id"] == "R03")
         self.assertEqual(set(route["targets"]),
-                         {"E02", "B24", "N24", "B45", "N45"})
+                         {"E02", "E03", "C06", "C21", "B24", "N24", "B45", "N45"})
         for phrase in ("不是人数", "不证明等效", "不能当重读研究",
                        "报告表述张力", "不是B45的实验结论"):
             self.assertIn(phrase, route["text"])

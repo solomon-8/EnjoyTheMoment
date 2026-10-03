@@ -616,6 +616,21 @@ async function decodeImage(image) {
     await page.waitForFunction(() => document.getElementById("e07").open &&
       !document.getElementById("e07").hidden && document.getElementById("essay-query").value === "");
     assert.match(await page.locator("#e07 .prose").textContent(), /不喜欢这次安排，不等于没有资格拥有这段时间/);
+    await page.goto(url + "#excitement-whole");
+    await page.waitForFunction(() => document.getElementById("e02").open);
+    assert.match(await page.locator("#e02 .prose").textContent(), /完整保护的是想经历的关系/);
+    assert.equal(await page.locator("#e02 .prose table").count(), 0);
+    await page.locator("#e02 a[href='#spending-learning']").click();
+    await page.waitForFunction(() => document.getElementById("c06").open);
+    assert.match(await page.locator("#c06 .prose").textContent(), /先试一点可能根本没试到它/);
+    for (const anchor of ["e02--想要更刺激不等于想把自己弄坏", "四种没劲可能要四个不同的出口", "情境刷了一小时想做点真正带劲的", "excitement-evening"]) {
+      await page.goto(url + "#" + encodeURIComponent(anchor));
+      await page.waitForFunction(() => document.getElementById("e02").open);
+      assert.equal(decodeURIComponent(new URL(page.url()).hash), "#" + anchor);
+    }
+    await page.locator("#e02 a[href='#waiting-different-goods']").click();
+    await page.waitForFunction(() => document.getElementById("e03").open);
+    assert.match(await page.locator("#e03 .prose").textContent(), /小份可以另有乐趣，却不能偷偷改掉愿望的内容/);
     await page.goto(url + "#excitement-information");
     await page.waitForFunction(() => document.getElementById("e02").open);
     await page.locator("#e02 a[href='#excitement-costs']").first().click();
