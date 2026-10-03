@@ -539,7 +539,7 @@ async function decodeImage(image) {
     await page.goto(url + "#audience-not-a-purity-test");
     await page.waitForFunction(() => document.getElementById("e08").open);
     assert.equal(await page.locator("#e08 .prose h3").count(), 4);
-    assert.equal(await page.locator("#e08 .prose h4").count(), 19);
+    assert.equal(await page.locator("#e08 .prose h4").count(), 17);
     for (const anchor of ["audience-purpose", "audience-costs",
                          "audience-judgments", "audience-misread-success",
                          "audience-companion"]) {
