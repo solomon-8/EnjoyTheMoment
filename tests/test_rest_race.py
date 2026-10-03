@@ -24,14 +24,15 @@ class RestRaceTests(unittest.TestCase):
     def test_argument_has_a_progression_not_a_flat_checklist(self):
         text = (ROOT / SOURCE).read_text()
         self.assertEqual(re.findall(r'^## (.+)$', text, re.M), [t for _, t in PARTS])
-        self.assertEqual(len(re.findall(r'^### .+$', text, re.M)), 16)
+        self.assertEqual(len(re.findall(r'^### .+$', text, re.M)), 17)
         self.assertEqual(len(re.findall(r'^#### .+$', text, re.M)), 4)
         opening = text.split('\n## ', 1)[0]
         for anchor, _ in PARTS:
             self.assertIn(f'](#{anchor})', opening)
         self.assertIn('](#rest-race)', opening)
         for first, second in (
-            ('rest-returns', 'rest-lafargue'),
+            ('rest-returns', 'rest-higher-life'),
+            ('rest-higher-life', 'rest-lafargue'),
             ('rest-leisure-command', 'rest-cost'),
             ('rest-real-income', 'rest-paid-evening'),
             ('rest-paid-evening', 'rest-race'),
@@ -95,7 +96,7 @@ class RestRaceTests(unittest.TestCase):
         self.assertIn(raw.decode(), (ROOT / 'llms-full.txt').read_text())
         route = next(r for r in routes if r['id'] == 'R41')
         self.assertEqual(set(route['targets']),
-                         {'E07', 'F82', 'C08', 'C09', 'C21', 'E01', 'B05', 'N05'})
+                         {'E07', 'F27', 'F82', 'C08', 'C09', 'C21', 'E01', 'B05', 'N05'})
         for phrase in ('五人争两个名额', '绝对改善', '同轮相对位置',
                        '不要求受限者先牺牲来示范', '不借F82/B05背书'):
             self.assertIn(phrase, route['text'])

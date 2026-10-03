@@ -448,13 +448,15 @@ C22沿阅读经过、分析与考核、入口与相处三条线展开。[玛丽�
 <a id="r41"></a>
 ## R41 · 休息的价值与实际代价
 
-<!-- reading-route: {"id":"R41","targets":["E07","F82","C08","C09","C21","E01","B05","N05"]} -->
+<!-- reading-route: {"id":"R41","targets":["E07","F27","F82","C08","C09","C21","E01","B05","N05"]} -->
 
-正文与来源：[E07](../essays/07-rest-is-not-work.md) · [F82《懒惰权》](evidence/F82-right-to-be-lazy.md) · [C08](../book/08-permission.md) · [C09实际分工](../book/09-constrained.md#constrained-cognitive) · [C21时间决定权](../book/21-free-time.md) · [E01快乐不设业绩](../essays/01-pleasure-is-an-end.md#pleasure-not-quota) · [B05](research.md#b05) · [N05](evidence/B05-leisure-value.md)
+正文与来源：[E07](../essays/07-rest-is-not-work.md) · [F27亚里士多德选读](evidence/F27-pleasure-philosophy.md#source-aristotle-leisure) · [F82《懒惰权》](evidence/F82-right-to-be-lazy.md) · [C08](../book/08-permission.md) · [C09实际分工](../book/09-constrained.md#constrained-cognitive) · [C21时间决定权](../book/21-free-time.md) · [E01快乐不设业绩](../essays/01-pleasure-is-an-end.md#pleasure-not-quota) · [B05](research.md#b05) · [N05](evidence/B05-leisure-value.md)
 
 E07/C08/B05/N05：休息可能帮助工作，不代表必须用生产力证明资格。平均时薪不等于真实放弃的额外收入；一次选择与累计生活路线分开。虚构情境不是收入调查，B05不证明本书价值排序。快乐没有被证明能补回代价，也不以此为前提。
 
 谈到[我今晚耍起，谁还得上班](../essays/07-rest-is-not-work.md#rest-service-work)，要同时呈现三层：约定范围内的付费合作可以成立；临时延长需要另外确认，负责人替员工答应不等于员工已同意；问过“愿不愿意”仍未说明拒绝会承受什么后果。22:00演出、小林与阿岚是原创假想，不是场馆案例、行业调查或法律判断。接受少一点便利是本书立场，不是保证少营业能改善所有人的生活；保留服务失约可以被质疑、更贵或更少时段也可能排除顾客、经济需要不自动取消同意、顾客不必审查全部劳动条件等反方边界。没有当代工时效果或具体排班处方，不把F82/B05借来背书，不自动转成活动建议。
+
+[闲暇的高尚用途](../essays/07-rest-is-not-work.md#rest-higher-life)不能缩成“亚里士多德只许人工作”：F27同时采用卷十第6节的消遣工具论和第7节对沉思、闲暇及自身快乐的重视；拒绝身份等级，不把哲学活动直接译成现代雇佣工作。整个人生终点、一部分独立的好、恢复工具的区分，以及读书／滑稽表演的假想是本书分析，不是原书案例或理论已被推翻的证明。保留持续选择可能损失能力与本人在乎之物的反方，不把每次选择都写成零代价。与E11品味讨论及F57同作品选读分别标明交叠，不重复计原创理论或行为研究。
 
 F82核读1883法文数字转录与1907英译的指定段落，不是扫描校勘、全集通读或当代工时研究；1880刊行是序言自述，英译IV对应法文III后段。保留生产力辩护、强制消费与讽刺张力，不把作者当项目代言人，不采用族群贬损或责怪劳动者的全称归因。十人八小时降至六小时是固定质量、收入、需求等条件的原创推演；不承诺缩时增产、三小时工作制可行或给个人劳动安排法律意见。先回应劳动价值与闲暇的争论，不自动给时间表。C09/C21/E01的相关原则不在此重复计为新理论。
 
