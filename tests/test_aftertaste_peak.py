@@ -86,7 +86,7 @@ class AftertastePeakTests(unittest.TestCase):
         routes = json.loads((ROOT / "data/reading-map.json").read_text())["routes"]
         route = next(r for r in routes if r["id"] == "R65")
         self.assertEqual(set(route["targets"]),
-                         {"C10", "B34", "N34", "B35", "N35", "B18", "N18", "C09", "C13", "E03"})
+                         {"C10", "B34", "N34", "B35", "N35", "B18", "N18", "C09", "C13", "E03", "E04", "E08"})
         cards = json.loads((ROOT / "data/catalog.json").read_text())["cards"]
         self.assertEqual(len(cards), 60)
         self.assertTrue(all(not {"B34", "B35", "N34", "N35"} & set(c["background_ids"]) for c in cards))

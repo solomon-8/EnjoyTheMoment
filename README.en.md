@@ -110,7 +110,7 @@ The chapters on senses, novelty, play, relationships, spending, and permission t
 | [07 · Being alone is not a reason to skip the occasion](book/07-solo.md) | What makes solitude enjoyable—and who controls its time and space? |
 | [08 · Take a break from being useful](book/08-permission.md) | When does refinement become a status barrier—and whose work makes another person look effortless? |
 | [09 · Limited resources, real enjoyment](book/09-constrained.md) | Who is still organizing while everyone else gets to relax? |
-| [10 · Leaving is part of enjoying](book/10-aftertaste.md) | Are you still choosing to continue? |
+| [10 · Leaving is part of enjoying](book/10-aftertaste.md) | Can “I loved that moment” and “I would choose differently next time” both be true? |
 | [11 · Your ears are not a taste certificate](book/11-music.md) | Can listening concepts open possibilities without becoming a test? |
 | [12 · A film list is not a graduation requirement](book/12-film.md) | How do images, editing, and sound shape what you experience? |
 | [13 · If listening at home is clearer, why go live?](book/13-live-events.md) | Stage space, Jingju conventions and anticipation beyond knowing the plot |
