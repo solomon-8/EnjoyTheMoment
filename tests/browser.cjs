@@ -184,6 +184,18 @@ async function decodeImage(image) {
     const entryLinks = await page.locator("#disagreements .prose h3 a").all();
     assert.equal(entryLinks.length, 5);
     assert(await page.locator("#disagreements").isVisible());
+    const concreteLinks = await page.locator("#disagreements .prose ul a").all();
+    assert.equal(concreteLinks.length, 3);
+    for (const [index, link] of concreteLinks.entries()) {
+      const href = await link.getAttribute("href");
+      assert.equal(href, ["#flavor-suiyuan", "#games-paid-skip", "#fear-two-wishes"][index]);
+      await link.click();
+      assert.equal(new URL(page.url()).hash, href);
+      assert(await page.locator(href).evaluate(el => {
+        const container = el.closest("details");
+        return container && container.open && !container.hidden;
+      }));
+    }
     for (const link of entryLinks) {
       const href = await link.getAttribute("href");
       await link.click();
