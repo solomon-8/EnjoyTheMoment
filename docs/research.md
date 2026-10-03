@@ -696,7 +696,7 @@
 - [F48 · 《一间自己的房间》的条件](evidence/F48-room-and-freedom.md)：指定英文版第一、二、六章的相关段落，用于[独处章节](../book/07-solo.md)。保留女性写作论题与虚构层次；收入数额不是当代预算，休闲与待命讨论是本书延伸。
 
 - [F49 · 同一组线的不同读法](evidence/F49-novelty-and-perception.md)：研究者署名说明与本书原创线框，用于[新鲜感章节](../book/03-novelty.md)。两种空间读法、二维读法与本书日常类比分开；不是快乐实验，也不是B03所用刺激。
-- [F50 · 认知劳动与能否下班](evidence/F50-cognitive-labor.md)：Allison Daminger的作者项目介绍，用于[自由与分工章节](../book/09-constrained.md#constrained-cognitive)。预见、寻找、决定、跟进与执行分开；未读2019论文全文，项目170余次访谈不能当该文样本。朋友活动为本书类比，不是已验证的分工干预。
+- [F50 · 认知劳动与能否在场](evidence/F50-cognitive-labor.md)：Allison Daminger的作者项目说明及博士论文方法章、指定段落，用于[自由与分工章节](../book/09-constrained.md#constrained-credit)。四环节、时间边界、可见性与影响机会分开；明确博士论文版本及人数冲突，不当2019期刊全文，项目170余次访谈不能当该文样本。朋友活动为原创类比，不是分工干预或快乐效果验证。
 - [F51 · Rosas的作品与参与版本](evidence/F51-rosas-repetition.md)：舞团作品页及Re:Rosas!项目说明，用于[舞蹈章节](../book/27-dance.md#dance-rosas)。保留编舞/共同创作/演出署名、原作与椅子段简化版的区别；未完整观演或核看教程，重复和疲惫的机构阐释不作快乐效果证据。
 - [F52 · 偶然编排与音乐舞蹈关系](evidence/F52-cunningham-chance.md)：Merce Cunningham Trust的作品记录与方法介绍，用于[舞蹈章节](../book/27-dance.md#dance-chance)。图表与偶然选择不等于临场随便跳；PQR的六种排列、三种限制结果、不同抽选分布及时间图都是本书原创模型，不是原作复原。
 - [F53 · 场景、说法与推断](evidence/F53-open-window.md)：Saki《The Open Window》的指定数字文本，用于[阅读章节](../book/22-reading.md#reading-open-window)。保留人物所述事故与场景事实、相似特征与因果解释的区别；完整情节置于剧透折叠区，文本分析不是受众实验。
