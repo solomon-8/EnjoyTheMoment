@@ -1037,6 +1037,19 @@ async function decodeImage(image) {
     assert.match(await page.locator("#f04 .prose").textContent(), /技术标准 PDF 本次未能成功获取/);
     await page.goto(url + "#c14");
     await page.waitForFunction(() => document.getElementById("c14").open);
+    assert.equal(await page.locator("#c14 .prose h3").count(), 3);
+    for (const anchor of ["flavor-structure", "flavor-judgment", "flavor-whole-meal",
+                          "flavor-suiyuan"]) {
+      await page.locator(`#c14 a[href='#${anchor}']`).first().click();
+      assert.equal(new URL(page.url()).hash, "#" + anchor);
+    }
+    assert.match(await page.locator("#c14 .prose").textContent(), /没有一种处理免费保住所有东西/);
+    await page.locator("#c14 a[href='#f90']").first().click();
+    await page.waitForFunction(() => document.getElementById("f90").open);
+    assert.match(await page.locator("#f90 .prose").textContent(), /不是可移植的厨房产能数据/);
+    await page.locator("#f90 a[href='#flavor-cook-objection']").last().click();
+    await page.waitForFunction(() => document.getElementById("c14").open);
+    assert.match(await page.locator("#c14 .prose").textContent(), /没有责任表演每一口都惊艳/);
     await page.locator("#c14 a[href='#f05']").first().click();
     await page.waitForFunction(() => document.getElementById("f05").open);
     assert.match(await page.locator("#f05 .prose").textContent(), /没有进行盲品/);

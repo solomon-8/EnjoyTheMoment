@@ -74,7 +74,7 @@ class FestivalCrowdsTests(unittest.TestCase):
         self.assertIn('href="#celebration-west-lake"', rendered)
         self.assertEqual(rendered.count("<table>"), 1)
         notes = json.loads((ROOT / "data/evidence.json").read_text())["notes"]
-        self.assertEqual(len(notes), 135)
+        self.assertEqual(len(notes), 136)
         note = next(n for n in notes if n["id"] == "F81")
         self.assertEqual(note["source_kind"], "literary_primary_text")
         self.assertEqual(note["text"], text)
