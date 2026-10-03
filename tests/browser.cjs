@@ -449,11 +449,26 @@ async function decodeImage(image) {
     await page.goto(url + "#time-overlap");
     await page.waitForFunction(() => document.getElementById("c21").open);
     assert.equal(await page.locator("#c21 .prose table").count(), 2);
-    for (const anchor of ["time-overlap", "time-empty", "time-study"]) {
+    assert.deepEqual(await page.locator("#c21 .prose h3").allTextContents(), [
+      "一、空出来的时间，怎样才算到了自己手里？",
+      "二、想让相聚发生，不等于要排满每一分钟",
+      "三、谁为共同时间，放弃了自己的选择？",
+      "四、没有尽兴，也不该把时间自动还给工作"
+    ]);
+    for (const anchor of ["time-ownership", "time-making-room", "time-shared-costs",
+      "time-not-a-score", "time-tentative", "time-cancellation"]) {
       await page.locator(`#c21 a[href='#${anchor}']`).first().click();
       assert.equal(new URL(page.url()).hash, "#" + anchor);
       assert(await page.locator("#c21 .prose").isVisible());
     }
+    assert.match(await page.locator("#c21 .prose").textContent(),
+      /难道以后只有日程稳定的人，才配被等/);
+    await page.locator("#c21 a[href='#friends-partiality']").click();
+    await page.waitForFunction(() => document.getElementById("e09").open);
+    assert.match(await page.locator("#e09 .prose").textContent(),
+      /尊重可以平等，亲近不必均分/);
+    await page.goto(url + "#time-scheduling-study");
+    await page.waitForFunction(() => document.getElementById("c21").open);
     await page.locator("#c21 a[href='#n27']").first().click();
     await page.waitForFunction(() => document.getElementById("n27").open);
     assert.match(await page.locator("#n27 .prose").textContent(), /p = .066/);
@@ -465,7 +480,8 @@ async function decodeImage(image) {
     // An edited section keeps its old fragment and routes to the same chapter.
     await page.goto(url + "#" + encodeURIComponent("不给空白写用途是否就是浪费"));
     await page.waitForFunction(() => document.getElementById("c21").open);
-    await page.locator("#c21 a[href='#time-reservation']").first().click();
+    await page.goto(url + "#time-reservation");
+    await page.waitForFunction(() => document.getElementById("c21").open);
     assert.equal(new URL(page.url()).hash, "#time-reservation");
     assert.match(await page.locator("#c21 .prose").textContent(), /原创假想/);
     await page.locator("#essay-query").fill("不存在的休息XYZ");

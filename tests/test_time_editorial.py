@@ -23,7 +23,11 @@ class TimeEditorialTests(unittest.TestCase):
             self.assertEqual(reader.count(marker), 1)
             self.assertEqual(build.local_href(source + "#" + anchor, "README.md"),
                              "#" + anchor)
-        self.assertIn('href="#time-reservation"', html)
+        # Compatibility preserves destinations; the current introduction can
+        # use a different outline without linking to every legacy fragment.
+        self.assertIn('href="#time-reservation"',
+                      build.markdown((ROOT / "docs/reading-map.md").read_text(),
+                                     "docs/reading-map.md"))
 
     def test_condensed_argument_links_keep_their_destinations(self):
         for source, anchors in (
@@ -74,7 +78,7 @@ class TimeEditorialTests(unittest.TestCase):
         self.assertIn("#time-reservation", route["text"])
         self.assertIn("利用率不等于公平", route["text"])
         self.assertEqual(set(route["targets"]),
-                         {"C21", "C09", "E07", "B11", "N11", "B27", "N27"})
+                         {"C21", "C09", "E07", "E09", "B11", "N11", "B27", "N27"})
 
     def test_reservation_is_not_exported_as_new_empirical_evidence(self):
         records = json.loads((ROOT / "data/research.json").read_text())["records"]
