@@ -85,8 +85,8 @@ class TodayUseTests(unittest.TestCase):
             self.assertIn(phrase, text)
         research = json.loads((ROOT / "data/research.json").read_text())["records"]
         notes = json.loads((ROOT / "data/evidence.json").read_text())["notes"]
-        self.assertEqual(len(research), 47)
-        self.assertEqual(len(notes), 136)
+        self.assertEqual(len(research), 48)
+        self.assertEqual(len(notes), 137)
         self.assertEqual(next(n for n in notes if n["id"] == "F79")["source_kind"],
                          "researcher_edited_interview_not_full_paper")
 

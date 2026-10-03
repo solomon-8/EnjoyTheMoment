@@ -65,7 +65,7 @@ class TimeStructureTests(unittest.TestCase):
                        "本书不把它改判成违约"):
             self.assertIn(phrase, text)
         data = json.loads((ROOT / "data/research.json").read_text())
-        self.assertEqual(len(data["records"]), 47)
+        self.assertEqual(len(data["records"]), 48)
         self.assertEqual(len(json.loads((ROOT / "data/catalog.json").read_text())["cards"]), 60)
 
     def test_efficiency_argument_keeps_the_objection_and_does_not_claim_a_study(self):

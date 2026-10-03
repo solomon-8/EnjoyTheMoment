@@ -45,7 +45,7 @@ class ConsentApprovalTests(unittest.TestCase):
         self.assertEqual(note["source_kind"], "philosophical_primary_argument")
         self.assertEqual(note["text"], text)
         records = json.loads((ROOT / "data/research.json").read_text())["records"]
-        self.assertEqual(len(records), 47)
+        self.assertEqual(len(records), 48)
         self.assertNotIn("F86", {r["id"] for r in records})
         cards = json.loads((ROOT / "data/catalog.json").read_text())["cards"]
         self.assertEqual(len(cards), 60)
