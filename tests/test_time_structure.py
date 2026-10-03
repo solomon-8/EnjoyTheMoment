@@ -68,6 +68,22 @@ class TimeStructureTests(unittest.TestCase):
         self.assertEqual(len(data["records"]), 47)
         self.assertEqual(len(json.loads((ROOT / "data/catalog.json").read_text())["cards"]), 60)
 
+    def test_efficiency_argument_keeps_the_objection_and_does_not_claim_a_study(self):
+        text = (ROOT / SOURCE).read_text()
+        part = text.split('<a id="time-efficiency-choice"></a>', 1)[1].split(
+            "### 连续时间不只是碎片的加总", 1)[0]
+        for phrase in ("原创假想", "答应完成这一份名单", "答应今晚一起帮到十点",
+                       "答应一起把开场前必要的准备做完",
+                       "任务未必一开始就分得公平", "能力不同",
+                       "不是劳动权利的判断", "不能事后挑一个最有利于自己的版本",
+                       "不是许诺它回来以后又能提高效率",
+                       "节省可以用来多做，也可以用来少做"):
+            self.assertIn(phrase, part)
+        self.assertNotIn("研究表明", part)
+        self.assertNotIn("J0", part)
+        self.assertIn("09-constrained.md#constrained-cognitive", part)
+        self.assertIn("07-rest-is-not-work.md#rest-returns", part)
+
     def test_full_retrieval_epub_and_links_keep_the_whole_disagreement(self):
         text = (ROOT / SOURCE).read_text()
         html = build.markdown(text, SOURCE)
@@ -77,7 +93,9 @@ class TimeStructureTests(unittest.TestCase):
                        "time-not-a-score", "time-tentative", "time-cancellation",
                        "time-scheduling-study", "time-overlap", "time-common",
                        "time-reservation", "不给空白写用途是否就是浪费",
-                       "time-empty", "time-study", "time-worth"):
+                       "time-empty", "time-study", "time-worth",
+                       "time-efficiency-choice",
+                       "最后一个任务做完以后往往还会有最后一个"):
             self.assertEqual(html.count('id="' + anchor + '"'), 1)
             self.assertEqual(epub.count('id="' + anchor + '"'), 1)
         for anchor in ("time-ownership", "time-making-room", "time-shared-costs",
@@ -92,6 +110,10 @@ class TimeStructureTests(unittest.TestCase):
         self.assertIn("不把朋友按可靠程度排榜", route["text"])
         self.assertIn("不是调查或普遍预约规则", route["text"])
         self.assertIn("不另算一项新证据", route["text"])
+        self.assertIn("time-efficiency-choice", route["text"])
+        self.assertIn("没有用B11/B27验证这个假想", route["text"])
+        self.assertEqual(set(route["targets"]),
+                         {"C21", "C09", "E07", "E09", "B11", "N11", "B27", "N27"})
 
 
 if __name__ == "__main__":
