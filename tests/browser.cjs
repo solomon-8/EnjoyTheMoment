@@ -1234,6 +1234,28 @@ async function decodeImage(image) {
     await page.waitForFunction(() => document.getElementById("c22").open);
     assert.match(await page.locator("#c22 .prose").textContent(), /奥斯汀的第一句话/);
     assert.equal(await page.locator("#c22 .prose table").count(), 2);
+    assert.deepEqual(await page.locator("#c22 .prose h3").allTextContents(), [
+      "一、书怎样让人愿意留在其中？",
+      "二、细读是乐趣，还是另一场考试？",
+      "三、怎样读、读到哪里、和谁谈？"
+    ]);
+    for (const anchor of ["reading-experience", "reading-not-exam", "reading-choices",
+      "reading-mary"]) {
+      await page.locator(`#c22 a[href='#${anchor}']`).first().click();
+      assert.equal(new URL(page.url()).hash, "#" + anchor);
+    }
+    assert.match(await page.locator("#c22 .prose").textContent(),
+      /可这不就是在讽刺读了很多、却说不出所以然吗/);
+    await page.locator("#c22 a[href='#reading-mary-source']").click();
+    await page.waitForFunction(() => document.getElementById("f11").open);
+    assert.match(await page.locator("#f11 .prose").textContent(), /谁掌握话题和回答时机/);
+    await page.locator("#f11 a[href='#reading-mary']").click();
+    await page.waitForFunction(() => document.getElementById("c22").open);
+    assert.equal(new URL(page.url()).hash, "#reading-mary");
+    await page.locator("#c22 a[href='#amateur-criticism']").click();
+    await page.waitForFunction(() => document.getElementById("e05").open);
+    await page.goto(url + "#reading-mary");
+    await page.waitForFunction(() => document.getElementById("c22").open);
     await page.locator("#c22 a[href='#f11']").click();
     await page.waitForFunction(() => document.getElementById("f11").open);
     assert.match(await page.locator("#f11 .prose").textContent(), /社区整理的原作转录/);
