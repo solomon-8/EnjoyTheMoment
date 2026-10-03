@@ -133,7 +133,7 @@ The chapters on senses, novelty, play, relationships, spending, and permission t
 | [30 · Must a bird be rare to deserve attention?](book/30-birdwatching.md) | Identification, behavior and honest records without making a checklist the only purpose of looking. |
 | [31 · I paid to be scared—and enjoy it](book/31-recreational-fear.md) | Why pay for discomfort? Competing explanations, and the difference between wanting a character safe and wanting the story to continue. |
 | [32 · The fastest answer is not always the most fun](book/32-puzzles.md) | Four cards, six roads and five lamps: discovery, impossibility and what survives a rule change |
-| [33 · A microphone is not a qualification](book/33-singing.md) | What changes when people sing together? Transposition, vocal roles and listeners—and why a shared goal cannot permanently assign someone to the background. |
+| [33 · A microphone is not a qualification](book/33-singing.md) | Both singers keep their melody, yet their combined music changes. Transposition, entry timing, listeners and contested roles: a polished piece is not the only purpose of an evening. |
 | [34 · Characters may suffer; players need not](book/34-shared-stories.md) | Wanting uncertainty is not consent to arbitrary rulings: dice, competing clocks, flashbacks and aspects give choices consequences. |
 | [35 · Intimacy is worthwhile, not a relationship quota](book/35-intimacy.md) | Desire, consent, enjoyment and relationship satisfaction answer different questions. Respecting limits need not erase wanting. |
 | [36 · A home can be lived in, not only held as an asset](book/36-home.md) | The Schröder House as a changing home: shared space, privacy, unfinished activities and the value of temporary living. |

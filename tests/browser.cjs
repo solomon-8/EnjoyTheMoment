@@ -727,7 +727,7 @@ async function decodeImage(image) {
     await page.goto(url + "#c33");
     await page.waitForFunction(() => document.getElementById("c33").open);
     assert.equal(await page.locator("#c33 .prose table").count(), 4);
-    for (const anchor of ["singing-transpose", "singing-timbre", "singing-together", "singing-microphone"]) {
+    for (const anchor of ["singing-own-voice", "singing-shared-music", "singing-shared-purpose", "singing-microphone"]) {
       await page.locator(`#c33 a[href='#${anchor}']`).click();
       assert.equal(new URL(page.url()).hash, `#${anchor}`);
       assert(await page.locator("#c33 .prose").isVisible());
@@ -738,8 +738,13 @@ async function decodeImage(image) {
       await page.locator(`#${id} a[href='#c33']`).click();
       await page.waitForFunction(() => document.getElementById("c33").open);
     }
-    await page.locator("#c33 a[href='#singing-paghjella']").click();
-    assert.equal(new URL(page.url()).hash, "#singing-paghjella");
+    assert.equal(await page.locator("#c33 .prose h3").count(), 5);
+    for (const anchor of ["singing-transpose", "singing-timbre", "singing-together", "singing-entry-relations", "singing-paghjella"]) {
+      await page.goto(url + "#" + anchor);
+      await page.waitForFunction(() => document.getElementById("c33").open);
+      assert.equal(new URL(page.url()).hash, "#" + anchor);
+    }
+    assert.match(await page.locator("#c33 .prose").textContent(), /7、0、7、0 个半音/);
     await page.locator("#c33 a[href='#f62']").first().click();
     await page.waitForFunction(() => document.getElementById("f62").open);
     assert.match(await page.locator("#f62 .prose").textContent(), /完整核读决定正文/);
