@@ -801,3 +801,5 @@ F 系列不计入上面的 B 系列背景研究。事实、教学、文学文本
 - [F92 · 汤姆刷墙与工作和玩的区分](evidence/F92-tom-sawyer-and-work.md)：Mark Twain《汤姆·索亚历险记》第二章英文数字文本，用于[E05](../essays/05-play-is-not-performance.md#amateur-tom-fence)。完整核读本章，不是全书或版本校勘；保留叙述者讽刺语气、富有者马车例子的条件与汤姆诱导参与的张力。小说不证明报酬毁掉热爱、付钱提高享受或稀缺营销有效。画猫与委托是原创假想，不新增B研究、不验证J卡。
 
 - [F93 · 物质主义取向与一次购买](evidence/F93-materialism-and-a-purchase.md)：Dittmar等（2014）的作者摘要，用于[E04](../essays/04-buying-pleasure.md#purchase-comfort-evidence)。仅摘要、未取得主文；区分价值取向关联与具体购买的因果效果，不验证购物疗愈、消费次数或金额。唱片、重复购买、礼物与和解均为原创假想和规范论证，不计入B系列已核读主文研究，不验证J卡。
+
+- [F94 · 《哈姆雷特》的戏中戏与相互观看](evidence/F94-hamlet-and-spectators.md)：Folger英文版第三幕第二场的指定段落，用于[C13](../book/13-live-events.md#live-mousetrap)。先前无言表演、后来的对话与人物反应次序分别保留；不是全剧、早期版本校勘或观演实录。正文与来源细读均含关键剧透；人物观察不是现实测谎法，文学分析不验证观众效果或J卡。

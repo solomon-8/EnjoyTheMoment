@@ -193,15 +193,17 @@ C10按[短暂快乐的价值](../book/10-aftertaste.md#aftertaste-value)、[总�
 <a id="r14"></a>
 ## R14 · 现场、剧场与京剧
 
-<!-- reading-route: {"id":"R14","targets":["C13","F40","F41","C05","E08","E11","C18","C34"]} -->
+<!-- reading-route: {"id":"R14","targets":["C13","F40","F41","F94","C05","E08","E11","C18","C34"]} -->
 
-正文与来源：[C13](../book/13-live-events.md) · [F40](evidence/F40-theatre-space.md) · [F41](evidence/F41-jingju-conventions.md) · [C05共同注意](../book/05-connection.md#connection-shared-attention) · [E08希望被回应](../essays/08-life-without-an-audience.md#audience-three-requests) · [E11感受与承诺](../essays/11-pleasure-and-reality.md#pleasure-promises) · [C18公共时间](../book/18-celebration.md#celebration-same-night) · [C34共同叙事](../book/34-shared-stories.md#story-choice)。
+正文与来源：[C13](../book/13-live-events.md) · [F40](evidence/F40-theatre-space.md) · [F41](evidence/F41-jingju-conventions.md) · [F94剧本细读](evidence/F94-hamlet-and-spectators.md) · [C05共同注意](../book/05-connection.md#connection-shared-attention) · [E08希望被回应](../essays/08-life-without-an-audience.md#audience-three-requests) · [E11感受与承诺](../essays/11-pleasure-and-reality.md#pleasure-promises) · [C18公共时间](../book/18-celebration.md#celebration-same-night) · [C34共同叙事](../book/34-shared-stories.md#story-choice)。
 
 现场见 C13/F40/F41。F40 为 `theatre_educational_reference`，舞台示意为原创几何图，不能据此选座、判断声场或规划动线；黑匣子不是固定排列，特定场域与行进式可重叠但不等同。F41 为 `heritage_description_and_nomination`，中文项目简介、UNESCO 名录说明与 2010 年中国申报材料不是三项独立实验；核读描述不等于看过演出。空地上的门、递杯和镜头示例都是原创假想，不是指定京剧场次或标准程式。分开作品、一次呈现、观看关系，不归纳成现场必胜录音；用功也可为享乐，但理解不能变成喜欢的义务或文化身份门槛。
 
 C13的[在场与互动](../book/13-live-events.md#live-participation)、[两封信的选择](../book/13-live-events.md#live-choice)、[希望自己改变这一场](../book/13-live-events.md#live-control-objection)是本书原创论证，不是F40/F41的研究结果。两名表演者、五位投票者、红三蓝二与相反票数均为假想设定，不是观察记录。四种安排区分观看、回应、集体决定和代读，不排参与等级；顺序不同不自动证明某种心理效果。少数票未胜不等于没被计入，有限选择也不能冒充任意改写；明确承诺与实际执行须分开。愿意观看不推定同意被点名，喜欢互动也不应被劝成安静观看同样满足；这是价值与约定分析，不是票务法律意见、演出质量认证或实际投诉判断。
 
 C05处理共同注意，E08处理想被看见，E11处理所得与承诺，C18处理不可随意挪动的公共时间，C34处理特定游戏中的共同叙事。不要把这些领域应用重复算成多项实验，也不把游戏主持规则强加给剧场。
+
+C13的[相互观看入口](../book/13-live-events.md#live-mousetrap)与[戏中戏细读](../book/13-live-events.md#live-mousetrap-reading)采用F94的Folger《哈姆雷特》3.2指定段落，不是观演实录。先说明关键剧透，不把默认折叠当作AI全文不含情节。保留无言表演先出现下毒、后来对话与插话后才停演离席的次序；卢西安纳斯被称作国王的侄子，不是弟弟。不要自行解释前一次为何没走，不把人物依据反应的判断输出为现实测谎法。起身舞台说明的编辑标记、奥菲利娅291行与早期版本未校勘的范围见F94；未测读者效果，也不推出现场必胜屏幕。相互观看是本书文学分析，不将原有两封信等假想改成真实演出材料。
 
 <a id="r15"></a>
 ## R15 · 街道、观察与公共空间

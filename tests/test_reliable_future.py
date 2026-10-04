@@ -79,7 +79,7 @@ class ReliableFutureTests(unittest.TestCase):
             self.assertIn(phrase, route["text"])
         self.assertEqual(len(json.loads((ROOT / "data/catalog.json").read_text())["cards"]), 60)
         self.assertEqual(len(json.loads((ROOT / "data/research.json").read_text())["records"]), 50)
-        self.assertEqual(len(json.loads((ROOT / "data/evidence.json").read_text())["notes"]), 142)
+        self.assertEqual(len(json.loads((ROOT / "data/evidence.json").read_text())["notes"]), 143)
 
     def test_third_option_changes_the_menu_not_the_original_assumptions(self):
         text = (ROOT / SOURCE).read_text()
