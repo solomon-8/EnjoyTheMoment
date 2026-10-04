@@ -62,7 +62,8 @@ class EntryArgumentTests(unittest.TestCase):
 
     def test_short_introductions_keep_real_counterweights(self):
         for phrase in ("每个周末的累计代价", "必要支出", "谁还在",
-                       "选择今天确实少得一些", "不暗称总量更优",
+                       "一个假想让我们选择", "选择现在仍然少得两晚",
+                       "正文不抹去这笔代价", "为什么非得二选一，不能重新安排",
                        "也可能让等待胜出", "不让别人被迫代付",
                        "不能拿友情取消拒绝", "不授予旁人接管权",
                        "主动设限也可能有用", "不能把一切挽留都说成操控"):
