@@ -1304,7 +1304,11 @@ async function decodeImage(image) {
     await page.goto(url + "#c20");
     await page.waitForFunction(() => document.getElementById("c20").open);
     assert.equal(await page.locator("#c20 .artwork img").count(), 3);
-    for (const anchor of ["photo-viewpoint", "photo-duration", "photo-sequence", "photo-audience"]) {
+    assert.equal(await page.locator("#c20 .prose h3").count(), 4);
+    assert.equal(await page.locator("#c20 .prose h4").count(), 20);
+    for (const anchor of ["photo-language", "photo-truth", "photo-experience",
+                         "photo-editing", "photo-sharing-goal", "photo-viewpoint",
+                         "photo-duration", "photo-sequence", "photo-audience"]) {
       await page.locator(`#c20 a[href='#${anchor}']`).click();
       assert.equal(new URL(page.url()).hash, `#${anchor}`);
       assert(await page.locator("#c20 .prose").isVisible());
@@ -1344,6 +1348,15 @@ async function decodeImage(image) {
     await page.locator("#c20 a[href='#n10']").click();
     await page.waitForFunction(() => document.getElementById("n10").open);
     assert.match(await page.locator("#n10 .prose").textContent(), /p = .058/);
+    await page.goto(url + "#photo-sharing-goal");
+    await page.waitForFunction(() => document.getElementById("c20").open);
+    await page.locator("#c20 a[href='#n44']").click();
+    await page.waitForFunction(() => document.getElementById("n44").open);
+    assert.match(await page.locator("#n44 .prose").textContent(), /abstract_only/);
+    await page.goto(url + "#photo-sharing-goal");
+    await page.locator("#c20 a[href='#audience-chosen-tradeoff']").click();
+    await page.waitForFunction(() => document.getElementById("e08").open);
+    assert.equal(new URL(page.url()).hash, "#audience-chosen-tradeoff");
     await page.locator("#chapter-query").fill("C21");
     assert.equal(await page.locator(".chapter-intro:visible").count(), 1);
     await page.goto(url + "#c21");
