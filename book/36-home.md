@@ -231,4 +231,4 @@ Getty的报道提到，保护人员处理客厅木墙时，注意保留盆栽留
 
 **家可以为未来留下位置，也该给已经住在里面的人留下今天。**
 
-继续读：[独处需要什么条件](07-solo.md#solo-room) · [共同空间之外的街道](15-neighborhood.md) · [维护与修补](17-making.md#making-repair-choice) · [收藏与保留](26-collecting.md) · [有责任的人不欠“会生活”的作业](../essays/06-real-life-constraints.md)。这些相邻论点不被重复算作本章的新证据。
+继续读：[独处需要什么条件](07-solo.md#solo-room) · [共同空间之外的街道](15-neighborhood.md) · [维护与修补](17-making.md#making-repair-choice) · [收藏与保留](26-collecting.md) · [有责任的人不欠“会生活”的作业](../essays/06-real-life-constraints.md)。
