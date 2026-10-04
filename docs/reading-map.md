@@ -153,7 +153,7 @@ C05按[共同经历](../book/05-connection.md#connection-experience)、[不同�
 
 <!-- reading-route: {"id":"R10","targets":["C06","E04","B20","N20","F91"]} -->
 
-正文与来源：[C06](../book/06-spending.md) · [E04](../essays/04-buying-pleasure.md) · [B20](research.md#b20) · [N20](evidence/B20-sunk-cost.md) · [F91](evidence/F91-membership-and-renewal.md)
+正文与来源：[C06买票后还要继续吗](../book/06-spending.md#spending-stay-or-leave) · [E04](../essays/04-buying-pleasure.md) · [B20](research.md#b20) · [N20](evidence/B20-sunk-cost.md) · [F91](evidence/F91-membership-and-renewal.md)
 
 消费见 C06/B20/N20：旧付款、未来增量、使用量与快乐分开。季票54人分析，支付15/13/8美元；前半计划单尾比较不等于全季价格或衰减交互成立，用票不等于本人出席或享受。算例是原创假设，平均成本下降不等于现金回流；退款/转让/已有技能与未来机会不能当作全部沉没。版本载体和局限见[核读](evidence/B20-sunk-cost.md)。先回应选择与价值问题，不自动给卡，不给J031–J036效果背书。
 

@@ -146,6 +146,17 @@ async function decodeImage(image) {
     await page.locator("#n42 a[href='#digital-desire-study']").first().click();
     await page.waitForFunction(() => document.getElementById("e10").open);
     await page.goto(url);
+    await page.locator("#chapter-query").fill("买票");
+    assert(await page.locator("#c06").isVisible());
+    assert.match(await page.locator("#c06 > summary").textContent(),
+      /买都买了，不必再赔上今晚/);
+    await page.locator("#c06 > summary").click();
+    await page.locator('#c06 a[href="#spending-stay-or-leave"]').first().click();
+    assert.equal(new URL(page.url()).hash, "#spending-stay-or-leave");
+    assert.match(await page.locator("#c06 .prose").textContent(),
+      /仍可退转的钱、已经答应的同行安排/);
+    assert.equal(await page.locator('[id="06--钱可以换快乐不必换身份"]').count(), 1);
+    await page.locator("#chapter-query").fill("");
     await page.locator("#chapter-query").fill("C13");
     await page.goto(url + "#live-participation");
     await page.waitForFunction(() => document.getElementById("c13").open);
@@ -2006,9 +2017,16 @@ async function decodeImage(image) {
     await page.waitForFunction(() => document.getElementById("e04").open);
     assert.equal(await page.locator("#e04 .prose h3").count(), 4);
     assert.equal(await page.locator("#e04 .prose h4").count(), 20);
-    assert.equal(await page.locator("#e04 .prose h5").count(), 4);
+    assert.deepEqual(await page.locator("#e04 .prose h5").allTextContents(), [
+      "你的时薪，不是周日的票价",
+      "说好可以自己决定，为什么付款时又要重新申请？",
+      "研究里的“物质主义”，是在说哪一种选择？",
+      "可是，每次难过都买，迟早会成为另一种负担",
+      "收到礼物以后，还能继续生气吗？"
+    ]);
     for (const anchor of ["purchase-purpose", "purchase-choice",
                          "purchase-agency", "purchase-judgement",
+                         "purchase-hourly-price",
                          "purchase-moving-rules", "purchase-comfort",
                          "purchase-comfort-evidence", "purchase-comfort-objection",
                          "purchase-comfort-accountability"]) {
