@@ -117,7 +117,7 @@ The chapters on senses, novelty, play, relationships, spending, and permission t
 | [14 · Flavor does not need another justification](book/14-flavor.md) | Ice cream structure, sweetness and air: can knowledge inform taste without overruling it? |
 | [15 · Streets are not loading screens between attractions](book/15-neighborhood.md) | Footfall is not public life: staying without shopping, scheduled events or compulsory interaction. |
 | [16 · Clothes are for wearing, not waiting for a better self](book/16-dress.md) | Color blocks, bias cutting and tuxedo codes offer more to discuss than correcting a body. |
-| [17 · Making things need not become another job](book/17-making.md) | Weave crossings, color boundaries and the page sequence of a one-sheet zine: process is more than the cost of a finished object. |
+| [17 · Making things need not become another job](book/17-making.md) | If others would not pay for your handmade object, is liking it a mistake? Weaving, zines, repair, private meaning and the obligations a gift does not create. |
 | [18 · You do not have to earn a celebration](book/18-celebration.md) | Spring Festival and The Gift of the Magi: shared time, gifts and the right not to perform gratitude |
 | [19 · Paying not just to win, but for obstacles worth choosing](book/19-games.md) | Othello, Hanabi and a fictional paid-skip choice: which obstacles create the experience, and which merely block it? |
 | [20 · Photos can keep a moment without becoming its report card](book/20-photography.md) | Zooming is not moving closer: viewpoint, motion, sequencing and the pleasure of an audience. |
