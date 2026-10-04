@@ -34,7 +34,15 @@ class WaitingArcTests(unittest.TestCase):
         for anchor in self.main_anchors:
             self.assertIn(f"](#{anchor})", opening)
         self.assertEqual(len(re.findall(r"^## ", self.text, re.M)), 5)
-        self.assertNotIn("<details>", self.text)
+        # Only study methods fold away; the five-question argument stays visible.
+        self.assertEqual(self.text.count("<details>"), 1)
+        folded = self.text.split("<details>", 1)[1].split("</details>", 1)[0]
+        self.assertIn("这项演唱会研究实际问了什么", folded)
+        self.assertNotIn("\n## ", folded)
+        visible = self.text.replace("<details>" + folded + "</details>", "")
+        for claim in ("今天的真心，不是未来的保修单", "不是实际多花钱的记录",
+                      "两组所评价的乐队身份和演出时间都不同", "短承诺也不是普遍优解"):
+            self.assertIn(claim, visible)
         self.assertLess(self.text.index("阿宁和朋友原定"),
                         self.text.index("等待有没有在替你工作"))
         self.assertLess(self.text.index("一项与“越快越好”冲突的研究"),
@@ -79,7 +87,7 @@ class WaitingArcTests(unittest.TestCase):
         essays = json.loads((ROOT / "data/essays.json").read_text())["essays"]
         self.assertEqual(next(e for e in essays if e["id"] == "E03")["text"], self.text)
         route = next(r for r in routes if r["id"] == "R04")
-        self.assertEqual(set(route["targets"]), {"E03", "E01", "E04", "E05", "E11", "B23", "N23"})
+        self.assertEqual(set(route["targets"]), {"E03", "E01", "E04", "E05", "E11", "B23", "N23", "F99"})
         self.assertIn("不是互斥分类或人格诊断", route["text"])
         html = build.markdown(self.text, self.source)
         for anchor in self.main_anchors + (

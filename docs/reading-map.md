@@ -77,7 +77,7 @@ E02的空椅子与剪辑为原创假想，用于区分保留想经历的关系�
 <a id="r04"></a>
 ## R04 · 等待、承诺与未来自我
 
-<!-- reading-route: {"id":"R04","targets":["E03","E01","E04","E05","E11","B23","N23"]} -->
+<!-- reading-route: {"id":"R04","targets":["E03","E01","E04","E05","E11","B23","N23","F99"]} -->
 
 正文与来源：[E03](../essays/03-now-or-later.md) · [E01不必穷尽全部备选](../essays/01-pleasure-is-an-end.md#pleasure-enough) · [E04选择与结果](../essays/04-buying-pleasure.md#事前愿意承担事后不喜欢哪个判断错了) · [E05共同目标的变化](../essays/05-play-is-not-performance.md#amateur-changing-group) · [E11不以快乐总量裁决](../essays/11-pleasure-and-reality.md#pleasure-position) · [B23](research.md#b23) · [N23](evidence/B23-reliable-waiting.md)
 
@@ -90,6 +90,8 @@ E03先从[承诺要交出理由](../essays/03-now-or-later.md#waiting-credible-p
 [口味改变是否取消过去](../essays/03-now-or-later.md#waiting-changed-taste)、[后来知道更多是否拥有终审权](../essays/03-now-or-later.md#waiting-later-knowledge)与[长期承诺如何面对变化](../essays/03-now-or-later.md#waiting-open-future)是本书原创规范论证，不是年龄变化实验。小岑二十四岁看演出、十年后不再喜欢的情境是写定假想，没有真人回访，不预测哪个年龄更明智。区分后来获得事实、评价对象不同和偏好改变；当时快乐不替不妥选择免责，较晚偏好也不因日期自动获胜。承认两时点可能都认真而仍冲突，不提供万能排序；一次参加与让同伴依赖的长期承诺不能混同，也不把短承诺当普遍最优。E04负责事前信息与事后结果，E05负责共同目标变化与无法两全的损失；不把三文的相通原则重复当成独立证据。
 
 时间取舍见 E03/B23/N23：28名幼儿、两组各14名，15分钟右截尾；没有成人长期结果，不推出自控无关。正文rank-sum与图注signed-rank不一致，附录未取得，见[核读](evidence/B23-reliable-waiting.md)。先回应承诺、等待代价与长期投入的论点，不把价值判断改写成实验结论。
+
+[今天喜欢与预测未来](../essays/03-now-or-later.md#waiting-predicted-taste)引入[F99演唱会情境报价](evidence/F99-predicting-future-taste.md)：研究4报告170名成人、两组均问今天愿付多少，比较当前最爱乐队十年后的演出与十年前最爱乐队下周的演出。129与80美元是问卷报价，不是实际购票、十年回访或实测损失；乐队关系与演出时间一起改变，不能单独识别稳定性误判或纯时间偏好。独立MIDUS人格对照不是音乐追踪；补充表其他研究列与主文样本未对齐，研究4计数吻合不代表全文无误。后续美日文化差异文献只读到摘要，不是中国验证或演唱会任务直接复现。原小岑假想身份不变；不将研究写成及时享乐或短承诺必胜，保留主动培养兴趣与共同承诺的反方。
 
 <a id="r05"></a>
 ## R05 · 朋友、互惠与关系

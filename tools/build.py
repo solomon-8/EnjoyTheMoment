@@ -177,6 +177,7 @@ EVIDENCE = [
     ("F96", "docs/evidence/F96-hume-and-self-love.md"),
     ("F97", "docs/evidence/F97-famine-affluence-morality.md"),
     ("F98", "docs/evidence/F98-reality-and-familiarity.md"),
+    ("F99", "docs/evidence/F99-predicting-future-taste.md"),
 ]
 EVIDENCE_KINDS = {
     "N47": "study_and_replication_reading_note",
@@ -278,6 +279,7 @@ EVIDENCE_KINDS = {
     "F96": "philosophical_primary_text",
     "F97": "philosophical_primary_argument",
     "F98": "primary_study_and_philosophical_argument",
+    "F99": "primary_research_excerpt",
 }
 RELATIONS = [
     {"card_ids": ["J033"], "background_ids": ["B01"], "essay_ids": ["E04"]},
