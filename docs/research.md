@@ -799,3 +799,5 @@ F 系列不计入上面的 B 系列背景研究。事实、教学、文学文本
 - [F91 · 会籍、续订与取消滞后](evidence/F91-membership-and-renewal.md)：DellaVigna与Malmendier（2006）原始研究的指定段落，用于[C06](../book/06-spending.md#spending-renewal)。月付自动续订、年付到期结束是研究中的历史合同，不是现行产品通则；2.31个完整月是特定月费终止子样本最后出勤至终止的间隔，不是全样本或决定不要后的延迟。非随机合同比较，不测快乐；演出会员为原创假想，不据此推荐统一付款周期或给行动卡背书。
 
 - [F92 · 汤姆刷墙与工作和玩的区分](evidence/F92-tom-sawyer-and-work.md)：Mark Twain《汤姆·索亚历险记》第二章英文数字文本，用于[E05](../essays/05-play-is-not-performance.md#amateur-tom-fence)。完整核读本章，不是全书或版本校勘；保留叙述者讽刺语气、富有者马车例子的条件与汤姆诱导参与的张力。小说不证明报酬毁掉热爱、付钱提高享受或稀缺营销有效。画猫与委托是原创假想，不新增B研究、不验证J卡。
+
+- [F93 · 物质主义取向与一次购买](evidence/F93-materialism-and-a-purchase.md)：Dittmar等（2014）的作者摘要，用于[E04](../essays/04-buying-pleasure.md#purchase-comfort-evidence)。仅摘要、未取得主文；区分价值取向关联与具体购买的因果效果，不验证购物疗愈、消费次数或金额。唱片、重复购买、礼物与和解均为原创假想和规范论证，不计入B系列已核读主文研究，不验证J卡。

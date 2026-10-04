@@ -1882,15 +1882,25 @@ async function decodeImage(image) {
     await page.goto(url + "#e04");
     await page.waitForFunction(() => document.getElementById("e04").open);
     assert.equal(await page.locator("#e04 .prose h3").count(), 4);
+    assert.equal(await page.locator("#e04 .prose h4").count(), 20);
+    assert.equal(await page.locator("#e04 .prose h5").count(), 4);
     for (const anchor of ["purchase-purpose", "purchase-choice",
                          "purchase-agency", "purchase-judgement",
-                         "purchase-moving-rules"]) {
-      const heading = page.locator("#" + anchor + " + :is(h3,h5)");
+                         "purchase-moving-rules", "purchase-comfort",
+                         "purchase-comfort-evidence", "purchase-comfort-objection",
+                         "purchase-comfort-accountability"]) {
+      const heading = page.locator("#" + anchor + " + :is(h3,h4,h5)");
       assert.equal(await heading.count(), 1);
       assert(await heading.evaluate(el =>
         parseFloat(getComputedStyle(el).fontSize) >=
         parseFloat(getComputedStyle(el.closest(".prose")).fontSize)));
     }
+    assert((await page.locator("#e04").innerText()).includes("不能仅凭收下礼物或露出笑容"));
+    await page.locator('#e04 a[href="#f93"]').first().click();
+    await page.waitForFunction(() => document.getElementById("f93").open);
+    assert((await page.locator("#f93").innerText()).includes("仅摘要，未取得主文"));
+    await page.locator('#f93 a[href="#purchase-comfort-accountability"]').first().click();
+    await page.waitForURL(u => u.hash === "#purchase-comfort-accountability");
     await page.locator("#e04").evaluate(el => el.scrollIntoView({behavior: "instant", block: "start"}));
     assert(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth));
     await page.screenshot({path: "/tmp/enjoythemoment-essay-mobile.png", fullPage: false});

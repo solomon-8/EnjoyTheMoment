@@ -26,7 +26,7 @@ class PurchaseArgumentTests(unittest.TestCase):
         text = (ROOT / SOURCE).read_text()
         self.assertEqual(re.findall(r"^## (.+)$", text, re.M),
                          [title for _, title in PARTS])
-        self.assertEqual(len(re.findall(r"^### .+$", text, re.M)), 19)
+        self.assertEqual(len(re.findall(r"^### .+$", text, re.M)), 20)
         opening = text.split("\n## ", 1)[0]
         self.assertIn("不是四步购物流程", opening)
         for anchor, _ in PARTS:

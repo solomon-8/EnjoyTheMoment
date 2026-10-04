@@ -530,13 +530,15 @@ E08/B10/N10：希望被看见可以是体验本身的一部分，不把广泛传
 
 ## R46 · 够用、喜欢与共同预算
 
-<!-- reading-route: {"id":"R46","targets":["E04","C06","E01","E06","B01"]} -->
+<!-- reading-route: {"id":"R46","targets":["E04","C06","E01","E06","B01","F93"]} -->
 
-正文与来源：[E04](../essays/04-buying-pleasure.md) · [C06](../book/06-spending.md) · [E01](../essays/01-pleasure-is-an-end.md) · [E06](../essays/06-real-life-constraints.md) · [B01](research.md#b01)
+正文与来源：[E04](../essays/04-buying-pleasure.md) · [C06](../book/06-spending.md) · [E01](../essays/01-pleasure-is-an-end.md) · [E06](../essays/06-real-life-constraints.md) · [B01](research.md#b01) · [F93](evidence/F93-materialism-and-a-purchase.md)
 
 E04按[购买目的](../essays/04-buying-pleasure.md#purchase-purpose)、[决定权限](../essays/04-buying-pleasure.md#purchase-choice)、[偏好来历与用途](../essays/04-buying-pleasure.md#purchase-agency)、[尝试与评价](../essays/04-buying-pleasure.md#purchase-judgement)展开，不是四步购物流程。它区分功能替代与愿望替代、喜欢作为理由与单方面否决权、购买前的信息判断与使用后的体验判断。共同预算需要处理额度授权、分配和个人使用的不同决定；不由收入高低直接推定谁的爱好更有价值。[约定后的重新审批](../essays/04-buying-pleasure.md#purchase-moving-rules)区分授权尚未成立、共同条件确实改变、条件未变却因品味不合而移动门槛；反向检验不是家庭公平算法，不替具体关系作裁决。C06承担套餐算例、配套和付款后选择的展开，不把它与E04算成两份独立研究。保留未来选项可以是真实偏好，不把互斥用途的收益全部相加，也不把“可能错过”一律当购买命令。杯子价格和人物均为虚构，不是市场调查或财务处方。B01只支撑限定的买时间背景，不验证溢价、家庭方案、任何预算比例或J卡。回答价值争论时先保留这些区别；只有用户要求时才给购买检查或玩法，不强行把负担不起的愿望改写成“便宜替代一样好”。
 
 [工作标签](../essays/04-buying-pleasure.md#purchase-work-label)讨论完好设备升级与娱乐支出的双重标准，不否认必要工作投入可以优先；不是所有消费者的调查结论。[购买与拥有](../essays/04-buying-pleasure.md#purchase-owning)不以高频使用作唯一成功标准，也不把未兑现的使用愿望追认成收藏满足。两段都是原创价值论证，不是消费效果研究。
+
+[消费与安慰](../essays/04-buying-pleasure.md#purchase-comfort)区分局部舒服、整体满意与原问题处理；[反复购买的反方](../essays/04-buying-pleasure.md#purchase-comfort-objection)不由一次愉快担保以后每次合理，也不由烦恼仍在推定逃避。[礼物与和解](../essays/04-buying-pleasure.md#purchase-comfort-accountability)保留接受示好而未同意结清争议的可能，不替具体关系判责。F93仅核读作者摘要，未取得主文，不以物质主义取向的相关性裁决一次购买的因果效果，不承诺购物疗愈，不把原创情境写成实测结果，也不提供预算或消费频次。上述价值论证不因摘要而成为经验证实的结论。
 
 <a id="r47"></a>
 ## R47 · 普通爱好、进步愿望与评价
