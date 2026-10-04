@@ -8,6 +8,7 @@ from zipfile import ZipFile
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / 'tools'))
+import build
 import read
 
 
@@ -43,7 +44,7 @@ class LeisureEndsTests(unittest.TestCase):
         ):
             self.assertIn(phrase, text)
         notes = json.loads((ROOT / 'data/evidence.json').read_text())['notes']
-        self.assertEqual(len(notes), 144)
+        self.assertEqual(len(notes), len(build.EVIDENCE))
         note = next(n for n in notes if n['id'] == 'F27')
         self.assertEqual(note['text'], text)
         self.assertEqual(note['source_kind'], 'philosophical_primary_and_secondary')

@@ -9,6 +9,7 @@ from zipfile import ZipFile
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "tools"))
+import build
 import read
 
 CHAPTER = "book/01-start-now.md"
@@ -86,7 +87,7 @@ class TodayUseTests(unittest.TestCase):
         research = json.loads((ROOT / "data/research.json").read_text())["records"]
         notes = json.loads((ROOT / "data/evidence.json").read_text())["notes"]
         self.assertEqual(len(research), 50)
-        self.assertEqual(len(notes), 144)
+        self.assertEqual(len(notes), len(build.EVIDENCE))
         self.assertEqual(next(n for n in notes if n["id"] == "F79")["source_kind"],
                          "researcher_edited_interview_not_full_paper")
 

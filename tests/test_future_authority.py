@@ -60,7 +60,7 @@ class FutureAuthorityTests(unittest.TestCase):
                        "不把短承诺当普遍最优", "不把三文的相通原则重复当成独立证据"):
             self.assertIn(phrase, route["text"])
         self.assertEqual(len(json.loads((ROOT / "data/research.json").read_text())["records"]), 50)
-        self.assertEqual(len(json.loads((ROOT / "data/evidence.json").read_text())["notes"]), 144)
+        self.assertEqual(len(json.loads((ROOT / "data/evidence.json").read_text())["notes"]), len(build.EVIDENCE))
         self.assertEqual(len(json.loads((ROOT / "data/catalog.json").read_text())["cards"]), 60)
 
     def test_all_anchors_and_related_arguments_reach_epub(self):

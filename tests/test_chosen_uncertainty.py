@@ -9,6 +9,7 @@ from zipfile import ZipFile
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "tools"))
 import check
+import build
 import read
 
 ESSAY = "essays/02-excitement-without-escalation.md"
@@ -55,7 +56,7 @@ class ChosenUncertaintyTests(unittest.TestCase):
             self.assertIn(phrase, text)
         notes = json.loads((ROOT / "data/evidence.json").read_text())["notes"]
         self.assertEqual(sum(n["id"] == "F86" for n in notes), 1)
-        self.assertEqual(len(notes), 144)
+        self.assertEqual(len(notes), len(build.EVIDENCE))
         self.assertEqual(next(n for n in notes if n["id"] == "F86")["source_kind"],
                          "philosophical_primary_argument")
         self.assertEqual(len(json.loads(

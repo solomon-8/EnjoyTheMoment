@@ -10,6 +10,7 @@ from zipfile import ZipFile
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / 'tools'))
 import check
+import build
 import read
 
 ESSAY = 'essays/09-friends-not-assets.md'
@@ -26,7 +27,7 @@ class FriendshipPartialityTests(unittest.TestCase):
     def test_structure_preserves_the_existing_argument_order(self):
         text = (ROOT / ESSAY).read_text()
         self.assertEqual(re.findall(r'^## (.+)$', text, re.M), [t for _, t in PARTS])
-        self.assertEqual(len(re.findall(r'^### .+$', text, re.M)), 14)
+        self.assertEqual(len(re.findall(r'^### .+$', text, re.M)), 15)
         self.assertEqual(len(re.findall(r'^#### .+$', text, re.M)), 5)
         opening = text.split('\n## ', 1)[0]
         for anchor, _ in PARTS:
@@ -95,7 +96,7 @@ class FriendshipPartialityTests(unittest.TestCase):
         self.assertEqual(len(research), 50)
         self.assertNotIn('F57', {x['id'] for x in research})
         notes = json.loads((ROOT / 'data/evidence.json').read_text())['notes']
-        self.assertEqual(len(notes), 144)
+        self.assertEqual(len(notes), len(build.EVIDENCE))
         note = next(x for x in notes if x['id'] == 'F57')
         self.assertEqual(note['source_kind'], 'philosophical_primary_translation')
         self.assertEqual(note['text'], text)
@@ -109,7 +110,7 @@ class FriendshipPartialityTests(unittest.TestCase):
             self.assertEqual(by_id[identifier]['source_sha256'], hashlib.sha256(raw).hexdigest())
             self.assertIn(raw.decode(), (ROOT / 'llms-full.txt').read_text())
         routes = {r['id']: r for r in routes}
-        self.assertEqual(set(routes['R05']['targets']), {'E09', 'F57'})
+        self.assertEqual(set(routes['R05']['targets']), {'E09', 'F57', 'F96'})
         self.assertEqual(set(routes['R75']['targets']), {'E09', 'B39', 'N39', 'F57', 'C05', 'C06'})
         self.assertIn('指定七节', routes['R05']['text'])
         self.assertIn('不冒充重读或通读两卷', routes['R05']['text'])

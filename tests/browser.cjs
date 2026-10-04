@@ -602,13 +602,20 @@ async function decodeImage(image) {
     await page.goto(url + "#friends-not-a-service");
     await page.waitForFunction(() => document.getElementById("e09").open);
     assert.equal(await page.locator("#e09 .prose h3").count(), 4);
-    assert.equal(await page.locator("#e09 .prose h4").count(), 14);
+    assert.equal(await page.locator("#e09 .prose h4").count(), 15);
     assert.equal(await page.locator("#e09 .prose h5").count(), 5);
     for (const anchor of ["friends-value", "friends-terms", "friends-change", "friends-position", "friends-partiality"]) {
       await page.locator(`#e09 a[href='#${anchor}']`).first().click();
       assert.equal(new URL(page.url()).hash, "#" + anchor);
       assert(await page.locator("#e09 .prose").isVisible());
     }
+    await page.locator("#e09 a[href='#friends-joy-for-you']").first().click();
+    assert.equal(new URL(page.url()).hash, "#friends-joy-for-you");
+    await page.locator("#e09 a[href='#hume-object-and-enjoyment']").first().click();
+    await page.waitForFunction(() => document.getElementById("f96").open);
+    assert.match(await page.locator("#f96 .prose").textContent(), /不是行为实验/);
+    await page.locator("#f96 a[href='#friends-joy-for-you']").first().click();
+    await page.waitForFunction(() => document.getElementById("e09").open);
     await page.locator("#e09 a[href='#friendship-source-partiality']").first().click();
     await page.waitForFunction(() => document.getElementById("f57").open);
     assert.match(await page.locator("#f57 .prose").textContent(), /nobility necessity/);
