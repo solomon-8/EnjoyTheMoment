@@ -36,7 +36,7 @@ class EntryArgumentTests(unittest.TestCase):
         links = re.findall(r'href="([^"]+)"', excerpt)
         self.assertEqual(links, [
             "#rest-paid-evening", "#waiting-reliable-more", "#excitement-costs",
-            "#friends-not-a-service", "#e10",
+            "#friends-not-a-service", "#e10", "#pleasure-and-help",
             "#flavor-suiyuan", "#games-paid-skip", "#fear-two-wishes",
         ])
         for href in links:

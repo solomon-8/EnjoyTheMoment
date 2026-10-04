@@ -60,7 +60,7 @@ class ConsentApprovalTests(unittest.TestCase):
             self.assertEqual(record["source_sha256"], hashlib.sha256(raw).hexdigest())
             self.assertIn(raw.decode(), (ROOT / "llms-full.txt").read_text())
         route = next(r for r in routes if r["id"] == "R01")
-        self.assertEqual(set(route["targets"]), {"SHUAQI", "E01", "F86"})
+        self.assertEqual(set(route["targets"]), {"SHUAQI", "E01", "F86", "F97"})
         self.assertIn("不以失望自动授予全部私人选择的否决权", route["text"])
         self.assertIn("不是全章、全书或法律规则", route["text"])
 

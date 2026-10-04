@@ -69,7 +69,7 @@ async function decodeImage(image) {
     assert.match(await page.locator("#e01 .prose").textContent(), /没有证明它与“耍起”不相容/);
     assert.match(await page.locator("#e01 .prose").textContent(), /没有预测幸福感的变化/);
     assert(await page.locator("#e01 .prose h5").evaluateAll(headings =>
-      headings.length === 2 && headings.every(h =>
+      headings.length === 6 && headings.every(h =>
         parseFloat(getComputedStyle(h).fontSize) >=
         parseFloat(getComputedStyle(h.closest(".prose")).fontSize))));
     for (const anchor of ["pleasure-consent-scope", "pleasure-disapproval", "pleasure-concern"]) {
@@ -84,6 +84,16 @@ async function decodeImage(image) {
     await page.locator("#f86 a[href='#pleasure-consent-scope']").first().click();
     await page.waitForFunction(() => document.getElementById("e01").open);
     assert.match(await page.locator("#e01 .prose").textContent(), /别人答应陪你，不等于答应交出自己的感受/);
+    await page.locator("#e01 a[href='#pleasure-and-help']").first().click();
+    assert.equal(await page.locator("#pleasure-and-help + h4").textContent(),
+      "少玩一点就能帮到别人，“我没伤害谁”还够吗？");
+    assert.match(await page.locator("#e01 .prose").textContent(), /没有推翻那项原则/);
+    await page.locator("#e01 a[href='#singer-demanding-help']").click();
+    await page.waitForFunction(() => document.getElementById("f97").open);
+    assert.match(await page.locator("#f97 .prose").textContent(), /PDF文字提取只得到封面/);
+    await page.locator("#f97 a[href='#pleasure-and-help']").first().click();
+    await page.waitForFunction(() => document.getElementById("e01").open);
+    assert.equal(await page.evaluate(() => location.hash), "#pleasure-and-help");
     await page.goto(url + "#constrained-access-authorship");
     await page.waitForFunction(() => document.getElementById("c09").open);
     assert.match(await page.locator("#c09 .prose").textContent(), /被允许参加，与有机会决定大家怎样参加/);
@@ -236,7 +246,7 @@ async function decodeImage(image) {
     assert.deepEqual(await page.locator("#disagreements .prose a").evaluateAll(
       links => links.map(a => a.getAttribute("href"))), [
       "#rest-paid-evening", "#waiting-reliable-more", "#excitement-costs",
-      "#friends-not-a-service", "#e10",
+      "#friends-not-a-service", "#e10", "#pleasure-and-help",
       "#flavor-suiyuan", "#games-paid-skip", "#fear-two-wishes",
     ]);
     const concreteLinks = await page.locator("#disagreements .prose ul a").all();

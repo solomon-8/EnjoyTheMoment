@@ -204,9 +204,9 @@ class ReadingTests(unittest.TestCase):
             original.replace('"id":"R01"', '"id":"R99"', 1),
             original.replace('"SHUAQI","E01"', '"SHUAQI","E99"', 1),
             original.replace('"SHUAQI","E01"', '"E01","E01"', 1),
-            original.replace('{"id":"R01","targets":["SHUAQI","E01","F86"]}', 'null', 1),
-            original.replace('{"id":"R01","targets":["SHUAQI","E01","F86"]}', '["R01"]', 1),
-            original.replace('"targets":["SHUAQI","E01","F86"]', '"targets":"SHUAQI"', 1),
+            original.replace('{"id":"R01","targets":["SHUAQI","E01","F86","F97"]}', 'null', 1),
+            original.replace('{"id":"R01","targets":["SHUAQI","E01","F86","F97"]}', '["R01"]', 1),
+            original.replace('"targets":["SHUAQI","E01","F86","F97"]', '"targets":"SHUAQI"', 1),
             original + '\n<!-- reading-route: {"id":"R99","targets":["E01"]} -->\n',
         ):
             with tempfile.TemporaryDirectory() as temporary:

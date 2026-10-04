@@ -85,7 +85,7 @@ class PleasureArcTests(unittest.TestCase):
         self.assertEqual(record["source_sha256"], hashlib.sha256(raw).hexdigest())
         self.assertIn(text, (ROOT / "llms-full.txt").read_text())
         route = next(r for r in routes if r["id"] == "R01")
-        self.assertEqual(set(route["targets"]), {"SHUAQI", "E01", "F86"})
+        self.assertEqual(set(route["targets"]), {"SHUAQI", "E01", "F86", "F97"})
         self.assertIn("不是五步行动处方", route["text"])
         for anchor, _ in PARTS:
             self.assertIn("#" + anchor, route["text"])

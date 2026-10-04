@@ -59,7 +59,7 @@ class ValueArgumentTests(unittest.TestCase):
         self.assertEqual(next(x for x in exported if x["id"] == "E01")["text"],
                          self.text)
         route = next(x for x in routes if x["id"] == "R01")
-        self.assertEqual(set(route["targets"]), {"SHUAQI", "E01", "F86"})
+        self.assertEqual(set(route["targets"]), {"SHUAQI", "E01", "F86", "F97"})
         self.assertIn("阿岚、小周不是受访者", route["text"])
         self.assertIn("比较可能与本项目相容", route["text"])
 

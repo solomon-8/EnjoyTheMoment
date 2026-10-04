@@ -30,7 +30,7 @@ class PleasureTimingArcTests(unittest.TestCase):
             self.assertIn(phrase, section)
         self.assertNotRegex(section, r'(?m)^- ')
         self.assertEqual(len(re.findall(r'^## ', text, re.M)), 5)
-        self.assertEqual(len(re.findall(r'^### ', text, re.M)), 17)
+        self.assertEqual(len(re.findall(r'^### ', text, re.M)), 18)
         self.assertIn('03-now-or-later.md', section)
         self.assertIn('02-excitement-without-escalation.md#excitement-costs', section)
         for phrase in ('同一个人可以采用两种账本', '不把它安到参考作者头上',
@@ -59,7 +59,7 @@ class PleasureTimingArcTests(unittest.TestCase):
         self.assertEqual(record['source_sha256'], hashlib.sha256(raw).hexdigest())
         self.assertEqual((ROOT / 'llms-full.txt').read_text().count(text.strip()), 1)
         route = next(x for x in routes if x['id'] == 'R01')
-        self.assertEqual(set(route['targets']), {'SHUAQI', 'E01', 'F86'})
+        self.assertEqual(set(route['targets']), {'SHUAQI', 'E01', 'F86', 'F97'})
         self.assertIn('不自动改写成购票指令', route['text'])
         self.assertIn('不是五步行动处方', route['text'])
         self.assertIn('#pleasure-timely-response', route['text'])
