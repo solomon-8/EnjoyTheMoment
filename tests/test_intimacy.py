@@ -45,7 +45,7 @@ class IntimacyTests(unittest.TestCase):
             self.assertIn(phrase, route["text"])
         notes = json.loads((ROOT / "data/evidence.json").read_text())["notes"]
         records = json.loads((ROOT / "data/research.json").read_text())["records"]
-        self.assertEqual(len(notes), 140)
+        self.assertEqual(len(notes), 141)
         self.assertEqual(len(records), 50)
         self.assertFalse(any("林和遥" in r.get("text", "") for r in notes + records))
 

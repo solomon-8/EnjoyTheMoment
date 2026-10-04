@@ -26,7 +26,7 @@ class AmateurArgumentTests(unittest.TestCase):
         self.assertEqual(re.findall(r"^## (.+)$", text, re.M),
                          [title for _, title in PARTS])
         self.assertEqual(len(re.findall(r"^### .+$", text, re.M)), 18)
-        self.assertEqual(len(re.findall(r"^#### .+$", text, re.M)), 3)
+        self.assertEqual(len(re.findall(r"^#### .+$", text, re.M)), 6)
         opening = text.split("\n## ", 1)[0]
         for anchor, _ in PARTS:
             self.assertIn(f"](#{anchor})", opening)
@@ -84,7 +84,7 @@ class AmateurArgumentTests(unittest.TestCase):
         self.assertIn(text, (ROOT / "llms-full.txt").read_text())
         route = next(r for r in routes if r["id"] == "R47")
         self.assertEqual(set(route["targets"]),
-                         {"E05", "C04", "E08", "B02", "N02", "B25", "N25", "B43", "N43"})
+                         {"E05", "C04", "E08", "B02", "N02", "B25", "N25", "B43", "N43", "F92"})
         for phrase in ("原创假想", "人数不自动构成新增承诺", "分组不保证无损替代",
                        "不是B02/B25/B43的结果", "不替实际组织制定规则"):
             self.assertIn(phrase, route["text"])
