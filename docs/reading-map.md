@@ -273,6 +273,8 @@ C20按[观看与技术](../book/20-photography.md#photo-language)、[图像与�
 
 正文与来源：[C24](../book/24-humor.md) · [F37](evidence/F37-comic-scenes.md) · [B13](research.md#b13)；[N13](evidence/B13-humor.md)
 
+C24先问[好笑为何值得认真](../book/24-humor.md#humor-attention)，再读[短句的表达关系](../book/24-humor.md#humor-expression)与[两场下午茶的展开](../book/24-humor.md#humor-scenes)，最后讨论[笑声、关系和回应权](../book/24-humor.md#humor-context)。先辨认正在讨论的是表达、作品解读、研究结果还是现实参与；不要把欣赏喜剧改成必须创作笑话的任务。四条主线不增加新的研究或效果结论。
+
 幽默细读见 C24/F37：`literary_primary_text` 记录 Wilde 第一幕局部与 Carroll 第七章，不是研究、初版校勘或演出观察。三明治动作与台词不能拆开；Time 是人物讲述中的规则，绕回起点的问题没有被解答，不能自行补成完整世界设定。谜语在该章未给出答案不等于作者从未作答。英语 `beat time` 的条件、观众与角色的位置、原作转述与原创例句须分开。折叠区只包住三明治场景后段，其他茶会分析也含局部情节；机器导出仍包含全文，用户要避免剧透时不能因为读取到了就泄露。重读价值与“好笑不必有用”是解释和价值主张，不是 B13 证明过的效果。
 
 <a id="r21"></a>
