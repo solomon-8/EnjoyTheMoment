@@ -250,11 +250,13 @@ F81按维基文库独立篇目修订2327158核读全文，另与卷七修订2703
 <a id="r19"></a>
 ## R19 · 摄影、视点与时间
 
-<!-- reading-route: {"id":"R19","targets":["C20","E08","F34","B10","N10"]} -->
+<!-- reading-route: {"id":"R19","targets":["C20","E08","F34","B10","N10","B44","N44"]} -->
 
 正文与来源：[C20](../book/20-photography.md) · [E08](../essays/08-life-without-an-audience.md) · [F34](evidence/F34-photographic-space-and-time.md) · [B10](research.md#b10)；[N10](evidence/B10-photography.md)
 
 摄影见 C20/F34：原地同比例裁剪不改变共同保留内容的像高比；后退再重新取景才对应本书 2/4 到 8/10 的算例，不把“长焦压缩”当镜头独立改变物理间隔。`educational_optics_and_original_models` 是教学与原创简化模型，不是审美实验或设备实测。曝光图的 240 像素/秒、8 与 2 像素都是假设计算，非推荐快门；不混入散焦、滚动快门或多帧处理。允许追求清晰、公开作品和观众回应，不能把“享受当下”缩成只能随手拍或不许发图。选片分析不是 B10 的实验结论。
+
+C20按[观看与技术](../book/20-photography.md#photo-language)、[图像与事实](../book/20-photography.md#photo-truth)、[拍摄与共同经历](../book/20-photography.md#photo-experience)、[选片与回应](../book/20-photography.md#photo-editing)展开。[为分享而拍的反方](../book/20-photography.md#photo-sharing-goal)补充[B44台账](research.md#b44)及[N44读取范围](evidence/B44-sharing-intention.md)：仍为`abstract_only`，未取得主文；比较为自己与为分享拍摄，不是实际发帖与不用手机。不能拼成先拍有益、发帖有害的净收益结论，不能补写样本、效应量或机制验证。即使局部享受减少仍可选择表达，是E08展开的价值判断，不是新增实验结果。
 
 <a id="r20"></a>
 ## R20 · 幽默、人物与剧透
@@ -513,6 +515,8 @@ B01多国调查与60人的短期实验分开，不证明所有人都应该购买
 正文与来源：[E08](../essays/08-life-without-an-audience.md) · [C20](../book/20-photography.md) · [B10](research.md#b10) · [N10](evidence/B10-photography.md)
 
 [B44台账](research.md#b44)与[N44读取范围](evidence/B44-sharing-intention.md)补充[分享意图的反方](../essays/08-life-without-an-audience.md#audience-sharing-intention)。B44仅为`abstract_only`：作者摘要概述两项现场、三项实验室研究，比较为自己与为分享拍摄；未核主文，不补写样本、效应量、显著性或机制因果判断。不能换成实际发帖与不用手机比较，不能推导全部过程的净收益。
+
+C20的[简短对照](../book/20-photography.md#photo-sharing-goal)让单独阅读摄影章的人也能看到这项限制；它与E08引用的是同一B44摘要，不是第二项独立证据，也不重复计算为新的价值论证。
 
 [为表达少享受一点是否选错](../essays/08-life-without-an-audience.md#audience-chosen-tradeoff)是独立价值论证；夜市、阿禾与姐姐均为原创假想，不是B44任务。保留现场可能有真实损失、目标可以改变、伙伴可以拒绝追加劳动、观众不欠回应、作品可能失败；不把“自己想要”当免检章，不宣称所有目标兼得。
 
