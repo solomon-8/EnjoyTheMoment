@@ -833,6 +833,8 @@ async function decodeImage(image) {
     await page.waitForFunction(() => document.getElementById("e02").open);
     assert.match(await page.locator("#e02 .prose").textContent(), /完整保护的是想经历的关系/);
     assert.equal(await page.locator("#e02 .prose table").count(), 0);
+    assert.equal(await page.locator("#e02 .prose details").count(), 2);
+    assert.equal(await page.locator("#e05 .prose details").count(), 2);
     await page.locator("#e02 a[href='#spending-learning']").click();
     await page.waitForFunction(() => document.getElementById("c06").open);
     assert.match(await page.locator("#c06 .prose").textContent(), /先试一点可能根本没试到它/);
