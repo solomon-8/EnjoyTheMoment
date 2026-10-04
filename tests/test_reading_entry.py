@@ -14,6 +14,35 @@ import epub
 
 
 class ReadingEntryTests(unittest.TestCase):
+    def test_purchase_opening_exposes_arguments_without_turning_them_into_steps(self):
+        source = "essays/04-buying-pleasure.md"
+        text = (ROOT / source).read_text()
+        opening = text.split("\n## ", 1)[0]
+        routes = (
+            ("purchase-hourly-price", "你的时薪，凭什么给周日定价？"),
+            ("purchase-comfort", "没解决烦恼，买来的安慰就不算数吗？"),
+            ("purchase-comfort-accountability", "礼物很喜欢，那件事就不能再谈了吗？"),
+        )
+        self.assertIn("这不是四步购物流程", opening)
+        self.assertIn("已由你确认可自由使用", opening)
+        self.assertIn("也不能替以后的每次购买担保", opening)
+        anchors = check.anchors_for(text)
+        web = (ROOT / "index.html").read_text()
+        with ZipFile(ROOT / "downloads/EnjoyTheMoment.epub") as archive:
+            body = archive.read("EPUB/" + epub.document_name(source)).decode()
+        for anchor, question in routes:
+            self.assertIn(f"- [{question}](#{anchor})", opening)
+            self.assertIn(anchor, anchors)
+            self.assertIn(f'href="#{anchor}"', web)
+            self.assertIn(question, body)
+            self.assertIn(f'id="{anchor}"', body)
+        english = (ROOT / "README.en.md").read_text()
+        self.assertIn(
+            "06 · You paid for the ticket. Do you owe it your evening too?",
+            english,
+        )
+        self.assertNotIn("06 · Buy pleasure, not an identity", english)
+
     def test_reading_navigation_precedes_optional_activities(self):
         text = (ROOT / "README.md").read_text()
         self.assertLess(text.index("## 目录"), text.index("## 现在就选一件"))
