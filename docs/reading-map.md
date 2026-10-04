@@ -345,6 +345,8 @@ C34的[发现与创造](../book/34-shared-stories.md#story-create-or-discover)�
 
 看画与收藏见 C25/F13/F54/F55、C26/F14。作品记录、所见数字图与解释分开，替代描述不等于已看图。705/706为学术编辑版英译，非已核手稿；1888年书信与修复对象不混作图中1889年第二版。F55是馆方研究说明，非完整实验；未核看重建交互和显微图，不把褪色时间泛化或把馆方“安宁”解释当观众实验。版数不是鉴定或价格保证，馆藏记录不证明今天正在展出。
 
+C25的四条主线是[作者意图与观看](../book/25-looking-at-art.md#art-intention)、[习作与创作选择](../book/25-looking-at-art.md#art-choices)、[雕塑与观看位置](../book/25-looking-at-art.md#art-viewpoints)、[展览怎样安排注意](../book/25-looking-at-art.md#art-exhibition)。这是论证关系，不是参观任务；不要把具体分析缩成“不喜欢也没关系”。
+
 <a id="r27"></a>
 ## R27 · 音乐、电影与核看范围
 
@@ -805,6 +807,8 @@ B33于2026-03-09发表，32学生、18脸、每人486试次，正式分析排除
 
 C16不仅问好不好看，也问取物、坐下、携带怎样进入穿着。演出取票与方案比较是原创假想，不是参与者记录。约1784年Met口袋的系带、竖口与花纹可分别观察，不能据照片推内部层数、容量、承重或使用者情绪。看不见的漂亮可以有价值，但隐蔽不自动比展示更真诚；漂亮不必永远实用，不便也应能被说出。
 
+C16由[愿望与具体设计](../book/16-dress.md#dress-wishes)、[口袋与行动](../book/16-dress.md#dress-pockets)、[日常使用条件](../book/16-dress.md#dress-use)、[他人的眼光](../book/16-dress.md#dress-gaze)展开。四部分不是穿搭流程；应保留设计如何产生不同效果，以及喜欢、便利与被看见之间的取舍。
+
 F66为博物馆历史说明、元数据与数字图像，不是行为研究。V&A文章2024-04-17更新，讲欧洲语境中约1650至19世纪末等时期；Lady Clapham玩偶1690–1700衣橱含系带口袋、整合口袋与游戏袋，只是馆方个例。未独立读原始庭审、报刊、专著或玩偶实物。Met API157045为Pocket/American/ca.1784/cotton,wool/2009.300.2241；网页429，图像2000×1895目视并缩为880×833，未补绘。API对象级公有领域与官方图像说明是使用依据，不把CSV元数据CC0套到全部图片。
 
 不要据此宣传“某行业统一取消女装口袋”、口袋越多越自由、所有代携都受压迫，或复古一定更实用。F26的三件历史设计、F07织物教学、F08护理页面不验证服装效果；旧图和原有锚点保留。C02身体感受、C09责任分配、E08观众主题与本章相关，不算同一论点的多份独立证据。不自动把价值判断请求改成购物/穿搭清单。
@@ -919,6 +923,8 @@ B37取得全文但只采用研究2/6及相关讨论，不是七项研究逐字�
 正文与来源：[C37](../book/37-nightlife.md) · [F71](evidence/F71-clubs-design-and-house.md) · [B41切分研究](research.md#b41) · [N41核读与勘误](evidence/B41-groove-syncopation.md) · [C11音乐](../book/11-music.md) · [C13现场](../book/13-live-events.md) · [C27舞蹈](../book/27-dance.md) · [C16穿着](../book/16-dress.md) · [C05共同经历](../book/05-connection.md) · [C09分工](../book/09-constrained.md) · [C10散场](../book/10-aftertaste.md) · [F04一般聆听](evidence/F04-safe-listening.md) · [E02刺激](../essays/02-excitement-without-escalation.md) · [E04消费](../essays/04-buying-pleasure.md)。
 
 先展开热烈体验的内容、代价和最强反方，不自动给夜店榜单、购买建议、通宵/饮酒教程。成人夜生活不等于所有人的统一安排；喜欢本身可以是理由，历史传奇不能保证当晚适合某个人。身体参与不是舞技、卡路里或社交数量。
+
+C37分为[现场与空间](../book/37-nightlife.md#nightlife-place)、[时间组织](../book/37-nightlife.md#nightlife-time)、[已知重复与继续参与](../book/37-nightlife.md#nightlife-repeat)、[共享舞池的关系](../book/37-nightlife.md#nightlife-belonging)、[代价与选择](../book/37-nightlife.md#nightlife-choice)。这不是出门流程。尤其保留“知道下一拍在哪里，不等于已经经历过下一拍”的论证，不能只提炼成“重复也有好处”，也不能把它当作实验已证实的机制。
 
 F71是展览文本、设计者项目陈述及官方历史报告，不是新增B系列实验。Vitra的2018年展期与Dundee的2021—2022年展期不当成当前活动，二者是同一巡展相关材料，不算独立效果证据。Haçienda是Kelly自述1982项目；ArtBar是另一个项目，不移用其装饰细节。
 

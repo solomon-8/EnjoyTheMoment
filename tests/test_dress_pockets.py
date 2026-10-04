@@ -22,8 +22,8 @@ class DressPocketTests(unittest.TestCase):
                        "不是本书亲手触摸过的实物", "漂亮可以是第一人称的感受",
                        "漂亮不需要永远实用，但不便必须有资格被说出来"):
             self.assertIn(phrase, chapter)
-        for phrase in ("#dress-form-examples", "### 西装的语言，可以被重新分配",
-                       "## 镜子里的合适，与身体里的合适",
+        for phrase in ('id="dress-form-examples"', "#### 西装的语言，可以被重新分配",
+                       "### 镜子里的合适，与身体里的合适",
                        "clothing-color-relations.png"):
             self.assertIn(phrase, chapter)
         self.assertEqual(chapter.count("!["), 2)
