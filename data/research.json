@@ -961,6 +961,26 @@
       },
       "directly_validates_cards": false,
       "source": "docs/research.md#b48"
+    },
+    {
+      "id": "B49",
+      "title": "椋鸟转向：整齐、先后与位置关系",
+      "doi": "10.1098/rsif.2015.0319",
+      "access_level": "full_text",
+      "verified_at": "2026-10-04",
+      "fields": {
+        "核读日期": "2026-10-04。",
+        "文献": "Alessandro Attanasi等（2015），*Emergence of collective changes in travel direction of starling flocks from individual birds' fluctuations*，Journal of the Royal Society Interface，12(108)，20150319。",
+        "DOI": "[10.1098/rsif.2015.0319](https://doi.org/10.1098/rsif.2015.0319)。",
+        "实际读取": "`full_text`；PMC期刊全文HTML的摘要、引言、方法、结果、讨论、六幅图注与声明，目视图2/4/5/6及五张公式图。出版方页面403，主文PDF和两份补充PDF为HTML检查页；未读补充、影片或数据，未复算。[核读记录](evidence/B49-flock-turns.md)。",
+        "设计与对象": "2010–2012年罗马欧洲椋鸟12次转向事件，三台同步高速相机、170帧/秒、记录1.8–12.9秒；两次为同群连续事件，不是12个独立群体的随机实验。",
+        "有限结论": "轨迹分析支持局部开始、随后传播的转向；较早转向者常在拉长群体的一端，持续偏离较突出，不一定偏离最强。个体间结构方向和整体行进方向的变化不同，可改变相对前后位置。",
+        "不能推出": "每群永久有固定首领、未见刺激等于没有外因、持续偏离必然使其他个体跟随、鸟已主观决定公平分担风险，或观鸟必然更快乐。",
+        "我们如何使用": "[C30](../book/30-birdwatching.md#birds-turn-sequence)区分空间结构、时间先后和方向参照；方位表为原创静态几何，不是轨迹仿真，不验证行动卡。",
+        "关键限制": "有限事件、轨迹重建及滤波依赖、同群连续事件、E11/E12整体朝向调整的例外；补充及长期个体追踪未核，不把观察结果升级为干预或动机测量。"
+      },
+      "directly_validates_cards": false,
+      "source": "docs/research.md#b49"
     }
   ],
   "relations": [

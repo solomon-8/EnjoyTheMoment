@@ -45,8 +45,8 @@ class IntimacyTests(unittest.TestCase):
             self.assertIn(phrase, route["text"])
         notes = json.loads((ROOT / "data/evidence.json").read_text())["notes"]
         records = json.loads((ROOT / "data/research.json").read_text())["records"]
-        self.assertEqual(len(notes), 138)
-        self.assertEqual(len(records), 48)
+        self.assertEqual(len(notes), 139)
+        self.assertEqual(len(records), 49)
         self.assertFalse(any("林和遥" in r.get("text", "") for r in notes + records))
 
     def test_invitation_entrances_survive_in_all_reading_surfaces(self):
@@ -145,7 +145,7 @@ class IntimacyTests(unittest.TestCase):
         f80 = next(n for n in notes if n['id'] == 'F80')
         self.assertEqual(f80['source_kind'], 'philosophical_literary_dialogue_primary')
         records = json.loads((ROOT / 'data/research.json').read_text())['records']
-        self.assertEqual(len(records), 48)
+        self.assertEqual(len(records), 49)
         self.assertNotIn('F80', {r['id'] for r in records})
         chapter = (ROOT / 'book/35-intimacy.md').read_text()
         for distinction in ('神话没有说明熔合后思想必然一致', '不是我们的现成答案',

@@ -76,8 +76,8 @@ class ReliableFutureTests(unittest.TestCase):
                        "不偷偷借失信", "甲不可行时不能靠态度制造资源"):
             self.assertIn(phrase, route["text"])
         self.assertEqual(len(json.loads((ROOT / "data/catalog.json").read_text())["cards"]), 60)
-        self.assertEqual(len(json.loads((ROOT / "data/research.json").read_text())["records"]), 48)
-        self.assertEqual(len(json.loads((ROOT / "data/evidence.json").read_text())["notes"]), 138)
+        self.assertEqual(len(json.loads((ROOT / "data/research.json").read_text())["records"]), 49)
+        self.assertEqual(len(json.loads((ROOT / "data/evidence.json").read_text())["notes"]), 139)
 
     def test_complete_export_retains_concession_and_cross_links(self):
         text = (ROOT / SOURCE).read_text()

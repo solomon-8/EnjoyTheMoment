@@ -67,7 +67,7 @@ class ImprovResponseTests(unittest.TestCase):
                        "目光接触不是同意证据", "不是快乐实验", "不保证协调必定成功"):
             self.assertIn(phrase, route["text"])
         records = json.loads((ROOT / "data/research.json").read_text())["records"]
-        self.assertEqual(len(records), 48)
+        self.assertEqual(len(records), 49)
         self.assertNotIn("F85", {r["id"] for r in records})
         cards = json.loads((ROOT / "data/catalog.json").read_text())["cards"]
         self.assertEqual(len(cards), 60)

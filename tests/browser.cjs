@@ -1603,7 +1603,21 @@ async function decodeImage(image) {
     await page.goto(url + "#c30");
     await page.waitForFunction(() => document.getElementById("c30").open);
     assert.equal(await page.locator("#chapter-query").inputValue(), "");
-    assert.equal(await page.locator("#c30 .prose table").count(), 2);
+    assert.equal(await page.locator("#c30 .prose table").count(), 3);
+    assert.equal(await page.locator("#c30 .prose h3").count(), 4);
+    assert.equal(await page.locator("#c30 .prose h4").count(), 18);
+    for (const anchor of ["birds-identification", "birds-relations", "birds-encounter",
+                          "birds-recording", "birds-turn-sequence", "birds-turn-position"]) {
+      await page.locator(`#c30 a[href="#${anchor}"]`).first().click();
+      assert.equal(await page.evaluate(() => location.hash), "#" + anchor);
+      assert(await page.locator("#c30 .prose").isVisible());
+    }
+    await page.locator("#c30 a[href='#n49']").first().click();
+    await page.waitForFunction(() => document.getElementById("n49").open);
+    assert.match(await page.locator("#n49 .prose").textContent(), /E11与E12是同一鸟群/);
+    await page.locator("#n49 a[href='#birds-turn-position']").click();
+    await page.waitForFunction(() => document.getElementById("c30").open);
+    assert.match(await page.locator("#c30 .prose").textContent(), /不能把12次事件说成12个完全独立的群体/);
     assert.match(await page.locator("#c30 .prose").textContent(), /不是你所在城市的鸟类名录/);
     await page.locator("#c30 a[href='#f22']").first().click();
     await page.waitForFunction(() => document.getElementById("f22").open);
@@ -2000,7 +2014,7 @@ async function decodeImage(image) {
     for (const id of ["c29", "c30"]) {
       await staticPage.locator(`#${id} > summary`).click();
       assert(await staticPage.locator(`#${id} .prose`).isVisible());
-      assert.equal(await staticPage.locator(`#${id} .prose table`).count(), id === "c29" ? 3 : 2);
+      assert.equal(await staticPage.locator(`#${id} .prose table`).count(), 3);
     }
     await staticPage.locator("#c29 .prose img").scrollIntoViewIfNeeded();
     await decodeImage(staticPage.locator("#c29 .prose img"));

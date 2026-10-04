@@ -54,7 +54,7 @@ class ExcitementWholeTests(unittest.TestCase):
         route = next(x for x in json.loads((ROOT / "data/reading-map.json").read_text())["routes"] if x["id"] == "R03")
         self.assertIn("不是演出实录或观众效果实验", route["text"])
         self.assertIn("不把这些共享原则重复算成新的证据", route["text"])
-        self.assertEqual(len(json.loads((ROOT / "data/research.json").read_text())["records"]), 48)
+        self.assertEqual(len(json.loads((ROOT / "data/research.json").read_text())["records"]), 49)
         self.assertEqual(len(json.loads((ROOT / "data/catalog.json").read_text())["cards"]), 60)
 
 if __name__ == "__main__":

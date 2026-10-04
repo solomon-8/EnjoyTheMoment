@@ -94,7 +94,7 @@ class FlavorTableTests(unittest.TestCase):
                        "不重复计成新实验", "三种安排有真实损失"):
             self.assertIn(phrase, route["text"])
         self.assertEqual(len(json.loads((ROOT / "data/catalog.json").read_text())["cards"]), 60)
-        self.assertEqual(len(json.loads((ROOT / "data/research.json").read_text())["records"]), 48)
+        self.assertEqual(len(json.loads((ROOT / "data/research.json").read_text())["records"]), 49)
 
     def test_epub_has_complete_argument_and_return_links(self):
         with ZipFile(ROOT / "downloads/EnjoyTheMoment.epub") as z:
