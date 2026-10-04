@@ -618,9 +618,21 @@ async function decodeImage(image) {
     assert.match(await page.locator("#e05 .prose").textContent(), /不是原来快乐的无损替代/);
     assert.match(await page.locator("#e05 .prose").textContent(), /不能用改组取消已有责任/);
     assert(await page.locator("#e05 .prose h5").evaluateAll(headings =>
-      headings.length === 3 && headings.every(h =>
+      headings.length === 6 && headings.every(h =>
         parseFloat(getComputedStyle(h).fontSize) >=
         parseFloat(getComputedStyle(h.closest(".prose")).fontSize))));
+    for (const anchor of ["amateur-payment", "amateur-tom-fence", "amateur-future-order", "amateur-payment-objection"]) {
+      await page.goto(url + "#" + anchor);
+      await page.waitForFunction(() => document.getElementById("e05").open);
+      assert(await page.locator("#e05 .prose").isVisible());
+    }
+    assert.match(await page.locator("#e05 .prose").textContent(), /无报酬的空间并不自动自由/);
+    await page.locator("#e05 a[href='#f92']").first().click();
+    await page.waitForFunction(() => document.getElementById("f92").open);
+    assert.match(await page.locator("#f92 .prose").textContent(), /不是心理实验/);
+    await page.locator("#f92 a[href='#amateur-payment-objection']").first().click();
+    await page.waitForFunction(() => document.getElementById("e05").open);
+    assert.equal(new URL(page.url()).hash, "#amateur-payment-objection");
     await page.goto(url + "#amateur-want-better");
     await page.waitForFunction(() => document.getElementById("e05").open);
     for (const anchor of ["amateur-practice-study", "amateur-shared-standards", "amateur-criticism"]) {

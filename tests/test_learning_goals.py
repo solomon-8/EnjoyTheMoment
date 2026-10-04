@@ -73,7 +73,7 @@ class LearningGoalsTests(unittest.TestCase):
         route = next(r for r in routes if r["id"] == "R47")
         self.assertEqual(set(route["targets"]),
                          {"E05", "C04", "E08", "B02", "N02", "B25", "N25",
-                          "B43", "N43"})
+                          "B43", "N43", "F92"})
         for ident, source in (("E05", ESSAY), ("N43", NOTE)):
             raw = (ROOT / source).read_bytes()
             self.assertEqual(documents[ident]["text"], raw.decode())

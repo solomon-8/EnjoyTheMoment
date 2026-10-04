@@ -170,6 +170,7 @@ EVIDENCE = [
     ("F89", "docs/evidence/F89-cage-and-listening.md"),
     ("F90", "docs/evidence/F90-suiyuan-and-table.md"),
     ("F91", "docs/evidence/F91-membership-and-renewal.md"),
+    ("F92", "docs/evidence/F92-tom-sawyer-and-work.md"),
 ]
 EVIDENCE_KINDS = {
     "N47": "study_and_replication_reading_note",
@@ -264,6 +265,7 @@ EVIDENCE_KINDS = {
     "F89": "work_record_and_recipient_account",
     "F90": "historical_food_essay_transcription_and_scan",
     "F91": "primary_research_excerpt",
+    "F92": "literary_primary_text",
 }
 RELATIONS = [
     {"card_ids": ["J033"], "background_ids": ["B01"], "essay_ids": ["E04"]},
