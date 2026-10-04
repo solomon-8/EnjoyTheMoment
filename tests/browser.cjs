@@ -481,7 +481,7 @@ async function decodeImage(image) {
     assert.match(await page.locator("#e02 .prose").textContent(),
       /不能把一次已经说出的结局当作从未告知/);
     assert(await page.locator("#e02 .prose h5").evaluateAll(headings =>
-      headings.length === 4 && headings.every(h =>
+      headings.length === 6 && headings.every(h =>
         parseFloat(getComputedStyle(h).fontSize) >=
         parseFloat(getComputedStyle(h.closest(".prose")).fontSize))));
     await page.locator("#e02 a[href='#n45']").first().click();
@@ -712,6 +712,22 @@ async function decodeImage(image) {
     await page.waitForFunction(() => document.getElementById("e07").open &&
       !document.getElementById("e07").hidden && document.getElementById("essay-query").value === "");
     assert.match(await page.locator("#e07 .prose").textContent(), /不喜欢这次安排，不等于没有资格拥有这段时间/);
+    await page.goto(url + "#excitement-chosen-uncertainty");
+    await page.waitForFunction(() => document.getElementById("e02").open);
+    for (const anchor of ["excitement-chosen-uncertainty", "excitement-bridge",
+      "excitement-risk-not-permission"]) {
+      assert.equal(await page.locator("#" + anchor).count(), 1);
+      assert(await page.locator("#" + anchor + " + :is(h4,h5)").isVisible());
+    }
+    assert.match(await page.locator("#e02 .prose").textContent(),
+      /比赛中的对手可以认真寻找让你失分的机会/);
+    await page.locator("#e02 a[href='#liberty-bridge']").click();
+    await page.waitForFunction(() => document.getElementById("f86").open);
+    assert.match(await page.locator("#f86 .prose").textContent(), /第五章前7个正文段落/);
+    assert.match(await page.locator("#f86 .prose").textContent(), /不是完整核读第四章或第五章/);
+    await page.locator("#f86 a[href='#excitement-chosen-uncertainty']").click();
+    await page.waitForFunction(() => document.getElementById("e02").open);
+    assert.equal(new URL(page.url()).hash, "#excitement-chosen-uncertainty");
     await page.goto(url + "#excitement-whole");
     await page.waitForFunction(() => document.getElementById("e02").open);
     assert.match(await page.locator("#e02 .prose").textContent(), /完整保护的是想经历的关系/);
