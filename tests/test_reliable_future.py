@@ -64,6 +64,8 @@ class ReliableFutureTests(unittest.TestCase):
         self.assertEqual(len(re.findall(r"^### ", entry, re.M)), 5)
         self.assertIn("essays/03-now-or-later.md#" + ANCHOR, entry)
         self.assertIn("我们不只是在赌未来不会兑现", entry)
+        self.assertIn("一个假想让我们选择", entry)
+        self.assertIn("为什么非得二选一，不能重新安排", entry)
         for source in ("SHUAQI.md", "README.en.md"):
             self.assertIn("essays/03-now-or-later.md#" + ANCHOR,
                           (ROOT / source).read_text())
@@ -79,6 +81,32 @@ class ReliableFutureTests(unittest.TestCase):
         self.assertEqual(len(json.loads((ROOT / "data/research.json").read_text())["records"]), 50)
         self.assertEqual(len(json.loads((ROOT / "data/evidence.json").read_text())["notes"]), 142)
 
+    def test_third_option_changes_the_menu_not_the_original_assumptions(self):
+        text = (ROOT / SOURCE).read_text()
+        part = text.split('<a id="waiting-third-option"></a>', 1)[1].split(
+            '<a id="waiting-anticipation"></a>', 1)[0]
+        for phrase in (
+            "没有证明现实只给这两个选项",
+            "继续林安的假想，但现在允许改排期",
+            "只是待核对的提议，不是已经找到的答案",
+            "直接推定提前完成仍有原来那两晚的优势",
+            "没有必要坚持选损失更多的甲",
+            "把任务交给没有答应的同伴",
+            "也不是拆开就一定不好",
+            "一个具体可行的第三选项，值得比较",
+            "一个永远说不清的更优选项，不该永远扣住今晚",
+            "若核对后仍是原来的甲乙",
+            "能兼得时不用表演牺牲",
+        ):
+            self.assertIn(phrase, part)
+        self.assertIn("01-pleasure-is-an-end.md#pleasure-enough", part)
+        _, routes = read.load_documents(ROOT)
+        route = next(r for r in routes if r["id"] == "R04")
+        self.assertIn("E01", route["targets"])
+        for phrase in ("waiting-third-option", "改排期段明确放宽选项",
+                       "未找到不等于不存在", "不要求无限搜索"):
+            self.assertIn(phrase, route["text"])
+
     def test_complete_export_retains_concession_and_cross_links(self):
         text = (ROOT / SOURCE).read_text()
         full = (ROOT / "llms-full.txt").read_text()
@@ -93,6 +121,8 @@ class ReliableFutureTests(unittest.TestCase):
         self.assertIn("若林安只在乎愉快总量", essay)
         self.assertIn("essays--11-pleasure-and-reality.xhtml#pleasure-position", essay)
         self.assertIn("essays--03-now-or-later.xhtml#" + ANCHOR, manifesto)
+        self.assertEqual(essay.count('id="waiting-third-option"'), 1)
+        self.assertIn("essays--01-pleasure-is-an-end.xhtml#pleasure-enough", essay)
 
 
 if __name__ == "__main__":

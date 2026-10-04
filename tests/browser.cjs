@@ -792,6 +792,29 @@ async function decodeImage(image) {
     assert.equal(new URL(page.url()).hash, "#waiting-reliable-more");
     assert.match(await page.locator("#e03 .prose").textContent(), /少得到两个玩乐的晚上，也多用两个晚上完成同一任务/);
     assert.match(await page.locator("#e03 .prose").textContent(), /不能替他创造一个他并不认同的优先项/);
+    await page.locator("#e03 a[href='#waiting-third-option']").click();
+    assert.equal(new URL(page.url()).hash, "#waiting-third-option");
+    assert.match(await page.locator("#e03 .prose").textContent(),
+      /没有必要坚持选损失更多的甲/);
+    assert(await page.locator("#e03 .prose h5").evaluateAll(headings =>
+      headings.length === 2 && headings.every(h =>
+        parseFloat(getComputedStyle(h).fontSize) >=
+        parseFloat(getComputedStyle(h.closest(".prose")).fontSize))));
+    await page.locator("#e03 a[href='#pleasure-enough']").click();
+    await page.waitForFunction(() => document.getElementById("e01").open);
+    await page.goBack();
+    await page.waitForFunction(() => document.getElementById("e03").open);
+    // Back returns to the target fragment. Navigate away before filtering so
+    // the following deep-link navigation actually produces a hashchange.
+    await page.locator("#e03 a[href='#waiting-reliable-more']").first().click();
+    assert.equal(new URL(page.url()).hash, "#waiting-reliable-more");
+    await page.locator("#essay-query").fill("未匹配第三选项XYZ");
+    assert(await page.locator("#e03").evaluate(el => el.hidden));
+    await page.goto(url + "#waiting-third-option");
+    await page.waitForFunction(() => document.getElementById("e03").open &&
+      !document.getElementById("e03").hidden &&
+      document.getElementById("essay-query").value === "");
+    assert.equal(new URL(page.url()).hash, "#waiting-third-option");
     await page.locator("#e03 a[href='#pleasure-position']").click();
     await page.waitForFunction(() => document.getElementById("e11").open);
     await page.goBack();
