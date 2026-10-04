@@ -236,6 +236,8 @@ F88 为 `practice_case_and_operator_description`：PPS与园方把Paley Park水�
 
 正文与来源：[C18](../book/18-celebration.md) · [F44](evidence/F44-festival-and-time.md) · [F45](evidence/F45-magi-and-giving.md) · [F81《西湖七月半》](evidence/F81-west-lake-festival.md) · [B08](research.md#b08) · [N08](evidence/B08-rituals.md) · [C05共同注意](../book/05-connection.md#connection-shared-attention) · [C08品位与身份](../book/08-permission.md) · [E08观看与展示](../essays/08-life-without-an-audience.md) · [C21时间交集](../book/21-free-time.md#time-overlap)。
 
+C18依次展开[庆祝的理由](../book/18-celebration.md#celebration-reasons)、[共同进入与劳动](../book/18-celebration.md#celebration-participation)、[赠予与期待](../book/18-celebration.md#celebration-giving)、[不圆满的结束](../book/18-celebration.md#celebration-unfinished)。先回答用户所问的分歧；结构不是活动流程，也不要求读者办一场聚会。
+
 庆祝见 C18/F44/F45。F44 为 `official_heritage_description`，春节项目介绍不是人人参与或快乐增量的调查；共同时间与非功绩庆祝是本书解读。F45 为 `literary_primary_text`，英文小说全文核读，目录与正文的数字版更新日相差一天，不能作原作首刊日期。情节与价值判断分开：礼物在当下失去用途，不等于心意虚假，也不说明可以要求别人牺牲。正文结局折叠，机器导出含全文；用户未要结局时不要主动剧透。没有庆祝效果或受众反应数据，不能把F44/F45与B08短时消费实验串成因果证明。讨论资格、消费或心意时先回应论点，不自动给聚会清单。
 
 F81按维基文库独立篇目修订2327158核读全文，另与卷七修订2703674中的同篇比对，未通读整卷、整书，未与刻本或校勘本核对。两处为同一平台转录，不算独立历史见证；保留“簫/蕭”及轿夫句断句差异，不据其判定谁说话或谁害怕。五类为叙述者带判断的分类，不是游客调查或动机诊断。结尾重新邀来先前低唱者和隐在树下者，不写成作者独自看月，也不据此宣布作者取消全部等级。
