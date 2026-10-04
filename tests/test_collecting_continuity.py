@@ -30,7 +30,7 @@ class CollectingContinuityTests(unittest.TestCase):
         self.assertEqual(n["source_kind"], "artwork_record_and_in_process_manifestation_tenets")
         self.assertEqual(n["text"], note)
         records = json.loads((ROOT / "data/research.json").read_text())["records"]
-        self.assertEqual(len(records), 49)
+        self.assertEqual(len(records), 50)
         cards = json.loads((ROOT / "data/catalog.json").read_text())["cards"]
         self.assertEqual(len(cards), 60)
         self.assertTrue(all("F87" not in card["background_ids"] for card in cards))

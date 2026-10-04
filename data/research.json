@@ -981,6 +981,26 @@
       },
       "directly_validates_cards": false,
       "source": "docs/research.md#b49"
+    },
+    {
+      "id": "B50",
+      "title": "还在使用 不等于希望共同安排不变",
+      "doi": "10.1257/aer.20231468",
+      "access_level": "full_text",
+      "verified_at": "2026-10-04",
+      "fields": {
+        "核读日期": "2026-10-04。",
+        "文献": "Leonardo Bursztyn、Benjamin Handel、Rafael Jiménez-Durán、Christopher Roth（2025），*When Product Markets Become Collective Traps: The Case of Social Media*，American Economic Review，115(12)，4105–4136。",
+        "DOI": "[10.1257/aer.20231468](https://doi.org/10.1257/aer.20231468)。",
+        "实际读取": "`full_text`；AEA书目及作者公开仓库的32页期刊排版稿，读取摘要、主文与结论末段，目视图4；AEA补充73页仅核读第3页及第60/63/64页问卷截图。期刊全文入口返回HTML，未与出版方全文逐字比对，未复算。[范围与限制](evidence/B50-collective-traps.md)。",
+        "设计与对象": "2023年美国大学生的条件性金钱激励估值；主分析活跃用户为TikTok 371人、Instagram 235人。比较自己停用四周、部分同校网络停用条件下的个人选择，以及共同停用与维持现状。",
+        "有限结论": "个人停用平均所需补偿为55/47美元，共同安排估值为−24/−6美元；比较基准不同，会改变福利解释。负估值是愿意放弃付款机会，不是已经支付或实际停用。",
+        "不能推出": "集体退网后更快乐、永久停用更好、全部用户都讨厌平台、依赖必由平台蓄意制造，或一个人有权替朋友退出。",
+        "我们如何使用": "[E10](../essays/10-pleasure-not-retention.md#digital-shared-exit)区分退出操作、共同处境与决定权；小禾、朋友及双线维护为原创假想，不是研究案例或验证过的迁移办法。",
+        "关键限制": "大规模共同停用因未达招募门槛而未实施；自选样本、注意力与估值确认筛选、性别构成、量尺差异及条件可信度限制。共同停用不等于全世界平台消失，正网络效应不等于已证明陷阱；不验证行动卡。"
+      },
+      "directly_validates_cards": false,
+      "source": "docs/research.md#b50"
     }
   ],
   "relations": [

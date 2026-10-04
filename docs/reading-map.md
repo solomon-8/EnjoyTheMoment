@@ -352,11 +352,13 @@ C34的[发现与创造](../book/34-shared-stories.md#story-create-or-discover)�
 <a id="r29"></a>
 ## R29 · 平台、留存与订阅
 
-<!-- reading-route: {"id":"R29","targets":["E10","B14","F20","N14"]} -->
+<!-- reading-route: {"id":"R29","targets":["E10","B14","F20","N14","B50","N50"]} -->
 
 正文与来源：[E10](../essays/10-pleasure-not-retention.md) · [B14](research.md#b14) · [F20](evidence/F20-interface-report.md)；[N14](evidence/B14-dark-patterns.md)
 
 用户讨论平台留存、订阅与“及时享乐是否等于放任消费”：读 E10/B14/F20。网站是采样单位，不是实验人数；2019 年网站研究不测用户幸福或当今全部平台。F20 是 2022 年监管报告，历史指控不能写成当前界面或个案法律结论。
+
+退出按钮清楚但关系仍在平台里的问题，另读[E10共同处境](../essays/10-pleasure-not-retention.md#digital-shared-exit)、[B50台账](research.md#b50)与[N50核读](evidence/B50-collective-traps.md)。条件性估值不是集体退出后的实测效果；大规模共同停用未实施。正网络效应、不使用的代价、平台意图和谁有权决定必须分开，不能从仍在使用推定全面认可，也不能从不满推定朋友都应退出。具体读取范围见[R82](#r82)。
 
 E10按[行为与价值](../essays/10-pleasure-not-retention.md#digital-value)、[选择条件](../essays/10-pleasure-not-retention.md#digital-conditions)、[主动授权](../essays/10-pleasure-not-retention.md#digital-delegation)和[商业代价](../essays/10-pleasure-not-retention.md#digital-commercial-costs)展开。[工作室失去收入的假想](../essays/10-pleasure-not-retention.md#digital-honest-cost)刻意承认清楚退出可能减少收入、收费可能排除部分读者、作品可能停更；不是B14/F20研究结果或行业统计，不承诺透明设计必然更盈利。作者可以提出价格或停止服务，读者可以拒绝；不由喜欢、沉默或未能取消推定无限支持。条件透明不自动解决分配问题，本书也不能用误导标题、歪曲参考或点击量替代认同。
 
@@ -1092,3 +1094,16 @@ F84是剧团说明、具名创作者回顾与历史演出页，不是效果研�
 两只杯子、敲门与林的否认是原创假想，不是《All Of Us》《Self-Raising》片段或实际可执行脚本。动作、角色台词、动机解释分开；未揭示此前是否有人，不能把“心虚”“警察来抓人”当事实。仅有对白可能遗漏非言语信息，提前解释也可能替作品作答；没有完成时序、遮盖与视线冲突设计，不保证所有人的体验相同。
 
 保留形式改变可能带来的真实代价、不同需求、独立支持的价值、资源限制及另场安排可能失去共同在场。不同信息路径可以是创作，但未说明的遗漏不能自动美化成艺术。C12/C13/E11是相邻论题，不新增证据，不验证J卡，不推断康复或幸福效果，不提供法律判断、器材购买或场馆推荐。
+
+<a id="r82"></a>
+## R82 · 退出操作与共同处境
+
+<!-- reading-route: {"id":"R82","targets":["E10","B50","N50","B28","N28","B14","N14","F20"]} -->
+
+正文与来源：[E10退出与关系](../essays/10-pleasure-not-retention.md#digital-shared-exit) · [B50台账](research.md#b50) · [N50核读](evidence/B50-collective-traps.md) · [B28数字使用](research.md#b28) · [N28核读](evidence/B28-digital-choice.md) · [B14界面研究](research.md#b14) · [N14核读](evidence/B14-dark-patterns.md) · [F20监管报告](evidence/F20-interface-report.md)。
+
+用户问“不喜欢为什么不走”“朋友都在的平台是否还算自由选择”时，先区分退出操作与退出后的生活条件；不自动回答成个人自控训练或集体退网建议。保留[朋友不愿退出的反方](../essays/10-pleasure-not-retention.md#digital-shared-disagreement)：继续使用不证明认可全部安排，不满也不给本人集体强制权。小禾与五位朋友、双线信息维护为原创假想，替代方案可能增加别人劳动且不能完整搬走共同乐趣。
+
+B50的2023年调查与2025年发表分开。371/235为主分析活跃用户，不是学校全部学生；四周与永久停用不同。三步分别是他人使用不变下的个人停用、其他同校参与者被邀请停用条件下的个人选择、共同停用与现状。55/47与−24/−6美元是估值，不是幸福分数或实际付款；研究方按所需金额补偿其他参与者，不是一个人为全校付费。
+
+大规模共同停用未实施，不能写成集体退出后幸福提升。自选与筛选、量尺边界、低概率兑现、大学网络不等于全部社交网络等限制不删。正网络效应与不使用者的代价不同，后者可能包括真实排除或预期误差；不能据此确认平台意图、给用户诊断或声称已经找到唯一机制。B28的限额/奖金实际干预与长期模型、B14的网页观察、F20的历史指控分别检索，不混成B50的退网结果。均不验证行动卡。

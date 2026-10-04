@@ -74,7 +74,7 @@ class BirdTurnsTests(unittest.TestCase):
     def test_ledger_and_full_retrieval_preserve_scope(self):
         records = json.loads((ROOT / "data/research.json").read_text())["records"]
         self.assertEqual({r["id"] for r in records},
-                         {f"B{n:02d}" for n in range(1, 50)})
+                         {f"B{n:02d}" for n in range(1, 51)})
         record = next(r for r in records if r["id"] == "B49")
         self.assertEqual(record["doi"], "10.1098/rsif.2015.0319")
         self.assertEqual(record["access_level"], "full_text")

@@ -43,7 +43,7 @@ class FilmContextTests(unittest.TestCase):
             self.assertIn(marker, second)
         records = json.loads((ROOT / "data/research.json").read_text())["records"]
         by_id = {r["id"]: r for r in records}
-        self.assertEqual(len(records), 49)
+        self.assertEqual(len(records), 50)
         for identifier in ("B32", "B33"):
             self.assertEqual(by_id[identifier]["verified_at"], "2026-10-01")
             self.assertEqual(by_id[identifier]["access_level"], "full_text")

@@ -40,7 +40,7 @@ class SharedExcitementTests(unittest.TestCase):
         self.assertEqual(record["access_level"], "full_text")
         self.assertFalse(record["directly_validates_cards"])
         self.assertEqual({r["id"] for r in records},
-                         {f"B{n:02d}" for n in range(1, 50)})
+                         {f"B{n:02d}" for n in range(1, 51)})
         self.assertEqual([r["id"] for r in records
                           if r["access_level"] == "abstract_only"], ["B44"])
         note = (ROOT / NOTE).read_text()
