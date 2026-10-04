@@ -69,7 +69,7 @@ class SpoilerChoiceTests(unittest.TestCase):
     def test_choice_argument_keeps_counterarguments_and_irreversibility(self):
         text = (ROOT / ESSAY).read_text()
         part = text.split('<a id="excitement-spoiler-choice"></a>', 1)[1]
-        part = part.split('<a id="excitement-not-fun"></a>', 1)[0]
+        part = part.split('<a id="excitement-mixed-feelings"></a>', 1)[0]
         for phrase in (
             "原创假想", "小满仍然很喜欢这个故事",
             "不能拿后来喜欢的事实", "事先并不存在的同意",

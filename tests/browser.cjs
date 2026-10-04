@@ -494,6 +494,21 @@ async function decodeImage(image) {
       !document.getElementById("e02").hidden &&
       document.getElementById("essay-query").value === "");
     assert.equal(new URL(page.url()).hash, "#excitement-spoiler-study");
+    assert.deepEqual(await page.locator("#e02 .prose h3").allTextContents(), [
+      "为什么想要完整的刺激，总被劝成五分钟？",
+      "愿意付代价，不等于别人可以替你决定",
+      "刺激不是一个旋钮，也是一段事情怎样发生",
+      "我想好好难过一会儿，不是等难过以后才快乐",
+      "回到今晚：还不知道想要什么，与已经知道，是两回事",
+      "把刺激从人生竞赛里拿回来",
+    ]);
+    await page.locator("#essay-query").fill("不存在的今晚XYZ");
+    await page.goto(url + "#excitement-tonight");
+    await page.waitForFunction(() => document.getElementById("e02").open &&
+      !document.getElementById("e02").hidden &&
+      document.getElementById("essay-query").value === "");
+    assert.match(await page.locator("#e02 .prose").textContent(),
+      /探索未定的愿望，与批准已经明确的愿望，不是同一件工作/);
     await page.goto(url + "#time-overlap");
     await page.waitForFunction(() => document.getElementById("c21").open);
     assert.equal(await page.locator("#c21 .prose table").count(), 2);
