@@ -77,7 +77,7 @@ class SpecialnessTests(unittest.TestCase):
             self.assertIn(prose, full)
         route = next(r for r in routes if r["id"] == "R02")
         self.assertEqual(set(route["targets"]),
-                         {"C01", "B17", "N17", "F79", "E01", "E03", "E10", "C18"})
+                         {"C01", "B17", "N17", "F79", "F95", "E01", "E03", "E10", "C18"})
         self.assertIn("先回应完整论证和保留理由", route["text"])
         self.assertIn("不自动生成清库存或采购清单", route["text"])
         self.assertEqual(len(routes), 82)
