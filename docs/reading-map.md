@@ -30,11 +30,13 @@ E01按五层论证阅读：[价值与用途](../essays/01-pleasure-is-an-end.md#
 <a id="r02"></a>
 ## R02 · 今天、机会与兑现
 
-<!-- reading-route: {"id":"R02","targets":["C01","B17","N17","F79","E01","E03","E10","C18"]} -->
+<!-- reading-route: {"id":"R02","targets":["C01","B17","N17","F79","F95","E01","E03","E10","C18"]} -->
 
-正文与来源：[C01](../book/01-start-now.md) · [B17](research.md#b17) · [N17](evidence/B17-enjoyable-procrastination.md) · [F79作者访谈与使用门槛](evidence/F79-specialness-interview.md) · [E01保留选项](../essays/01-pleasure-is-an-end.md#pleasure-options) · [E03等待](../essays/03-now-or-later.md) · [E10消费与自主](../essays/10-pleasure-not-retention.md) · [C18庆祝](../book/18-celebration.md)
+正文与来源：[C01](../book/01-start-now.md) · [B17](research.md#b17) · [N17](evidence/B17-enjoyable-procrastination.md) · [F79作者访谈与使用门槛](evidence/F79-specialness-interview.md) · [F95蒙田原作选读](evidence/F95-montaigne-and-living.md) · [E01保留选项](../essays/01-pleasure-is-an-end.md#pleasure-options) · [E03等待](../essays/03-now-or-later.md) · [E10消费与自主](../essays/10-pleasure-not-retention.md) · [C18庆祝](../book/18-celebration.md)
 
 C01按四条主线阅读：[今天的生活资格](../book/01-start-now.md#today-value)、[物件与使用](../book/01-start-now.md#today-objects)、[机会与兑现](../book/01-start-now.md#today-opportunity)、[时间与真实责任](../book/01-start-now.md#today-time)。四条主线不是四步行动法，章末J001—J006为配套选择，不替代正文论证。
+
+[蒙田段落](../book/01-start-now.md#today-montaigne)讨论日常生活与重大事务的主次；[相邻反问](../book/01-start-now.md#today-seasoning)保留成就可以为乐趣调味，不等于享乐必须先由成就批准的区别。F95为1598年法文转录与1603年Florio英译的指定段落，不是全章校勘、古代人物史实核验或现代效果研究。散步允许思绪离开再回来，不改写成禁止走神的训练。成就调味、节制及资源限制不能从概述中删去；“支撑物”与“开饭资格”的反问是本书解释，不冒充作者原话，不验证B17、F79或J卡。
 
 [今天没做好，难道还配去玩](../book/01-start-now.md#today-after-failure)区分有条件的奖励、本人未完成的计划、影响他人的失约与后续补救。阿晴的初稿和电影为原创假想：不保证休息提高效率，也不保证惩罚改善履约；快乐不取消责任，不要求受影响的人参与、原谅或认可。即使还有待补的事，也不据此把所有空闲没收；不能用“放过自己”代替真正的交接。B17的券研究和F79的访谈均不验证这一价值主张。
 

@@ -803,3 +803,5 @@ F 系列不计入上面的 B 系列背景研究。事实、教学、文学文本
 - [F93 · 物质主义取向与一次购买](evidence/F93-materialism-and-a-purchase.md)：Dittmar等（2014）的作者摘要，用于[E04](../essays/04-buying-pleasure.md#purchase-comfort-evidence)。仅摘要、未取得主文；区分价值取向关联与具体购买的因果效果，不验证购物疗愈、消费次数或金额。唱片、重复购买、礼物与和解均为原创假想和规范论证，不计入B系列已核读主文研究，不验证J卡。
 
 - [F94 · 《哈姆雷特》的戏中戏与相互观看](evidence/F94-hamlet-and-spectators.md)：Folger英文版第三幕第二场的指定段落，用于[C13](../book/13-live-events.md#live-mousetrap)。先前无言表演、后来的对话与人物反应次序分别保留；不是全剧、早期版本校勘或观演实录。正文与来源细读均含关键剧透；人物观察不是现实测谎法，文学分析不验证观众效果或J卡。
+
+- [F95 · 蒙田《论经验》：生活、大事与餐桌的调味](evidence/F95-montaigne-and-living.md)：HyperEssays刊出的1598年法文转录与1603年Florio英译指定段落，用于[C01](../book/01-start-now.md#today-montaigne)。原作选读，不是全章校勘、现代实验或古代人物史实核验；保留相邻的成就调味与节制，不将散步改写为注意训练。“生活的支撑”与“享乐的资格”为本书解释，不验证B17、F79或J卡。

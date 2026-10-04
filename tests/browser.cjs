@@ -2178,12 +2178,12 @@ async function decodeImage(image) {
       if (!javaScriptEnabled) await opening.locator("#c01 > summary").click();
       assert.match(await opening.locator("#c01 .prose").textContent(), /兑换比例/);
       assert.equal(await opening.locator("#c01 .prose h3").count(), 5);
-      assert.equal(await opening.locator("#c01 .prose h4").count(), 13);
-      assert.equal(await opening.locator("#c01 .prose h5").count(), 3);
+      assert.equal(await opening.locator("#c01 .prose h4").count(), 14);
+      assert.equal(await opening.locator("#c01 .prose h5").count(), 4);
       assert.match(await opening.locator("#c01 .prose").textContent(), /快乐不必全部归庆功宴管/);
       assert.match(await opening.locator("#c01 .prose").textContent(), /看电影不等于事情已经解决，不看电影也不自动完成了补救/);
       for (const anchor of ["today-value", "today-objects", "today-opportunity", "today-time",
-                           "today-after-failure", "today-voucher", "today-future", "today-not-redemption"]) {
+                           "today-montaigne", "today-after-failure", "today-voucher", "today-future", "today-not-redemption"]) {
         if (javaScriptEnabled) {
           await opening.locator(`#c01 a[href='#${anchor}']`).first().click();
           assert.equal(new URL(opening.url()).hash, "#" + anchor);
@@ -2193,6 +2193,20 @@ async function decodeImage(image) {
       const table = opening.locator("#c01 .prose table");
       assert.equal(await table.count(), 1);
       assert((await table.boundingBox()).width <= 350);
+      if (javaScriptEnabled) {
+        await opening.locator("#c01 a[href='#f95']").first().click();
+        await opening.waitForFunction(() => document.getElementById("f95").open);
+      } else {
+        await opening.locator("#f95 > summary").click();
+      }
+      assert.match(await opening.locator("#f95 .prose").textContent(), /法文相邻长段不是全段核读/);
+      assert.match(await opening.locator("#f95 .prose").textContent(), /不采用这种归责作为普遍结论/);
+      if (javaScriptEnabled) {
+        await opening.locator("#f95 a[href='#today-seasoning']").last().click();
+        await opening.waitForFunction(() => document.getElementById("c01").open);
+        assert.equal(new URL(opening.url()).hash, "#today-seasoning");
+        assert.match(await opening.locator("#c01 .prose").textContent(), /没有它就不许开饭/);
+      }
       if (javaScriptEnabled) {
         await opening.locator("#c01 a[href='#n17']").first().click();
         await opening.waitForFunction(() => document.getElementById("n17").open);

@@ -26,8 +26,8 @@ class TodayUseTests(unittest.TestCase):
         self.assertEqual(re.findall(r"^## (.+)$", text, re.M),
                          [title for _, title in PARTS] + ["配套：从已有的生活里开始"])
         prose, cards = text.split('<a id="j001"></a>', 1)
-        self.assertEqual(len(re.findall(r"^### .+$", prose, re.M)), 13)
-        self.assertEqual(len(re.findall(r"^#### .+$", prose, re.M)), 3)
+        self.assertEqual(len(re.findall(r"^### .+$", prose, re.M)), 14)
+        self.assertEqual(len(re.findall(r"^#### .+$", prose, re.M)), 4)
         opening = text.split("\n## ", 1)[0]
         for anchor, _ in PARTS:
             self.assertIn(f"](#{anchor})", opening)
@@ -86,7 +86,7 @@ class TodayUseTests(unittest.TestCase):
         research = json.loads((ROOT / "data/research.json").read_text())["records"]
         notes = json.loads((ROOT / "data/evidence.json").read_text())["notes"]
         self.assertEqual(len(research), 50)
-        self.assertEqual(len(notes), 143)
+        self.assertEqual(len(notes), 144)
         self.assertEqual(next(n for n in notes if n["id"] == "F79")["source_kind"],
                          "researcher_edited_interview_not_full_paper")
 
@@ -100,7 +100,7 @@ class TodayUseTests(unittest.TestCase):
         self.assertIn(prose, (ROOT / "llms-full.txt").read_text())
         route = next(r for r in routes if r["id"] == "R02")
         self.assertEqual(set(route["targets"]),
-                         {"C01", "B17", "N17", "F79", "E01", "E03", "E10", "C18"})
+                         {"C01", "B17", "N17", "F79", "F95", "E01", "E03", "E10", "C18"})
         self.assertIn("均不验证这一价值主张", route["text"])
         self.assertIn("四条主线不是四步行动法", route["text"])
         html = (ROOT / "index.html").read_text()
