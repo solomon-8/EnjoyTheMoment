@@ -1059,7 +1059,10 @@ class ExportTests(unittest.TestCase):
             self.assertIn(chapter["text"], self.outputs["llms-full.txt"])
             rendered = build.markdown(chapter["text"], chapter["source"])
             self.assertIn('id="' + anchor + '"', rendered)
-            self.assertIn('href="#' + anchor + '"', rendered)
+            # Preserve the published subsection target; C16's shorter overview
+            # now points to the argument groups rather than every example.
+            overview = "dress-wishes" if identifier == "C16" else anchor
+            self.assertIn('href="#' + overview + '"', rendered)
             self.assertEqual(rendered.count('src="data:image/png;base64,'), 1)
             self.assertNotIn('src="https:', rendered)
             self.assertIn(image + ".png", chapter["text"])

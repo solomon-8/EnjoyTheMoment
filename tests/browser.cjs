@@ -41,7 +41,12 @@ async function decodeImage(image) {
     ...(process.env.CHROME_BIN ? {executablePath: process.env.CHROME_BIN} : {}),
   });
   try {
-    const page = await browser.newPage({viewport: {width: 1440, height: 1000}});
+    // Long cross-chapter navigation should test destinations, not race native
+    // smooth scrolling. Default-motion navigation is smoke-tested separately.
+    const page = await browser.newPage({
+      viewport: {width: 1440, height: 1000}, reducedMotion: "reduce"
+    });
+    page.setDefaultTimeout(30000);
     const errors = [], requests = [];
     page.on("pageerror", error => errors.push(error.message));
     page.on("request", request => {if (/^https?:/.test(request.url())) requests.push(request.url());});
@@ -885,7 +890,7 @@ async function decodeImage(image) {
     assert.equal(await page.locator("#c24 .prose table").count(), 2);
     for (const anchor of ["humor-sandwich", "humor-language", "humor-time",
                           "humor-return", "humor-attention"]) {
-      await page.locator(`#c24 a[href='#${anchor}']`).click();
+      await page.locator(`#c24 a[href='#${anchor}']`).first().click();
       assert.equal(new URL(page.url()).hash, `#${anchor}`);
       assert(await page.locator("#c24 .prose").isVisible());
     }
@@ -1256,8 +1261,14 @@ async function decodeImage(image) {
       ["c16", "dress-form-examples", "f26"],
     ]) {
       await page.goto(url + "#" + chapter);
-      await page.locator("#" + chapter + " a[href='#" + anchor + "']").click();
-      assert.equal(new URL(page.url()).hash, "#" + anchor);
+      const overview = chapter === "c16" ? "dress-wishes" : anchor;
+      await page.locator("#" + chapter + " a[href='#" + overview + "']").click();
+      assert.equal(new URL(page.url()).hash, "#" + overview);
+      // The old example target remains reachable without keeping every
+      // subsection in the shorter overview.
+      await page.goto(url + "#" + anchor);
+      await page.waitForFunction(id => document.getElementById(id).open, chapter);
+      assert.equal(await page.locator("#" + anchor).count(), 1);
       assert(await page.locator("#" + chapter + " .prose").isVisible());
       const images = page.locator("#" + chapter + " .artwork img");
       assert.equal(await images.count(), chapter === "c16" ? 2 : 1);
@@ -1271,8 +1282,16 @@ async function decodeImage(image) {
     }
     assert.match(await page.locator("#f26 .prose").textContent(), /未独立核对销售账册/);
     await page.goto(url + "#c16");
+    assert.equal(await page.locator("#c16 .prose h3").count(), 4);
+    assert.equal(await page.locator("#c16 .prose h4").count(), 17);
+    for (const anchor of ["dress-wishes", "dress-pockets", "dress-use", "dress-gaze"]) {
+      await page.locator(`#c16 a[href='#${anchor}']`).click();
+      assert.equal(new URL(page.url()).hash, "#" + anchor);
+    }
     for (const anchor of ["dress-pocket-object", "dress-private-beauty"]) {
-      await page.locator(`#c16 a[href='#${anchor}']`).first().click();
+      await page.goto(url + "#" + anchor);
+      await page.waitForFunction(() => document.getElementById("c16").open);
+      assert.equal(await page.locator("#" + anchor).count(), 1);
       assert.equal(new URL(page.url()).hash, "#" + anchor);
     }
     const pocketImage = page.locator("#c16 .artwork img").nth(1);
@@ -1341,10 +1360,19 @@ async function decodeImage(image) {
     assert.equal(new URL(page.url()).hash, "#making-private-value");
     await page.goto(url + "#c18");
     await page.waitForFunction(() => document.getElementById("c18").open);
+    assert.equal(await page.locator("#c18 .prose h3").count(), 4);
+    assert.equal(await page.locator("#c18 .prose h4").count(), 19);
+    for (const anchor of ["celebration-reasons", "celebration-participation",
+                          "celebration-giving", "celebration-unfinished"]) {
+      await page.locator(`#c18 a[href='#${anchor}']`).click();
+      assert.equal(new URL(page.url()).hash, `#${anchor}`);
+    }
     for (const anchor of ["celebration-calendar", "celebration-repetition",
                           "celebration-magi", "celebration-generosity",
                           "celebration-objection", "celebration-top"]) {
-      await page.locator(`#c18 a[href='#${anchor}']`).click();
+      await page.goto(url + "#" + anchor);
+      await page.waitForFunction(() => document.getElementById("c18").open);
+      assert.equal(await page.locator("#" + anchor).count(), 1);
       assert.equal(new URL(page.url()).hash, `#${anchor}`);
       assert(await page.locator("#c18 .prose").isVisible());
     }
@@ -1553,8 +1581,10 @@ async function decodeImage(image) {
       await decodeImage(image);
       assert.ok(await image.evaluate(img => img.naturalWidth > 0 && img.alt.length > 30));
     }
-    await page.locator("#c25 a[href='#art-sculpture-recognition']").first().click();
-    assert.equal(new URL(page.url()).hash, "#art-sculpture-recognition");
+    await page.locator("#c25 a[href='#art-viewpoints']").first().click();
+    assert.equal(new URL(page.url()).hash, "#art-viewpoints");
+    await page.goto(url + "#art-sculpture-recognition");
+    await page.waitForFunction(() => document.getElementById("c25").open);
     assert.match(await page.locator("#c25 .prose").textContent(), /雕塑的部件选择，不能替真实的人定义身体价值/);
     await page.locator("#c25 a[href='#f77']").first().click();
     await page.waitForFunction(() => document.getElementById("f77").open);
@@ -1567,9 +1597,17 @@ async function decodeImage(image) {
     assert.match(await page.locator("#f13 .prose").textContent(), /1926.417/);
     await page.goto(url + "#c25");
     assert.equal(await page.locator("#c25 .prose table").count(), 3);
+    assert.equal(await page.locator("#c25 .prose h3").count(), 4);
+    assert.equal(await page.locator("#c25 .prose h4").count(), 14);
+    for (const anchor of ["art-intention", "art-choices", "art-viewpoints", "art-exhibition"]) {
+      await page.locator(`#c25 a[href='#${anchor}']`).click();
+      assert.equal(new URL(page.url()).hash, "#" + anchor);
+    }
     for (const anchor of ["art-letters-and-versions", "art-material-history",
                           "art-traces-and-meaning", "art-knowledge-and-pleasure"]) {
-      await page.locator(`#c25 a[href='#${anchor}']`).first().click();
+      await page.goto(url + "#" + anchor);
+      await page.waitForFunction(() => document.getElementById("c25").open);
+      assert.equal(await page.locator("#" + anchor).count(), 1);
       assert.equal(new URL(page.url()).hash, "#" + anchor);
       assert(await page.locator("#c25 .prose").isVisible());
     }
