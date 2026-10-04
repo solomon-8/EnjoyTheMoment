@@ -92,15 +92,17 @@ E03先从[承诺要交出理由](../essays/03-now-or-later.md#waiting-credible-p
 <a id="r05"></a>
 ## R05 · 朋友、互惠与关系
 
-<!-- reading-route: {"id":"R05","targets":["E09","F57"]} -->
+<!-- reading-route: {"id":"R05","targets":["E09","F57","F96"]} -->
 
-正文与来源：[E09](../essays/09-friends-not-assets.md) · [F57](evidence/F57-friendship-and-reciprocity.md)
+正文与来源：[E09](../essays/09-friends-not-assets.md) · [F57](evidence/F57-friendship-and-reciprocity.md) · [F96](evidence/F96-hume-and-self-love.md)
 
 朋友关系见 E09/F57：[正文](../essays/09-friends-not-assets.md#friends-not-a-service)与[来源范围](evidence/F57-friendship-and-reciprocity.md)。只核读 Ross 英译指定七节，非全书、希腊文或实证研究。原作的德性层级与本书立场分开；不把情绪价值当服务承诺，不按古代分类诊断朋友或自动建议绝交。
 
 E09按[共同享乐](../essays/09-friends-not-assets.md#friends-value)、[互惠与条件](../essays/09-friends-not-assets.md#friends-terms)、[关心与改变](../essays/09-friends-not-assets.md#friends-change)、[散场](../essays/09-friends-not-assets.md#friends-position)推进。[偏爱一个具体朋友](../essays/09-friends-not-assets.md#friends-partiality)区分尚未约定的私人邀请、共同安排中的参与、公开欢迎与实际准入，以及没有失约仍可能失落；不把基本尊重等同于亲近必须均分。
 
 [F57第九卷第2节](evidence/F57-friendship-and-reciprocity.md#friendship-source-partiality)为2026-10-02实际读完的Ross英译网页一节，其余六节保留2026-09-30范围，不冒充重读或通读两卷。原文不支持所有事情都优先同一人，也不是“偏爱自由”的现代理论；家庭、年龄及性别化身份安排不采用，`nobility necessity`缺损不补。旧专辑、四人相聚与新来者是本书假想，不给聚会法律分类或效果保证。
+
+[自己因朋友快乐而快乐](../essays/09-friends-not-assets.md#friends-joy-for-you)不自动证明朋友只是工具；希望谁实际过得好，与自己随后获得什么感受，需要分开。F96采用休谟附录二第12—13段的对象、满足与混合动机论证，并保留第1—4段对不同自利解释及实际品行的区别；不是现代实验或已证实的人性定论。演出、转述与不能两全的晚上是原创假想，不是识别朋友动机的测试；不把自我享受排除为不真诚，也不要求无限牺牲。第5段注60的一般善意不是陌生人/亲友的实测排序；“好处不必绕回自己”是本书规范立场，不由F96验证N39或活动效果。
 
 <a id="r06"></a>
 ## R06 · 快乐与真实生活
