@@ -1388,7 +1388,12 @@ async function decodeImage(image) {
     await page.waitForFunction(() => document.getElementById("c23").open);
     assert.equal(await page.locator("#c23 .prose table").count(), 3);
     assert.match(await page.locator("#c23 .prose").textContent(), /310 分钟/);
-    for (const anchor of ["travel-once", "travel-guide", "travel-authenticity", "travel-forster"]) {
+    assert.equal(await page.locator("#c23 .prose h3").count(), 4);
+    assert.equal(await page.locator("#c23 .prose h4").count(), 18);
+    assert.equal(await page.locator("#c23 .prose h5").count(), 1);
+    assert.match(await page.locator("#c23 .prose").textContent(), /没有预先想到的快乐可以算数，但不必替整趟旅行报销/);
+    for (const anchor of ["travel-wishes", "travel-arrangements", "travel-looking", "travel-aftermath",
+      "travel-discovery", "travel-once", "travel-guide", "travel-authenticity", "travel-forster"]) {
       await page.locator(`#c23 a[href='#${anchor}']`).first().click();
       assert.equal(new URL(page.url()).hash, "#" + anchor);
       assert(await page.locator("#c23 .prose").isVisible());
