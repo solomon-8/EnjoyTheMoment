@@ -106,7 +106,7 @@ The chapters on senses, novelty, play, relationships, spending, and permission t
 | [03 · Does doing it before make it less worth doing?](book/03-novelty.md) | Does ordering the same meal save effort or remove pleasure? New interpretations, repeat experiences, and choices that need not be made afresh each day. |
 | [04 · I want to win this game, not live by its score](book/04-play.md) | Why can winning matter without governing your life? Chosen goals, shared rules and an original hat-shop scene explore commitment, response and when to stop. |
 | [05 · Being together does not mean wanting the same thing](book/05-connection.md) | Why choose to join something that is not your first choice? Shared experience, willing compromise, and the work behind an evening. |
-| [06 · Buy pleasure, not an identity](book/06-spending.md) | Does paying monthly necessarily make a commitment easier to end? |
+| [06 · You paid for the ticket. Do you owe it your evening too?](book/06-spending.md) | If you no longer want to go, must you continue to “get your money's worth”? Using what you bought, buying the next matching piece, and stopping payment are different choices. |
 | [07 · Being alone is not a reason to skip the occasion](book/07-solo.md) | What makes solitude enjoyable—and who controls its time and space? |
 | [08 · Take a break from being useful](book/08-permission.md) | When does refinement become a status barrier—and whose work makes another person look effortless? |
 | [09 · Limited resources, real enjoyment](book/09-constrained.md) | Who is still organizing while everyone else gets to relax? [Credit, influence and getting to participate](book/09-constrained.md#constrained-credit) need not belong to the same person. |

@@ -14,7 +14,15 @@
 
 本章不是财务规划，不给收入百分比，不推荐贷款或投资。讨论的前提是：这笔钱已由你确认可自由使用。
 
-这篇文章追问四件事：[买到的究竟是什么](#purchase-purpose)，[谁来决定它值不值得](#purchase-choice)，[喜欢是否必须有一个“正确”的来历](#purchase-agency)，以及[不满意以后怎样评价原来的选择](#purchase-judgement)。它们不是四步购物流程，而是四处可能改变结论的分歧。也可直达[买来的安慰为何不必解决一切](#purchase-comfort)与[收下礼物是否等于同意和解](#purchase-comfort-accountability)。[第6章](../book/06-spending.md)接着讨论套餐、配套与付款后的选择，不在这里重算一遍。
+全文沿四处分歧展开：[买到了什么](#purchase-purpose) · [谁有权决定](#purchase-choice) · [喜欢的来历](#purchase-agency) · [不满意之后](#purchase-judgement)。这不是四步购物流程。
+
+也可以从一个想反驳的问题读起：
+
+- [你的时薪，凭什么给周日定价？](#purchase-hourly-price) 花钱省下的不是挣钱时间，仍可能值得；能外包的事，也可能正是想亲自经历的部分。
+- [没解决烦恼，买来的安慰就不算数吗？](#purchase-comfort) 一点舒服不等于修好一切，也不能替以后的每次购买担保。
+- [礼物很喜欢，那件事就不能再谈了吗？](#purchase-comfort-accountability) 接受示好，与同意结清争议，不是同一件事。
+
+[第6章](../book/06-spending.md)接着讨论套餐、配套与付款后的选择，不在这里重算一遍。
 
 <a id="purchase-purpose"></a>
 ## 一、先看买到了什么，再争论它值不值
