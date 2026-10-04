@@ -700,15 +700,21 @@ C14按[具体结构](../book/14-flavor.md#flavor-structure)、[描述和标准](
 <a id="r58"></a>
 ## R58 · 看鸟群：数量、组织与不可保证的相遇
 
-<!-- reading-route: {"id":"R58","targets":["C30","C29","C15","C20","B30","N30","F22","F23"]} -->
+<!-- reading-route: {"id":"R58","targets":["C30","C29","C15","C20","B30","N30","F22","F23","B49","N49"]} -->
 
-正文与来源：[C30](../book/30-birdwatching.md#birds-flock) · [C29](../book/29-night-sky.md) · [C15](../book/15-neighborhood.md) · [C20](../book/20-photography.md) · [B30台账](research.md#b30) · [N30详细核读](evidence/B30-flock-relations.md) · [F22](evidence/F22-bird-identification.md) · [F23](evidence/F23-bird-records-and-ethics.md)。
+正文与来源：[C30](../book/30-birdwatching.md#birds-flock) · [C29](../book/29-night-sky.md) · [C15](../book/15-neighborhood.md) · [C20](../book/20-photography.md) · [B30台账](research.md#b30) · [N30详细核读](evidence/B30-flock-relations.md) · [F22](evidence/F22-bird-identification.md) · [F23](evidence/F23-bird-records-and-ethics.md) · [B49台账](research.md#b49) · [N49转向研究](evidence/B49-flock-turns.md)。
+
+C30沿[辨认](../book/30-birdwatching.md#birds-identification)、[结构与转向](../book/30-birdwatching.md#birds-relations)、[相遇边界](../book/30-birdwatching.md#birds-encounter)、[工具与记录](../book/30-birdwatching.md#birds-recording)四主线展开。不能把普通鸟的价值转述为要求放弃稀有或专程愿望。
 
 C30区分物种名称、个体数量、组织关系与二维投影；普通鸟的价值不是命令读者放弃专程或稀有愿望。原创图中O不算邻居，A–E初始距离1、2、3、4、5；全部乘二后为2、4、6、8、10。固定阈值≤3.5从ABC变为A；最近三个仍为ABC。单位任意、点同侧、无并列距离，是静态几何例子，不是实测/仿真，也不说明近邻身份永远不变。
 
 B30为2005–2006年罗马欧洲椋鸟研究：约500拍摄事件筛到50，再分析10；最多约2,600只，单事件最长8秒。近邻角度结构间接推断作用范围，平均6.5 ± 0.9 SE不是每只只看七只，更不是理想朋友数。另有二维200粒子/3近邻仿真，模拟扰动不是实地驱赶，连通分量不是死亡率或幸福指标。
 
 N30核读PMC完整主文及图注、图1/3/4；PDF及补充未取得，不将HTML检查页当PDF。保留选择偏差、过密排除、感知距离、统计未显著与等效差别、距离筛选符号疑问。未测视线或神经过程，不把作者的视觉/数目能力解释当直接证实；没有运行原数据与模型。
+
+B49/N49对应另一项2010–2012年材料，12次转向、170帧/秒、1.8–12.9秒；E11/E12同群连续，不能写成12个独立群体。核读PMC主文与图注，目视图2/4/5/6和五张公式；PDF/补充为检查页，未核数据、影片、全部算法或全部勘误。[转向先后](../book/30-birdwatching.md#birds-turn-sequence)不是永久领导身份；[持续偏离](../book/30-birdwatching.md#birds-turn-fluctuations)不等于最大幅度、随机因果操纵或已测主观害怕；未见外界变化不等于排除所有外因。
+
+[方位表](../book/30-birdwatching.md#birds-turn-position)只改变定义前方的方向：O为参考，A相对在北、B在东，朝东改朝北后A由左到前、B由前到右。静态两时刻几何没有连续轨迹、曲率或反应时间，不是等半径仿真。研究中结构方向并非完全不变，E11/E12的整体朝向变化为例外；不得据此生成理想团队规则、说服技巧、存活率或快乐效果。
 
 “知道机制仍可惊叹”“有些快乐是相遇而非交付”和同行者安排为原创论证，不是动物行为外推的社会规则。F22只支持指定形态对照，F23支持伦理与平台记录边界；不因等待成本允许追逐或诱引，不发布敏感定位，不推荐目的地或保证出现，不验证J卡。
 

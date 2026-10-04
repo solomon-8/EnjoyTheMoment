@@ -67,7 +67,7 @@ class ReadingStructureTests(unittest.TestCase):
                        "人物的话不能未经区分就当成作者主张"):
             self.assertIn(phrase, text)
         self.assertEqual(len(json.loads((ROOT / "data/catalog.json").read_text())["cards"]), 60)
-        self.assertEqual(len(json.loads((ROOT / "data/research.json").read_text())["records"]), 48)
+        self.assertEqual(len(json.loads((ROOT / "data/research.json").read_text())["records"]), 49)
 
     def test_full_exports_and_routes_keep_mary_with_her_counterreading(self):
         text = (ROOT / SOURCE).read_text()
