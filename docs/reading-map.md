@@ -13,9 +13,11 @@
 <a id="r01"></a>
 ## R01 · 主张、选择与最优
 
-<!-- reading-route: {"id":"R01","targets":["SHUAQI","E01","F86"]} -->
+<!-- reading-route: {"id":"R01","targets":["SHUAQI","E01","F86","F97"]} -->
 
-正文与来源：[SHUAQI](../SHUAQI.md) · [E01](../essays/01-pleasure-is-an-end.md) · [F86](evidence/F86-liberty-and-disapproval.md)
+正文与来源：[SHUAQI](../SHUAQI.md) · [E01](../essays/01-pleasure-is-an-end.md) · [F86](evidence/F86-liberty-and-disapproval.md) · [F97](evidence/F97-famine-affluence-morality.md)
+
+[少玩一点就能帮助别人](../essays/01-pleasure-is-an-end.md#pleasure-and-help)补充一种不同于加害、失约或审美不赞同的要求：没有制造困难，不等于帮助责任消失。F97逐页核读辛格1972年原刊229—243页；强弱原则、持续投入、自身与受扶养者代价、政府责任都不能从转述中删去。不是效果研究，未重核1971年数据，不给机构、救援方法或捐助比例背书。阿遥情境是原创假想；本书让某次私人小满足让路，又为持续私人生活辩护，承认帮助可能因此减少，也承认与辛格之间仍有争议。不得概括成“只要没伤人就能随便享乐”“每次都必须捐掉”或“已经推翻辛格”；道德理由不自动授予强迫权限。
 
 E01按五层论证阅读：[价值与用途](../essays/01-pleasure-is-an-end.md#pleasure-ground)、[资源取舍](../essays/01-pleasure-is-an-end.md#pleasure-tradeoffs)、[改变决定的条件](../essays/01-pleasure-is-an-end.md#pleasure-conditions)、[失望与反馈](../essays/01-pleasure-is-an-end.md#pleasure-feedback)、[主张的自我检验](../essays/01-pleasure-is-an-end.md#pleasure-self-test)。这是阅读结构，不是五步行动处方；不要只摘“喜欢是理由”而丢掉其他人的同意、现实代价、可能选错及不保证尽兴。
 

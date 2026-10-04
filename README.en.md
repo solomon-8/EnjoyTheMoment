@@ -28,6 +28,8 @@ Within costs we can genuinely afford, we are willing to pay a little more for so
 
 That means accepting real tradeoffs: less output, some forgone convenience, or uncertainty about whether another choice would have been better. It does not make other people's consent expendable. See [the position and its objections](SHUAQI.md) and [the argument about options and “best” choices](essays/01-pleasure-is-an-end.md#pleasure-options) in Chinese.
 
+Not causing harm does not settle every responsibility. [What if a small sacrifice could reliably relieve someone else's serious hardship?](essays/01-pleasure-is-an-end.md#pleasure-and-help) We sometimes think enjoyment should give way. We also defend an ongoing personal life that is not merely an instrument of assistance. The essay takes Singer's demanding argument seriously and acknowledges the unresolved conflict; it offers neither automatic exemption nor a universal giving quota.
+
 This is not a disguised productivity system. The punchline is not “rest so you can work harder.” **The point of enjoyment is enjoyment.**
 
 Our boundary is simple: **you choose it, other people consent, the costs are visible, and you can stop.** [Consent is not approval of your taste](essays/01-pleasure-is-an-end.md#pleasure-consent-scope): involving someone else or changing shared arrangements calls for agreement; private enjoyment does not require everyone to applaud it. We are changing the priority of present enjoyment—not reversing safety advice or promoting self-destruction.

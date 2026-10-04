@@ -44,7 +44,7 @@ class ManifestoExitTests(unittest.TestCase):
         text = (ROOT / "SHUAQI.md").read_text()
         self.assertEqual(next(doc for doc in documents if doc["id"] == "SHUAQI")["text"], text)
         route = next(row for row in routes if row["id"] == "R01")
-        self.assertEqual(set(route["targets"]), {"SHUAQI", "E01", "F86"})
+        self.assertEqual(set(route["targets"]), {"SHUAQI", "E01", "F86", "F97"})
         self.assertIn("#shuaqi-exit", route["text"])
         self.assertIn("不能把“过程退得出”抽成无条件、无代价取消承诺的保证", route["text"])
 
