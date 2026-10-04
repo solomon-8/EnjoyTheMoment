@@ -22,8 +22,9 @@ class ExcitementArcTests(unittest.TestCase):
         cls.raw = (ROOT / cls.source).read_bytes()
         cls.text = cls.raw.decode()
         cls.main_anchors = (
-            "excitement-costs", "excitement-information",
-            "excitement-mixed-feelings", "excitement-boundaries",
+            "excitement-costs", "excitement-boundaries",
+            "excitement-information", "excitement-mixed-feelings",
+            "excitement-tonight",
             "excitement-scoreboard",
         )
 
@@ -34,7 +35,7 @@ class ExcitementArcTests(unittest.TestCase):
         for anchor in self.main_anchors:
             self.assertIn(f"](#{anchor})", opening)
         self.assertNotIn("<details>", self.text)
-        self.assertEqual(len(re.findall(r"^## ", self.text, re.M)), 5)
+        self.assertEqual(len(re.findall(r"^## ", self.text, re.M)), 6)
         self.assertLess(self.text.index("设想小梁"),
                         self.text.index("四种不同的刺激"))
         html = build.markdown(self.text, self.source)
@@ -45,6 +46,29 @@ class ExcitementArcTests(unittest.TestCase):
             "一个更有野心但不靠冒险的版本",
         ):
             self.assertEqual(html.count(f'id="{anchor}"'), 1)
+
+    def test_choice_argument_is_not_delayed_by_the_research_sections(self):
+        # This checks the intended reading order, not how readers respond to it.
+        ordered = (
+            "excitement-whole", "excitement-chosen-uncertainty",
+            "excitement-risk-not-permission", "excitement-information",
+            "excitement-synchrony-study", "excitement-spoiler-study",
+            "excitement-study", "excitement-richness", "excitement-tonight",
+            "excitement-not-fun", "excitement-evening", "excitement-arrange",
+            "excitement-scoreboard",
+        )
+        positions = [self.text.index(f'<a id="{a}"') for a in ordered]
+        self.assertEqual(positions, sorted(positions))
+        tonight = self.text.split('<a id="excitement-tonight"></a>', 1)[1]
+        tonight = tonight.split('<a id="excitement-scoreboard"></a>', 1)[0]
+        for phrase in (
+            "探索未定的愿望，与批准已经明确的愿望，不是同一件工作",
+            "愿望明确，今晚的条件却不成立",
+            "不是再问一次“有没有更省事的替代品”",
+            "核实之后也可能仍去不了",
+        ):
+            self.assertIn(phrase, tonight)
+        self.assertEqual(len(re.findall(r"^## ", tonight, re.M)), 1)
 
     def test_active_control_is_not_the_definition_of_all_participation(self):
         for phrase in (
