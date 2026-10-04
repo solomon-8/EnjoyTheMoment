@@ -35,6 +35,8 @@ python3 tools/read.py --id F57
 
 搜索是词面 AND，返回位置而不是正文或结论；精确 ID 返回完整源文和相关主题说明。`linked_records` 只说明链接存在，不表示已读。需要的来源要继续读取，不依赖标题代答。C 返回完整章节文件，B 返回完整台账条目。
 
+输出上限遮掉长文时，用 `--id E09 --page-chars 600`，再原样传回 `--cursor` 对应的 `next_cursor`。逐页拼接 `record.text`，不加分隔符，直到游标为空并核对 `text_sha256`；末页不代表已读全文。页长是 Unicode 码点而非 token，仍截断就减小后重读同一页。页模式的 `reading_guidance_ids`、`linked_record_ids` 尚未读取；相关 ID 用首次返回的 `--expect-digest` 跟进，版本冲突则重来，不混拼。详细规则在 `docs/ai.md`。
+
 ## 回答时保留的边界
 
 - 主张、原文论证、本书虚构例子和研究结果分开。哲学作者、来源数量和 `full_text` 不替本项目背书。
