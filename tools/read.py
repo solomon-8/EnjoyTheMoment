@@ -124,6 +124,69 @@ def nonnegative_offset(value):
     return integer
 
 
+def page_size(value):
+    integer = int(value)
+    if not 1 <= integer <= 8000:
+        raise argparse.ArgumentTypeError("--page-chars must be 1..8000")
+    return integer
+
+
+def sha256_argument(value):
+    if not re.fullmatch(r"[0-9a-f]{64}", value):
+        raise argparse.ArgumentTypeError("--expect-digest must be a lowercase SHA-256")
+    return value
+
+
+class PageError(ValueError):
+    def __init__(self, code, detail):
+        super().__init__(detail)
+        self.code = code
+
+
+def exact_page(record, documents, routes, root, size, cursor, digest):
+    """Slice the existing canonical text, not a summary or a new semantic unit."""
+    text = record["text"]
+    text_digest = hashlib.sha256(text.encode("utf-8")).hexdigest()
+    start = 0
+    if cursor is not None:
+        # A cursor is an integrity/continuation hint, not a credential or signature.
+        match = re.fullmatch(
+            r"p1:([A-Z0-9]{1,16}):([1-9][0-9]{0,11}):([0-9a-f]{64}):([0-9a-f]{64})",
+            cursor,
+        )
+        if not match:
+            raise PageError("invalid_cursor", "Copy next_cursor exactly; do not invent an offset.")
+        identifier, offset, previous_digest, previous_text = match.groups()
+        if identifier != record["id"]:
+            raise PageError("cursor_id_mismatch", "This cursor belongs to a different ID.")
+        if previous_digest != digest or previous_text != text_digest:
+            raise PageError("cursor_version_mismatch", "Sources or extracted text changed; restart, do not concatenate versions.")
+        start = int(offset)
+        if start >= len(text):
+            raise PageError("cursor_out_of_range", "The cursor does not identify an unread text position.")
+    end = min(start + size, len(text))
+    next_cursor = (
+        "p1:{}:{}:{}:{}".format(record["id"], end, digest, text_digest)
+        if end < len(text) else None
+    )
+    return {
+        "schema_version": "1.1",
+        "scope": "exact_id_page",
+        "record": dict(location(record), scope="text_page",
+                       canonical_scope=record["scope"], text=text[start:end]),
+        # The last page is not the whole record. Only a one-page read is complete.
+        "complete": start == 0 and end == len(text),
+        "text_sha256": text_digest,
+        "pagination": {
+            "unit": "unicode_code_point", "start": start, "end": end,
+            "total": len(text), "next_cursor": next_cursor,
+        },
+        "reading_guidance_ids": [r["id"] for r in routes if record["id"] in r["targets"]],
+        "linked_record_ids": [r["id"] for r in linked_records(record, documents, root)],
+        "page_notice": "A page can split a sentence, table or folded answer. Join record.text in order, without separators, through next_cursor=null; verify text_sha256. Guidance and linked IDs are unread: retrieve relevant IDs with --expect-digest.",
+    }
+
+
 def main(argv=None, root=ROOT):
     parser = argparse.ArgumentParser(description=__doc__)
     selector = parser.add_mutually_exclusive_group(required=True)
@@ -134,6 +197,11 @@ def main(argv=None, root=ROOT):
     parser.add_argument("--limit", type=positive_limit, default=5)
     parser.add_argument("--offset", type=nonnegative_offset, default=0,
                         help="continue a search/list with the same query, kind and source version")
+    parser.add_argument("--page-chars", type=page_size,
+                        help="optional exact-ID text page, 1..8000 Unicode code points (not tokens)")
+    parser.add_argument("--cursor", help="copy next_cursor from an exact-ID page; requires --page-chars")
+    parser.add_argument("--expect-digest", type=sha256_argument,
+                        help="reject if retrieval_digest changed, including when following another ID")
     args = parser.parse_args(argv)
     if args.id and args.kind:
         parser.error("--id and --kind cannot be combined; exact lookup does not apply filters")
@@ -141,6 +209,10 @@ def main(argv=None, root=ROOT):
         parser.error("--id and --offset cannot be combined")
     if args.query is not None and not args.query.strip():
         parser.error("--query cannot be empty")
+    if (args.page_chars is not None or args.cursor is not None) and not args.id:
+        parser.error("--page-chars and --cursor require --id")
+    if args.cursor is not None and args.page_chars is None:
+        parser.error("--cursor requires --page-chars")
     try:
         documents, routes = load_documents(root)
     except (OSError, ValueError, KeyError) as exc:
@@ -150,6 +222,12 @@ def main(argv=None, root=ROOT):
         "schema_version": "1.0", "retrieval_digest": retrieval_digest(documents),
         "notice": "Read-only canonical retrieval, not semantic intent classification or efficacy evidence. Full text may contain spoilers; read privately before choosing what to reveal. Linked locations have not been read by this command.",
     }
+    if args.expect_digest is not None and args.expect_digest != envelope["retrieval_digest"]:
+        envelope.update(error="retrieval_version_mismatch",
+                        expected_retrieval_digest=args.expect_digest,
+                        detail="Sources changed; restart the reading or use a checkout of the original commit.")
+        print(json.dumps(envelope, ensure_ascii=False, indent=2))
+        return 2
     if args.id:
         identifier = args.id.upper()
         selected = next((r for r in documents if r["id"] == identifier), None)
@@ -157,9 +235,18 @@ def main(argv=None, root=ROOT):
             envelope.update(scope="exact_id", error="unknown_id", requested_id=identifier)
             print(json.dumps(envelope, ensure_ascii=False, indent=2))
             return 1
-        envelope.update(scope="exact_id", record=selected, complete=True,
-                        reading_guidance=[r for r in routes if identifier in r["targets"]],
-                        linked_records=linked_records(selected, documents, root))
+        if args.page_chars is not None:
+            try:
+                envelope.update(exact_page(selected, documents, routes, root,
+                                           args.page_chars, args.cursor, envelope["retrieval_digest"]))
+            except PageError as exc:
+                envelope.update(scope="exact_id_page", error=exc.code, detail=str(exc))
+                print(json.dumps(envelope, ensure_ascii=False, indent=2))
+                return 2
+        else:
+            envelope.update(scope="exact_id", record=selected, complete=True,
+                            reading_guidance=[r for r in routes if identifier in r["targets"]],
+                            linked_records=linked_records(selected, documents, root))
     else:
         words = args.query.casefold().split() if args.query is not None else []
         candidates = [r for r in documents if args.kind is None or r["kind"] == args.kind]

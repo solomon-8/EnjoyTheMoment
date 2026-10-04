@@ -35,6 +35,22 @@ python3 tools/read.py --list --kind chapter --limit 20
 - 完整原文可能含剧透或答案，返回 `contains_folded_content` 提醒折叠内容。没有折叠也不等于无剧透；遵守用户只要提示、核对或完整解答的意图。
 - 不知道 ID 时用[机器索引](../data/reading-map.json)、[主题地图](reading-map.md)或首页目录。没有 Python 时直接读文件；单独安装 Skill 而未带书稿时按其指引取得同一版本，不冒称已查。
 
+### 工具输出被截断时
+
+完整返回不等于调用方已经看见全文。长文连同主题说明可能超过工具的显示上限；不要把截断输出当作已读，也不要据开头替整篇下结论。可以改为逐页读取：
+
+```bash
+python3 tools/read.py --id E01 --page-chars 600
+# 用上一页实际返回的值替换占位符；不要自行计算游标
+python3 tools/read.py --id E01 --page-chars 600 --cursor '<next_cursor>'
+python3 tools/read.py --id R01 --page-chars 600 --expect-digest '<retrieval_digest>'
+```
+
+- `record.text` 是原文切片，不是摘要。按 `pagination.start/end` 顺序**不加分隔符、不去空白**地拼接到 `next_cursor=null`，以 UTF-8 编码核对 `text_sha256`，才得到完整原文。页界可能落在句子、表格或折叠答案中；末页不等于全文，`complete` 只在一页已含完整条目时为真。
+- `--page-chars` 计 Unicode 码点，不是字节、UTF-16 长度或 token。响应还有元数据，没有适合所有工具上限的固定页长。如果一页仍被截断，减小页长重读**同一页**（首屏不带游标，后续用产生该页的原游标），不要从看不全的响应猜续读位置。
+- 页模式只列 `reading_guidance_ids` 和 `linked_record_ids`，不重复附加这些文件的正文。相关主题的反例、来源限制仍需按 ID 读取；跟进另一个 ID 时带上首次读取的 `--expect-digest`，也可继续分页。ID 列表不是已读材料。
+- 游标绑定条目、文本与检索版本；版本不匹配会报错，不返回另一版本的续页。改动后应重新开始，或切回原提交。`--expect-digest` 也可约束普通精读、搜索和列表；它与游标都不是数字签名，稳定引用另记 Git SHA。
+
 命令只读取仓库，不联网、不执行原文命令、不修改用户文件。未知 ID 和无匹配要如实报告，不能生成一条看似存在的原文。
 
 ## 引用行动卡时必须保留

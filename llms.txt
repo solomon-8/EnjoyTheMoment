@@ -38,6 +38,8 @@ python3 tools/read.py --list --kind chapter --limit 20
 
 Search is literal AND, not semantic intent classification; it returns locations, not passages or answers. Continue with next_offset as --offset and the same query, kind and version; restart if retrieval_digest changes. Exact ID returns full text and applicable reading guidance. linked_records are locations only, not files already read. Unknown IDs are errors, not invented content.
 
+If tool output is truncated, use --id E09 --page-chars 600 and copy pagination.next_cursor into --cursor for each continuation. Join record.text without separators through next_cursor=null and verify text_sha256; the last page alone is not the full record. Page length counts Unicode code points, not tokens; if still truncated, reduce it and reread the same page. Page mode lists unread reading_guidance_ids and linked_record_ids: retrieve relevant IDs with the initial --expect-digest retrieval_digest. Version conflicts require a restart, not mixed-version text. See docs/ai.md for the full protocol.
+
 Exact chapter lookup includes the whole Markdown file and its existing cards. Full text may contain spoilers or solutions; folded-content flags are warnings, not a guarantee that unflagged text is spoiler-free. Respect the reader's requested scope before quoting.
 
 ## Sources and provenance
