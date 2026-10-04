@@ -95,6 +95,31 @@ class ConstraintsArgumentTests(unittest.TestCase):
             self.assertEqual(html.count('id="' + anchor + '"'), 1)
             self.assertEqual(epub.count('id="' + anchor + '"'), 1)
 
+    def test_optional_scenes_link_to_full_arguments_without_losing_conditions(self):
+        text = (ROOT / SOURCE).read_text()
+        care = text.split("#### 情境二：", 1)[1].split("#### 情境三：", 1)[0]
+        access = text.split("#### 情境三：", 1)[1].split("#### 情境四：", 1)[0]
+        for phrase in ("愿意且有能力", "不是护理方案",
+                       "不允许把被照料者留在无人负责的状态",
+                       "没有接替资源", "也可能增加负担",
+                       "若总是同一个人接班"):
+            self.assertIn(phrase, care)
+        for phrase in ("不是通用替代", "感官、动作或设备条件",
+                       "由本人判断", "承认没有给出合适方案",
+                       "不宣称“效果一样”", "谁能参与定义好玩"):
+            self.assertIn(phrase, access)
+        chapter = (ROOT / "book/09-constrained.md").read_text()
+        html = (ROOT / "index.html").read_text()
+        with ZipFile(ROOT / "downloads/EnjoyTheMoment.epub") as archive:
+            epub = archive.read(
+                "EPUB/text/essays--06-real-life-constraints.xhtml").decode()
+        for section, anchor in ((care, "constrained-shared"),
+                                (access, "constrained-access-authorship")):
+            self.assertIn("../book/09-constrained.md#" + anchor, section)
+            self.assertEqual(chapter.count(f'id="{anchor}"'), 1)
+            self.assertIn(f'href="#{anchor}"', html)
+            self.assertIn(f'book--09-constrained.xhtml#{anchor}', epub)
+
 
 if __name__ == "__main__":
     unittest.main()
