@@ -870,7 +870,19 @@ async function decodeImage(image) {
     await page.waitForFunction(() => document.getElementById("e03").open);
     // Back returns to the target fragment. Navigate away before filtering so
     // the following deep-link navigation actually produces a hashchange.
+    // location.hash changes before the queued hashchange handler runs. Await
+    // that event before testing a later filter input; otherwise deep-link
+    // reveal may correctly clear the filter that this test just entered.
+    await page.evaluate(() => {
+      window.__waitingNavigationHandled = false;
+      window.addEventListener("hashchange", function handled(event) {
+        if (new URL(event.newURL).hash !== "#waiting-reliable-more") return;
+        window.__waitingNavigationHandled = true;
+        window.removeEventListener("hashchange", handled);
+      });
+    });
     await page.locator("#e03 a[href='#waiting-reliable-more']").first().click();
+    await page.waitForFunction(() => window.__waitingNavigationHandled);
     assert.equal(new URL(page.url()).hash, "#waiting-reliable-more");
     await page.locator("#essay-query").fill("未匹配第三选项XYZ");
     assert(await page.locator("#e03").evaluate(el => el.hidden));
@@ -1020,6 +1032,17 @@ async function decodeImage(image) {
     await page.waitForFunction(() => document.getElementById("e11").open);
     assert.equal(await page.locator("#e11 .prose h3").count(), 4);
     assert.equal(await page.locator("#e11 .prose h4").count(), 19);
+    await page.locator("#e11 a[href='#pleasure-familiarity']").click();
+    assert.equal(new URL(page.url()).hash, "#pleasure-familiarity");
+    assert.match(await page.locator("#e11 .prose").textContent(),
+      /生活是否改变与选项怎样命名一起变了/);
+    await page.locator("#e11 a[href='#reality-study-design']").click();
+    await page.waitForFunction(() => document.getElementById("f98").open);
+    assert.match(await page.locator("#f98 .prose").textContent(),
+      /152名独立参与者/);
+    await page.locator("#f98 a[href='#pleasure-familiarity']").first().click();
+    await page.waitForFunction(() => document.getElementById("e11").open);
+    assert.equal(new URL(page.url()).hash, "#pleasure-familiarity");
     for (const anchor of ["reality-values", "reality-events",
                           "reality-judgments", "reality-position",
                           "pleasure-rebuilt-world"]) {

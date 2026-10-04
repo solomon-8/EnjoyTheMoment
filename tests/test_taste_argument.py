@@ -67,7 +67,7 @@ class TasteArgumentTests(unittest.TestCase):
         documents, routes = read.load_documents(ROOT)
         by_id = {d["id"]: d for d in documents}
         route = next(r for r in routes if r["id"] == "R06")
-        targets = {"E11", "F27", "F83", "C11", "C31"}
+        targets = {"E11", "F27", "F83", "F98", "C11", "C31"}
         self.assertEqual(set(route["targets"]), targets)
         self.assertTrue(targets <= {d["id"] for d in read.linked_records(route, documents, ROOT)})
         self.assertEqual(len(routes), 82)

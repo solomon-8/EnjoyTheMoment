@@ -91,7 +91,7 @@ class RealityArcTests(unittest.TestCase):
         self.assertEqual(essay["source_sha256"], hashlib.sha256(raw).hexdigest())
         self.assertIn(raw.decode(), (ROOT / "llms-full.txt").read_text())
         routes = {r["id"]: r for r in routes}
-        self.assertEqual(set(routes["R06"]["targets"]), {"E11", "F27", "F83", "C11", "C31"})
+        self.assertEqual(set(routes["R06"]["targets"]), {"E11", "F27", "F83", "F98", "C11", "C31"})
         self.assertEqual(set(routes["R52"]["targets"]), {"E11", "C19", "E09", "F59", "F27"})
         for phrase in ("照截图重新摆放", "备份恢复又是另一种条件",
                        "旧留言不替人续上同意", "不保证澄清后一定和解",
