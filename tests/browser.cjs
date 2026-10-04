@@ -671,6 +671,26 @@ async function decodeImage(image) {
       assert.equal(new URL(page.url()).hash, "#" + anchor);
       assert(await page.locator("#e08 .prose").isVisible());
     }
+    const audiencePhotoDetail = page.locator("#e08 details").filter({
+      has: page.locator("summary", {
+        hasText: "看研究：实际拍摄、只计划拍什么，与不拍照有什么不同？"
+      })
+    });
+    const audienceSharingDetail = page.locator("#e08 details").filter({
+      has: page.locator("summary", {
+        hasText: "看证据边界：只读到摘要，哪些问题仍不能回答？"
+      })
+    });
+    assert.equal(await audiencePhotoDetail.evaluate(el => el.open), false);
+    assert.equal(await audienceSharingDetail.evaluate(el => el.open), false);
+    assert.match(await page.locator("#e08 .prose").innerText(),
+      /只读到作者公开的摘要，未取得主文/);
+    assert.match(await page.locator("#e08 .prose").innerText(),
+      /不是“发帖”与“完全不用手机”的比较/);
+    assert(!await page.locator("#e08 a[href='#n10']").first().isVisible());
+    await audiencePhotoDetail.locator("summary").focus();
+    await page.keyboard.press("Enter");
+    assert.equal(await audiencePhotoDetail.evaluate(el => el.open), true);
     await page.locator("#e08 a[href='#n10']").first().click();
     await page.waitForFunction(() => document.getElementById("n10").open);
     assert.match(await page.locator("#n10 .prose").textContent(), /不是本研究的实测结果/);
@@ -679,6 +699,8 @@ async function decodeImage(image) {
     await page.waitForFunction(() => document.getElementById("e08").open &&
       !document.getElementById("e08").hidden && document.getElementById("essay-query").value === "");
     assert.equal(new URL(page.url()).hash, "#audience-photo-study");
+    await audienceSharingDetail.locator("summary").click();
+    assert.equal(await audienceSharingDetail.evaluate(el => el.open), true);
     await page.locator("#e08 a[href='#n44']").first().click();
     await page.waitForFunction(() => document.getElementById("n44").open);
     assert.match(await page.locator("#n44 .prose").textContent(), /abstract_only/);
