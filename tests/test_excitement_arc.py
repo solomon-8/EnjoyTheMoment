@@ -34,7 +34,15 @@ class ExcitementArcTests(unittest.TestCase):
         self.assertEqual(positions, sorted(positions))
         for anchor in self.main_anchors:
             self.assertIn(f"](#{anchor})", opening)
-        self.assertNotIn("<details>", self.text)
+        # Methods are optional; neither the argument headings nor central limits hide.
+        folds = re.findall(r"<details>(.*?)</details>", self.text, re.S)
+        self.assertEqual(len(folds), 2)
+        self.assertTrue(all("\n## " not in f and "<a id=" not in f for f in folds))
+        visible = re.sub(r"<details>.*?</details>", "", self.text, flags=re.S)
+        for phrase in ("也没有证明三种安排等效", "不能将其说成重读效果实验",
+                       "这是偏好问卷，不是刺激剂量实验", "不是为每个人测出最佳强度",
+                       "不能把接近承受极限设成娱乐目标"):
+            self.assertIn(phrase, visible)
         self.assertEqual(len(re.findall(r"^## ", self.text, re.M)), 6)
         self.assertLess(self.text.index("设想小梁"),
                         self.text.index("四种不同的刺激"))
