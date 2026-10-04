@@ -20,7 +20,8 @@ class FutureAuthorityTests(unittest.TestCase):
         cls.path = "essays/03-now-or-later.md"
         cls.raw = (ROOT / cls.path).read_bytes()
         cls.text = cls.raw.decode()
-        cls.anchors = ("waiting-changed-taste", "waiting-later-knowledge", "waiting-open-future")
+        cls.anchors = ("waiting-changed-taste", "waiting-later-knowledge",
+                       "waiting-predicted-taste", "waiting-open-future")
 
     def test_case_is_written_not_a_longitudinal_observation(self):
         for phrase in (
@@ -30,7 +31,9 @@ class FutureAuthorityTests(unittest.TestCase):
             "当时快乐", "那个选择不妥", "后来不再去，不等于当年不该去",
         ):
             self.assertIn(phrase, self.text)
-        self.assertNotIn("Quoidbach", self.text)
+        fiction = self.text.split('<a id="waiting-changed-taste"></a>')[1].split(
+            '<a id="waiting-later-knowledge"></a>')[0]
+        self.assertNotIn("Quoidbach", fiction)
         self.assertNotIn("<!-- pick:", self.text)
 
     def test_strong_objection_and_long_commitments_remain(self):
@@ -55,7 +58,7 @@ class FutureAuthorityTests(unittest.TestCase):
         self.assertEqual(doc["source_sha256"], hashlib.sha256(self.raw).hexdigest())
         self.assertIn(self.text, (ROOT / "llms-full.txt").read_text())
         route = next(r for r in routes if r["id"] == "R04")
-        self.assertEqual(set(route["targets"]), {"E03", "E01", "E04", "E05", "E11", "B23", "N23"})
+        self.assertEqual(set(route["targets"]), {"E03", "E01", "E04", "E05", "E11", "B23", "N23", "F99"})
         for phrase in ("不是年龄变化实验", "没有真人回访", "不预测哪个年龄更明智",
                        "不把短承诺当普遍最优", "不把三文的相通原则重复当成独立证据"):
             self.assertIn(phrase, route["text"])
