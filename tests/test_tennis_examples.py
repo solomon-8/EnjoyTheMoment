@@ -68,7 +68,7 @@ class TennisExampleTests(unittest.TestCase):
         self.assertEqual(set(next(r for r in routes if r["id"] == "R59")["targets"]),
                          {"C28", "C04", "C19", "F18", "F19", "F64"})
         records = json.loads((ROOT / "data/research.json").read_text())["records"]
-        self.assertEqual(len(records), 49)
+        self.assertEqual(len(records), 50)
         self.assertNotIn("F64", {r["id"] for r in records})
 
 

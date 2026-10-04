@@ -57,9 +57,9 @@ class IdlenessArgumentTests(unittest.TestCase):
         self.assertEqual(note["text"], text)
         self.assertEqual(note["source_kind"],
                          "historical_social_polemic_primary_and_translation")
-        self.assertEqual(len(notes), 139)
+        self.assertEqual(len(notes), 140)
         research = json.loads((ROOT / "data/research.json").read_text())["records"]
-        self.assertEqual(len(research), 49)
+        self.assertEqual(len(research), 50)
         self.assertNotIn("F82", {r["id"] for r in research})
         cards = json.loads((ROOT / "data/catalog.json").read_text())["cards"]
         self.assertEqual(len(cards), 60)
@@ -73,7 +73,7 @@ class IdlenessArgumentTests(unittest.TestCase):
         self.assertEqual(set(route["targets"]), targets)
         self.assertTrue(targets <= {d["id"] for d in read.linked_records(route, documents, ROOT)})
         self.assertIn("不自动给时间表", route["text"])
-        self.assertEqual(len(routes), 81)
+        self.assertEqual(len(routes), 82)
         for identifier, path in (
             ("E07", "essays/07-rest-is-not-work.md"),
             ("F82", "docs/evidence/F82-right-to-be-lazy.md"),

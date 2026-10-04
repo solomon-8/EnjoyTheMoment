@@ -25,8 +25,8 @@ class DigitalArgumentTests(unittest.TestCase):
         text = (ROOT / SOURCE).read_text()
         self.assertEqual(re.findall(r"^## (.+)$", text, re.M),
                          [title for _, title in PARTS])
-        self.assertEqual(len(re.findall(r"^### .+$", text, re.M)), 17)
-        self.assertEqual(len(re.findall(r"^#### .+$", text, re.M)), 3)
+        self.assertEqual(len(re.findall(r"^### .+$", text, re.M)), 18)
+        self.assertEqual(len(re.findall(r"^#### .+$", text, re.M)), 6)
         opening = text.split("\n## ", 1)[0]
         for anchor, _ in PARTS:
             self.assertIn(f"](#{anchor})", opening)
@@ -76,7 +76,7 @@ class DigitalArgumentTests(unittest.TestCase):
             "不是给所有人开同一张戒断处方", "同一个晚上另一种快乐",
         ):
             self.assertIn(phrase, text)
-        self.assertEqual(len(re.findall(r"^\| ---", text, re.M)), 4)
+        self.assertEqual(len(re.findall(r"^\| ---", text, re.M)), 5)
 
     def test_retrieval_routes_and_epub_preserve_the_argument(self):
         raw = (ROOT / SOURCE).read_bytes()
@@ -87,7 +87,7 @@ class DigitalArgumentTests(unittest.TestCase):
         self.assertEqual(essay["source_sha256"], hashlib.sha256(raw).hexdigest())
         self.assertIn(text, (ROOT / "llms-full.txt").read_text())
         route = next(r for r in routes if r["id"] == "R29")
-        self.assertEqual(set(route["targets"]), {"E10", "B14", "F20", "N14"})
+        self.assertEqual(set(route["targets"]), {"E10", "B14", "F20", "N14", "B50", "N50"})
         for phrase in ("假想", "不是B14/F20研究结果或行业统计",
                        "不承诺透明设计必然更盈利", "条件透明不自动解决分配问题"):
             self.assertIn(phrase, route["text"])

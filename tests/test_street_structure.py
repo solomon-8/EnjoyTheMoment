@@ -50,9 +50,9 @@ class StreetStructureTests(unittest.TestCase):
         n = next(n for n in data["notes"] if n["id"] == "F88")
         self.assertEqual(n["source_kind"], "practice_case_and_operator_description")
         self.assertEqual(n["text"], note)
-        self.assertEqual(len(data["notes"]), 139)
+        self.assertEqual(len(data["notes"]), 140)
         self.assertEqual(len(json.loads((ROOT / "data/catalog.json").read_text())["cards"]), 60)
-        self.assertEqual(len(json.loads((ROOT / "data/research.json").read_text())["records"]), 49)
+        self.assertEqual(len(json.loads((ROOT / "data/research.json").read_text())["records"]), 50)
 
     def test_full_text_route_and_epub_keep_limits_with_the_case(self):
         text, note = (ROOT / SOURCE).read_text(), (ROOT / NOTE).read_text()

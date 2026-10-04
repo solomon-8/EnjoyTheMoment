@@ -109,9 +109,17 @@ async function decodeImage(image) {
     assert.match(await page.locator("#e10 .prose").textContent(), /刻意假定损失存在/);
     assert.match(await page.locator("#e10 .prose").textContent(), /并不会独自解决分配问题/);
     assert(await page.locator("#e10 .prose h5").evaluateAll(headings =>
-      headings.length === 3 && headings.every(h =>
+      headings.length === 6 && headings.every(h =>
         parseFloat(getComputedStyle(h).fontSize) >=
         parseFloat(getComputedStyle(h.closest(".prose")).fontSize))));
+    await page.goto(url + "#digital-shared-exit");
+    await page.waitForFunction(() => document.getElementById("e10").open);
+    assert.match(await page.locator("#e10 .prose").textContent(), /谁维护两个入口/);
+    await page.locator("#e10 a[href='#n50']").first().click();
+    await page.waitForFunction(() => document.getElementById("n50").open);
+    assert.match(await page.locator("#n50 .prose").textContent(), /大规模共同停用未实施/);
+    await page.locator("#n50 a[href='#digital-shared-disagreement']").first().click();
+    await page.waitForFunction(() => document.getElementById("e10").open);
     await page.goto(url + "#digital-pleasure-permission");
     await page.waitForFunction(() => document.getElementById("e10").open);
     assert.match(await page.locator("#e10 .prose").textContent(), /事后补签的同意书/);
@@ -1703,7 +1711,7 @@ async function decodeImage(image) {
     assert.equal(await page.locator(".argument:visible").count(), 1);
     await page.goto(url + "#e10");
     await page.waitForFunction(() => document.getElementById("e10").open);
-    assert.equal(await page.locator("#e10 .prose table").count(), 4);
+    assert.equal(await page.locator("#e10 .prose table").count(), 5);
     assert.match(await page.locator("#e10 .prose").textContent(), /开始、继续、再次回来/);
     await page.locator("#e10 .prose table").first().scrollIntoViewIfNeeded();
     await page.screenshot({path: "/tmp/enjoythemoment-attention-desktop.png", fullPage: false});

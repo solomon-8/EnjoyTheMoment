@@ -55,9 +55,9 @@ class TasteArgumentTests(unittest.TestCase):
         note = next(n for n in notes if n["id"] == "F83")
         self.assertEqual(note["text"], text)
         self.assertEqual(note["source_kind"], "philosophical_primary_text")
-        self.assertEqual(len(notes), 139)
+        self.assertEqual(len(notes), 140)
         research = json.loads((ROOT / "data/research.json").read_text())["records"]
-        self.assertEqual(len(research), 49)
+        self.assertEqual(len(research), 50)
         self.assertNotIn("F83", {r["id"] for r in research})
         cards = json.loads((ROOT / "data/catalog.json").read_text())["cards"]
         self.assertEqual(len(cards), 60)
@@ -70,7 +70,7 @@ class TasteArgumentTests(unittest.TestCase):
         targets = {"E11", "F27", "F83", "C11", "C31"}
         self.assertEqual(set(route["targets"]), targets)
         self.assertTrue(targets <= {d["id"] for d in read.linked_records(route, documents, ROOT)})
-        self.assertEqual(len(routes), 81)
+        self.assertEqual(len(routes), 82)
         for phrase in ("不强行改答成活动推荐", "不把全部趣味说成等价",
                        "没有独立核读《堂吉诃德》", "不据此命令读者改掉爱好"):
             self.assertIn(phrase, route["text"])
