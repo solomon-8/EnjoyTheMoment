@@ -2,8 +2,8 @@
   "schema_version": "1.0",
   "title": "享受当下 · Enjoy the Moment",
   "language": "zh-CN",
-  "modified": "2026-10-04T19:14:19Z",
-  "source_digest": "632413cafa0a56a9ab29e1259f0c4992d973fb3d8a0cec1235ae59cca6eb4e55",
+  "modified": "2026-10-04T19:44:52Z",
+  "source_digest": "658831e761fce470f9536f1f66b5f31628b3bfff04849a82cff2e282563e426c",
   "scope": "full_reading_corpus",
   "sources": {
     "LICENSE": "478edf04db179dc82b517e5bd08a37ac50a2d1fbf0253610ef7a04b562321199",
@@ -245,7 +245,7 @@
     "docs/evidence/F94-hamlet-and-spectators.md": "01cae1a5a7554169434fc5df1355ebf3606bcb5cae1c7c140712a3cd24cff99d",
     "docs/evidence/F95-montaigne-and-living.md": "e6a37670a0c703a14cb3479f5ba6c6f0bab2272b9bdf3e20cd1167ace25edcb0",
     "docs/faq.md": "9f408fb563ce36e2f11809098d50fc9a6609f2e254b9ea7ee723d5758832a8d9",
-    "docs/manifesto.md": "6c137341bdb4aa311c8b756ba882beabeac9378b64b051685109d152dc7e6e8c",
+    "docs/manifesto.md": "a2a850566140ebaa62e50aa329ba31748cb2bf896cb523fcc4e6f84bda8e2416",
     "docs/reading-editions.md": "d865f376d53efcad45f1e19d8dea56f2bb6aefa72101cef39eff4dffb54437cc",
     "docs/reading-map.md": "cf6b29e87cb630f67431600c0af1e950212c46a4be62d25d7d46c4f76a4f5d2a",
     "docs/research.md": "76b3000b6a5aa6b797bc2c29d3671a964beedb0ee3c9c702140efe8e20aaffab",
@@ -278,7 +278,7 @@
     "tools/build.py": "2f870d3a6bd7f08f3f560cf8eff3922aa094d2027be35bd9de7ccc1031659e6d",
     "tools/check.py": "0e6b4a3564ab4fde154ec4dcd4e177a47564c93626aa6b55bb92cd46dd76933d",
     "tools/epub.py": "27d8fc714b0dafa6d071af26f831d3b0ac1b37bcf0f5d991af2dd865037e1422",
-    "web/epub.css": "e8c12d8d4822e9293511cde1fc4e4df12c94537391e4da3edc802593407ed634"
+    "web/epub.css": "db2ea80ed4c6525cded9d21f4d1ee2953145908c60be198dfc59a01d5d51a848"
   },
   "reading_files": [
     "docs/reading-editions.md",

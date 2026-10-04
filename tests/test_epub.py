@@ -65,6 +65,16 @@ def visible_words(element):
 
 
 class EpubTests(unittest.TestCase):
+    def test_explicit_fragment_targets_stay_with_following_content(self):
+        # Actual target visibility is checked in a paginated reading system.
+        css = (ROOT / "web/epub.css").read_text()
+        rule = re.search(r"span\[id\]\s*\{([^}]+)\}", css).group(1)
+        for declaration in (
+            "display: block", "break-after: avoid", "page-break-after: avoid",
+        ):
+            self.assertIn(declaration, rule)
+        self.assertEqual(self.entries["EPUB/style.css"], css.encode())
+
     def test_paginated_tables_are_not_inside_a_scroll_container(self):
         # Static guard only. Actual pagination is checked by epub_browser.cjs.
         css = (ROOT / "web/epub.css").read_text()
