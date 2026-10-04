@@ -2029,6 +2029,8 @@ class ExportTests(unittest.TestCase):
         for anchor in ("celebration-top", "celebration-calendar", "celebration-repetition",
                        "celebration-magi", "celebration-generosity", "celebration-objection"):
             self.assertIn('id="' + anchor + '"', html)
+        for anchor in ("celebration-top", "celebration-reasons", "celebration-participation",
+                       "celebration-giving", "celebration-unfinished"):
             self.assertIn('href="#' + anchor + '"', html)
         for identifier, kind in (("F44", "official_heritage_description"),
                                  ("F45", "literary_primary_text")):
