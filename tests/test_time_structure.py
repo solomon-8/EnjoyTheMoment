@@ -84,6 +84,40 @@ class TimeStructureTests(unittest.TestCase):
         self.assertIn("09-constrained.md#constrained-cognitive", part)
         self.assertIn("07-rest-is-not-work.md#rest-returns", part)
 
+    def test_shared_time_keeps_distinct_costs_and_reasons_to_leave(self):
+        text = (ROOT / SOURCE).read_text()
+        part = text.split('<a id="time-overlap"></a>', 1)[1].split(
+            '<a id="time-not-a-score"></a>', 1)[0]
+        # These are retained arguments and scope boundaries, not a brevity score.
+        for phrase in (
+            "刻意简化的虚构排班", "假设两人不用额外赶路", "没有等待交接",
+            "多出来的个人时间仍有价值", "不是排班效果研究",
+            "甲也未必能换班", "乙更不因此负有牺牲休息来配合的义务",
+            "答应前者，不等于自动答应后者", "不说明它拥有征用权",
+            "最后一班车", "就要问他们是否也愿意", "不保证他就愿意参加",
+            "是否继续参与，与怎样处理已经给出的承诺，是两个问题",
+            "承认对方的付出，也不等于必须留下", "不是给退出设置罚单",
+            "新的时间未必能把旧时间赎回来", "按事先约定处理已经发生的共同费用",
+            "原创假想", "最有力的反对", "工作变动、照料安排或身体状态不稳定",
+            "不是承诺未来绝不变化", "本书不把它改判成违约",
+            "利用率越高就一定越公平", "不提供场馆规定或法律结论",
+        ):
+            self.assertIn(phrase, part)
+        for row in (
+            "| 原安排 | 18:00—20:00 | 20:00—22:00 | 各2小时 | 0小时 |",
+            "| 只给甲加时间 | 17:00—20:00 | 20:00—22:00 | 3小时、2小时 | 0小时 |",
+            "| 双方同意调整时段 | 19:00—21:00 | 20:00—22:00 | 各2小时 | 1小时 |",
+        ):
+            self.assertIn(row, part)
+        self.assertLess(part.index("是否继续参与，与怎样处理已经给出的承诺"),
+                        part.index("先看仍能改变的部分"))
+        html = build.markdown(text, SOURCE)
+        with ZipFile(ROOT / "downloads/EnjoyTheMoment.epub") as archive:
+            epub = archive.read("EPUB/text/book--21-free-time.xhtml").decode()
+        for rendered in (html, epub):
+            self.assertIn("承认对方的付出，也不等于必须留下", rendered)
+            self.assertIn("不保证他就愿意参加", rendered)
+
     def test_full_retrieval_epub_and_links_keep_the_whole_disagreement(self):
         text = (ROOT / SOURCE).read_text()
         html = build.markdown(text, SOURCE)
