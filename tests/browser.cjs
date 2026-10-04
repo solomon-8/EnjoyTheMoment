@@ -1178,12 +1178,25 @@ async function decodeImage(image) {
     assert.match(await page.locator("#f08 .prose").textContent(), /没有取得并完整审核 ISO 标准原文/);
     await page.goto(url + "#c17");
     await page.waitForFunction(() => document.getElementById("c17").open);
+    assert.equal(await page.locator("#c17 .prose h3").count(), 5);
+    assert.equal(await page.locator("#c17 .prose h4").count(), 18);
+    assert.equal(await page.locator("#c17 .prose h5").count(), 6);
+    assert.equal(await page.locator("#c17 .prose table").count(), 3);
+    for (const anchor of ["making-purpose", "making-form", "making-repair", "making-valuation",
+                         "making-commitments", "making-private-value"]) {
+      await page.locator("#c17 a[href='#" + anchor + "']").first().click();
+      assert.equal(new URL(page.url()).hash, "#" + anchor);
+    }
     assert.equal(await page.locator("#c17 .artwork img").count(), 3);
     for (const anchor of ["making-weave", "making-sample", "making-zine", "making-handmade",
                          "making-repair-goals", "making-kintsugi", "making-conservation", "making-repair-choice"]) {
-      await page.locator("#c17 a[href='#" + anchor + "']").click();
-      assert.equal(new URL(page.url()).hash, "#" + anchor);
-      assert(await page.locator("#c17 .prose").isVisible());
+      const links = await page.locator("#c17 a[href='#" + anchor + "']").all();
+      assert(links.length > 0);
+      for (const link of links) {
+        await link.click();
+        assert.equal(new URL(page.url()).hash, "#" + anchor);
+        assert(await page.locator("#c17 .prose").isVisible());
+      }
     }
     for (const evidence of ["f28", "f29"]) {
       await page.locator("#c17 a[href='#" + evidence + "']").first().click();
@@ -1205,6 +1218,12 @@ async function decodeImage(image) {
     await page.locator("#research-content a[href='#n07']").click();
     await page.waitForFunction(() => document.getElementById("n07").open);
     assert.match(await page.locator("#n07 .prose").textContent(), /不是长期幸福或整个制作过程的愉快程度/);
+    assert.match(await page.locator("#n07 .prose").textContent(), /三种已经成交的市场价格/);
+    await page.locator("#chapter-query").fill("不存在的手作MARKET17");
+    await page.locator("#n07 a[href='#making-private-value']").click();
+    await page.waitForFunction(() => document.getElementById("c17").open &&
+      !document.getElementById("c17").hidden && document.getElementById("chapter-query").value === "");
+    assert.equal(new URL(page.url()).hash, "#making-private-value");
     await page.goto(url + "#c18");
     await page.waitForFunction(() => document.getElementById("c18").open);
     for (const anchor of ["celebration-calendar", "celebration-repetition",

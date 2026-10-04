@@ -15,6 +15,43 @@ import build
 
 
 class RepairIntentionsTests(unittest.TestCase):
+    def test_five_argument_paths_preserve_material_and_value_distinctions(self):
+        text = (ROOT / "book/17-making.md").read_text()
+        headings = [line for line in text.splitlines() if line.startswith("## ")]
+        self.assertEqual(len(headings), 5)
+        rendered = build.markdown(text, "book/17-making.md")
+        for anchor in ("making-purpose", "making-form", "making-repair",
+                       "making-valuation", "making-commitments", "making-private-value"):
+            self.assertIn('id="' + anchor + '"', rendered)
+            self.assertIn('href="#' + anchor + '"', rendered)
+        self.assertEqual(text.count("\n| --- |"), 3)
+        self.assertIn('href="#making-source-bids"', rendered)
+        self.assertIn('href="#pleasure-taste-claims"', rendered)
+        for phrase in ("不是一张折纸价目表", "不能写成三组已经成交的市场价格",
+                       "没有让那批被预测的同学逐件给出真实报价",
+                       "不是论文替私人选择作出的伦理裁决",
+                       "这次愿意留下，不等于下一次还愿意照样做",
+                       "私人意义，却不会自动增加别人欠下的义务"):
+            self.assertIn(phrase, text)
+
+    def test_bidding_note_and_routes_do_not_turn_private_meaning_into_quality(self):
+        note = (ROOT / "docs/evidence/B07-making.md").read_text()
+        for phrase in ("0.23、0.05、0.27", "p > .45", "p > .65",
+                       "不是将同一批作品交给专家评分", "纸与说明",
+                       "不是把这些预测逐件配对到真实同学报价的误差检验",
+                       "没有核验实际逐笔成交记录"):
+            self.assertIn(phrase, note)
+        for identifier, path in (("C17", "book/17-making.md"),
+                                 ("N07", "docs/evidence/B07-making.md")):
+            result = json.loads(subprocess.check_output(
+                [sys.executable, "tools/read.py", "--id", identifier], cwd=ROOT))
+            self.assertEqual(result["record"]["text"], (ROOT / path).read_text())
+            self.assertTrue(result["complete"])
+            self.assertIn("R66", {row["id"] for row in result["reading_guidance"]})
+        html = build.markdown(note, "docs/evidence/B07-making.md")
+        self.assertIn('href="#making-private-value"', html)
+        self.assertIn('href="#making-effort-objection"', html)
+
     def test_goal_distinctions_and_nonclaims(self):
         text = (ROOT / "book/17-making.md").read_text()
         for phrase in (

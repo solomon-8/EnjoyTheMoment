@@ -606,8 +606,11 @@ class ExportTests(unittest.TestCase):
         records = {item["id"]: item for item in json.loads(self.outputs["data/research.json"])["records"]}
         self.assertEqual(records["B14"]["verified_at"], "2026-09-30")
         self.assertEqual(records["B03"]["verified_at"], "2026-09-30")
+        self.assertEqual(records["B07"]["verified_at"], "2026-10-04")
+        self.assertIn("2026-09-29", records["B07"]["fields"]["实际读取"])
+        self.assertIn("454–455、457–459", records["B07"]["fields"]["实际读取"])
         self.assertTrue(all(item["verified_at"] == "2026-09-29"
-                            for key, item in records.items() if key not in {"B03", "B14", "B15", "B16", "B17", "B18", "B19", "B20", "B21", "B22", "B23", "B24", "B25", "B26", "B27", "B28", "B29", "B30", "B31", "B32", "B33", "B34", "B35", "B36", "B37", "B38", "B39", "B40", "B41", "B42", "B43", "B44", "B45", "B46", "B47", "B48"}))
+                            for key, item in records.items() if key not in {"B03", "B07", "B14", "B15", "B16", "B17", "B18", "B19", "B20", "B21", "B22", "B23", "B24", "B25", "B26", "B27", "B28", "B29", "B30", "B31", "B32", "B33", "B34", "B35", "B36", "B37", "B38", "B39", "B40", "B41", "B42", "B43", "B44", "B45", "B46", "B47", "B48"}))
         for item in records.values():
             self.assertEqual(item["verified_at"], item["fields"]["核读日期"].rstrip("。"))
         # A newly read source must not silently inherit a global date.
