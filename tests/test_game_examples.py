@@ -1,4 +1,5 @@
 import sys
+from collections import Counter
 import unittest
 import xml.etree.ElementTree as ET
 from pathlib import Path
@@ -9,6 +10,43 @@ import game_examples as game
 
 
 class GameExamplesTests(unittest.TestCase):
+    def test_true_clue_can_lose_its_action_guarantee_without_becoming_false(self):
+        first, second = [game.changing_position_report(swap) for swap in (False, True)]
+        for witness in (first, second):
+            self.assertEqual(witness["empty_columns_first_two_playable"], [True, True])
+            self.assertTrue(witness["old_number_clue_still_true"])
+            self.assertTrue(witness["does_not_assign_probabilities_or_optimal_actions"])
+            self.assertEqual(witness["turn_order"], ["A", "B", "C", "A"])
+            self.assertEqual(witness["next_player"], "B")
+            self.assertEqual(witness["token_history"], [8, 7, 8, 8, 7])
+        self.assertEqual(first["B_first_two_playable_now"], [False, True])
+        self.assertEqual(second["B_first_two_playable_now"], [True, False])
+        self.assertEqual(first["B_observation"], second["B_observation"])
+        self.assertNotEqual(first["B_first_two_now"], second["B_first_two_now"])
+
+    def test_witnesses_fit_base_deck_and_public_actions(self):
+        for swap in (False, True):
+            witness = game.changing_position_report(swap)
+            counts = Counter(tuple(card) for hand in witness["initial_hands"] for card in hand)
+            counts.update(tuple(card) for card in witness["draw_prefix"])
+            self.assertEqual(sum(counts.values()), 17)
+            for (colour, number), count in counts.items():
+                self.assertIn(colour, ("red", "blue", "green", "white", "yellow"))
+                self.assertLessEqual(count, {1: 3, 2: 2, 3: 2, 4: 2, 5: 1}[number])
+            observation = witness["B_observation"]
+            self.assertEqual(observation["deck_size"], 33)
+            self.assertEqual(observation["discarded"], [["green", 2]])
+            self.assertEqual(observation["fireworks"],
+                             {"red": 1, "blue": 0, "green": 0, "white": 0, "yellow": 0})
+            self.assertEqual(observation["public_events"][0]["positions"], [1, 2])
+            self.assertEqual(observation["public_events"][-1]["positions"], [3])
+            self.assertEqual(observation["visible_hands"]["C"],
+                             [["blue", 2], ["green", 3], ["white", 4], ["yellow", 4], ["blue", 4]])
+            self.assertNotIn("B", observation["visible_hands"])
+        for invalid in (None, 1, 0, "true"):
+            with self.assertRaises(ValueError):
+                game.changing_position_report(invalid)
+
     def test_route_choice_before_and_after_reveal_are_different_questions(self):
         report = game.route_report()
         self.assertEqual(report["before_reveal_winning_cases"], {"A": 4, "B": 2})

@@ -106,7 +106,8 @@ class PaidSkipArgumentTests(unittest.TestCase):
             self.assertEqual(chapter.count(f'id="{anchor}"'), 1)
         for anchor in ANCHORS[1:]:
             self.assertIn("book--19-games.xhtml#" + anchor, note)
-        self.assertEqual(chapter.count("<table>"), 3)
+        self.assertEqual(chapter.count("<table>"), 4)
+        self.assertIn("旧知识能支持的行动", chapter)
         for phrase in ("15 + 20 + 5 = 40分钟", "不是额外收费政策", "没有证明乙是最优解"):
             self.assertIn(phrase, chapter)
         self.assertIn("book--06-spending.xhtml#spending-future-cost", chapter)
