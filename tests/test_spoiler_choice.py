@@ -92,7 +92,7 @@ class SpoilerChoiceTests(unittest.TestCase):
             self.assertIn(raw.decode(), (ROOT / "llms-full.txt").read_text())
         route = next(r for r in routes if r["id"] == "R03")
         self.assertEqual(set(route["targets"]),
-                         {"E02", "E03", "C05", "C06", "C21", "C27", "B24", "N24", "B45", "N45", "B48", "N48"})
+                         {"E02", "E03", "C05", "C06", "C21", "C27", "B24", "N24", "B45", "N45", "B48", "N48", "F86"})
         for phrase in ("不是人数", "不证明等效", "不能当重读研究",
                        "报告表述张力", "不是B45的实验结论"):
             self.assertIn(phrase, route["text"])

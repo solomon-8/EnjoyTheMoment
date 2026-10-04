@@ -82,7 +82,7 @@ class SharedExcitementTests(unittest.TestCase):
         route = next(r for r in routes if r["id"] == "R03")
         self.assertEqual(set(route["targets"]), {
             "E02", "E03", "C05", "C06", "C21", "C27",
-            "B24", "N24", "B45", "N45", "B48", "N48",
+            "B24", "N24", "B45", "N45", "B48", "N48", "F86",
         })
         html = (ROOT / "index.html").read_text()
         with ZipFile(ROOT / "downloads/EnjoyTheMoment.epub") as archive:

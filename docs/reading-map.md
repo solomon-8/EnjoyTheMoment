@@ -47,13 +47,15 @@ F79仅核2021年11月16日Knowledge at Wharton的编辑访谈及书目，未听�
 <a id="r03"></a>
 ## R03 · 刺激与复杂感受
 
-<!-- reading-route: {"id":"R03","targets":["E02","E03","C05","C06","C21","C27","B24","N24","B45","N45","B48","N48"]} -->
+<!-- reading-route: {"id":"R03","targets":["E02","E03","C05","C06","C21","C27","B24","N24","B45","N45","B48","N48","F86"]} -->
 
-正文与来源：[E02](../essays/02-excitement-without-escalation.md) · [E03](../essays/03-now-or-later.md#waiting-different-goods) · [C05共同注意](../book/05-connection.md#connection-shared-attention) · [C06](../book/06-spending.md#spending-learning) · [C21](../book/21-free-time.md) · [C27时间结构](../book/27-dance.md#dance-time-grid) · [B24](research.md#b24) · [N24](evidence/B24-hedonic-reversals.md) · [B45](research.md#b45) · [N45](evidence/B45-spoilers-and-experience.md) · [B48](research.md#b48) · [N48](evidence/B48-dancing-in-time.md)
+正文与来源：[E02](../essays/02-excitement-without-escalation.md) · [E03](../essays/03-now-or-later.md#waiting-different-goods) · [C05共同注意](../book/05-connection.md#connection-shared-attention) · [C06](../book/06-spending.md#spending-learning) · [C21](../book/21-free-time.md) · [C27时间结构](../book/27-dance.md#dance-time-grid) · [B24](research.md#b24) · [N24](evidence/B24-hedonic-reversals.md) · [B45](research.md#b45) · [N45](evidence/B45-spoilers-and-experience.md) · [B48](research.md#b48) · [N48](evidence/B48-dancing-in-time.md) · [F86第五章桥例](evidence/F86-liberty-and-disapproval.md#liberty-bridge)
 
 先读[完整晚上的取舍](../essays/02-excitement-without-escalation.md#excitement-costs)与[完整要保住什么](../essays/02-excitement-without-escalation.md#excitement-whole)，再区分[刺激与参与](../essays/02-excitement-without-escalation.md#excitement-information)、[复杂感受](../essays/02-excitement-without-escalation.md#excitement-mixed-feelings)、[同意承担的代价](../essays/02-excitement-without-escalation.md#excitement-boundaries)与[享乐战绩](../essays/02-excitement-without-escalation.md#excitement-scoreboard)。观看也可以投入，“亲自影响过程”特指另一种愿望，不是把观看者排除在参与之外。可接受冷场与失败，不等于同意隐瞒收费、被迫同行或未经同意公开影像；小梁、小何、阿澄均为假想，不是体验反馈。
 
 E02的空椅子与剪辑为原创假想，用于区分保留想经历的关系与追加全部项目，不是演出实录或观众效果实验。[刷了一小时的情境](../essays/02-excitement-without-escalation.md#excitement-evening)区分愿望已明确、仍需探索、条件暂不成立：小试可服务探索，不是进入完整体验的前置审批。“完整”不意味着必须看完、不能离开或无限增加费用。E03展开延期与即时省事，C06讨论试一次提供信息的条件，C21讨论连续时间与决定权；本路线不把这些共享原则重复算成新的证据。
+
+[自愿的不确定](../essays/02-excitement-without-escalation.md#excitement-chosen-uncertainty)、[桥例](../essays/02-excitement-without-escalation.md#excitement-bridge)与[结果造成的方式](../essays/02-excitement-without-escalation.md#excitement-risk-not-permission)分别处理不想失败却愿意尝试、信息与理由、规则内挑战与违约制造难堪。小雨接唱为原创假想；不满意不证明违约，答应参加不要求事后满意，后悔不一概改称成长。F86第五章只核前7段，桥例在第5段；与第四章的旧选读分别标明，不是全书、现行法律、风险模型或能力测验。不把“自愿”当充分知情或安全证明，不教危险物品、过桥或刺激剂量，不把相邻章节的共享原则当新增证据。
 
 刺激与复杂感受见 E02/B24/N24：243名学生+147名MTurk是自述问卷，不是现场递增强度；66人的追加题先逐题排除不喜欢者，各题48—58人，82%不是全体比例。不熟悉记0，表文疑点见[核读](evidence/B24-hedonic-reversals.md)。不输出个人极限或把“良性”当安全认证；先回应愿望与取舍，不把完整体验自动缩成微行动。
 

@@ -87,7 +87,7 @@ class ExcitementArcTests(unittest.TestCase):
         self.assertEqual(next(d for d in exported if d["id"] == "E02")["text"],
                          self.text)
         route = next(r for r in routes if r["id"] == "R03")
-        self.assertEqual(set(route["targets"]), {"E02", "E03", "C05", "C06", "C21", "C27", "B24", "N24", "B45", "N45", "B48", "N48"})
+        self.assertEqual(set(route["targets"]), {"E02", "E03", "C05", "C06", "C21", "C27", "B24", "N24", "B45", "N45", "B48", "N48", "F86"})
         self.assertIn("观看也可以投入", route["text"])
         self.assertIn("小梁、小何、阿澄均为假想", route["text"])
         with ZipFile(ROOT / "downloads/EnjoyTheMoment.epub") as archive:
