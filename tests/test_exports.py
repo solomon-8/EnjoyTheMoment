@@ -1992,6 +1992,31 @@ class ExportTests(unittest.TestCase):
             self.assertIn(marker, hanabi)
         self.assertIn("F42/F43", (ROOT / "docs/reading-map.md").read_text())
 
+    def test_hanabi_changing_position_preserves_truth_and_limited_inference(self):
+        text = (ROOT / "book/19-games.md").read_text()
+        note = (ROOT / "docs/evidence/F43-hanabi-information.md").read_text()
+        for marker in ("提示没撒谎，为什么照着打仍会错", "没有新收到颜色信息",
+                       "没有说它们概率相等", "不等于乙当时也拥有这个答案",
+                       "失去的不是提示的真实性", "乙不调整前两张牌的位置"):
+            self.assertIn(marker, text)
+        for marker in ("2026-09-30两者均 HTTP 200", "2026-10-04从同一PDF地址",
+                       "目视两个完整页面", "8→7→8→8→7",
+                       "不穷尽乙全部可能手牌", "不假定各配置等概率",
+                       "不是完整发牌模拟"):
+            self.assertIn(marker, note)
+        self.assertIn("**核读日期**：2026-10-04", note)
+        rendered = build.markdown(text, "book/19-games.md")
+        self.assertIn('id="games-true-clue"', rendered)
+        self.assertIn('href="#games-true-clue"', rendered)
+        self.assertIn('href="#hanabi-changing-position"', rendered)
+        self.assertIn('href="#games-true-clue"',
+                      build.markdown(note, "docs/evidence/F43-hanabi-information.md"))
+        self.assertEqual(rendered.count("<table>"), 4)
+        routes = json.loads(self.outputs["data/reading-map.json"])["routes"]
+        route = next(row for row in routes if row["id"] == "R18")
+        self.assertIn("失去的是其保证当前可出的条件", route["text"])
+        self.assertIn("不穷尽手牌或赋予等概率", route["text"])
+
     def test_celebration_chapter_and_sources_roundtrip(self):
         chapters = {c["id"]: c for c in json.loads(self.outputs["data/chapters.json"])["chapters"]}
         notes = {n["id"]: n for n in json.loads(self.outputs["data/evidence.json"])["notes"]}

@@ -1258,9 +1258,9 @@ async function decodeImage(image) {
     await gameImage.scrollIntoViewIfNeeded();
     await decodeImage(gameImage);
     assert.equal(await gameImage.evaluate(img => img.naturalWidth), 880);
-    assert.equal(await page.locator("#c19 .prose table").count(), 3);
+    assert.equal(await page.locator("#c19 .prose table").count(), 4);
     for (const anchor of ["games-othello", "games-hanabi", "games-uncertainty",
-                          "games-chosen-rules", "games-delegation"]) {
+                          "games-chosen-rules", "games-delegation", "games-true-clue"]) {
       await page.locator(`#c19 a[href='#${anchor}']`).click();
       assert.equal(new URL(page.url()).hash, `#${anchor}`);
       assert(await page.locator("#c19 .prose").isVisible());
@@ -1271,6 +1271,14 @@ async function decodeImage(image) {
       await page.locator(`#${id} a[href='#c19']`).click();
       await page.waitForFunction(() => document.getElementById("c19").open);
     }
+    await page.locator("#c19 a[href='#hanabi-changing-position']").click();
+    await page.waitForFunction(() => document.getElementById("f43").open);
+    assert.match(await page.locator("#f43 .prose").textContent(), /不穷尽乙全部可能手牌/);
+    await page.locator("#chapter-query").fill("不存在的手牌HANABI");
+    await page.locator("#f43 a[href='#games-true-clue']").click();
+    await page.waitForFunction(() => document.getElementById("c19").open &&
+      !document.getElementById("c19").hidden && document.getElementById("chapter-query").value === "");
+    assert.equal(new URL(page.url()).hash, "#games-true-clue");
     for (const anchor of ["games-paid-skip", "games-skip-example", "games-skip-menu", "games-skip-objection"]) {
       await page.locator(`#c19 a[href='#${anchor}']`).first().click();
       assert.equal(new URL(page.url()).hash, "#" + anchor);

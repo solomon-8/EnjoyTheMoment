@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """Reproduce C19's finite examples, not a game solver or player-effect test."""
 import argparse
+from collections import Counter
 import json
 from pathlib import Path
 
@@ -84,6 +85,100 @@ def matching_positions(hand, kind, value):
     return positions
 
 
+def changing_position_report(swap_first_two=False):
+    """Two compatible witnesses, not an exhaustive hand or strategy model."""
+    if type(swap_first_two) is not bool:
+        raise ValueError("swap_first_two must be a boolean")
+    colours = ("red", "blue", "green", "white", "yellow")
+    deck_counts = Counter({
+        (colour, number): (3 if number == 1 else 1 if number == 5 else 2)
+        for colour in colours for number in range(1, 6)
+    })
+    hands = [
+        [("yellow", 1), ("green", 1), ("white", 1), ("yellow", 3), ("blue", 3)],
+        list(HAND),
+        [("red", 1), ("blue", 2), ("green", 3), ("white", 4), ("yellow", 4)],
+    ]
+    if swap_first_two:
+        hands[1][0], hands[1][1] = hands[1][1], hands[1][0]
+    initial_hands = [list(hand) for hand in hands]
+    draws = [("yellow", 2), ("blue", 4)]
+    allocated = Counter(card for hand in hands for card in hand) + Counter(draws)
+    assert sum(deck_counts.values()) == 50
+    assert all(count <= deck_counts[card] for card, count in allocated.items())
+    fireworks = {colour: 0 for colour in colours}
+    empty_playable = [card[1] == fireworks[card[0]] + 1 for card in hands[1][:2]]
+    tokens = 8
+    token_history = [tokens]
+    events = []
+
+    # A clues B's ones. B's first two positions stay fixed throughout.
+    assert tokens > 0
+    positions = matching_positions(hands[1], "number", 1)
+    assert positions == (1, 2)
+    tokens -= 1
+    events.append({"actor": "A", "action": "clue", "target": "B",
+                   "kind": "number", "value": 1, "positions": list(positions)})
+    token_history.append(tokens)
+
+    # B discards the fourth card; this is permitted only below eight tokens.
+    assert tokens < 8
+    discarded = hands[1].pop(3)
+    assert discarded == ("green", 2)
+    hands[1].append(draws[0])
+    tokens += 1
+    events.append({"actor": "B", "action": "discard", "card": list(discarded)})
+    token_history.append(tokens)
+
+    # C starts the red firework with its own red one, then draws.
+    card = hands[2].pop(0)
+    assert card == ("red", 1) and card[1] == fireworks[card[0]] + 1
+    fireworks[card[0]] = card[1]
+    hands[2].append(draws[1])
+    events.append({"actor": "C", "action": "play", "card": list(card),
+                   "successful": True})
+    token_history.append(tokens)
+
+    # A gives a separate, legal white clue to C, not another clue to B.
+    assert tokens > 0
+    positions = matching_positions(hands[2], "colour", "white")
+    tokens -= 1
+    events.append({"actor": "A", "action": "clue", "target": "C",
+                   "kind": "colour", "value": "white", "positions": list(positions)})
+    token_history.append(tokens)
+
+    observation_b = {
+        "visible_hands": {
+            "A": [list(card) for card in hands[0]],
+            "C": [list(card) for card in hands[2]],
+        },
+        "own_card_count": len(hands[1]),
+        "known_own_number_one_positions": [1, 2],
+        "fireworks": fireworks,
+        "available_clues": tokens,
+        "deck_size": 50 - 15 - len(draws),
+        "discarded": [list(discarded)],
+        "public_events": events,
+    }
+    return {
+        "scope": "two_witnesses_literal_clues_only_not_complete_information_set",
+        "initial_hands": [[list(card) for card in hand] for hand in initial_hands],
+        "draw_prefix": [list(card) for card in draws],
+        "deck_counts_valid": True,
+        "turn_order": ["A", "B", "C", "A"],
+        "next_player": "B",
+        "token_history": token_history,
+        "empty_columns_first_two_playable": empty_playable,
+        "old_number_clue_still_true": all(card[1] == 1 for card in hands[1][:2]),
+        "B_first_two_now": [list(card) for card in hands[1][:2]],
+        "B_first_two_playable_now": [
+            card[1] == fireworks[card[0]] + 1 for card in hands[1][:2]
+        ],
+        "B_observation": observation_b,
+        "does_not_assign_probabilities_or_optimal_actions": True,
+    }
+
+
 def route_wins(route, card):
     """C19's original one-round example, not a commercial game or real payoff."""
     if route not in ("A", "B") or type(card) is not int or card not in range(1, 7):
@@ -147,6 +242,9 @@ def example_report():
             "number_one_cards_start_empty_fireworks": all(
                 HAND[i - 1][1] == 1 for i in matching_positions(HAND, "number", 1)),
             "not_a_complete_deal_or_best_clue": True,
+            "changing_position_witnesses": [
+                changing_position_report(False), changing_position_report(True)
+            ],
         },
     }
 
