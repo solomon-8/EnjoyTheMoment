@@ -138,6 +138,8 @@ C03先分清新对象与新读法；[未知与理解](../book/03-novelty.md#nove
 
 C05按[共同经历](../book/05-connection.md#connection-experience)、[不同愿望](../book/05-connection.md#connection-wishes)、[实际分工](../book/05-connection.md#connection-arrangements)、[散场与承诺](../book/05-connection.md#connection-ending)展开；[自愿让步](../book/05-connection.md#connection-compromise)与[不好拒绝的反方](../book/05-connection.md#connection-compromise-objection)是原创假想和价值论证，不是B21/B22实验结论。区分喜欢作品、喜欢相处与愿意照顾对方的愿望；不把所有付出改名为承担者暗中获利，也不把一人更兴奋当作可替另一人答应。设例明确可以拒绝，现实中的一句同意不足以确认自愿；一次自愿不设永久分工，长期不对称不按次数自动诊断。轮流不保证公平或共同快乐，各自参加也可能失去原本想要的共同部分。E01讨论同意范围，E05讨论群体目标改变的真实损失；不能用C05替实际关系分配责任或判断谁必然受委屈。
 
+[改变心情与改变约定](../book/05-connection.md#connection-changed-mind)的三个晚上，以及[承诺保护哪一种快乐](../book/05-connection.md#connection-promise-value)，同样是原创论证，不是失约率研究或法律责任表。未答应、已据此作共同安排、邀请内容改变要分开；承诺不保证感受，不取消急事与能力限制，也不因退出便消失。即时改选与可靠的共同时间存在取舍，不证明所有约定都应维持。更广的互惠与暗账问题按C05的可见链接继续读E09；不将B21/B22或关系规则实验当作这些情境的效果证明。
+
 <a id="r10"></a>
 ## R10 · 消费、沉没成本与继续使用
 

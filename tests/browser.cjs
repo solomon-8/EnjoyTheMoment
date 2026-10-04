@@ -443,7 +443,8 @@ async function decodeImage(image) {
     assert.match(await page.locator("#c05 .prose").textContent(), /小然更兴奋，也不能代替阿树对自己那部分作决定/);
     assert.match(await page.locator("#c05 .prose").textContent(), /一次自愿，不是永久分工/);
     for (const anchor of ["connection-shared-attention", "connection-amplification", "connection-not-a-tool",
-      "connection-experience", "connection-wishes", "connection-arrangements", "connection-ending", "connection-compromise"]) {
+      "connection-experience", "connection-wishes", "connection-arrangements", "connection-ending", "connection-compromise",
+      "connection-changed-mind", "connection-promise-value"]) {
       await page.locator(`#c05 a[href='#${anchor}']`).first().click();
       assert.equal(new URL(page.url()).hash, "#" + anchor);
       assert(await page.locator("#c05 .prose").isVisible());
@@ -458,6 +459,15 @@ async function decodeImage(image) {
       await page.waitForFunction(() => document.getElementById("c05").open && !document.getElementById("c05").hidden);
       assert.equal(new URL(page.url()).hash, "#" + target);
     }
+    await page.locator("#c05 a[href='#friends-reciprocity']").click();
+    await page.waitForFunction(() => document.getElementById("e09").open);
+    assert.equal(new URL(page.url()).hash, "#friends-reciprocity");
+    await page.locator("#chapter-query").fill("不存在的承诺PROMISE");
+    await page.locator("#e09 a[href='#connection-changed-mind']").click();
+    await page.waitForFunction(() => document.getElementById("c05").open &&
+      !document.getElementById("c05").hidden && document.getElementById("chapter-query").value === "");
+    assert.equal(new URL(page.url()).hash, "#connection-changed-mind");
+    assert.match(await page.locator("#c05 .prose").textContent(), /没有一份自动适用的赔偿表/);
     await page.goto(url + "#excitement-spoilers");
     await page.waitForFunction(() => document.getElementById("e02").open);
     assert.match(await page.locator("#e02 .prose").textContent(),
