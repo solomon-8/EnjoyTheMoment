@@ -172,6 +172,7 @@ EVIDENCE = [
     ("F91", "docs/evidence/F91-membership-and-renewal.md"),
     ("F92", "docs/evidence/F92-tom-sawyer-and-work.md"),
     ("F93", "docs/evidence/F93-materialism-and-a-purchase.md"),
+    ("F94", "docs/evidence/F94-hamlet-and-spectators.md"),
 ]
 EVIDENCE_KINDS = {
     "N47": "study_and_replication_reading_note",
@@ -268,6 +269,7 @@ EVIDENCE_KINDS = {
     "F91": "primary_research_excerpt",
     "F92": "literary_primary_text",
     "F93": "author_abstract_only",
+    "F94": "literary_primary_text",
 }
 RELATIONS = [
     {"card_ids": ["J033"], "background_ids": ["B01"], "essay_ids": ["E04"]},

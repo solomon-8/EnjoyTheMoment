@@ -55,7 +55,7 @@ class ChosenUncertaintyTests(unittest.TestCase):
             self.assertIn(phrase, text)
         notes = json.loads((ROOT / "data/evidence.json").read_text())["notes"]
         self.assertEqual(sum(n["id"] == "F86" for n in notes), 1)
-        self.assertEqual(len(notes), 142)
+        self.assertEqual(len(notes), 143)
         self.assertEqual(next(n for n in notes if n["id"] == "F86")["source_kind"],
                          "philosophical_primary_argument")
         self.assertEqual(len(json.loads(

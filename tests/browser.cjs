@@ -158,6 +158,31 @@ async function decodeImage(image) {
     await page.goto(url + "#live-choice");
     await page.waitForFunction(() => document.getElementById("c13").open &&
       !document.getElementById("c13").hidden && document.getElementById("chapter-query").value === "");
+    await page.locator("#c13 a[href='#live-mousetrap']").click();
+    const mousetrap = page.locator("#c13 .prose details").filter({
+      has: page.locator("summary", {hasText: "展开《哈姆雷特》戏中戏细读"})
+    });
+    assert.equal(await mousetrap.count(), 1);
+    assert.equal(await mousetrap.evaluate(el => el.open), false);
+    await mousetrap.locator("summary").click();
+    assert.match(await mousetrap.textContent(), /角色不再看戏的那一刻/);
+    await page.locator("#c13 a[href='#f94']").first().click();
+    await page.waitForFunction(() => document.getElementById("f94").open);
+    await page.locator("#f94 a[href='#live-mousetrap-reading']").click();
+    await page.waitForFunction(() => {
+      const target = document.getElementById("live-mousetrap-reading");
+      return document.getElementById("c13").open && target.closest("details").open;
+    });
+    await page.goto(url + "#hamlet-line-evidence");
+    await page.waitForFunction(() =>
+      document.getElementById("hamlet-line-evidence").closest("details").open);
+    assert.match(await page.locator("#f94 .prose").textContent(), /FTLN 2192/);
+    await page.locator("#chapter-query").fill("未匹配戏中戏XYZ");
+    await page.locator("#f94 a[href='#live-mousetrap-reading']").click();
+    await page.waitForFunction(() => document.getElementById("c13").open &&
+      !document.getElementById("c13").hidden &&
+      document.getElementById("chapter-query").value === "" &&
+      document.getElementById("live-mousetrap-reading").closest("details").open);
     await page.locator("#c13 a[href='#celebration-same-night']").first().click();
     await page.waitForFunction(() => document.getElementById("c18").open);
     await page.locator("#c18 a[href='#connection-shared-attention']").first().click();

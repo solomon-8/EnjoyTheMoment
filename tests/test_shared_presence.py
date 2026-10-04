@@ -52,7 +52,7 @@ class SharedPresenceTests(unittest.TestCase):
         documents, routes = read.load_documents(ROOT)
         by_id = {d["id"]: d for d in documents}
         expected = {
-            "R14": {"C13", "F40", "F41", "C05", "E08", "E11", "C18", "C34"},
+            "R14": {"C13", "F40", "F41", "F94", "C05", "E08", "E11", "C18", "C34"},
             "R17": {"C18", "F44", "F45", "F81", "B08", "N08",
                     "C05", "C08", "E08", "C21"},
         }
@@ -94,7 +94,7 @@ class SharedPresenceTests(unittest.TestCase):
         self.assertIn("21-free-time.md#time-common", text)
         notes = json.loads((ROOT / "data/evidence.json").read_text())["notes"]
         research = json.loads((ROOT / "data/research.json").read_text())["records"]
-        self.assertEqual(len(notes), 142)
+        self.assertEqual(len(notes), 143)
         self.assertEqual(len(research), 50)
         by_id = {n["id"]: n for n in notes}
         self.assertEqual(by_id["F81"]["source_kind"], "literary_primary_text")

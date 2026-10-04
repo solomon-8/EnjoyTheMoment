@@ -95,7 +95,7 @@ class FriendshipPartialityTests(unittest.TestCase):
         self.assertEqual(len(research), 50)
         self.assertNotIn('F57', {x['id'] for x in research})
         notes = json.loads((ROOT / 'data/evidence.json').read_text())['notes']
-        self.assertEqual(len(notes), 142)
+        self.assertEqual(len(notes), 143)
         note = next(x for x in notes if x['id'] == 'F57')
         self.assertEqual(note['source_kind'], 'philosophical_primary_translation')
         self.assertEqual(note['text'], text)
