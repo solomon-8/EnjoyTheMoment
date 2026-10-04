@@ -217,6 +217,12 @@ async function decodeImage(image) {
     const entryLinks = await page.locator("#disagreements .prose h3 a").all();
     assert.equal(entryLinks.length, 5);
     assert(await page.locator("#disagreements").isVisible());
+    assert.deepEqual(await page.locator("#disagreements .prose a").evaluateAll(
+      links => links.map(a => a.getAttribute("href"))), [
+      "#rest-paid-evening", "#waiting-reliable-more", "#excitement-costs",
+      "#friends-not-a-service", "#e10",
+      "#flavor-suiyuan", "#games-paid-skip", "#fear-two-wishes",
+    ]);
     const concreteLinks = await page.locator("#disagreements .prose ul a").all();
     assert.equal(concreteLinks.length, 3);
     for (const [index, link] of concreteLinks.entries()) {

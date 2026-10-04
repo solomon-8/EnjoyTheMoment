@@ -2,19 +2,13 @@
 
 Canonical source: book/, essays/, guides/ and docs/. Values and original proposals are not validated interventions.
 Budgets are illustrative CNY caps. Preserve alternatives, stopping conditions and evidence status.
-Source digest: 178933c21d0aac4f30eaa6514202f6f2077c75de1db59280961ca74f1c98d716
+Source digest: 1819d8e7754ea25dbd0de2f7dc28890cccce309b95918f0a957ec2f9f2355088
 
 ## 从一个真正的分歧开始
 
 不必先认同“耍起”。挑一个你想反驳的问题，看看正文能不能回答你。
 
-**先看三个具体问题：**
-
-- [为了让一道菜最好吃，整桌人的时间都该让路吗？](book/14-flavor.md#flavor-suiyuan) 从袁枚的火锅异议，读到谈话、上菜与做菜者的反对。
-- [同样花六元跳过，省下的是麻烦，还是想玩的部分？](book/19-games.md#games-paid-skip) 一个明确标为假想的游戏，区分节约时间与删掉体验。
-- [希望人物安全，为什么又希望恐怖故事继续？](book/31-recreational-fear.md#fear-two-wishes) 两种愿望可以并存，不必靠“其实不害怕”来解释。
-
-**再往下，争论我们为什么这样选：**
+**先把取舍说清：我们愿意为了什么，少得到什么？**
 
 ### [如果享乐确实会少赚一点，仍然值得吗？](essays/07-rest-is-not-work.md#rest-paid-evening)
 
@@ -35,6 +29,12 @@ Source digest: 178933c21d0aac4f30eaa6514202f6f2077c75de1db59280961ca74f1c98d716
 ### [及时享乐，会不会只是及时被平台收割？](essays/10-pleasure-not-retention.md)
 
 **想要不是命令，享乐不是服从。** 玩得久、真正喜欢、认可安排是三回事。质疑指标不授予旁人接管权；服务需要收入，主动设限也可能有用，不能把一切挽留都说成操控。
+
+**也可以从具体生活进入这些分歧：**
+
+- [为了让一道菜最好吃，整桌人的时间都该让路吗？](book/14-flavor.md#flavor-suiyuan) 从袁枚的火锅异议，读到谈话、上菜与做菜者的反对。
+- [同样花六元跳过，省下的是麻烦，还是想玩的部分？](book/19-games.md#games-paid-skip) 一个明确标为假想的游戏，区分节约时间与删掉体验。
+- [希望人物安全，为什么又希望恐怖故事继续？](book/31-recreational-fear.md#fear-two-wishes) 两种愿望可以并存，不必靠“其实不害怕”来解释。
 
 [← 首页](README.md) · [语境与来源](docs/culture-shuaqi.md)
 

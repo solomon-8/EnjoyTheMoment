@@ -35,9 +35,9 @@ class EntryArgumentTests(unittest.TestCase):
         self.assertNotIn("<details", excerpt)
         links = re.findall(r'href="([^"]+)"', excerpt)
         self.assertEqual(links, [
-            "#flavor-suiyuan", "#games-paid-skip", "#fear-two-wishes",
             "#rest-paid-evening", "#waiting-reliable-more", "#excitement-costs",
             "#friends-not-a-service", "#e10",
+            "#flavor-suiyuan", "#games-paid-skip", "#fear-two-wishes",
         ])
         for href in links:
             self.assertTrue(href.startswith("#"))
@@ -45,9 +45,11 @@ class EntryArgumentTests(unittest.TestCase):
             self.assertFalse(re.fullmatch(r"#j\d+", href))
 
     def test_concrete_entrances_are_chapter_arguments_not_activities(self):
-        self.assertLess(self.block.index("book/14-flavor.md#flavor-suiyuan"),
-                        self.block.index("### "))
-        self.assertIn("不必靠“其实不害怕”来解释。\n\n**再往下", self.block)
+        self.assertLess(self.block.index("essays/10-pleasure-not-retention.md"),
+                        self.block.index("book/14-flavor.md#flavor-suiyuan"))
+        self.assertIn("**先把取舍说清：我们愿意为了什么，少得到什么？**", self.block)
+        self.assertIn("**也可以从具体生活进入这些分歧：**", self.block)
+        self.assertLess(self.block.index("先把取舍说清"), self.block.index("### "))
         for phrase in ("做菜者的反对", "明确标为假想的游戏",
                        "希望人物安全", "两种愿望可以并存"):
             self.assertIn(phrase, self.block)
@@ -59,6 +61,20 @@ class EntryArgumentTests(unittest.TestCase):
             text = (ROOT / path).read_text()
             self.assertIn('<a id="' + anchor + '"></a>', text)
             self.assertIn(phrase, text)
+
+    def test_epub_still_contains_every_entry_argument_destination(self):
+        from zipfile import ZipFile
+        with ZipFile(ROOT / "downloads/EnjoyTheMoment.epub") as archive:
+            # EPUB starts at reading-editions/SHUAQI, not the repository README.
+            # The landing-page order must not be invented for that separate surface.
+            self.assertNotIn("README.md", epub.source_files(ROOT))
+            for target in re.findall(r"\]\(([^)]+)\)", self.block):
+                source, _, anchor = target.partition("#")
+                text = archive.read("EPUB/" + epub.document_name(source)).decode()
+                if anchor:
+                    self.assertIn(f'id="{anchor}"', text)
+                else:
+                    self.assertIn("及时被收割", text)
 
     def test_short_introductions_keep_real_counterweights(self):
         for phrase in ("每个周末的累计代价", "必要支出", "谁还在",
